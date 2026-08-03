@@ -1,0 +1,29 @@
+site_name: VRM Specification
+
+site_url: https://nanowater.github.io/vrm-specification-ko/
+
+repo_url: https://github.com/nanowater/vrm-specification-ko
+repo_name: nanowater/vrm-specification-ko
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      languages:
+        - locale: ko
+          default: true
+          name: 한국어 (Korean)
+          build: true
+        - locale: en
+          name: English
+          build: true
+        - locale: ja
+          name: 日本語 (Japanese)
+          build: true
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: false

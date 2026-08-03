@@ -1,0 +1,17 @@
+# MkDocs build directory
+site/
+
+# Python virtual environment & cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary files & IDE
+.tmp/
+.vscode/
+.idea/
+*.swp
+.DS_Store
