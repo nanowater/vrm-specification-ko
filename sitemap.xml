@@ -9,6 +9,14 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/"/>
     </url>
     <url>
+        <loc>https://nanowater.github.io/vrm-specification-ko/READING_GUIDE/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/READING_GUIDE/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/"/>
+    </url>
+    <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/</loc>
         <lastmod>2026-08-03</lastmod>
         <changefreq>daily</changefreq>
@@ -193,6 +201,14 @@
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/"/>
     </url>
     <url>
+        <loc>https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/READING_GUIDE/"/>
+    </url>
+    <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/</loc>
         <lastmod>2026-08-03</lastmod>
         <changefreq>daily</changefreq>
@@ -375,6 +391,14 @@
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/"/>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/"/>
+    </url>
+    <url>
+        <loc>https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/READING_GUIDE/"/>
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/</loc>
