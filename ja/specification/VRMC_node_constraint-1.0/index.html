@@ -1,0 +1,3702 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../VRMC_materials_mtoon-1.0/MToon_comparision/">
+      
+      
+        <link rel="next" href="../VRMC_springBone-1.0/">
+      
+      
+        
+          <link rel="alternate" href="../../../specification/VRMC_node_constraint-1.0/" hreflang="en">
+        
+          <link rel="alternate" href="../../../ko/specification/VRMC_node_constraint-1.0/" hreflang="ko">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>VRMC_node_constraint - VRM Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vrmc_node_constraint" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../../" title="VRM Specification" class="md-header__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VRM Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VRMC_node_constraint
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../specification/VRMC_node_constraint-1.0/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ko/specification/VRMC_node_constraint-1.0/" hreflang="ko" class="md-select__link">
+              한국어 (Korean)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語 (Japanese)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nanowater/vrm-specification-ko" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="VRM Specification" class="md-nav__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VRM Specification
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nanowater/vrm-specification-ko" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Specification (韓国語翻訳プロジェクト)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed san
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seed san
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/Seed-san/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed-san
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1 Constraint Twist Sample
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRM1 Constraint Twist Sample
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRM1_Constraint_Twist_Sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1_Constraint_Twist_Sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overridden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overridden Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overrides Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    0.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM仕様
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_hdr_emissiveMultiplier-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_hdr_emissiveMultiplier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_mtoon-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_mtoon-1.0/MToon_comparision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    This document is outdated.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC node constraint 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC node constraint 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_node_constraint
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_node_constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roll-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roll Constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roll Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roll-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roll Axis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-of-rotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation of rotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aim-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aim Constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aim Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aim-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aim Axis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-of-rotations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation of rotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation Constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rotation Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-of-rotations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation of rotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        glTF Schema Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extending-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extending Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_node_constraint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_node_constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VRMC_node_constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_node_constraintspecversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_node_constraint.specVersion ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_node_constraintconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_node_constraint.constraint ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraintroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint.roll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraintaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint.aim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraintrotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint.rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rollConstraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraintsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint.source ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraintrollaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint.rollAxis ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraintweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint.weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="aimConstraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraintsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint.source ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraintaimaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint.aimAxis ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraintweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint.weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotationconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rotationConstraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rotationConstraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotationconstraintsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rotationConstraint.source ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotationconstraintweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rotationConstraint.weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-resolution-between-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency resolution between constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone extended collider 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone extended collider 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone_extended_collider-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone_extended_collider-1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/firstPerson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.firstPerson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/humanoid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.humanoid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/lookAt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.lookAt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.meta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/tpose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM T-pose: VRM が定義する姿勢の仕様
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm animation 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm animation 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm_animation-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm_animation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm_animation-1.0/how_to_transform_human_pose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ポーズデータの互換性について
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roll-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roll Constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Roll Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roll-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roll Axis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-of-rotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation of rotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aim-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aim Constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aim Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aim-axis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aim Axis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-of-rotations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation of rotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rotation Constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rotation Constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purposes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purposes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation-of-rotations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation of rotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-of-implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        glTF Schema Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extending-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extending Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_node_constraint_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_node_constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VRMC_node_constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_node_constraintspecversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_node_constraint.specVersion ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_node_constraintconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_node_constraint.constraint ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="constraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraintroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint.roll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraintaim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint.aim
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constraintrotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constraint.rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rollConstraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraintsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint.source ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraintrollaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint.rollAxis ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollconstraintweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rollConstraint.weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="aimConstraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraintsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint.source ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraintaimaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint.aimAxis ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aimconstraintweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        aimConstraint.weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotationconstraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rotationConstraint
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rotationConstraint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotationconstraintsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rotationConstraint.source ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotationconstraintweight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rotationConstraint.weight
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependency-resolution-between-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency resolution between constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vrmc_node_constraint">VRMC_node_constraint</h1>
+<p><em>Version 1.0</em></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#purposes">Purposes</a></li>
+<li><a href="#constraints">Constraints</a></li>
+<li><a href="#sources">Sources</a></li>
+<li><a href="#weight">Weight</a></li>
+<li><a href="#roll-constraint">Roll Constraint</a><ul>
+<li><a href="#purposes-1">Purposes</a></li>
+<li><a href="#hierarchy">Hierarchy</a></li>
+<li><a href="#roll-axis">Roll Axis</a></li>
+<li><a href="#evaluation-of-rotations">Evaluation of rotations</a></li>
+<li><a href="#example-of-implementation">Example of Implementation</a></li>
+</ul>
+</li>
+<li><a href="#aim-constraint">Aim Constraint</a><ul>
+<li><a href="#purposes-2">Purposes</a></li>
+<li><a href="#hierarchy-1">Hierarchy</a></li>
+<li><a href="#aim-axis">Aim Axis</a></li>
+<li><a href="#evaluation-of-rotations-1">Evaluation of rotations</a></li>
+<li><a href="#example-of-implementation-1">Example of Implementation</a></li>
+</ul>
+</li>
+<li><a href="#rotation-constraint">Rotation Constraint</a><ul>
+<li><a href="#purposes-3">Purposes</a></li>
+<li><a href="#evaluation-of-rotations-2">Evaluation of rotations</a></li>
+<li><a href="#example-of-implementation-2">Example of Implementation</a></li>
+</ul>
+</li>
+<li><a href="#gltf-schema-updates">glTF Schema Updates</a></li>
+<li><a href="#extending-nodes">Extending Nodes</a></li>
+<li><a href="#vrmc_node_constraint">VRMC_node_constraint</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#vrmc_node_constraintspecversion-">VRMC_node_constraint.specVersion ✅</a></li>
+<li><a href="#vrmc_node_constraintconstraint-">VRMC_node_constraint.constraint ✅</a></li>
+</ul>
+</li>
+<li><a href="#constraint">constraint</a><ul>
+<li><a href="#properties-1">Properties</a></li>
+<li><a href="#constraintroll">constraint.roll</a></li>
+<li><a href="#constraintaim">constraint.aim</a></li>
+<li><a href="#constraintrotation">constraint.rotation</a></li>
+</ul>
+</li>
+<li><a href="#rollconstraint">rollConstraint</a><ul>
+<li><a href="#properties-2">Properties</a></li>
+<li><a href="#rollconstraintsource-">rollConstraint.source ✅</a></li>
+<li><a href="#rollconstraintrollaxis-">rollConstraint.rollAxis ✅</a></li>
+<li><a href="#rollconstraintweight">rollConstraint.weight</a></li>
+</ul>
+</li>
+<li><a href="#aimconstraint">aimConstraint</a><ul>
+<li><a href="#properties-3">Properties</a></li>
+<li><a href="#aimconstraintsource-">aimConstraint.source ✅</a></li>
+<li><a href="#aimconstraintaimaxis-">aimConstraint.aimAxis ✅</a></li>
+<li><a href="#aimconstraintweight">aimConstraint.weight</a></li>
+</ul>
+</li>
+<li><a href="#rotationconstraint">rotationConstraint</a><ul>
+<li><a href="#properties-4">Properties</a></li>
+<li><a href="#rotationconstraintsource-">rotationConstraint.source ✅</a></li>
+<li><a href="#rotationconstraintweight">rotationConstraint.weight</a></li>
+</ul>
+</li>
+<li><a href="#implementation-notes">Implementation Notes</a></li>
+<li><a href="#dependency-resolution-between-constraints">Dependency resolution between constraints</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>進藤 哲郎</li>
+<li>蘇 柏彰</li>
+<li>小渕 豊</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Complete</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>glTF 2.0の仕様に対して書かれています。</p>
+<h2 id="overview">Overview</h2>
+<p>この拡張は、glTFシーン内のあるNodeのTransformを他のNodeによって制約することを可能とします。</p>
+<p>この拡張では、 Roll Constraint, Aim Constraint, Rotation Constraint を定義しています。</p>
+<h3 id="purposes">Purposes</h3>
+<p>VRMで扱うコンストレイントは、リアルタイムに<a href="../VRMC_vrm-1.0/humanoid/">Humanoidボーン</a>に対して割り当てられる回転情報を用いて、補助ボーンを制御するようなユースケースを意識して設計されています。</p>
+<p>また、プラットフォームを跨いでコンストレイントが用いられることを念頭に、用途に特化したセマンティックな定義を行います。
+そのため、実装にはアーティストが本来実現したい結果が得られることを期待し、挙動が実装間で完全に一致することを目指すものではありません。</p>
+<h2 id="constraints">Constraints</h2>
+<p>本拡張では、3つのコンストレイント <em>Roll Constraint</em>, <em>Aim Constraint</em>, <em>Rotation Constraint</em> が定義されています。</p>
+<h3 id="sources">Sources</h3>
+<p>各Constraintは、制約される<em>Destination</em>ノードと、それを制約する<em>Source</em>ノードをそれぞれ一つ指定します。</p>
+<p>NodeがConstraintのSourceとなるためには、以下の条件が必要です:</p>
+<ul>
+<li>Sourceは、Destinationノードそれ自身ではない</li>
+<li>Sourceは、他のコンストレイントと組み合わせ循環依存関係を作ってはならない</li>
+</ul>
+<h3 id="weight">Weight</h3>
+<p>各Constraintは、回転量をどの程度Destinationに伝えるかを表す<em>Weight</em>を指定します。</p>
+<p>Weightは[0.0 - 1.0]の数値で表され、Destinationのレスト回転からConstraintによって決定される回転へのSpherical Linear Interpolation (slerp)を行います。</p>
+<h3 id="roll-constraint">Roll Constraint</h3>
+<p>Roll Constraintは、Sourceの回転のうち、ある一軸の回転のみをDestinationに伝えるために用いるコンストレイントです。</p>
+<h4 id="purposes_1">Purposes</h4>
+<p>Roll Constraintは、以下のような用途で使われることを想定します:</p>
+<ul>
+<li>腕・脚のツイストボーン</li>
+</ul>
+<h4 id="hierarchy">Hierarchy</h4>
+<p>Roll Constraintは、例えば以下のような構造で使われることを前提とします:</p>
+<pre><code class="language-markdown">- LowerArm
+  - Hand
+  - Twist1 (RollConstraint, Source is LowerArm)
+  - Twist2 (RollConstraint, Source is LowerArm)
+</code></pre>
+<h4 id="roll-axis">Roll Axis</h4>
+<p>Roll Constraintは、<em>Roll Axis</em>を一軸指定することができ、それによりDestinationの回転のうちどの軸をSourceに伝えるかを指定します。</p>
+<p>Roll Axisには、 <code>"X"</code> ・ <code>"Y"</code> ・ <code>"Z"</code> のいずれかを指定します。</p>
+<h4 id="evaluation-of-rotations">Evaluation of rotations</h4>
+<p>Sourceの回転の評価は、Sourceのレスト状態を基準に、Destinationのレスト状態におけるRoll Axisまわりの回転を評価することが推奨されます。
+また、SourceがRoll Axisまわり以外に回転している場合は、Roll Axisがその回転と同じ方向に向く最小の回転との差分を用いてロールの回転の評価を行うことが推奨されます。</p>
+<h4 id="example-of-implementation">Example of Implementation</h4>
+<blockquote>
+<p><em>このセクションはNon-Normativeです。</em></p>
+</blockquote>
+<p>以下に、擬似コードでの実装例を示します:</p>
+<pre><code class="language-js">deltaSrcQuat = srcRestQuat.inverse * srcQuat
+deltaSrcQuatInParent = srcRestQuat * deltaSrcQuat * srcRestQuat.inverse // source to parent
+deltaSrcQuatInDst = dstRestQuat.inverse * deltaSrcQuatInParent * dstRestQuat // parent to destination
+
+toVec = rollAxis.applyQuaternion( deltaSrcQuatInDst )
+fromToQuat = Quaternion.fromToRotation( rollAxis, toVec )
+
+targetQuat = Quaternion.slerp(
+  dstRestQuat,
+  dstRestQuat * fromToQuat.inverse * deltaSrcQuatInDst,
+  weight
+)
+</code></pre>
+<h3 id="aim-constraint">Aim Constraint</h3>
+<p>Aim Constraintは、DestinationがSourceの向きを向くような回転をさせるために用いるコンストレイントです。</p>
+<h4 id="purposes_2">Purposes</h4>
+<p>Aim Constraintは、以下のような用途で使われることを想定します:</p>
+<ul>
+<li>衣服の袖</li>
+</ul>
+<h4 id="hierarchy_1">Hierarchy</h4>
+<p>Aim Constraintは、例えば以下のような構造で使われることを前提とします:</p>
+<pre><code class="language-markdown">- UpperArm
+  - LowerArm
+- Aim (AimConstraint, Source is LowerArm)
+</code></pre>
+<h4 id="aim-axis">Aim Axis</h4>
+<p>Aim Constraintは、<em>Aim Axis</em>を一方向指定することができ、それによりDestinationのどの軸がSourceの方向を向くようにするかを指定します。</p>
+<p>Aim Axisには、 <code>"PositiveX"</code> ・ <code>"NegativeX"</code> ・ <code>"PositiveY"</code> ・ <code>"NegativeY"</code> ・ <code>"PositiveZ"</code> ・ <code>"NegativeZ"</code> のいずれかを指定します。</p>
+<h4 id="evaluation-of-rotations_1">Evaluation of rotations</h4>
+<p>Destinationの回転は、Destinationがレスト状態から、DestinationのAim Axisがワールド空間においてDestinationからSourceに向かって伸びるベクトルの方向を向くような最小の回転とすることが推奨されます。</p>
+<h4 id="example-of-implementation_1">Example of Implementation</h4>
+<blockquote>
+<p><em>このセクションはNon-Normativeです。</em></p>
+</blockquote>
+<p>以下に、擬似コードでの実装例を示します:</p>
+<pre><code class="language-js">fromVec = aimAxis.applyQuaternion( dstParentWorldQuat * dstRestQuat )
+toVec = ( srcWorldPos - dstWorldPos ).normalized
+fromToQuat = Quaternion.fromToRotation( fromVec, toVec )
+
+targetQuat = Quaternion.slerp(
+  dstRestQuat,
+  dstParentWorldQuat.inverse * fromToQuat * dstParentWorldQuat * dstRestQuat,
+  weight
+)
+</code></pre>
+<h3 id="rotation-constraint">Rotation Constraint</h3>
+<p>Rotation Constraintは、Sourceの回転をDestinationの回転に移すためのコンストレイントです。</p>
+<p>本拡張で定義されるRotation Constraintは、Local-Localとなります。</p>
+<h4 id="purposes_3">Purposes</h4>
+<p>Rotation Constraintは、以下のような用途で使われることを想定します:</p>
+<ul>
+<li>サブアーム</li>
+</ul>
+<h4 id="evaluation-of-rotations_2">Evaluation of rotations</h4>
+<p>Sourceの回転は、Sourceがレスト状態からSourceのオリエンテーションでどのようにローカルで回転したかを観測し、それをDestinationのレスト状態を基準としてDestinationのオリエンテーションでローカルで回転させることが推奨されます。</p>
+<blockquote>
+<p>BlenderのBone ConstraintにおけるLocal-Local Copy Rotationと同じ挙動が期待されます。</p>
+</blockquote>
+<h4 id="example-of-implementation_2">Example of Implementation</h4>
+<blockquote>
+<p><em>このセクションはNon-Normativeです。</em></p>
+</blockquote>
+<p>以下に、擬似コードでの実装例を示します:</p>
+<pre><code class="language-js">srcDeltaQuat = srcRestQuat.inverse * srcQuat
+
+targetQuat = Quaternion.slerp(
+  dstRestQuat,
+  dstRestQuat * srcDeltaQuat,
+  weight
+)
+</code></pre>
+<hr />
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<h3 id="extending-nodes">Extending Nodes</h3>
+<p>コンストレイントは、nodeに <code>VRMC_node_constraint</code> 拡張を追加することで記述されます。
+以下は、 <code>NodeB</code> を <code>NodeA</code> で制約するRotation Constraintの記述例です:</p>
+<pre><code class="language-json">{
+  &quot;extensionsUsed&quot;: {
+    &quot;VRMC_node_constraint&quot;
+  },
+  &quot;nodes&quot;: [
+    {
+      &quot;name&quot;: &quot;NodeA&quot;,
+    },
+    {
+      &quot;name&quot;: &quot;NodeB&quot;,
+      // node.extensions
+      &quot;extensions&quot;: {
+        &quot;VRMC_node_constraint&quot;: {
+          &quot;specVersion&quot;: &quot;1.0&quot;,
+          &quot;constraint&quot;: {
+            &quot;rotation&quot;: {
+              &quot;source&quot;: 0,
+              &quot;weight&quot;: 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  // 通常のGLTF-2.0の情報
+  &quot;materials&quot;: [
+    {
+      // ...
+    }
+  ]
+}
+</code></pre>
+<hr />
+<h3 id="vrmc_node_constraint_1">VRMC_node_constraint</h3>
+<p>本拡張のルートオブジェクトです。</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>specVersion</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">本拡張の仕様バージョンを表します。</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>constraint</code></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Constraintを表すオブジェクトです。</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.schema.json">VRMC_node_constraint.schema.json</a></li>
+</ul>
+<h4 id="vrmc_node_constraintspecversion">VRMC_node_constraint.specVersion ✅</h4>
+<p>VRMC_node_constraint 拡張の仕様バージョンを表します。
+値は <code>"1.0"</code> です。</p>
+<ul>
+<li>型: <code>string</code></li>
+<li>必須: Yes</li>
+</ul>
+<h4 id="vrmc_node_constraintconstraint">VRMC_node_constraint.constraint ✅</h4>
+<p><a href="#constraint">Constraint</a> を表すオブジェクトです。</p>
+<ul>
+<li>型: <code>object</code></li>
+<li>必須: Yes</li>
+</ul>
+<hr />
+<h3 id="constraint">constraint</h3>
+<p>コンストレイントを含むオブジェクトです。</p>
+<p><code>roll</code> ・ <code>aim</code> ・ <code>rotation</code> のうち、いずれか一つのみを含む必要があります。</p>
+<h4 id="properties_1">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>roll</code></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Roll Constraintを記述します。</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>aim</code></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Aim Constraintを記述します。</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rotation</code></td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Rotation Constraintを記述します。</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.constraint.schema.json">VRMC_node_constraint.constraint.schema.json</a></li>
+</ul>
+<h4 id="constraintroll">constraint.roll</h4>
+<p><a href="#rollConstraint">Roll Constraint</a> を記述します。</p>
+<ul>
+<li>型: <code>object</code></li>
+<li>必須: No</li>
+</ul>
+<h4 id="constraintaim">constraint.aim</h4>
+<p><a href="#aimConstraint">Aim Constraint</a> を記述します。</p>
+<ul>
+<li>型: <code>object</code></li>
+<li>必須: No</li>
+</ul>
+<h4 id="constraintrotation">constraint.rotation</h4>
+<p><a href="#rotationConstraint">Rotation Constraint</a> を記述します。</p>
+<ul>
+<li>型: <code>object</code></li>
+<li>必須: No</li>
+</ul>
+<hr />
+<h3 id="rollconstraint">rollConstraint</h3>
+<p><a href="#roll-constraint">Roll Constraint</a>を記述するオブジェクトです。</p>
+<h4 id="properties_2">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>source</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">このNodeを制約するNodeのIndex</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rollAxis</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">このConstraintのRoll Axis</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>weight</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">このConstraintのWeight</td>
+<td style="text-align: left;">No, 初期値: <code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.rollConstraint.schema.json">VRMC_node_constraint.rollConstraint.schema.json</a></li>
+</ul>
+<h4 id="rollconstraintsource">rollConstraint.source ✅</h4>
+<p>このNodeを制約するNodeのIndexを指定します。</p>
+<ul>
+<li>型: <code>integer</code></li>
+<li>必須: Yes</li>
+<li>最小値: <code>&gt;= 0</code></li>
+</ul>
+<h4 id="rollconstraintrollaxis">rollConstraint.rollAxis ✅</h4>
+<p>このConstraintのRoll Axisを指定します。</p>
+<ul>
+<li>型: <code>string</code></li>
+<li>必須: Yes</li>
+<li>許可された値:</li>
+<li><code>X</code></li>
+<li><code>Y</code></li>
+<li><code>Z</code></li>
+</ul>
+<h4 id="rollconstraintweight">rollConstraint.weight</h4>
+<p>このConstraintのWeightを指定します。</p>
+<ul>
+<li>型: <code>number</code></li>
+<li>必須: No, 初期値: <code>1.0</code></li>
+</ul>
+<hr />
+<h3 id="aimconstraint">aimConstraint</h3>
+<p><a href="#aim-constraint">Aim Constraint</a>を記述するオブジェクトです。</p>
+<h4 id="properties_3">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>source</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">このNodeを制約するNodeのIndex</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>aimAxis</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">このConstraintのAim Axis</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>weight</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">このConstraintのWeight</td>
+<td style="text-align: left;">No, 初期値: <code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.aimConstraint.schema.json">VRMC_node_constraint.aimConstraint.schema.json</a></li>
+</ul>
+<h4 id="aimconstraintsource">aimConstraint.source ✅</h4>
+<p>このNodeを制約するNodeのIndexを指定します。</p>
+<ul>
+<li>型: <code>integer</code></li>
+<li>必須: Yes</li>
+<li>最小値: <code>&gt;= 0</code></li>
+</ul>
+<h4 id="aimconstraintaimaxis">aimConstraint.aimAxis ✅</h4>
+<p>このConstraintのAim Axisを指定します。</p>
+<ul>
+<li>型: <code>string</code></li>
+<li>必須: Yes</li>
+<li>許可された値:</li>
+<li><code>PositiveX</code></li>
+<li><code>NegativeX</code></li>
+<li><code>PositiveY</code></li>
+<li><code>NegativeY</code></li>
+<li><code>PositiveZ</code></li>
+<li><code>NegativeZ</code></li>
+</ul>
+<h4 id="aimconstraintweight">aimConstraint.weight</h4>
+<p>このConstraintのWeightを指定します。</p>
+<ul>
+<li>型: <code>number</code></li>
+<li>必須: No, 初期値: <code>1.0</code></li>
+</ul>
+<hr />
+<h3 id="rotationconstraint">rotationConstraint</h3>
+<p><a href="#rotation-constraint">Rotation Constraint</a>を記述するオブジェクトです。</p>
+<h4 id="properties_4">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">説明</th>
+<th style="text-align: left;">必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>source</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">このNodeを制約するNodeのIndex</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>weight</code></td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">このConstraintのWeight</td>
+<td style="text-align: left;">No, 初期値: <code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.rotationConstraint.schema.json">VRMC_node_constraint.rotationConstraint.schema.json</a></li>
+</ul>
+<h4 id="rotationconstraintsource">rotationConstraint.source ✅</h4>
+<p>このNodeを制約するNodeのIndexを指定します。</p>
+<ul>
+<li>型: <code>integer</code></li>
+<li>必須: Yes</li>
+<li>最小値: <code>&gt;= 0</code></li>
+</ul>
+<h4 id="rotationconstraintweight">rotationConstraint.weight</h4>
+<p>このConstraintのWeightを指定します。</p>
+<ul>
+<li>型: <code>number</code></li>
+<li>必須: No, 初期値: <code>1.0</code></li>
+</ul>
+<hr />
+<h2 id="implementation-notes">Implementation Notes</h2>
+<blockquote>
+<p><em>このセクションはnon-normativeです。</em></p>
+</blockquote>
+<h3 id="dependency-resolution-between-constraints">Dependency resolution between constraints</h3>
+<p>constraintは、他のconstraintに依存することがあります。
+constraintの処理中に、まだ更新されていないtransformを参照することを防ぐため、constraintsの更新は適切な順序で行われるべきです。</p>
+<p>以下の擬似コードは、constraintsがどのように更新されるべきか、手続きの一例を表したものです:</p>
+<pre><code>let constraintsPending = empty set of Constraint
+let constraintsDone = empty set of Constraint
+
+function updateConstraint( constraint: Constraint )
+  if not constraintsDone.has( constraint ) then
+    if constraintPending.has( constraint ) then
+      throw &quot;Circular dependency detected&quot;
+    end if
+
+    constraintsPending.add( constraint )
+    foreach dependency in constraint.dependencies do
+      updateConstraint( constraint )
+    end foreach
+    constraintsPending.delete( constraint )
+
+    constraint.update()
+
+    constraintsDone.add( constraint )
+  end if
+end function
+
+function updateConstraints
+  foreach constraint in constraints do
+    updateConstraint( constraint )
+  end foreach
+end function
+</code></pre>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最終更新日">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月3日 12:11:15 UTC">2026年8月3日</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/"/>
+    </url>
+    <url>
+        <loc>Nonesamples/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/"/>
+    </url>
+    <url>
+        <loc>Nonesamples/Seed-san/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/Seed-san/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/Seed-san/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/Seed-san/"/>
+    </url>
+    <url>
+        <loc>Nonesamples/VRM1_Constraint_Twist_Sample/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRM1_Constraint_Twist_Sample/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRM1_Constraint_Twist_Sample/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRM1_Constraint_Twist_Sample/"/>
+    </url>
+    <url>
+        <loc>Nonesamples/VRMC_materials_mtoon_UV_Animation_Test/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+    </url>
+    <url>
+        <loc>Nonesamples/VRMC_vrm_expressions_isBinary_Overridden/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+    </url>
+    <url>
+        <loc>Nonesamples/VRMC_vrm_expressions_isBinary_Overrides/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/0.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/0.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/0.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/0.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_materials_hdr_emissiveMultiplier-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_materials_mtoon-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_mtoon-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_mtoon-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_mtoon-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_materials_mtoon-1.0/MToon_comparision/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_node_constraint-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_node_constraint-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_node_constraint-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_node_constraint-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_springBone-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_springBone-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_springBone-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_springBone-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_springBone_extended_collider-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_springBone_extended_collider-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_springBone_extended_collider-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_springBone_extended_collider-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/expressions/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/expressions/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/expressions/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/expressions/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/firstPerson/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/firstPerson/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/firstPerson/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/firstPerson/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/humanoid/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/humanoid/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/humanoid/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/humanoid/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/lookAt/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/lookAt/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/lookAt/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/lookAt/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/meta/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/meta/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/meta/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/meta/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm-1.0/tpose/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/tpose/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/tpose/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/tpose/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm_animation-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm_animation-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm_animation-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm_animation-1.0/"/>
+    </url>
+    <url>
+        <loc>Nonespecification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+    </url>
+    <url>
+        <loc>Noneko/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/"/>
+    </url>
+    <url>
+        <loc>Noneko/samples/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/"/>
+    </url>
+    <url>
+        <loc>Noneko/samples/Seed-san/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/Seed-san/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/Seed-san/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/Seed-san/"/>
+    </url>
+    <url>
+        <loc>Noneko/samples/VRM1_Constraint_Twist_Sample/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRM1_Constraint_Twist_Sample/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRM1_Constraint_Twist_Sample/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRM1_Constraint_Twist_Sample/"/>
+    </url>
+    <url>
+        <loc>Noneko/samples/VRMC_materials_mtoon_UV_Animation_Test/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+    </url>
+    <url>
+        <loc>Noneko/samples/VRMC_vrm_expressions_isBinary_Overridden/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+    </url>
+    <url>
+        <loc>Noneko/samples/VRMC_vrm_expressions_isBinary_Overrides/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/0.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/0.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/0.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/0.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_materials_mtoon-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_mtoon-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_mtoon-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_mtoon-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_materials_mtoon-1.0/MToon_comparision/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_node_constraint-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_node_constraint-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_node_constraint-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_node_constraint-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_springBone-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_springBone-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_springBone-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_springBone-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_springBone_extended_collider-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_springBone_extended_collider-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_springBone_extended_collider-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_springBone_extended_collider-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/expressions/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/expressions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/expressions/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/expressions/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/firstPerson/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/firstPerson/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/firstPerson/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/firstPerson/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/humanoid/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/humanoid/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/humanoid/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/humanoid/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/lookAt/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/lookAt/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/lookAt/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/lookAt/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/meta/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/meta/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/meta/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/meta/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm-1.0/tpose/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/tpose/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/tpose/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/tpose/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm_animation-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm_animation-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm_animation-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm_animation-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneko/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+    </url>
+    <url>
+        <loc>Noneja/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/"/>
+    </url>
+    <url>
+        <loc>Noneja/samples/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/"/>
+    </url>
+    <url>
+        <loc>Noneja/samples/Seed-san/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/Seed-san/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/Seed-san/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/Seed-san/"/>
+    </url>
+    <url>
+        <loc>Noneja/samples/VRM1_Constraint_Twist_Sample/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRM1_Constraint_Twist_Sample/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRM1_Constraint_Twist_Sample/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRM1_Constraint_Twist_Sample/"/>
+    </url>
+    <url>
+        <loc>Noneja/samples/VRMC_materials_mtoon_UV_Animation_Test/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
+    </url>
+    <url>
+        <loc>Noneja/samples/VRMC_vrm_expressions_isBinary_Overridden/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
+    </url>
+    <url>
+        <loc>Noneja/samples/VRMC_vrm_expressions_isBinary_Overrides/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonesamples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/0.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/0.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/0.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/0.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_materials_mtoon-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_mtoon-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_mtoon-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_mtoon-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_node_constraint-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_node_constraint-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_node_constraint-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_node_constraint-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_springBone-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_springBone-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_springBone-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_springBone-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_springBone_extended_collider-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_springBone_extended_collider-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_springBone_extended_collider-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_springBone_extended_collider-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/expressions/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/expressions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/expressions/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/expressions/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/firstPerson/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/firstPerson/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/firstPerson/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/firstPerson/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/humanoid/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/humanoid/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/humanoid/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/humanoid/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/lookAt/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/lookAt/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/lookAt/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/lookAt/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/meta/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/meta/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/meta/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/meta/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm-1.0/tpose/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm-1.0/tpose/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm-1.0/tpose/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm-1.0/tpose/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm_animation-1.0/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm_animation-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm_animation-1.0/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm_animation-1.0/"/>
+    </url>
+    <url>
+        <loc>Noneja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/</loc>
+        <lastmod>2026-08-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="Noneja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonespecification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="Noneko/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
+    </url>
+</urlset>

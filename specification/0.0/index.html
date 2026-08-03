@@ -1,0 +1,2709 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../samples/VRMC_vrm_expressions_isBinary_Overrides/">
+      
+      
+        <link rel="next" href="../VRMC_materials_hdr_emissiveMultiplier-1.0/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../ko/specification/0.0/" hreflang="ko">
+        
+          <link rel="alternate" href="../../ja/specification/0.0/" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>VRM specifications - VRM Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vrm-specifications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VRM Specification" class="md-header__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VRM Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VRM specifications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/specification/0.0/" hreflang="ko" class="md-select__link">
+              한국어 (Korean)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/specification/0.0/" hreflang="ja" class="md-select__link">
+              日本語 (Japanese)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nanowater/vrm-specification-ko" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VRM Specification" class="md-nav__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VRM Specification
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nanowater/vrm-specification-ko" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Specification (Korean Translation Project)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed san
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seed san
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/Seed-san/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed-san
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1 Constraint Twist Sample
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRM1 Constraint Twist Sample
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRM1_Constraint_Twist_Sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1_Constraint_Twist_Sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overridden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overridden Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overrides Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    0.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_hdr_emissiveMultiplier-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_hdr_emissiveMultiplier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_mtoon-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_mtoon-1.0/MToon_comparision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    This document is outdated.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC node constraint 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC node constraint 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_node_constraint-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_node_constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone extended collider 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone extended collider 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone_extended_collider-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone_extended_collider-1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/firstPerson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.firstPerson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/humanoid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.humanoid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/lookAt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.lookAt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.meta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/tpose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM T-pose: The specification of the rest pose in VRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm animation 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm animation 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm_animation-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Animation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm_animation-1.0/how_to_transform_human_pose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About pose data compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vrm-specifications">VRM specifications</h1>
+<p>VRM is based on glb format, which is a binary form of <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md">glTF 2.0</a>. It is a model format for VR.
+VRM specification repository is <a href="https://github.com/vrm-c/vrm-specification">VRM specification</a>.</p>
+<h1 id="update-history">Update history</h1>
+<ul>
+<li>20181109: Corrected parts where JsonSchema's <code>Vector3</code> type is erroneously set to <code>array</code></li>
+</ul>
+<pre><code class="language-js">{
+    &quot;x&quot;: {
+        &quot;type&quot;: &quot;number&quot;
+    },
+    &quot;y&quot;: {
+        &quot;type&quot;: &quot;number&quot;
+    },
+    &quot;z&quot;: {
+        &quot;type&quot;: &quot;number&quot;
+    }
+}
+</code></pre>
+<h1 id="contents">Contents</h1>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<ul>
+<li><a href="#file-extension">File extension</a></li>
+<li><a href="#json-extension">Json extension</a></li>
+<li><a href="#vrm-extension-vrm-version-etc">VRM extension: VRM version, etc.</a></li>
+<li><a href="#savable-elements">Savable elements</a></li>
+<li><a href="#gltf-20-texture">GLTF-2.0: Texture</a></li>
+<li><a href="#gltf-20-material-jsonextensionsvrmmaterialproperties">GLTF-2.0: Material (json.extensions.VRM.materialProperties)</a></li>
+<li><a href="#vrm-extension-extensionsvrmmaterialproperties">VRM extension: <code>/extensions/VRM/materialProperties</code></a></li>
+<li><a href="#gltf-20-mesh">GLTF-2.0: Mesh</a></li>
+<li><a href="#gltf-20-skinning-information">GLTF-2.0: Skinning information</a></li>
+<li><a href="#gltf-20-node">GLTF-2.0: Node</a></li>
+<li><a href="#rules-for-saving-values">Rules for saving values</a></li>
+<li><a href="#gltf2-rules">GLTF2 rules</a></li>
+<li><a href="#vrm-rules">VRM rules</a></li>
+<li><a href="#available-shaders-in-vrm">Available shaders in VRM</a></li>
+<li><a href="#unlit-type">Unlit type</a></li>
+<li><a href="#mtoon">MToon</a></li>
+<li><a href="#vrm-extension-models-bone-mapping-jsonextensionsvrmhumanoid">VRM extension: Model's bone mapping (json.extensions.VRM.humanoid)</a></li>
+<li><a href="#defined-bones">Defined bones</a></li>
+<li><a href="#vrm-extension-model-information-jsonextensionsvrmmeta">VRM extension: Model information (json.extensions.VRM.meta)</a></li>
+<li><a href="#information">Information</a></li>
+<li><a href="#permission--license-information">Permission / License information</a></li>
+<li><a href="#vrm-extension-morph-setting-jsonextensionsvrmblendshapemaster">VRM extension: Morph setting (json.extensions.VRM.blendShapeMaster)</a></li>
+<li><a href="#blendshape-groups-jsonextensionsvrmblendshapemasterblendshapegroups">BlendShape groups (json.extensions.VRM.blendShapeMaster.blendShapeGroups)</a></li>
+<li><a href="#vrm-extension-first-person-settings-jsonextensionsvrmfirstperson">VRM extension: First-person settings (json.extensions.VRM.firstPerson)</a></li>
+<li><a href="#firstpersonbone-jsonextensionsvrmfirstpersonfirstpersonbone">firstPersonBone (json.extensions.VRM.firstPerson.firstPersonBone)</a></li>
+<li><a href="#firstpersonboneoffset-jsonextensionsvrmfirstpersonfirstpersonboneoffset">firstPersonBoneOffset (json.extensions.VRM.firstPerson.firstPersonBoneOffset)</a></li>
+<li><a href="#meshannotations-jsonextensionsvrmfirstpersonmeshannotations">meshAnnotations (json.extensions.VRM.firstPerson.meshAnnotations)</a></li>
+<li><a href="#eye-control-settings">Eye control settings</a></li>
+<li><a href="#vrm-extension-spring-bone-settings-jsonextensionsvrmsecondaryanimation">VRM extension: Spring bone settings (json.extensions.VRM.secondaryAnimation)</a></li>
+<li><a href="#spring-bone-secondaryanimationbonegroups">Spring bone (secondaryAnimation.boneGroups)</a></li>
+<li><a href="#collider-group-settings-jsonextensionsvrmsecondaryanimationcollidergroups">Collider group settings (json.extensions.VRM.secondaryAnimation.colliderGroups)</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h1 id="file-extension">File extension</h1>
+<p>The file extension<code>.vrm</code>is used. It is compatible with<code>.glb</code>. If ModelFileName.vrm is changed to ModelFileName.glb, it can be loaded by GLTF-compatible applications (however, custom settings in VRM will not be shown).</p>
+<h1 id="json-extension">Json extension</h1>
+<p>Extended as<code>VRM Extension</code>in the JSON part of GLB.</p>
+<pre><code class="language-js">{
+  &quot;extensionsUsed&quot;: {
+    &quot;VRM&quot;
+  },
+  &quot;extensions&quot;: {
+    &quot;VRM&quot;: {
+      // The information of VRM extension
+    }
+  },
+  // The information of general GLTF-2.0
+}
+</code></pre>
+<p>VRM JsonSchema:</p>
+<ul>
+<li>https://github.com/vrm-c/vrm-specification/tree/master/specification/0.0/schema</li>
+</ul>
+<p>GLTF-2.0 JsonSchema:</p>
+<ul>
+<li>https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema</li>
+</ul>
+<h1 id="vrm-extension-vrm-version-etc">VRM extension: VRM version, etc.</h1>
+<ul>
+<li>Starting from v0.36:<code>/extensions/VRM/exporterVersion</code></li>
+</ul>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm&quot;,
+    &quot;description&quot;: &quot;VRM extension is for 3d humanoid avatars (and models) in VR applications.&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;exporterVersion&quot;: {
+            &quot;description&quot;: &quot;Version of exporter that vrm created. UniVRM-0.42&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;meta&quot;: {
+            &quot;$ref&quot;: &quot;vrm.meta.schema.json&quot;
+        },
+        &quot;humanoid&quot;: {
+            &quot;$ref&quot;: &quot;vrm.humanoid.schema.json&quot;
+        },
+        &quot;firstPerson&quot;: {
+            &quot;$ref&quot;: &quot;vrm.firstperson.schema.json&quot;
+        },
+        &quot;blendShapeMaster&quot;: {
+            &quot;$ref&quot;: &quot;vrm.blendshape.schema.json&quot;
+        },
+        &quot;secondaryAnimation&quot;: {
+            &quot;$ref&quot;: &quot;vrm.secondaryanimation.schema.json&quot;
+        },
+        &quot;materialProperties&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.material.schema.json&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<h1 id="savable-elements">Savable elements</h1>
+<p>The information of an entire humanoid model. </p>
+<h2 id="gltf-20-texture">GLTF-2.0: Texture</h2>
+<ul>
+<li>GLTF-2.0<code>/textures/</code></li>
+</ul>
+<p>No VRM extension.</p>
+<h2 id="gltf-20-material-jsonextensionsvrmmaterialproperties">GLTF-2.0: Material (json.extensions.VRM.materialProperties)</h2>
+<ul>
+<li>GLTF-2.0<code>/materials/</code></li>
+</ul>
+<p>Saves information that can revert back to GLTF material (it is used when file extension is changed to GLB).</p>
+<h2 id="vrm-extension-extensionsvrmmaterialproperties">VRM extension: <code>/extensions/VRM/materialProperties</code></h2>
+<p>Saves VRM unique material information and items necessary for Unity.
+Please refer to <a href="#vrmshader">Available shaders in VRM</a>.</p>
+<ul>
+<li>https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.material.schema.json</li>
+</ul>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.material&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;shader&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;renderQueue&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;floatProperties&quot;: {
+            &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;vectorProperties&quot;: {
+            &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;textureProperties&quot;: {
+            &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;keywordMap&quot;: {
+            &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;tagMap&quot;: {
+            &quot;type&quot;: &quot;object&quot;
+        }
+    }
+}
+</code></pre>
+<h2 id="gltf-20-mesh">GLTF-2.0: Mesh</h2>
+<ul>
+<li>GLTF-2.0<code>/meshes/</code></li>
+</ul>
+<p>No VRM extension.</p>
+<h3 id="vertex-attribute">Vertex attribute</h3>
+<ul>
+<li>
+<p>GLTF-2.0 <code>/meshes/*/primitives/*/attributes</code></p>
+</li>
+<li>
+<p>TANGENT (vec4) // TANGENT information is not saved in the exported VRM model since v0.42. It can be obtained based on the calculation of Normal and UV during the import.</p>
+</li>
+</ul>
+<h3 id="morph-target-information">Morph target information</h3>
+<ul>
+<li>Morph target names are saved in<code>/meshes/*/primitives/*/extras/targetNames</code></li>
+</ul>
+<h2 id="gltf-20-skinning-information">GLTF-2.0: Skinning information</h2>
+<ul>
+<li>GLTF-2.0<code>/skins/</code></li>
+</ul>
+<p>No VRM extension.</p>
+<h2 id="gltf-20-node">GLTF-2.0: Node</h2>
+<ul>
+<li>GLTF-2.0<code>/nodes/</code></li>
+</ul>
+<p>No VRM extension.</p>
+<ul>
+<li>Node</li>
+<li>name</li>
+<li>position(vec3)</li>
+<li>rotation(quaternion)</li>
+<li>scale(vec3)</li>
+</ul>
+<h1 id="rules-for-saving-values">Rules for saving values</h1>
+<h2 id="gltf2-rules">GLTF2 rules</h2>
+<p>Saved values conform to the GLTF2 rules.</p>
+<ul>
+<li>The unit of distance is meter</li>
+<li>Right-handed coordinate system. The y-axis points up[^OpenGLCoord].</li>
+</ul>
+<p>[^OpenGLCoord]: OpenGL coordinate system: The x-axis points right. The y-axis points up. The z-axis points forward (towards viewers).</p>
+<h2 id="vrm-rules">VRM rules</h2>
+<p>To increase the compatibility of humanoid models, the following constraints are imposed:</p>
+<ul>
+<li>Model is placed at the origin</li>
+<li>Model faces towards -Z direction[^OpenGLCoord]</li>
+<li>Model hierarchy is Y-UP[^ZUP]</li>
+<li>Model mesh is Y-UP[^ZUP]</li>
+<li>Model hierarchy is T-Pose</li>
+<li>Model mesh is T-Pose</li>
+<li>No local rotation for bone</li>
+<li>No scale for bone</li>
+<li>Head bone faces front direction[^LookAt]</li>
+</ul>
+<p>[^ZUP]: A model derived from Z-UP modelers such as Blender and 3ds Max may be rotated 90 degrees on the x-axis in the middle of the hierarchy.</p>
+<p>[^LookAt]: The eye direction is based on the head orientation towards the target when the model is at T-pose.</p>
+<p><a name="vrmshader"></a></p>
+<h1 id="available-shaders-in-vrm">Available shaders in VRM</h1>
+<p>The following shaders are available assuming operation of cel-style character model:</p>
+<h2 id="unlit-type">Unlit type</h2>
+<p>Texture color is displayed as it is without lighting / shading.
+There are four types available for handling degree of transparency:</p>
+<ul>
+<li>UnlitTexture (opacity)</li>
+<li>UnlitCutout (Makes the part with its transparency below the threshold transparent)</li>
+<li>UnlitTransparent (Alpha blending. ZWrite is not used)[^Transparent]</li>
+<li>UnlitTransparentZWrite (Alpha blending. ZWrite is used)[^TransparentZWrite]</li>
+</ul>
+<p>[^Transparent]: For objects without substances such as smoke and cheek color.
+[^TransparentZWrite]: For objects with substances such as semi-transparent clothes and the ends of semi-transparent hairs.</p>
+<h2 id="mtoon">MToon</h2>
+<p>The shader that supports cel shading and outline. Texture can be set more finely than Unlit.</p>
+<h1 id="vrm-extension-models-bone-mapping-jsonextensionsvrmhumanoid">VRM extension: Model's bone mapping (json.extensions.VRM.humanoid)</h1>
+<p>The table of standard bones defined by Node and Humanoid.</p>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.humanoid.bone&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;bone&quot;: {
+            &quot;description&quot;: &quot;Human bone name.&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;hips&quot;,&quot;leftUpperLeg&quot;,&quot;rightUpperLeg&quot;,&quot;leftLowerLeg&quot;,&quot;rightLowerLeg&quot;,&quot;leftFoot&quot;,&quot;rightFoot&quot;,&quot;spine&quot;,&quot;chest&quot;,&quot;neck&quot;,&quot;head&quot;,&quot;leftShoulder&quot;,&quot;rightShoulder&quot;,&quot;leftUpperArm&quot;,&quot;rightUpperArm&quot;,&quot;leftLowerArm&quot;,&quot;rightLowerArm&quot;,&quot;leftHand&quot;,&quot;rightHand&quot;,&quot;leftToes&quot;,&quot;rightToes&quot;,&quot;leftEye&quot;,&quot;rightEye&quot;,&quot;jaw&quot;,&quot;leftThumbProximal&quot;,&quot;leftThumbIntermediate&quot;,&quot;leftThumbDistal&quot;,&quot;leftIndexProximal&quot;,&quot;leftIndexIntermediate&quot;,&quot;leftIndexDistal&quot;,&quot;leftMiddleProximal&quot;,&quot;leftMiddleIntermediate&quot;,&quot;leftMiddleDistal&quot;,&quot;leftRingProximal&quot;,&quot;leftRingIntermediate&quot;,&quot;leftRingDistal&quot;,&quot;leftLittleProximal&quot;,&quot;leftLittleIntermediate&quot;,&quot;leftLittleDistal&quot;,&quot;rightThumbProximal&quot;,&quot;rightThumbIntermediate&quot;,&quot;rightThumbDistal&quot;,&quot;rightIndexProximal&quot;,&quot;rightIndexIntermediate&quot;,&quot;rightIndexDistal&quot;,&quot;rightMiddleProximal&quot;,&quot;rightMiddleIntermediate&quot;,&quot;rightMiddleDistal&quot;,&quot;rightRingProximal&quot;,&quot;rightRingIntermediate&quot;,&quot;rightRingDistal&quot;,&quot;rightLittleProximal&quot;,&quot;rightLittleIntermediate&quot;,&quot;rightLittleDistal&quot;,&quot;upperChest&quot;]
+        },
+        &quot;node&quot;: {
+            &quot;description&quot;: &quot;Reference node index&quot;,
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;useDefaultValues&quot;: {
+            &quot;description&quot;: &quot;Unity's HumanLimit.useDefaultValues&quot;,
+            &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;min&quot;: {
+            &quot;description&quot;: &quot;Unity's HumanLimit.min&quot;,
+            &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;max&quot;: {
+            &quot;description&quot;: &quot;Unity's HumanLimit.max&quot;,
+            &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;center&quot;: {
+            &quot;description&quot;: &quot;Unity's HumanLimit.center&quot;,
+            &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;axisLength&quot;: {
+            &quot;description&quot;: &quot;Unity's HumanLimit.axisLength&quot;,
+            &quot;type&quot;: &quot;number&quot;
+        }
+    }
+}
+</code></pre>
+<h2 id="defined-bones">Defined bones</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bone Name</th>
+<th style="text-align: left;">Required/Optional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">neck</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">head</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Eye</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">jaw</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">hips</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">spine</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">chest</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">upperChest</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Shoulder</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right UpperArm</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right LowerArm</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Hand</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right UpperLeg</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right LowerLeg</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Foot</td>
+<td style="text-align: left;">Required</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Toe</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Thumb Proximal, Intermediate, Distal</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Index Proximal, Intermediate, Distal</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Middle Proximal, Intermediate, Distal</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Ring Proximal, Intermediate, Distal</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+<tr>
+<td style="text-align: left;">left/right Little Proximal, Intermediate, Distal</td>
+<td style="text-align: left;">Optional</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vrm-extension-model-information-jsonextensionsvrmmeta">VRM extension: Model information (json.extensions.VRM.meta)</h1>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.meta&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;title&quot;: {
+            &quot;description&quot;: &quot;Title of VRM model&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;version&quot;: {
+            &quot;description&quot;: &quot;Version of VRM model&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;author&quot;: {
+            &quot;description&quot;: &quot;Author of VRM model&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;contactInformation&quot;: {
+            &quot;description&quot;: &quot;Contact Information of VRM model author&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;reference&quot;: {
+            &quot;description&quot;: &quot;Reference of VRM model&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;texture&quot;: {
+            &quot;description&quot;: &quot;Thumbnail of VRM model&quot;,
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;allowedUserName&quot;: {
+            &quot;description&quot;: &quot;A person who can perform with this avatar&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;OnlyAuthor&quot;,&quot;ExplicitlyLicensedPerson&quot;,&quot;Everyone&quot;]
+        },
+        &quot;violentUssageName&quot;: {
+            &quot;description&quot;: &quot;Permission to perform violent acts with this avatar&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;Disallow&quot;,&quot;Allow&quot;]
+        },
+        &quot;sexualUssageName&quot;: {
+            &quot;description&quot;: &quot;Permission to perform sexual acts with this avatar&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;Disallow&quot;,&quot;Allow&quot;]
+        },
+        &quot;commercialUssageName&quot;: {
+            &quot;description&quot;: &quot;For commercial use&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;Disallow&quot;,&quot;Allow&quot;]
+        },
+        &quot;otherPermissionUrl&quot;: {
+            &quot;description&quot;: &quot;If there are any conditions not mentioned above, put the URL link of the license document here.&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;licenseName&quot;: {
+            &quot;description&quot;: &quot;License type&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;Redistribution_Prohibited&quot;,&quot;CC0&quot;,&quot;CC_BY&quot;,&quot;CC_BY_NC&quot;,&quot;CC_BY_SA&quot;,&quot;CC_BY_NC_SA&quot;,&quot;CC_BY_ND&quot;,&quot;CC_BY_NC_ND&quot;,&quot;Other&quot;]
+        },
+        &quot;otherLicenseUrl&quot;: {
+            &quot;description&quot;: &quot;If “Other” is selected, put the URL link of the license document here.&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        }
+    }
+}
+</code></pre>
+<h2 id="information">Information</h2>
+<h3 id="title">Title</h3>
+<p>Set the name of the VRM model</p>
+<h3 id="author">Author</h3>
+<p>Enter the author name of the VRM model</p>
+<h3 id="contact-information">Contact Information</h3>
+<p>Enter the contact information of the author</p>
+<blockquote>
+<p>This property is intended to be used to display the contact information of the author of the model such as social account information or website, in case the user wants to contact the author for some reason.
+Make sure not to include personal information that is not intended to be disclosed to the public, such as phone numbers or addresses.</p>
+</blockquote>
+<h3 id="reference">Reference</h3>
+<p>Describe original / related works of this avatar (URL), if any</p>
+<h3 id="thumbnail">Thumbnail</h3>
+<p>Register the thumbnail of the VRM model. A texture resolution about 2048x2048 is recommended. A texture number is assigned in meta information.  </p>
+<h3 id="version">Version</h3>
+<p>Version that creates VRM model</p>
+<h2 id="permission-license-information">Permission / License information</h2>
+<h3 id="personation-characterization-permission">Personation / Characterization Permission</h3>
+<h4 id="a-person-who-can-perform-with-this-avatar-jsonextensionsvrmmetaallowedusername">A person who can perform with this avatar (json.extensions.VRM.meta.allowedUserName)</h4>
+<ul>
+<li>Only Author</li>
+<li>Explicitly Licensed Person</li>
+<li>Everyone</li>
+</ul>
+<h4 id="permission-to-perform-violent-acts-with-this-avatar-jsonextensionsvrmmetaviolentussagename">Permission to perform violent acts with this avatar (json.extensions.VRM.meta.violentUssageName)</h4>
+<ul>
+<li>Disallow</li>
+<li>Allow</li>
+</ul>
+<h4 id="permission-to-perform-sexual-acts-with-this-avatar-jsonextensionsvrmmetasexualussagename">Permission to perform sexual acts with this avatar (json.extensions.VRM.meta.sexualUssageName)</h4>
+<ul>
+<li>Disallow</li>
+<li>Allow</li>
+</ul>
+<h4 id="for-commercial-use-jsonextensionsvrmmetacommercialussagename">For commercial use (json.extensions.VRM.meta.commercialUssageName)</h4>
+<ul>
+<li>Disallow</li>
+<li>Allow</li>
+</ul>
+<h4 id="other-license-url-jsonextensionsvrmmetaotherpermissionurl">Other License Url (json.extensions.VRM.meta.otherPermissionUrl)</h4>
+<p>If there are any conditions not mentioned above, put the URL link of the license document here.</p>
+<h3 id="redistribution-modifications-license">Redistribution / Modifications License</h3>
+<h4 id="license-type-jsonextensionsvrmmetalicensename">License type (json.extensions.VRM.meta.licenseName)</h4>
+<ul>
+<li>Redistribution Prohibited</li>
+<li><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">Copyright wavier(CC0)</a></li>
+<li><a href="https://creativecommons.org/licenses/by/4.0/deed.en">Creative Commons CC BY License(CC_BY)</a></li>
+<li><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en">Creative Commons CC BY NC License(CC_BY_NC)</a></li>
+<li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons CC BY SA License(CC_BY_SA)</a></li>
+<li><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Creative Commons CC BY NC SA License(CC_BY_NC_SA)</a></li>
+<li><a href="https://creativecommons.org/licenses/by-nd/4.0/deed.en">Creative Commons CC BY ND License(CC_BY_ND)</a></li>
+<li><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">Creative Commons CC BY NC ND License(CC_BY_NC_ND)</a></li>
+<li>Other</li>
+</ul>
+<h4 id="other-license-url-jsonextensionsvrmmetaotherlicenseurl">Other License Url (json.extensions.VRM.meta.otherLicenseUrl)</h4>
+<p>If “Other” is selected, put the URL link of the license document here.</p>
+<h1 id="vrm-extension-morph-setting-jsonextensionsvrmblendshapemaster">VRM extension: Morph setting (json.extensions.VRM.blendShapeMaster)</h1>
+<p>Set an array of BlendShapeGroups to group BlendShape.</p>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.blendshape&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;blendShapeGroups&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.blendshape.group.schema.json&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="blendshape-groups-jsonextensionsvrmblendshapemasterblendshapegroups">BlendShape groups (json.extensions.VRM.blendShapeMaster.blendShapeGroups)</h2>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.blendshape.group&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;name&quot;: {
+            &quot;description&quot;: &quot;Expression name&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;presetName&quot;: {
+            &quot;description&quot;: &quot;Predefined Expression name&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;Neutral&quot;,&quot;A&quot;,&quot;I&quot;,&quot;U&quot;,&quot;E&quot;,&quot;O&quot;,&quot;Blink&quot;,&quot;Joy&quot;,&quot;Angry&quot;,&quot;Sorrow&quot;,&quot;Fun&quot;,&quot;LookUp&quot;,&quot;LookDown&quot;,&quot;LookLeft&quot;,&quot;LookRight&quot;,&quot;Blink_L&quot;,&quot;Blink_R&quot;]
+        },
+        &quot;binds&quot;: {
+            &quot;description&quot;: &quot;Low level blendshape references.&quot;,
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.blendshape.bind.schema.json&quot;
+            }
+        },
+        &quot;materialValues&quot;: {
+            &quot;description&quot;: &quot;Material animation references.&quot;,
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.blendshape.materialbind.schema.json&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.blendshape.bind&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;mesh&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;index&quot;: {
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;weight&quot;: {
+            &quot;type&quot;: &quot;number&quot;
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.blendshape.materialbind&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;materialName&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;propertyName&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;targetValue&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;number&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="expression-name">Expression name</h3>
+<p>Using a name with capital letters (e.g. the predefined expression name) is recommended.</p>
+<h3 id="predefined-expression-name">Predefined expression name</h3>
+<p>Standby expression</p>
+<ul>
+<li>Neutral</li>
+</ul>
+<p>Lip-sync</p>
+<ul>
+<li>A (aa)</li>
+<li>I (ih)</li>
+<li>U (ou)</li>
+<li>E (E)</li>
+<li>O (oh)</li>
+</ul>
+<p>Blink</p>
+<ul>
+<li>Blink</li>
+<li>Blink_L</li>
+<li>Blink_R</li>
+</ul>
+<p>Emotion</p>
+<ul>
+<li>Fun</li>
+<li>Angry</li>
+<li>Sorrow</li>
+<li>Joy</li>
+</ul>
+<p>Eye control</p>
+<ul>
+<li>LookUp</li>
+<li>LookDown</li>
+<li>LookLeft</li>
+<li>LookRight</li>
+</ul>
+<p>Others</p>
+<ul>
+<li>Unknown</li>
+</ul>
+<h3 id="blendshape-name-identifier">BlendShape name identifier</h3>
+<p>The following method determines the character string ID that uniquely recognizes BlendShape from the system:</p>
+<pre><code>// Pseudo code
+function GetID(preset, name)
+{
+  if (Preset != BlendShapePreset.Unknown)
+  {
+      return preset.ToString().ToUpper();
+  }
+  else
+  {
+      return name.ToUpper();
+  }
+}
+</code></pre>
+<ul>
+<li>Set Preset and Name to make BlendShape ID unique.  </li>
+</ul>
+<h1 id="vrm-extension-first-person-settings-jsonextensionsvrmfirstperson">VRM extension: First-person settings (json.extensions.VRM.firstPerson)</h1>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.firstperson&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;firstPersonBone&quot;: {
+            &quot;description&quot;: &quot;The bone whose rendering should be turned off in first-person view. Usually Head is specified.&quot;,
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;firstPersonBoneOffset&quot;: {
+            &quot;description&quot;: &quot;The target position of the VR headset in first-person view. It is assumed that an offset from the head bone to the VR headset is added.&quot;,
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+                &quot;x&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                },
+                &quot;y&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                },
+                &quot;z&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                }
+            }
+        },
+        &quot;meshAnnotations&quot;: {
+            &quot;description&quot;: &quot;Switch display \/ undisplay for each mesh in first-person view or the others.&quot;,
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.firstperson.meshannotation.schema.json&quot;
+            }
+        },
+        &quot;lookAtTypeName&quot;: {
+            &quot;description&quot;: &quot;Eye controller mode.&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;enum&quot;: [&quot;Bone&quot;,&quot;BlendShape&quot;]
+        },
+        &quot;lookAtHorizontalInner&quot;: {
+            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
+        },
+        &quot;lookAtHorizontalOuter&quot;: {
+            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
+        },
+        &quot;lookAtVerticalDown&quot;: {
+            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
+        },
+        &quot;lookAtVerticalUp&quot;: {
+            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
+        }
+    }
+}
+</code></pre>
+<p>When the user-controlled avatar model is rendered in first-person view (VR applications), the user may inadvertently see inner surfaces of the model’s head[^firstperson]. To address this problem, we can specify model's display states in first-person view.</p>
+<p>[^firstperson]: In some cases the user may see the gum of the model inadvertently.</p>
+<h2 id="firstpersonbone-jsonextensionsvrmfirstpersonfirstpersonbone">firstPersonBone (json.extensions.VRM.firstPerson.firstPersonBone)</h2>
+<p>The bone whose rendering should be turned off in first-person view. Usually<code>Head</code>is specified.</p>
+<h2 id="firstpersonboneoffset-jsonextensionsvrmfirstpersonfirstpersonboneoffset">firstPersonBoneOffset (json.extensions.VRM.firstPerson.firstPersonBoneOffset)</h2>
+<p>The target position of the VR headset in first-person view. 
+It is assumed that an offset from the head bone to the VR headset is added.</p>
+<h2 id="meshannotations-jsonextensionsvrmfirstpersonmeshannotations">meshAnnotations (json.extensions.VRM.firstPerson.meshAnnotations)</h2>
+<p>Switch display / undisplay for each mesh in first-person view or the others. The following settings are available:  </p>
+<ul>
+<li>Auto: automatically undisplays polygons with bone weights for firstPersonBone and their descendants[^firstPersonAuto]</li>
+<li>FirstPersonOnly: polygons that are displayed only in first-person view</li>
+<li>ThirdPersonOnly: polygons that are displayed only in third-person view (specify meshes that are not displayed in first-person view such as head)</li>
+<li>Both: no particularly specifying meshes display / undisplay</li>
+</ul>
+<p>[^firstPersonAuto]: Generates a model with its undisplayed parts deleted automatically at runtime.</p>
+<h2 id="eye-control-settings">Eye control settings</h2>
+<p>Control the model's eyes based on the direction from the model's head to the target.</p>
+<h3 id="eye-controller-types-jsonextensionsvrmfirstpersonlookattypename">Eye controller types (json.extensions.VRM.firstPerson.lookAtTypeName)</h3>
+<ul>
+<li>Bone: control eyes with bone.</li>
+<li>BlendShape: control eyes with BlendShape. BlendShapePreset.LookUp, LookDown, LookLeft and LookRight are used.</li>
+</ul>
+<h3 id="angle-adjustment">Angle adjustment</h3>
+<p>Adjust the angle when applying the angle difference between the head and the target to the eye bone.</p>
+<h4 id="jsonextensionsvrmfirstpersonlookathorizontalinner">json.extensions.VRM.firstPerson.lookAtHorizontalInner</h4>
+<h4 id="jsonextensionsvrmfirstpersonlookathorizontalouter">json.extensions.VRM.firstPerson.lookAtHorizontalOuter</h4>
+<h4 id="jsonextensionsvrmfirstpersonlookatverticaldown">json.extensions.VRM.firstPerson.lookAtVerticalDown</h4>
+<h4 id="jsonextensionsvrmfirstpersonlookatverticalup">json.extensions.VRM.firstPerson.lookAtVerticalUp</h4>
+<h1 id="vrm-extension-spring-bone-settings-jsonextensionsvrmsecondaryanimation">VRM extension: Spring bone settings (json.extensions.VRM.secondaryAnimation)</h1>
+<p>The setting of automatic animation of string-like objects such as tails and hairs.</p>
+<h2 id="spring-bone-secondaryanimationbonegroups">Spring bone (secondaryAnimation.boneGroups)</h2>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.secondaryanimation&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;boneGroups&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.secondaryanimation.spring.schema.json&quot;
+            }
+        },
+        &quot;colliderGroups&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;vrm.secondaryanimation.collidergroup.schema.json&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.secondaryanimation.spring&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;comment&quot;: {
+            &quot;description&quot;: &quot;Annotation comment&quot;,
+            &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;stiffiness&quot;: {
+            &quot;description&quot;: &quot;The resilience of the swaying object (the power of returning to the initial pose).&quot;,
+            &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;gravityPower&quot;: {
+            &quot;description&quot;: &quot;The strength of gravity.&quot;,
+            &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;gravityDir&quot;: {
+            &quot;description&quot;: &quot;The direction of gravity. Set (0, -1, 0) for simulating the gravity. Set (1, 0, 0) for simulating the wind.&quot;,
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+                &quot;x&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                },
+                &quot;y&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                },
+                &quot;z&quot;: {
+                    &quot;type&quot;: &quot;number&quot;
+                }
+            }
+        },
+        &quot;dragForce&quot;: {
+            &quot;description&quot;: &quot;The resistance (deceleration) of automatic animation.&quot;,
+            &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;center&quot;: {
+            &quot;description&quot;: &quot;The reference point of a swaying object can be set at any location except the origin. When implementing UI moving with warp, the parent node to move with warp can be specified if you don't want to make the object swaying with warp movement.&quot;,
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;hitRadius&quot;: {
+            &quot;description&quot;: &quot;The radius of the sphere used for the collision detection with colliders.&quot;,
+            &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;bones&quot;: {
+            &quot;description&quot;: &quot;Specify the node index of the root bone of the swaying object.&quot;,
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;integer&quot;
+            }
+        },
+        &quot;colliderGroups&quot;: {
+            &quot;description&quot;: &quot;Specify the index of the collider group for collisions with swaying objects.&quot;,
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;integer&quot;
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="root-of-spring-bone-jsonextensionsvrmsecondaryanimationbonegroups0bones">Root of spring bone (json.extensions.VRM.secondaryAnimation.boneGroups[0].bones)</h3>
+<p>Specify the node index of the root bone of the swaying object.</p>
+<h3 id="colliders-for-colliding-with-spring-bone-jsonextensionsvrmsecondaryanimationbonegroups0collidergroups">Colliders for colliding with spring bone (json.extensions.VRM.secondaryAnimation.boneGroups[0].colliderGroups)</h3>
+<p>Specify the index of the collider group for collisions with swaying objects.</p>
+<h3 id="parameters">Parameters</h3>
+<h4 id="center-jsonextensionsvrmsecondaryanimationbonegroups0center">center (json.extensions.VRM.secondaryAnimation.boneGroups[0].center)</h4>
+<p>The reference point of a swaying object can be set at any location except the origin. When implementing UI moving with warp, the parent node to move with warp can be specified if you don't want to make the object swaying with warp movement. </p>
+<h4 id="dragforce-jsonextensionsvrmsecondaryanimationbonegroups0dragforce">dragForce (json.extensions.VRM.secondaryAnimation.boneGroups[0].dragForce)</h4>
+<p>The resistance (deceleration) of automatic animation.</p>
+<h4 id="gravitydir-jsonextensionsvrmsecondaryanimationbonegroups0gravitydir">gravityDir (json.extensions.VRM.secondaryAnimation.boneGroups[0].gravityDir)</h4>
+<p>The direction of gravity. Set (0, -1, 0) for simulating the gravity. Set (1, 0, 0) for simulating the wind.</p>
+<h4 id="gravitypower-jsonextensionsvrmsecondaryanimationbonegroups0gravitypower">gravityPower (json.extensions.VRM.secondaryAnimation.boneGroups[0].gravityPower)</h4>
+<p>The strength of gravity.</p>
+<h4 id="hitradius-jsonextensionsvrmsecondaryanimationbonegroups0hitradius">hitRadius (json.extensions.VRM.secondaryAnimation.boneGroups[0].hitRadius)</h4>
+<p>The radius of the sphere used for the collision detection with colliders. </p>
+<h4 id="stiffness-jsonextensionsvrmsecondaryanimationbonegroups0stiffiness">stiffness (json.extensions.VRM.secondaryAnimation.boneGroups[0].stiffiness)</h4>
+<p>The resilience of the swaying object (the power of returning to the initial pose).</p>
+<h2 id="collider-group-settings-jsonextensionsvrmsecondaryanimationcollidergroups">Collider group settings (json.extensions.VRM.secondaryAnimation.colliderGroups)</h2>
+<p>Set sphere balls for colliders used for collision detections with swaying objects.</p>
+<pre><code class="language-js">{
+    &quot;title&quot;: &quot;vrm.secondaryanimation.collidergroup&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;node&quot;: {
+            &quot;description&quot;: &quot;The node of the collider group for setting up collision detections.&quot;,
+            &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;colliders&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                    &quot;offset&quot;: {
+                        &quot;description&quot;: &quot;The local coordinate from the node of the collider group.&quot;,
+                        &quot;type&quot;: &quot;object&quot;,
+                        &quot;properties&quot;: {
+                            &quot;x&quot;: {
+                                &quot;type&quot;: &quot;number&quot;
+                            },
+                            &quot;y&quot;: {
+                                &quot;type&quot;: &quot;number&quot;
+                            },
+                            &quot;z&quot;: {
+                                &quot;type&quot;: &quot;number&quot;
+                            }
+                        }
+                    },
+                    &quot;radius&quot;: {
+                        &quot;description&quot;: &quot;The radius of the collider.&quot;,
+                        &quot;type&quot;: &quot;number&quot;
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="node-jsonextensionsvrmsecondaryanimationcollidergroups0node">Node (json.extensions.VRM.secondaryAnimation.colliderGroups[0].node)</h3>
+<p>The node of the collider group for setting up collision detections.</p>
+<h3 id="local-coordinate-jsonextensionsvrmsecondaryanimationcollidergroups0colliders1offset">Local coordinate (json.extensions.VRM.secondaryAnimation.colliderGroups[0].colliders[1].offset)</h3>
+<p>The local coordinate from the node of the collider group.</p>
+<h3 id="radius-jsonextensionsvrmsecondaryanimationcollidergroups0colliders1radius">Radius (json.extensions.VRM.secondaryAnimation.colliderGroups[0].colliders[1].radius)</h3>
+<p>The radius of the collider.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 12:11:15 UTC">August 3, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,4726 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../VRMC_materials_hdr_emissiveMultiplier-1.0/">
+      
+      
+        <link rel="next" href="MToon_comparision/">
+      
+      
+        
+          <link rel="alternate" href="../../../specification/VRMC_materials_mtoon-1.0/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="ko">
+        
+          <link rel="alternate" href="../../../ja/specification/VRMC_materials_mtoon-1.0/" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>VRMC_materials_mtoon - VRM Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vrmc_materials_mtoon" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../" title="VRM Specification" class="md-header__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VRM Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VRMC_materials_mtoon
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="언어설정">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../specification/VRMC_materials_mtoon-1.0/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ko" class="md-select__link">
+              한국어 (Korean)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ja/specification/VRMC_materials_mtoon-1.0/" hreflang="ja" class="md-select__link">
+              日本語 (Japanese)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nanowater/vrm-specification-ko" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="VRM Specification" class="md-nav__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VRM Specification
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nanowater/vrm-specification-ko" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Specification (한국어 번역 프로젝트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed san
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seed san
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/Seed-san/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed-san
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1 Constraint Twist Sample
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRM1 Constraint Twist Sample
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRM1_Constraint_Twist_Sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1_Constraint_Twist_Sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overridden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overridden Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overrides Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    0.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM 사양
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_hdr_emissiveMultiplier-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_hdr_emissiveMultiplier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#khr_materials_unlit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KHR_materials_unlit과의 상호작용
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extending Materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertex-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertex Colors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRDF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        specVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#render-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render Queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparentwithzwrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transparentWithZWrite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renderqueueoffsetnumber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        renderQueueOffsetNumber
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-sided" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Double Sided
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lighting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lighting-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lit-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lit Color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shade-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shade Color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surface-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surface Normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shading-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shading Shift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadecolorfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadeColorFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shademultiplytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadeMultiplyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshiftfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingtoonyfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingToonyFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="shadingShiftTextureInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfoindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo.index ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfotexcoord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo.texCoord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfoscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo.scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-illumination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Illumination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Illumination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#giequalizationfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        giEqualizationFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rim-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rim Lighting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rim Lighting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matcap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MatCap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametric-rim-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parametric Rim Lighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rim-multiply-texture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rim Multiply Texture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rim-lighting-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rim Lighting Mix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matcapfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        matcapFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matcaptexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        matcapTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametricrimcolorfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parametricRimColorFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametricrimfresnelpowerfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parametricRimFresnelPowerFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametricrimliftfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parametricRimLiftFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rimmultiplytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rimMultiplyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rimlightingmixfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rimLightingMixFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outline-width" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline Width
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outline-lighting-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline Lighting Mix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinewidthmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineWidthMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinewidthfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineWidthFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinewidthmultiplytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineWidthMultiplyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinecolorfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineColorFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinelightingmixfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineLightingMixFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UV Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uv-scroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Scroll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv-animation-mask-texture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Animation Mask Texture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-with-khr_texture_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility with KHR_texture_transform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationmasktexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationMaskTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationscrollxspeedfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationScrollXSpeedFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationscrollyspeedfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationScrollYSpeedFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationrotationspeedfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationRotationSpeedFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="MToon_comparision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 문서는 오래되었습니다 (This document is outdated).
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC node constraint 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC node constraint 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_node_constraint-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_node_constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone extended collider 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone extended collider 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone_extended_collider-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone_extended_collider-1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/firstPerson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.firstPerson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/humanoid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.humanoid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/lookAt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.lookAt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.meta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/tpose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM T-pose: VRM이 정의하는 자세 사양
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm animation 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm animation 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm_animation-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm_animation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm_animation-1.0/how_to_transform_human_pose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    포즈 데이터의 호환성에 대하여
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#khr_materials_unlit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KHR_materials_unlit과의 상호작용
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extending Materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertex-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertex Colors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRDF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        specVersion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rendering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#render-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Render Queue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparentwithzwrite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transparentWithZWrite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renderqueueoffsetnumber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        renderQueueOffsetNumber
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double-sided" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Double Sided
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lighting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lighting-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lighting Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lit-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lit Color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shade-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shade Color
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surface-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surface Normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shading-shift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shading Shift
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadecolorfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadeColorFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shademultiplytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadeMultiplyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshiftfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingtoonyfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingToonyFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="shadingShiftTextureInfo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfoindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo.index ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfotexcoord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo.texCoord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shadingshifttextureinfoscale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shadingShiftTextureInfo.scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-illumination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Illumination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Global Illumination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#giequalizationfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        giEqualizationFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rim-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rim Lighting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rim Lighting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matcap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MatCap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametric-rim-lighting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parametric Rim Lighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rim-multiply-texture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rim Multiply Texture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rim-lighting-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rim Lighting Mix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matcapfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        matcapFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matcaptexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        matcapTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametricrimcolorfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parametricRimColorFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametricrimfresnelpowerfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parametricRimFresnelPowerFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametricrimliftfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parametricRimLiftFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rimmultiplytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rimMultiplyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rimlightingmixfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rimLightingMixFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Outline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outline-width" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline Width
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outline-lighting-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outline Lighting Mix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinewidthmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineWidthMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinewidthfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineWidthFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinewidthmultiplytexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineWidthMultiplyTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinecolorfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineColorFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlinelightingmixfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        outlineLightingMixFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UV Animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uv-scroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Scroll
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv-rotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Rotation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uv-animation-mask-texture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UV Animation Mask Texture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-with-khr_texture_transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility with KHR_texture_transform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mtoon-defined-properties_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MToon Defined Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationmasktexture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationMaskTexture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationscrollxspeedfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationScrollXSpeedFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationscrollyspeedfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationScrollYSpeedFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uvanimationrotationspeedfactor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        uvAnimationRotationSpeedFactor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vrmc_materials_mtoon">VRMC_materials_mtoon</h1>
+<p><em>Version 1.0</em></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#extending-materials">Extending Materials</a></li>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#types">Types</a></li>
+<li><a href="#vertex-colors">Vertex Colors</a></li>
+<li><a href="#coordinates">Coordinates</a></li>
+<li><a href="#brdf">BRDF</a></li>
+<li><a href="#meta">Meta</a><ul>
+<li><a href="#mtoon-defined-properties">MToon Defined Properties</a></li>
+<li><a href="#specversion">specVersion</a></li>
+</ul>
+</li>
+<li><a href="#rendering">Rendering</a><ul>
+<li><a href="#render-mode">Render Mode</a></li>
+<li><a href="#render-queue">Render Queue</a></li>
+<li><a href="#mtoon-defined-properties-1">MToon Defined Properties</a></li>
+<li><a href="#transparentwithzwrite">transparentWithZWrite</a></li>
+<li><a href="#renderqueueoffsetnumber">renderQueueOffsetNumber</a></li>
+<li><a href="#double-sided">Double Sided</a></li>
+</ul>
+</li>
+<li><a href="#lighting">Lighting</a><ul>
+<li><a href="#lighting-model">Lighting Model</a></li>
+<li><a href="#lit-color">Lit Color</a></li>
+<li><a href="#shade-color">Shade Color</a></li>
+<li><a href="#surface-normal">Surface Normal</a></li>
+<li><a href="#shading-shift">Shading Shift</a></li>
+<li><a href="#implementation">Implementation</a></li>
+<li><a href="#mtoon-defined-properties-2">MToon Defined Properties</a></li>
+<li><a href="#shadecolorfactor">shadeColorFactor</a></li>
+<li><a href="#shademultiplytexture">shadeMultiplyTexture</a></li>
+<li><a href="#shadingshiftfactor">shadingShiftFactor</a></li>
+<li><a href="#shadingshifttexture">shadingShiftTexture</a></li>
+<li><a href="#shadingtoonyfactor">shadingToonyFactor</a></li>
+</ul>
+</li>
+<li><a href="#shadingshifttextureinfo">shadingShiftTextureInfo</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#shadingshifttextureinfoindex-">shadingShiftTextureInfo.index ✅</a></li>
+<li><a href="#shadingshifttextureinfotexcoord">shadingShiftTextureInfo.texCoord</a></li>
+<li><a href="#shadingshifttextureinfoscale">shadingShiftTextureInfo.scale</a></li>
+</ul>
+</li>
+<li><a href="#global-illumination">Global Illumination</a><ul>
+<li><a href="#mtoon-defined-properties-3">MToon Defined Properties</a></li>
+<li><a href="#giintensityfactor">giIntensityFactor</a></li>
+</ul>
+</li>
+<li><a href="#emission">Emission</a></li>
+<li><a href="#rim-lighting">Rim Lighting</a><ul>
+<li><a href="#matcap">MatCap</a></li>
+<li><a href="#parametric-rim-lighting">Parametric Rim Lighting</a></li>
+<li><a href="#rim-multiply-texture">Rim Multiply Texture</a></li>
+<li><a href="#rim-lighting-mix">Rim Lighting Mix</a></li>
+<li><a href="#implementation-1">Implementation</a></li>
+<li><a href="#mtoon-defined-properties-4">MToon Defined Properties</a></li>
+<li><a href="#matcapfactor">matcapFactor</a></li>
+<li><a href="#matcaptexture">matcapTexture</a></li>
+<li><a href="#parametricrimcolorfactor">parametricRimColorFactor</a></li>
+<li><a href="#parametricrimfresnelpowerfactor">parametricRimFresnelPowerFactor</a></li>
+<li><a href="#parametricrimliftfactor">parametricRimLiftFactor</a></li>
+<li><a href="#rimmultiplytexture">rimMultiplyTexture</a></li>
+<li><a href="#rimlightingmixfactor">rimLightingMixFactor</a></li>
+</ul>
+</li>
+<li><a href="#outline">Outline</a><ul>
+<li><a href="#outline-width">Outline Width</a></li>
+<li><a href="#outline-lighting-mix">Outline Lighting Mix</a></li>
+<li><a href="#implementation-2">Implementation</a></li>
+<li><a href="#mtoon-defined-properties-5">MToon Defined Properties</a></li>
+<li><a href="#outlinewidthmode">outlineWidthMode</a></li>
+<li><a href="#outlinewidthfactor">outlineWidthFactor</a></li>
+<li><a href="#outlinewidthmultiplytexture">outlineWidthMultiplyTexture</a></li>
+<li><a href="#outlinecolorfactor">outlineColorFactor</a></li>
+<li><a href="#outlinelightingmixfactor">outlineLightingMixFactor</a></li>
+</ul>
+</li>
+<li><a href="#uv-animation">UV Animation</a><ul>
+<li><a href="#compatibility-with-khr_texture_transform">Compatibility with KHR_texture_transform</a></li>
+<li><a href="#mtoon-defined-properties-6">MToon Defined Properties</a></li>
+<li><a href="#uvanimationmasktexture">uvAnimationMaskTexture</a></li>
+<li><a href="#uvanimationscrollxspeedfactor">uvAnimationScrollXSpeedFactor</a></li>
+<li><a href="#uvanimationscrollyspeedfactor">uvAnimationScrollYSpeedFactor</a></li>
+<li><a href="#uvanimationrotationspeedfactor">uvAnimationRotationSpeedFactor</a></li>
+</ul>
+</li>
+<li><a href="#extension-compatibility-and-fallback-materials">Extension compatibility and fallback materials</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>카쿠 마우</li>
+<li>오부치 유타카</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Complete</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>glTF 2.0 사양을 바탕으로 작성되었습니다.</p>
+<h3 id="khr_materials_unlit"><code>KHR_materials_unlit</code>과의 상호작용</h3>
+<p><code>VRMC_materials_mtoon</code>과 함께 매테리얼에 <code>KHR_materials_unlit</code>이 설정되어 있는 경우, <code>VRMC_materials_mtoon</code>을 우선하여 해석하십시오.</p>
+<p>MToon 셰이더의 구현이 어려운 경우, <code>KHR_materials_unlit</code>으로 폴백하십시오.</p>
+<h2 id="overview">Overview</h2>
+<p>이 확장은 VRM을 위한 툰 셰이더 구현입니다.</p>
+<p>툰 셰이더적인 효과를 부여하면서 PBR의 씬 라이팅과 협조하는 것을 목적으로 합니다.
+일본의 손그림 애니메이션 표현에만 특화하지는 않습니다.</p>
+<p>이때 원래 툰 셰이더는 이미지 처리적인 접근을 필요로 하지만, 본 확장에서는 이를 피하고 근사 정의를 수행합니다.
+따라서 본 정의에서는 특정 렌더링 방식에 의존하는 정의를 포함합니다.</p>
+<h2 id="extending-materials">Extending Materials</h2>
+<p>매테리얼의 <code>extensions</code>에 정의합니다.</p>
+<pre><code class="language-json">{
+    &quot;materials&quot;: [
+        {
+            &quot;name&quot;: &quot;MyUnlitMaterial&quot;,
+            &quot;pbrMetallicRoughness&quot;: {
+                &quot;baseColorFactor&quot;: [ 0.5, 0.8, 0.0, 1.0 ]
+                // texture
+            },
+            // emission
+
+            &quot;extensions&quot;: {
+                &quot;VRMC_materials_mtoon&quot;: {
+                    &quot;specVersion&quot;: &quot;1.0&quot;,
+                    // ...
+                }
+            }
+        }
+    ]
+}
+</code></pre>
+<h2 id="definition">Definition</h2>
+<h3 id="types">Types</h3>
+<p>타입 정의 중 Color와 Texture는 glTF에 준하여 리니어 색 공간(Linear Colorspace)에 저장됩니다.</p>
+<h3 id="vertex-colors">Vertex Colors</h3>
+<p>MToon 매테리얼에 대해서는 버텍스 컬러를 무시합니다.</p>
+<h3 id="coordinates">Coordinates</h3>
+<p>UV 좌표계에 대해서</p>
+<h3 id="brdf">BRDF</h3>
+<h3 id="meta">Meta</h3>
+<p>MToon 자체의 메타 정보에 관한 정의를 설명합니다.</p>
+<h4 id="mtoon-defined-properties">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>타입</th>
+<th>설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>specVersion</td>
+<td><code>string</code></td>
+<td>이 확장의 버전 번호</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="specversion">specVersion</h4>
+<p>VRMC_materials_mtoon 확장의 버전 번호를 나타냅니다.
+값은 <code>"1.0"</code>입니다.</p>
+<ul>
+<li>타입: <code>string</code></li>
+<li>필수: Yes</li>
+</ul>
+<h3 id="rendering">Rendering</h3>
+<p>렌더링에 관한 MToon의 정의를 설명합니다.</p>
+<h4 id="render-mode">Render Mode</h4>
+<p>이 매테리얼이 어떤 알파 처리로 렌더링되는지 지정합니다.
+알파 값은 glTF 사양에서 정의된 <code>pbrMetallicRoughness.baseColorFactor</code> 및 <code>pbrMetallicRoughness.baseColorTexture</code>에 정의된 알파 값을 참조합니다.
+알파 값 처리는 glTF 사양에 정의된 <code>alphaMode</code> 및 <code>alphaCutoff</code>를 사용합니다.
+각 처리의 자세한 사항에 대해서는 glTF의 사양을 준수합니다.</p>
+<p>glTF에서 정의된 <code>alphaMode</code>에 더하여, 본 확장에서는 <code>transparentWithZWrite</code>라는 프로퍼티를 제공합니다.
+일반적으로 <code>alphaMode</code>가 <code>BLEND</code>인 경우 ZBuffer에 대한 쓰기를 권장하지 않지만,
+이 프로퍼티가 <code>true</code>인 경우 <code>alphaMode</code>가 <code>BLEND</code>일 때 ZBuffer에 쓰기를 권장합니다.</p>
+<blockquote>
+<p><code>transparentWithZWrite</code>의 구현이 어려운 경우, 일반적인 알파 블렌딩 처리로 폴백해 주십시오.</p>
+</blockquote>
+<h4 id="render-queue">Render Queue</h4>
+<p>이 매테리얼이 어떤 순서로 렌더링되어야 하는지를 지정합니다.
+MToon은 다음과 같은 순서로 렌더링될 것을 기대합니다.</p>
+<ol>
+<li><code>alphaMode</code>가 <code>OPAQUE</code></li>
+<li><code>alphaMode</code>가 <code>MASK</code></li>
+<li><code>alphaMode</code>가 <code>BLEND</code>이고 <code>transparentWithZWrite</code>가 <code>true</code></li>
+<li><code>alphaMode</code>가 <code>BLEND</code>이고 <code>transparentWithZWrite</code>가 <code>false</code></li>
+</ol>
+<p>툰 셰이더에서는 반투명 표현이 다용되므로 렌더링 순서로 인한 문제가 발생하기 쉽습니다.
+MToon에서는 이를 위해 <code>transparentWithZWrite</code>를 도입하였고, 나아가 렌더링 순서 제어 방식을 도입하였습니다.
+<code>renderQueueOffsetNumber</code>는 각각의 Render Mode의 기본 렌더링 순서에 대한 오프셋 값입니다.
+Unity에 있어서 매테리얼별 Render Queue 값에 오프셋으로 가산되는 동작을 기대합니다.
+<code>renderQueueOffsetNumber</code>는 <code>alphaMode</code>가 <code>BLEND</code>일 때 작용합니다.
+값이 클수록 렌더링 순서는 뒤로 미뤄집니다.
+값이 가질 수 있는 범위에 대해 다음 표에 나타냅니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Min Value</th>
+<th style="text-align: left;">Max Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>alphaMode</code>가 <code>OPAQUE</code></td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;"><code>0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alphaMode</code>가 <code>MASK</code></td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;"><code>0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alphaMode</code>가 <code>BLEND</code>이고 <code>transparentWithZWrite</code>가 <code>true</code></td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;"><code>+9</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>alphaMode</code>가 <code>BLEND</code>이고 <code>transparentWithZWrite</code>가 <code>false</code></td>
+<td style="text-align: left;"><code>-9</code></td>
+<td style="text-align: left;"><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>renderQueueOffsetNumber</code>가 어떤 값이 되든 상관없이, 앞서 언급한 Render Queue에 의한 렌더링 순서가 우선됩니다.</p>
+<p>MToon이 아닌 다른 glTF 모델 등과 함께 렌더링을 수행할 경우, 그들의 <code>renderQueueOffsetNumber</code>는 <code>0</code>으로 가정하여 렌더링 순서를 제어해 주십시오.</p>
+<p>Unity에서의 Render Queue에 상당하는 렌더링 순서 제어가 구현상 어렵다면, <code>renderQueueOffsetNumber</code>가 <code>0</code>이라고 간주해 주십시오.</p>
+<h4 id="mtoon-defined-properties_1">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>transparentWithZWrite</code></td>
+<td style="text-align: left;"><code>boolean</code></td>
+<td style="text-align: left;"><code>alphaMode</code>가 <code>BLEND</code>일 때, ZBuffer 쓰기를 수행할지 여부</td>
+<td style="text-align: left;">No, 초기값: <code>false</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>renderQueueOffsetNumber</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">렌더링 순서에 대한 오프셋 값</td>
+<td style="text-align: left;">No, 초기값: <code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="transparentwithzwrite">transparentWithZWrite</h4>
+<p><code>alphaMode</code>가 <code>BLEND</code>일 때, ZBuffer 쓰기를 수행할지를 지정합니다.</p>
+<ul>
+<li>타입: <code>boolean</code></li>
+<li>필수: No, 초기값: <code>false</code></li>
+</ul>
+<h4 id="renderqueueoffsetnumber">renderQueueOffsetNumber</h4>
+<p>앞서 설명한 Render Queue의 오프셋 값을 지정합니다.</p>
+<ul>
+<li>타입: <code>integer</code></li>
+<li>필수: No, 초기값: <code>0</code></li>
+</ul>
+<h4 id="double-sided">Double Sided</h4>
+<p>양면 폴리곤은 glTF 코어 사양의 매테리얼 정의에 포함된 <code>doubleSided</code>를 사용하는 Double Sided의 정의에 준합니다.</p>
+<p>단, 본 확장이 정의하는 윤곽선(<a href="#Outline">Outline</a> 참조) 렌더링은 <code>doubleSided</code> 상태와 관계없이 항상 front-face culling이 활성화됩니다.</p>
+<h3 id="lighting">Lighting</h3>
+<p>라이팅에 관한 정의를 설명합니다.</p>
+<h4 id="lighting-model">Lighting Model</h4>
+<p>MToon은 Lambert 반사 모델을 확장합니다.
+일반적인 Lambert 반사 모델과 마찬가지로, 표면의 노멀(법선)과 라이트 벡터에 의해 음영이 처리되지만, 다음과 같은 특징을 가짐으로써 툰 표현을 가능하게 합니다:</p>
+<ul>
+<li>일반적인 베이스 컬러와 별개로, 그림자 색(Shade Color)을 지정할 수 있습니다.</li>
+<li>음영의 경계 위치 및 넓이(블러 정도)를 조정할 수 있습니다.</li>
+</ul>
+<h4 id="lit-color">Lit Color</h4>
+<p>베이스 컬러는 glTF 코어 사양의 매테리얼 정의에 포함된 <code>pbrMetallicRoughness.baseColorFactor</code> 및 <code>pbrMetallicRoughness.baseColorTexture</code>를 사용합니다.</p>
+<h4 id="shade-color">Shade Color</h4>
+<p>MToon에서는 베이스 컬러와는 별개로 그림자 색을 지정할 수 있습니다.</p>
+<p>일반적인 Lambert 반사 모델의 경우, 빛을 받지 않는 음영 면은 검게 렌더링되지만, MToon에서는 베이스 컬러와 그림자 색이 선형 보간되는 동작을 합니다.
+또한, 베이스 컬러가 텍스처에 의해 곱해지는 것과 마찬가지로, 그림자 색에 대해서도 그림자 전용 텍스처를 별도로 지정할 수 있으며, 텍스처 색이 그림자 색에 곱해집니다.</p>
+<p>그림자 색은 MToon 확장으로 정의되는 <code>shadeColorFactor</code> 및 <code>shadeMultiplyTexture</code>를 사용합니다.</p>
+<p><img src="figures/mtoon-lit-shade.png" width="67%"></p>
+<h4 id="surface-normal">Surface Normal</h4>
+<p>노멀 맵을 사용할 수 있습니다. glTF 코어 사양의 매테리얼 정의에 포함된 <code>normalTexture</code>를 사용합니다.</p>
+<h4 id="shading-shift">Shading Shift</h4>
+<p>MToon에서는 표면의 노멀과 라이트 벡터의 내적에 따라 베이스 컬러와 그림자 색을 선형 보간하지만, 이 베이스 컬러와 그림자 색의 경계 위치 및 넓이(블러 정도)를 조정할 수 있습니다.</p>
+<p>셰이딩 경계의 위치는 MToon 확장으로 정의되는 <code>shadingShiftFactor</code> 및 <code>shadingShiftTexture</code>를 사용합니다.
+셰이딩 경계의 넓이(블러 정도)는 MToon 확장으로 정의되는 <code>shadingToonyFactor</code>를 사용합니다.</p>
+<p><code>shadingShiftTexture</code>는 <code>shadingShiftFactor</code>로 설정되는 셰이딩 경계의 위치를 조정합니다.
+이 텍스처에 의해 부분적으로 빛이 닿는 방식을 조정할 수 있습니다.
+<code>shadingShiftTexture</code>는 <code>shadingShiftFactor</code>와 덧셈으로 처리됩니다.
+또한, <code>shadingShiftTexture.scale</code>을 사용하여 이 텍스처가 셰이딩 경계에 어느 정도 기여할지를 제어할 수 있습니다.</p>
+<p><img src="figures/mtoon-shading-ramp.png" width="67%"></p>
+<h4 id="implementation">Implementation</h4>
+<p>다음은 의사 코드로 나타낸 라이팅 처리 구현 예입니다:</p>
+<pre><code>function linearstep( a: Number, b: Number, t: Number ): Number
+  return saturate( ( t - a ) / ( b - a ) )
+end function
+
+let shading: Number = dot( N, L )
+shading = shading + shadingShiftFactor
+shading = shading + texture( shadingShiftTexture, uv ) * shadingShiftTexture.scale
+shading = linearstep( -1.0 + shadingToonyFactor, 1.0 - shadingToonyFactor, shading )
+
+let baseColorTerm: ColorRGB = baseColorFactor.rgb * texture( baseColorTexture, uv ).rgb
+let shadeColorTerm: ColorRGB = shadeColorFactor.rgb * texture( shadeMultiplyTexture, uv ).rgb
+
+let color: ColorRGB = lerp( shadeColorTerm, baseColorTerm, shading )
+color = color * lightColor
+</code></pre>
+<h4 id="mtoon-defined-properties_2">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">shadeColorFactor</td>
+<td style="text-align: left;"><code>number[3]</code></td>
+<td style="text-align: left;">Shade 색</td>
+<td style="text-align: left;">No, Default: <code>[0, 0, 0]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">shadeMultiplyTexture</td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">Shade 색의 곱셈 텍스처</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">shadingShiftFactor</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">셰이딩 경계를 시프트(shift)하는 값</td>
+<td style="text-align: left;">No, Default: <code>0.0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">shadingShiftTexture</td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">셰이딩 경계를 시프트하는 텍스처</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">shadingToonyFactor</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">셰이딩 경계의 평활도(블러)를 지정하는 값</td>
+<td style="text-align: left;">No, Default: <code>0.9</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="shadecolorfactor">shadeColorFactor</h4>
+<p>그림자 색을 지정합니다.
+값은 리니어 색 공간에서 평가됩니다.</p>
+<ul>
+<li>타입: <code>number[3]</code></li>
+<li>필수: No, 초기값: <code>[0, 0, 0]</code></li>
+</ul>
+<h4 id="shademultiplytexture">shadeMultiplyTexture</h4>
+<p>그림자 색에 곱해지는 텍스처를 지정합니다.</p>
+<p>텍스처의 값은 sRGB 전달 함수로 인코딩되어 있습니다.
+할당된 텍스처의 RGB 컴포넌트를 참조하여 리니어 색 공간으로 변환해 평가됩니다.
+정의되지 않은 경우 RGB의 각 값은 <code>1.0</code>으로 평가되어야 합니다.</p>
+<p><code>shadeColorFactor</code>로 설정된 값에 대해 곱해집니다.</p>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="shadingshiftfactor">shadingShiftFactor</h4>
+<p>셰이딩 경계를 시프트하는 값을 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Shading%20Shift">Shading Shift</a>를 참조하십시오.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.0</code></li>
+</ul>
+<h4 id="shadingshifttexture">shadingShiftTexture</h4>
+<p>셰이딩 경계를 시프트하는 텍스처를 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Shading%20Shift">Shading Shift</a>를 참조하십시오.</p>
+<p>텍스처의 값은 리니어 색 공간입니다.
+할당된 텍스처의 R 컴포넌트를 참조하여 리니어 색 공간에서 평가됩니다.
+정의되지 않은 경우 R 컴포넌트의 값은 <code>0.0</code>으로 평가되어야 합니다.</p>
+<blockquote>
+<p>할당된 텍스처의 R 컴포넌트를 참조하기 때문에 흑백 마스크 텍스처를 사용할 수도 있고, 채널마다 다른 마스크를 가진 RGB 텍스처를 이용할 수도 있습니다.
+<code>outlineWidthMultiplyTexture</code> (G 채널 사용) 및 <code>uvAnimationMaskTexture</code> (B 채널 사용)와 조합할 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="shadingtoonyfactor">shadingToonyFactor</h4>
+<p>셰이딩 경계의 넓이(블러 정도)를 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Shading%20Shift">Shading Shift</a>를 참조하십시오.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.9</code></li>
+</ul>
+<h3 id="shadingshifttextureinfo">shadingShiftTextureInfo</h3>
+<p><code>shadingShiftTexture</code>에서 텍스처를 지정하는 오브젝트입니다.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">index</td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">텍스처의 index</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">texCoord</td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">텍스처 맵핑에 사용하는 TEXCOORD</td>
+<td style="text-align: left;">No, 초기값: <code>0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">scale</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">텍스처의 셰이딩 경계 기여도를 지정하는 값</td>
+<td style="text-align: left;">No, 초기값: <code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="shadingshifttextureinfoindex">shadingShiftTextureInfo.index ✅</h4>
+<p>텍스처의 index를 지정합니다.</p>
+<ul>
+<li>타입: <code>integer</code></li>
+<li>필수: Yes</li>
+<li>최소값: <code>&gt;= 0</code></li>
+</ul>
+<h4 id="shadingshifttextureinfotexcoord">shadingShiftTextureInfo.texCoord</h4>
+<p>텍스처 맵핑을 수행할 때 참조할 TEXCOORD를 지정합니다.</p>
+<ul>
+<li>타입: <code>integer</code></li>
+<li>필수: No, 초기값: <code>0</code></li>
+<li>최소값: <code>&gt;= 0</code></li>
+</ul>
+<h4 id="shadingshifttextureinfoscale">shadingShiftTextureInfo.scale</h4>
+<p>텍스처가 셰이딩 경계에 기여하는 정도를 지정합니다.
+이 값은 리니어 값입니다.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>1.0</code></li>
+</ul>
+<h3 id="global-illumination">Global Illumination</h3>
+<p>IBL (Image-based Lighting)이나 SH (Spherical Harmonics) Lighting 같은 특정 위치나 방향에 의존하지 않는, 이른바 전역 조명(Global Illumination)에 대한 동작 정의를 설명합니다.</p>
+<p>일반적으로 툰 셰이더에서는 그려진 음영을 보고 지오메트리의 요철을 상세히 읽어낼 수 있는 표현은 바람직하지 않습니다.
+그래서 본 확장에서는 Shading Toony와 Shading Shift 파라미터를 도입했습니다.
+이러한 파라미터는 지오메트리의 요철, 즉 노멀 방향과 광원 입사 방향의 변화에 대해 음영이 크게 변하지 않도록 제어할 수 있습니다.</p>
+<p>그러나 IBL이나 SH Lighting과 같은 전역 조명에서는 이러한 파라미터만으로는 불충분합니다.
+전역 조명은 방향이 변하면 방사 휘도(radiance)도 크게 변하기 때문입니다.</p>
+<p>따라서 본 확장에서는 GI Equalization Factor 파라미터를 도입합니다.
+GI Equalization Factor는 지오메트리의 노멀에 의존하지 않고 지오메트리가 받는 전역 조명을 일정하게 유지할 수 있습니다.
+그 결과 렌더링되는 음영이 약해져서 지오메트리의 요철을 읽기 어려운 표현을 만들 수 있습니다.
+구체적으로는 전역 조명을 방향에 대해 평활화함으로써 실현합니다.</p>
+<p>GI Equalization Factor는 MToon 확장으로 정의되는 <code>giEqualizationFactor</code>를 사용합니다.</p>
+<p>상세한 계산 정의는 아래와 같습니다.</p>
+<p>먼저 임의의 지오메트리 노멀 벡터를 <code>n</code>이라고 합니다.
+또한 임의의 방향 벡터 <code>x</code>에 대응하는 렌더링 시스템의 전역 조명을 구하는 함수를 <code>rawGi(x)</code>로 둡니다.
+그리고 균일화된 전역 조명 <code>uniformedGi</code>를 정의합니다.
+<code>uniformedGi</code>는 이상적으로는 모든 방향에 대해 적분하여 평균값을 계산하는 것이 요구됩니다.
+하지만 실시간 렌더링에서는 부하가 높기 때문에 각 구현 환경에 맞춰 근사 구현을 수행해 주십시오.
+예를 들어 Spherical Harmonics의 저차항만 다루는 구현 등을 들 수 있습니다.
+단, Spherical Harmonics의 저차항만 사용하는 경우 강한 평행 광원(예: 태양광) 하에서 근사가 제대로 안 될 수 있습니다.
+그래서 여기서는 2점 샘플링의 평균을 근사 구현 예시로 제시합니다.</p>
+<p><code>uniformedGi = (rawGi([0, 1, 0]) + rawGi([0, -1, 0])) / 2</code></p>
+<p>이때, 임의의 지오메트리 노멀 벡터 <code>n</code>에 대응하는 전역 조명 <code>gi(n)</code>은 다음과 같이 계산합니다.</p>
+<p><code>gi(n) = lerp(rawGi(n), uniformedGi, giEqualization)</code></p>
+<p>그리고 Lit Color를 Diffuse로 간주하여 다음과 같은 라이팅 계산을 합니다.</p>
+<p><code>giLighting = gi(n) * litColor</code></p>
+<h4 id="implementation_1">Implementation</h4>
+<p>아래는 의사 코드로 나타낸 전역 조명 처리의 구현 예입니다:</p>
+<pre><code>let giEqualizationFactor: number
+
+let worldUpVector: Vector3 = Vector3(0, +1, 0)
+let worldDownVector: Vector3 = Vector3(0, -1, 0)
+
+let uniformedGi: ColorRGB = (rawGi(worldUpVector) + rawGi(worldDownVector)) / 2.0
+let passthroughGi: ColorRGB = rawGi(normal)
+
+let gi: ColorRGB = lerp(passthroughGi, uniformedGi, giEqualizationFactor)
+
+-- color 에는 라이팅 결과가 포함되어 있다고 가정합니다.
+color = color + gi * litColor
+</code></pre>
+<h4 id="mtoon-defined-properties_3">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">giEqualizationFactor</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">전역 조명의 균일화 계수</td>
+<td style="text-align: left;">No, Default: <code>0.9</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="giequalizationfactor">giEqualizationFactor</h4>
+<p>전역 조명(Global Illumination)에서의 균일화 정도를 정의합니다.
+<code>0</code>일 때 전역 조명은 그대로의 값으로 평가됩니다.
+<code>1</code>에 가까워질수록 전역 조명은 방향에 대한 평활화가 강해져 균일화된 값으로 평가됩니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Global%20Illumination">Global Illumination</a>을 참조하십시오.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.9</code></li>
+</ul>
+<h3 id="emission">Emission</h3>
+<p>이미션(Emission)을 이용할 수 있습니다.
+glTF 코어 사양의 매테리얼 정의에 포함된 <code>emissiveFactor</code> 및 <code>emissiveTexture</code>를 사용합니다.</p>
+<h3 id="rim-lighting">Rim Lighting</h3>
+<p>림 라이팅(Rim Lighting)에 관한 정의를 설명합니다.</p>
+<h4 id="matcap">MatCap</h4>
+<p>MatCap은 View Normal Vector를 기반으로 텍스처를 맵핑하는 기법입니다.
+주로 사전에 라이팅을 구워두는(Bake) 용도로 널리 사용됩니다.
+MatCap은 라이팅 결과에 가산됩니다.</p>
+<p>텍스처는 MToon 확장으로 정의되는 <code>matcapTexture</code>에 저장됩니다.
+또한 <code>matcapFactor</code>에 의해 값이 곱해집니다.</p>
+<h4 id="parametric-rim-lighting">Parametric Rim Lighting</h4>
+<p>파라메트릭 림 라이트는 View Normal Vector를 바탕으로 오브젝트의 가장자리에 유사 림 라이트 효과를 부여하는 기법입니다.
+파라메트릭 림 라이트는 라이팅 결과에 가산됩니다.</p>
+<p>MToon 확장으로 정의된 <code>parametricRimColorFactor</code>라는 값으로 파라메트릭 림 라이트의 색을 제어할 수 있습니다.</p>
+<p>또한, MToon 확장으로 정의된 <code>parametricRimFresnelPowerFactor</code>・<code>parametricRimLiftFactor</code>라는 값으로 파라메트릭 림 라이트의 모양을 제어할 수 있습니다.
+모양은 <code>pow( saturate( 1.0 - dot( N, V ) + parametricRimLiftFactor ), parametricRimFresnelPowerFactor )</code>라는 수식으로 구합니다.</p>
+<blockquote>
+<p><code>parametricRimFresnelPowerFactor</code>가 0일 때 수식 평가가 NaN이 될 수 있습니다.
+환경에 따라 이 동작을 피할 필요가 있습니다.
+구현 예: <code>parametricRimFresnelPowerFactor = max(parametricRimFresnelPowerFactor, epsilon)</code></p>
+</blockquote>
+<h4 id="rim-multiply-texture">Rim Multiply Texture</h4>
+<p>특정 위치에만 림 라이팅을 켜고 끄는 등의 제어를 텍스처를 사용하여 수행할 수 있습니다.
+UV 맵핑된 텍스처 값이 림 라이트 색상에 곱해집니다.</p>
+<p>텍스처는 MToon 확장으로 정의되는 <code>rimMultiplyTexture</code>에 저장됩니다.</p>
+<h4 id="rim-lighting-mix">Rim Lighting Mix</h4>
+<p>림 라이팅이 주변 광원으로부터 어느 정도의 영향을 받을지를 제어할 수 있습니다.
+전혀 영향을 받지 않을 경우 이미션처럼 자체 발광하는 림 라이트가 됩니다.
+영향을 받을 경우 광원의 영향이 림 라이트 색상에 곱해집니다.</p>
+<p>MToon 확장으로 정의되는 <code>rimLightingMixFactor</code>에 설정한 값에 따라 광원의 영향도가 선형적으로 변화합니다.</p>
+<h4 id="implementation_2">Implementation</h4>
+<p>다음은 의사 코드로 나타낸 림 라이팅 처리 구현 예입니다:</p>
+<pre><code>let rim: ColorRGB
+
+let worldViewX: Vector3 = normalize( Vector3( V.z, 0.0, -V.x ) )
+let worldViewY: Vector3 = cross( V, worldViewX )
+
+let matcapUv: Vector2 = Vector2( dot( worldViewX, N ), dot( worldViewY, N ) ) * 0.495 + 0.5
+
+let epsilon: Number = 0.00001;
+
+rim = matcapFactor * texture( matcapTexture, matcapUv ).rgb
+
+let parametricRim: Number = saturate( 1.0 - dot( N, V ) + parametricRimLiftFactor )
+parametricRim = pow( parametricRim, max( parametricRimFresnelPowerFactor, epsilon ) )
+
+rim = rim + parametricRim * parametricRimColorFactor
+
+rim = rim * texture( rimMultiplyTexture, uv ).rgb
+
+rim = rim * lerp( ColorRGB( 1.0, 1.0, 1.0 ), lighting, rimLightingMixFactor )
+
+-- color 에는 라이팅 결과가 포함되어 있다고 가정합니다.
+color = color + rim
+</code></pre>
+<h4 id="mtoon-defined-properties_4">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">matcapFactor</td>
+<td style="text-align: left;"><code>number[3]</code></td>
+<td style="text-align: left;">MatCap 텍스처에 곱해지는 색</td>
+<td style="text-align: left;">No, 초기값: <code>[1, 1, 1]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">matcapTexture</td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">MatCap 텍스처</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">parametricRimColorFactor</td>
+<td style="text-align: left;"><code>number[3]</code></td>
+<td style="text-align: left;">파라메트릭 림 라이트의 색</td>
+<td style="text-align: left;">No, 초기값: <code>[0, 0, 0]</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">parametricRimFresnelPowerFactor</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">파라메트릭 림 라이트의 프레넬 계수</td>
+<td style="text-align: left;">No, 초기값: <code>5.0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">parametricRimLiftFactor</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">파라메트릭 림 라이트의 덧셈 항</td>
+<td style="text-align: left;">No, 초기값: <code>0.0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">rimMultiplyTexture</td>
+<td style="text-align: left;"><code>object</code></td>
+<td style="text-align: left;">림 라이팅에 대해 곱해지는 텍스처</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;">rimLightingMixFactor</td>
+<td style="text-align: left;"><code>number</code></td>
+<td style="text-align: left;">림 라이팅이 광원으로부터 받는 영향의 비율</td>
+<td style="text-align: left;">No, 초기값: <code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="matcapfactor">matcapFactor</h4>
+<p>MatCap 텍스처에 곱할 색을 지정합니다.
+값은 리니어 색 공간에서 평가됩니다.</p>
+<ul>
+<li>타입: <code>number[3]</code></li>
+<li>필수: No, 초기값: <code>[1, 1, 1]</code></li>
+</ul>
+<h4 id="matcaptexture">matcapTexture</h4>
+<p>MatCap 텍스처를 지정합니다.</p>
+<p>텍스처의 값은 sRGB 전달 함수로 인코딩되어 있습니다.
+할당된 텍스처의 RGB 컴포넌트를 참조하여 리니어 색 공간으로 변환해 평가됩니다.
+정의되지 않은 경우 RGB의 각 값은 <code>0.0</code>으로 평가되어야 합니다.</p>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="parametricrimcolorfactor">parametricRimColorFactor</h4>
+<p>파라메트릭 림 라이트의 색을 지정합니다.
+값은 리니어 색 공간에서 평가됩니다.</p>
+<ul>
+<li>타입: <code>number[3]</code></li>
+<li>필수: No, 초기값: <code>[0, 0, 0]</code></li>
+</ul>
+<h4 id="parametricrimfresnelpowerfactor">parametricRimFresnelPowerFactor</h4>
+<p>파라메트릭 림 라이트의 프레넬 항을 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Parametric%20Rim%20Lighting">Parametric Rim Lighting</a>을 참조하십시오.</p>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No, 초기값: <code>5.0</code></li>
+</ul>
+<h4 id="parametricrimliftfactor">parametricRimLiftFactor</h4>
+<p>파라메트릭 림 라이트의 가산 항을 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Parametric%20Rim%20Lighting">Parametric Rim Lighting</a>을 참조하십시오.</p>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No, 초기값: <code>0.0</code></li>
+</ul>
+<h4 id="rimmultiplytexture">rimMultiplyTexture</h4>
+<p>림 라이팅에 곱할 텍스처를 지정합니다.</p>
+<p>텍스처의 값은 sRGB 전달 함수로 인코딩되어 있습니다.
+할당된 텍스처의 RGB 컴포넌트를 참조하여 리니어 색 공간으로 변환해 평가됩니다.
+정의되지 않은 경우 RGB의 각 값은 <code>1.0</code>으로 평가되어야 합니다.</p>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="rimlightingmixfactor">rimLightingMixFactor</h4>
+<p>림 라이팅이 주변 광원으로부터 어느 정도 영향을 받을지를 설정합니다.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>1.0</code></li>
+</ul>
+<h3 id="outline">Outline</h3>
+<p>윤곽선 렌더링에 관한 정의를 설명합니다.</p>
+<p>윤곽선은 툰 셰이더에서 중요한 요소 중 하나입니다.</p>
+<h4 id="outline-width">Outline Width</h4>
+<p>아웃라인의 두께는 MToon 확장으로 정의되는 <code>outlineWidthMode</code>・<code>outlineWidthFactor</code>・<code>outlineWidthTexture</code> 값에 따라 계산됩니다.</p>
+<p><code>outlineWidthMode</code>가 <code>"none"</code>인 경우 윤곽선은 표시되지 않습니다.
+<code>outlineWidthMode</code>가 <code>"worldCoordinates"</code>인 경우 윤곽선 두께는 월드 좌표계의 거리에 따라 결정됩니다.
+<code>outlineWidthMode</code>가 <code>"screenCoordinates"</code>인 경우 윤곽선 두께는 스크린 좌표계에 의존해 결정되며 거리에 관계없이 항상 일정한 두께가 됩니다.</p>
+<p><code>outlineWidthFactor</code>의 단위는 <code>outlineWidthMode</code>가 <code>"worldCoordinates"</code>일 경우 미터, <code>"screenCoordinates"</code>일 경우 화면의 세로 너비에 대한 비율로 합니다.</p>
+<p>또한, 텍스처 <code>outlineWidthTexture</code>를 사용하여 아웃라인 두께를 부분마다 조정할 수 있습니다.
+UV 맵핑된 텍스처 값이 아웃라인 두께에 곱해집니다.
+특정 부분에만 아웃라인을 표시하고 싶지 않은 경우 텍스처를 마스크처럼 사용하는 방식을 상정하고 있습니다.</p>
+<blockquote>
+<p>기본적으로는 모델러가 <code>outlineWidthMode</code> 및 <code>outlineWidthFactor</code>에 설정된 두께로 윤곽선을 렌더링하는 것을 권장합니다만,
+애플리케이션에 따라서는 모델과 카메라가 충분히 가까운 경우에만 지정된 두께로 렌더링하고, 모델과 카메라가 멀어지면 윤곽선을 얇게 하는 동작을 실현하고 싶은 경우도 있을 수 있습니다(VRM 0버전 계열에서의 <code>OutlineScaledMaxDistance</code> 동작).
+실제 윤곽선의 두께는 애플리케이션의 요구에 따라 설정해 주십시오.</p>
+</blockquote>
+<h4 id="outline-lighting-mix">Outline Lighting Mix</h4>
+<p>윤곽선의 색에 표면 셰이딩 결과의 영향을 줄 수 있습니다.
+앞서 설명한 <a href="#lighting">Lighting</a>・<a href="#global-illumination">Global Illumination</a>・<a href="#emission">Emission</a>・<a href="#rim-lighting">Rim Lighting</a>의 계산 결과가 아웃라인 색에 곱해집니다.
+MToon 확장으로 정의되는 <code>outlineLightingMixFactor</code> 값에 따라 셰이딩 결과를 전혀 받지 않는 상태와 완전히 받는 상태가 선형으로 변화합니다.</p>
+<h4 id="implementation_3">Implementation</h4>
+<p>래스터라이징 기반의 렌더링 파이프라인에서 윤곽선은 일반적으로 면(Surface)과는 별도의 렌더링 패스로 렌더링됩니다.
+MToon의 윤곽선은 스키닝 후의 버텍스 정보를 바탕으로 계산됩니다.
+이 버텍스 정보에는 이동 후의 위치, 회전 후의 노멀이 포함됩니다.</p>
+<blockquote>
+<p>mesh를 다중 패스로 렌더링하는 것이 어려운 환경 혹은 그 부하가 높은 환경에서는 윤곽선 렌더링을 생략하는 폴백을 수행하십시오.</p>
+</blockquote>
+<h4 id="mtoon-defined-properties_5">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>타입</th>
+<th>설명</th>
+<th>필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>outlineWidthMode</td>
+<td><code>string</code></td>
+<td>윤곽선 렌더링 모드</td>
+<td>No, 초기값: <code>"none"</code></td>
+</tr>
+<tr>
+<td>outlineWidthFactor</td>
+<td><code>number</code></td>
+<td>윤곽선 두께</td>
+<td>No, 초기값: <code>0.0</code></td>
+</tr>
+<tr>
+<td>outlineWidthMultiplyTexture</td>
+<td><code>object</code></td>
+<td>윤곽선 두께 지정 텍스처</td>
+<td>No</td>
+</tr>
+<tr>
+<td>outlineColorFactor</td>
+<td><code>number[3]</code></td>
+<td>윤곽선 색</td>
+<td>No, 초기값: <code>[0, 0, 0]</code></td>
+</tr>
+<tr>
+<td>outlineLightingMixFactor</td>
+<td><code>float</code></td>
+<td>윤곽선 색에 표면의 셰이딩 결과를 곱하는 비율</td>
+<td>No, 초기값: <code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="outlinewidthmode">outlineWidthMode</h4>
+<p>윤곽선의 두께를 어떻게 결정할지를 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Outline%20Width">Outline Width</a>를 참조하십시오.</p>
+<ul>
+<li>타입: <code>string</code></li>
+<li>필수: No, 초기값: <code>"none"</code></li>
+<li>허용된 값:</li>
+<li><code>"none"</code></li>
+<li><code>"worldCoordinates"</code></li>
+<li><code>"screenCoordinates"</code></li>
+</ul>
+<h4 id="outlinewidthfactor">outlineWidthFactor</h4>
+<p>윤곽선의 두께를 지정합니다.</p>
+<p>구체적인 계산 방법에 대해서는 상단의 <a href="#Outline%20Width">Outline Width</a>를 참조하십시오.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.0</code></li>
+</ul>
+<h4 id="outlinewidthmultiplytexture">outlineWidthMultiplyTexture</h4>
+<p>윤곽선의 두께를 조정하는 텍스처입니다.</p>
+<p>텍스처의 값은 리니어 색 공간입니다.
+할당된 텍스처의 G 컴포넌트를 참조하여 리니어 색 공간에서 평가됩니다.
+정의되지 않은 경우 G 컴포넌트의 값은 <code>1.0</code>으로 평가되어야 합니다.</p>
+<blockquote>
+<p>할당된 텍스처의 G 컴포넌트를 참조하기 때문에 흑백 마스크 텍스처를 사용할 수도 있고, 채널마다 다른 마스크를 가진 RGB 텍스처를 이용할 수도 있습니다.
+<code>shadingShiftTexture</code> (R 채널 사용) 및 <code>uvAnimationMaskTexture</code> (B 채널 사용)와 조합할 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="outlinecolorfactor">outlineColorFactor</h4>
+<p>윤곽선의 색을 지정합니다.
+값은 리니어 색 공간에서 평가됩니다.</p>
+<ul>
+<li>타입: <code>number[3]</code></li>
+<li>필수: No, 초기값: <code>[0, 0, 0]</code></li>
+</ul>
+<h4 id="outlinelightingmixfactor">outlineLightingMixFactor</h4>
+<p>윤곽선 색상에 표면의 셰이딩 결과를 곱할 비율을 지정합니다.
+이 값을 <code>0.0</code>으로 하면 윤곽선은 라이팅에 상관없이 항상 <code>outlineColorFactor</code>에서 지정한 색으로 렌더링됩니다.
+윤곽선 색상에 라이팅의 영향을 주고자 할 경우 이 값을 <code>1.0</code>으로 합니다.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>1.0</code></li>
+</ul>
+<h3 id="uv-animation">UV Animation</h3>
+<p>UV 애니메이션 기능을 사용하여 MToon에서 사용하는 텍스처를 애니메이션화 할 수 있습니다.
+애니메이션은 제어 가능한 것이 아닌 자동적・지속적인 것입니다.</p>
+<p>UV 애니메이션에 의한 좌표 변환 시에 UV의 각 요소가 가질 수 있는 값의 범위를 clamp나 repeat 등으로 [0.0 - 1.0] 사이로 만드는 작업은 수행하지 않습니다. 텍스처의 <code>wrapS</code> 및 <code>wrapT</code>가 <code>REPEAT</code> 및 <code>MIRRORED_REPEAT</code>로 설정되어 있는 것을 상정한 사양입니다.</p>
+<p>UV 애니메이션이 작용하는 텍스처는 MToon에서 정의한 텍스처 중 다음 항목입니다:</p>
+<ul>
+<li><code>shadeMultiplyTexture</code></li>
+<li><code>shadingToonyMultiplyTexture</code></li>
+<li><code>rimMultiplyTexture</code></li>
+<li><code>outlineWidthMultiplyTexture</code></li>
+</ul>
+<p>또한 glTF의 코어 사양에서 정의되는 다음 텍스처에 대해서도 작용합니다:</p>
+<ul>
+<li><code>pbrMetallicRoughness.baseColorTexture</code></li>
+<li><code>emissiveTexture</code></li>
+<li><code>normalTexture</code></li>
+</ul>
+<blockquote>
+<p>View Normal Vector를 바탕으로 계산되는 <code>matcapTexture</code> 텍스처에 대해서는 본 확장의 UV 애니메이션 대상에서 제외됩니다.</p>
+<p>Implementation Note: 본 확장 및 코어 사양 외에서 정의되는 텍스처에 대해서는 특별히 규정하지 않습니다. 필요에 따라 각 구현체별로 대응해 주십시오.</p>
+</blockquote>
+<h4 id="uv-scroll">UV Scroll</h4>
+<p>UV 스크롤 속도를 <code>uvAnimationScrollXSpeedFactor</code> 및 <code>uvAnimationScrollYSpeedFactor</code>로 지정합니다.</p>
+<p>단위는 UV 좌표계 단위(초당)이며, <code>1.0</code>일 경우 1초마다 UV가 1스크롤 합니다.
+스크롤 방향은 설정값이 양수인 경우 UV가 양의 방향으로 단조 증가하는 방향입니다.</p>
+<h4 id="uv-rotation">UV Rotation</h4>
+<p>UV 애니메이션의 회전 속도를 <code>uvAnimationRotationSpeedFactor</code>로 지정합니다.</p>
+<p>단위는 라디안 단위(초당)이며, <code>1.0</code>일 경우 2π초마다 UV가 1회전 합니다.
+UV 좌표계의 (0.5, 0.5)를 중심으로 회전합니다.
+회전 방향은 U-right, V-down인 UV 좌표를 반시계 방향으로 회전시키는 방향입니다.</p>
+<blockquote>
+<p>회전 방향은 <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a>과 같은 방향이 됩니다.
+샘플 모델인「<a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/">VRMC_materials_mtoon UV Animation Test</a>」도 참조해 주십시오.</p>
+</blockquote>
+<h4 id="transform-order">Transform Order</h4>
+<p>UV 애니메이션 적용 순서를 동차 좌표 벡터(homogeneous coordinate vector)를 이용해 행렬로 표시합니다.</p>
+<p><code>uvAnimationScrollXSpeedFactor</code>에 의한 X 방향의 스크롤을 ${\rm scrollX}$,
+<code>uvAnimationScrollYSpeedFactor</code>에 의한 Y 방향의 스크롤을 ${\rm scrollY}$,
+<code>uvAnimationRotationSpeedFactor</code>에 의한 회전 애니메이션을 ${\rm rotation}$이라고 할 때,</p>
+<pre><code class="language-math">\begin{pmatrix} {\rm uv}'.x \\ {\rm uv}'.y \\ 1 \end{pmatrix}
+= \begin{bmatrix} 1 &amp; 0 &amp; {\rm scrollX} \\ 0 &amp; 1 &amp; {\rm scrollY} \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} 1 &amp; 0 &amp; 0.5 \\ 0 &amp; 1 &amp; 0.5 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} \cos({\rm rotation}) &amp; \sin({\rm rotation}) &amp; 0 \\ -\sin({\rm rotation}) &amp; \cos({\rm rotation}) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{bmatrix} 1 &amp; 0 &amp; -0.5 \\ 0 &amp; 1 &amp; -0.5 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+\begin{pmatrix} {\rm uv}.x \\ {\rm uv}.y \\ 1 \end{pmatrix}
+</code></pre>
+<p>이 됩니다.</p>
+<blockquote>
+<p>평행 이동・회전이 둘 다 설정된 텍스처에서 애니메이션의 속도가 시간이 지남에 따라 가속되지 않는 것이 올바른 동작입니다.</p>
+</blockquote>
+<h4 id="uv-animation-mask-texture">UV Animation Mask Texture</h4>
+<p>UV 애니메이션 마스크 텍스처를 <code>uvAnimationMaskTexture</code>로 지정합니다.</p>
+<p>텍스처 값이 <code>uvAnimationScrollXSpeedFactor</code>・<code>uvAnimationScrollYSpeedFactor</code>・<code>uvAnimationRotationSpeedFactor</code>에서 설정한 수치에 곱해집니다.
+마스크 텍스처가 할당되지 않은 경우, 각 수치에서 설정한 값이 그대로 적용됩니다.</p>
+<h4 id="implementation_4">Implementation</h4>
+<p>다음은 의사 코드로 나타낸 셰이더에서의 구현 예입니다:</p>
+<pre><code>// 행렬이 column-major로 정의되어 있음에 유의하십시오.
+let rotationCos: float = cos( rotation * uvAnimMask );
+let rotationSin: float = sin( rotation * uvAnimMask );
+uv = mat2(
+  rotationCos, -rotationSin,
+  rotationSin, rotationCos
+) * ( uv - 0.5 ) + 0.5;
+
+uv = uv + vec2( scrollX, scrollY ) * uvAnimMask;
+</code></pre>
+<h4 id="compatibility-with-khr_texture_transform">Compatibility with KHR_texture_transform</h4>
+<p><code>KHR_texture_transform</code> 확장을 사용하고 있는 경우, UV 애니메이션에 의한 텍스처의 좌표 변환은 <code>KHR_texture_transform</code>에 의한 좌표 변환보다 먼저 실행됩니다.</p>
+<blockquote>
+<p><code>KHR_texture_transform</code>을 병용하는 경우에도 UV 애니메이션에 의한 좌표 변환 시, UV의 각 요소가 가질 수 있는 값의 범위를 clamp나 repeat 등으로 [0.0 - 1.0] 사이로 만드는 작업은 수행하지 않습니다.</p>
+</blockquote>
+<h4 id="mtoon-defined-properties_6">MToon Defined Properties</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>타입</th>
+<th>설명</th>
+<th>필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uvAnimationMaskTexture</td>
+<td><code>object</code></td>
+<td>UV 애니메이션을 수행할 범위를 지정하는 텍스처</td>
+<td>No</td>
+</tr>
+<tr>
+<td>uvAnimationScrollXSpeedFactor</td>
+<td><code>number</code></td>
+<td>UV 애니메이션의 X 방향 이동 속도</td>
+<td>No, 초기값: <code>0.0</code></td>
+</tr>
+<tr>
+<td>uvAnimationScrollYSpeedFactor</td>
+<td><code>number</code></td>
+<td>UV 애니메이션의 Y 방향 이동 속도</td>
+<td>No, 초기값: <code>0.0</code></td>
+</tr>
+<tr>
+<td>uvAnimationRotationSpeedFactor</td>
+<td><code>number</code></td>
+<td>UV 애니메이션의 회전 속도</td>
+<td>No, 초기값: <code>0.0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="uvanimationmasktexture">uvAnimationMaskTexture</h4>
+<p>UV 애니메이션을 수행할 범위를 지정하는 텍스처입니다.</p>
+<p>텍스처의 값은 리니어 색 공간입니다.
+할당된 텍스처의 B 컴포넌트를 참조하여 리니어 색 공간에서 평가됩니다.
+정의되지 않은 경우 B 컴포넌트의 값은 <code>1.0</code>으로 평가되어야 합니다.</p>
+<blockquote>
+<p>할당된 텍스처의 B 컴포넌트를 참조하기 때문에 흑백 마스크 텍스처를 사용할 수도 있고, 채널마다 다른 마스크를 가진 RGB 텍스처를 이용할 수도 있습니다.
+<code>shadingShiftTexture</code> (R 채널 사용) 및 <code>outlineWidthMultiplyTexture</code> (G 채널 사용)와 조합할 수 있습니다.</p>
+</blockquote>
+<ul>
+<li>타입: <code>object</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="uvanimationscrollxspeedfactor">uvAnimationScrollXSpeedFactor</h4>
+<p>UV 애니메이션의 X 방향 이동 속도를 지정합니다.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.0</code></li>
+</ul>
+<h4 id="uvanimationscrollyspeedfactor">uvAnimationScrollYSpeedFactor</h4>
+<p>UV 애니메이션의 Y 방향 이동 속도를 지정합니다.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.0</code></li>
+</ul>
+<h4 id="uvanimationrotationspeedfactor">uvAnimationRotationSpeedFactor</h4>
+<p>UV 애니메이션의 회전 속도를 지정합니다.</p>
+<ul>
+<li>타입: <code>number</code></li>
+<li>필수: No, 초기값: <code>0.0</code></li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="마지막 업데이트">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 3일 12:11:15 UTC">2026년 8월 3일</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

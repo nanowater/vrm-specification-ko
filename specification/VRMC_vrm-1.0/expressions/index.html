@@ -1,0 +1,2935 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../firstPerson/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../../ko/specification/VRMC_vrm-1.0/expressions/" hreflang="ko">
+        
+          <link rel="alternate" href="../../../ja/specification/VRMC_vrm-1.0/expressions/" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>VRMC_vrm.expressions - VRM Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vrmc_vrmexpressions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="VRM Specification" class="md-header__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VRM Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VRMC_vrm.expressions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ko/specification/VRMC_vrm-1.0/expressions/" hreflang="ko" class="md-select__link">
+              한국어 (Korean)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ja/specification/VRMC_vrm-1.0/expressions/" hreflang="ja" class="md-select__link">
+              日本語 (Japanese)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nanowater/vrm-specification-ko" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="VRM Specification" class="md-nav__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VRM Specification
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nanowater/vrm-specification-ko" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Specification (Korean Translation Project)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed san
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seed san
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/Seed-san/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed-san
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1 Constraint Twist Sample
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRM1 Constraint Twist Sample
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/VRM1_Constraint_Twist_Sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1_Constraint_Twist_Sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/VRMC_materials_mtoon_UV_Animation_Test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/VRMC_vrm_expressions_isBinary_Overridden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overridden Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../samples/VRMC_vrm_expressions_isBinary_Overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overrides Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    0.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_materials_hdr_emissiveMultiplier-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_hdr_emissiveMultiplier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_materials_mtoon-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_materials_mtoon-1.0/MToon_comparision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    This document is outdated.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC node constraint 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC node constraint 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_node_constraint-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_node_constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_springBone-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone extended collider 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone extended collider 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_springBone_extended_collider-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone_extended_collider-1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.expressions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expression-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expression object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preset-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preset Expressions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preset Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emotions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emotions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lip-sync-procedural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lip Sync Procedural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blink-procedural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blink procedural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaze-procedural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gaze procedural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Expressions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedural-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procedural override
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedural override">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interaction-between-override-and-isbinary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction between override and isBinary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morphtargetbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MorphTargetBind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialcolorbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MaterialColorBind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texturetransformbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TextureTransformBind
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-update-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression update algorithm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression update algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morphtarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MorphTarget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MaterialColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texturetransform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TextureTransform
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firstPerson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.firstPerson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../humanoid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.humanoid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lookAt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.lookAt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.meta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tpose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM T-pose: The specification of the rest pose in VRM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm animation 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm animation 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_vrm_animation-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Animation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VRMC_vrm_animation-1.0/how_to_transform_human_pose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About pose data compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expression-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression Specification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression Specification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expression object
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expression-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression control
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preset-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preset Expressions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preset Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emotions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emotions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lip-sync-procedural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lip Sync Procedural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blink-procedural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blink procedural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaze-procedural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gaze procedural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Expressions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedural-override" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Procedural override
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedural override">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interaction-between-override-and-isbinary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interaction between override and isBinary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#morphtargetbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MorphTargetBind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialcolorbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MaterialColorBind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texturetransformbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TextureTransformBind
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-update-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression update algorithm
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expression update algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#morphtarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MorphTarget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materialcolor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MaterialColor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texturetransform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TextureTransform
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vrmc_vrmexpressions"><code>VRMC_vrm.expressions</code></h1>
+<p>This document provides specifications for the <code>expressions</code> field of the<code>VRMC_vrm</code> extension.</p>
+<p>Expression is</p>
+<ul>
+<li>MorphTarget</li>
+<li>MaterialColor</li>
+<li>TextureTransform</li>
+</ul>
+<p>It is a function to specify the meaning for the group of.</p>
+<blockquote>
+<p>For example, the combination of <code>Mouth-to-mouth MorphTarget</code> and<code>Eye-closing MorphTarget</code> should be <code>sad</code>.</p>
+</blockquote>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#expression-specification">Expression Specification</a></li>
+<li><a href="#expression-control">Expression control</a></li>
+<li><a href="#preset-expressions">Preset Expressions</a></li>
+<li><a href="#emotions">Emotions</a></li>
+<li><a href="#lip-sync-procedural">Lip Sync Procedural</a></li>
+<li><a href="#blink-procedural">Blink procedural</a></li>
+<li><a href="#gaze-procedural">gaze procedural</a></li>
+<li><a href="#other">Other</a></li>
+<li><a href="#custom-expressions">Custom Expressions</a></li>
+<li><a href="#procedural-override">Procedural override</a></li>
+<li><a href="#interaction-between-override-and-isbinary">Interaction between override and isBinary</a></li>
+<li><a href="#morphtargetbind">MorphTargetBind</a></li>
+<li><a href="#materialcolorbind">MaterialColorBind</a></li>
+<li><a href="#texturetransformbind">TextureTransformBind</a></li>
+<li><a href="#expression-update-algorithm">Expression update algorithm</a></li>
+<li><a href="#morphtarget">MorphTarget</a></li>
+<li><a href="#materialcolor">MaterialColor</a></li>
+<li><a href="#texturetransform">TextureTransform</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h2 id="expression-specification">Expression Specification</h2>
+<h3 id="json-schema">JSON Schema</h3>
+<pre><code class="language-js">{
+  &quot;extensionsUsed&quot;: [
+    &quot;VRMC_vrm&quot;
+  ],
+  &quot;extensions&quot;: {
+    &quot;VRMC_vrm&quot;: {
+      // VRM extension
+      &quot;specVersion&quot;: &quot;1.0&quot;,
+      &quot;humanoid&quot;: {},
+      &quot;meta&quot;: {},
+      &quot;firstPerson&quot;: {},
+
+      /* from here */
+      &quot;expressions&quot;: {
+        &quot;preset&quot;: {
+          &quot;aa&quot;: { /* expression object */ },
+          &quot;angry&quot;: { /* expression object */ },
+          &quot;blink&quot;: {
+            &quot;isBinary&quot;: false,
+            &quot;morphTargetBinds&quot;: [
+              {
+                &quot;index&quot;: 1,
+                &quot;node&quot;: 2,
+                &quot;weight&quot;: 1
+              },
+              {
+                &quot;index&quot;: 2,
+                &quot;node&quot;: 2,
+                &quot;weight&quot;: 1
+              }
+            ],
+            &quot;overrideBlink&quot;: &quot;none&quot;,
+            &quot;overrideLookAt&quot;: &quot;none&quot;,
+            &quot;overrideMouth&quot;: &quot;none&quot;
+          },
+          &quot;blinkLeft&quot;: { /* expression object */ },
+          &quot;blinkRight&quot;: { /* expression object */ },
+          &quot;ee&quot;: { /* expression object */ },
+          &quot;happy&quot;: { /* expression object */ },
+          &quot;ih&quot;: { /* expression object */ },
+          &quot;lookDown&quot;: { /* expression object */ },
+          &quot;lookLeft&quot;: { /* expression object */ },
+          &quot;lookRight&quot;: { /* expression object */ },
+          &quot;lookUp&quot;: { /* expression object */ },
+          &quot;neutral&quot;: { /* expression object */ },
+          &quot;oh&quot;: { /* expression object */ },
+          &quot;ou&quot;: { /* expression object */ },
+          &quot;relaxed&quot;: { /* expression object */ },
+          &quot;sad&quot;: { /* expression object */ },
+          &quot;surprised&quot;: { /* expression object */ }
+        }
+        &quot;custom&quot;: {
+            &quot;custom_name_1&quot;: { /* expression object */ },
+            &quot;custom_name_2&quot;: { /* expression object */ },
+        },
+      },
+      &quot;lookAt&quot;: {},
+    },
+    /* end */ 
+
+    &quot;VRMC_springBone&quot;: {},
+    &quot;VRMC_node_constraint&quot;: {}
+  },
+  // glTF-2.0
+  &quot;materials&quot;: [
+    &quot;extensions&quot;: {
+      &quot;VMRC_materials_mtoon&quot;: {}
+    }
+  ],
+}
+</code></pre>
+<h3 id="expression-object">expression object</h3>
+<p><a href="../schema/VRMC_vrm.expressions.expression.schema.json">VRMC_vrm.expressions.expression</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">isBinary</td>
+<td style="text-align: left;">A value greater than 0.5 is 1.0, otherwise 0.0</td>
+</tr>
+<tr>
+<td style="text-align: left;">morphTargetBinds</td>
+<td style="text-align: left;">List of MorphTargetBinds (discussed below)</td>
+</tr>
+<tr>
+<td style="text-align: left;">materialColorBinds</td>
+<td style="text-align: left;">List of MaterialValueBinds (discussed below)</td>
+</tr>
+<tr>
+<td style="text-align: left;">textureTransformBinds</td>
+<td style="text-align: left;">List of TextureTransformBinds (discussed below)</td>
+</tr>
+<tr>
+<td style="text-align: left;">overrideMouth</td>
+<td style="text-align: left;">Manipulates the lip sync (discussed below) weights when the Weight of this Expression is non-zero.</td>
+</tr>
+<tr>
+<td style="text-align: left;">overrideBlink</td>
+<td style="text-align: left;">Manipulates the blink (described below) weight when the Weight of this Expression is non-zero.</td>
+</tr>
+<tr>
+<td style="text-align: left;">overrideLookAt</td>
+<td style="text-align: left;">Manipulates the weight of the line of sight (discussed below) when the Weight of this Expression is non-zero.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="expression-control">Expression control</h3>
+<p>When each expression is used, it is assumed that it has a "Value" state that represents the strength of its facial expression.
+Value is a number with a value in the range [0-1].
+The VRM implementation should clamp the value if the application gives a value outside this range.</p>
+<h2 id="preset-expressions">Preset Expressions</h2>
+<p>Below is the list of preset expressions.
+These expressions will be stored in <code>expressions.preset</code> .
+All preset expressions are optional.</p>
+<h3 id="emotions">Emotions</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">happy</td>
+<td style="text-align: left;">Changed from <code>joy</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">angry</td>
+<td style="text-align: left;">anger</td>
+</tr>
+<tr>
+<td style="text-align: left;">sad</td>
+<td style="text-align: left;">Changed from <code>sorrow</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">relaxed</td>
+<td style="text-align: left;">Comfortable. Changed from <code>fun</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">surprised</td>
+<td style="text-align: left;">surprised. <code>Added new in 1.0</code></td>
+</tr>
+</tbody>
+</table>
+<p>There are no specific specifications for facial deformation.</p>
+<h3 id="lip-sync-procedural">Lip Sync Procedural</h3>
+<p>Procedural: A value that can be automatically generated by the system.</p>
+<blockquote>
+<p>Analyze microphone input, generate from text, etc.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">aa</td>
+<td style="text-align: left;">aa</td>
+</tr>
+<tr>
+<td style="text-align: left;">ih</td>
+<td style="text-align: left;">i</td>
+</tr>
+<tr>
+<td style="text-align: left;">ou</td>
+<td style="text-align: left;">u</td>
+</tr>
+<tr>
+<td style="text-align: left;">ee</td>
+<td style="text-align: left;">eh</td>
+</tr>
+<tr>
+<td style="text-align: left;">oh</td>
+<td style="text-align: left;">oh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="blink-procedural">Blink procedural</h3>
+<p>Procedural: A value that can be automatically generated by the system.</p>
+<blockquote>
+<p>Randomly blink, etc.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">blink</td>
+<td style="text-align: left;">close both eyelids</td>
+</tr>
+<tr>
+<td style="text-align: left;">blinkLeft</td>
+<td style="text-align: left;">Close the left eyelid</td>
+</tr>
+<tr>
+<td style="text-align: left;">blinkRight</td>
+<td style="text-align: left;">Close right eyelid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gaze-procedural">gaze procedural</h3>
+<p>Procedural: A value that can be automatically generated by the system.</p>
+<blockquote>
+<p>The VRM LookAt will generate a value for the gaze point from time to time (see LookAt Expression Type).</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">lookUp</td>
+<td style="text-align: left;">For models where the line of sight moves with Expression instead of bone. See eye control.</td>
+</tr>
+<tr>
+<td style="text-align: left;">lookDown</td>
+<td style="text-align: left;">For models where the line of sight moves with Expression instead of bone. See eye control.</td>
+</tr>
+<tr>
+<td style="text-align: left;">lookLeft</td>
+<td style="text-align: left;">For models whose line of sight moves with Expression instead of bone. See eye control.</td>
+</tr>
+<tr>
+<td style="text-align: left;">lookRight</td>
+<td style="text-align: left;">For models where the line of sight moves with Expression instead of bone. See eye control.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">Other</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">neutral</td>
+<td style="text-align: left;">left for backwards compatibility.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="custom-expressions">Custom Expressions</h2>
+<p>Aside from Preset Expressions, User-defined expressions can be defined.
+Custom Expressions will be stored in <code>expressions.custom</code> .
+Custom Expressions cannot have names that are the same as any Preset Expressions.</p>
+<h2 id="procedural-override">Procedural override</h2>
+<p>Lip sync, blink, and gaze are classified as procedural.
+Procedural assumes that the system will generate it automatically.
+As a result, these Expressions are valid at the same time as other Expressions.
+The mesh may break.</p>
+<p>For example</p>
+<ul>
+<li><code>aa</code> is applied at the same time as<code>happy</code> when the mouth opens =&gt; The mouth opens too much and becomes strange</li>
+<li>Close eyes <code>sad</code> and<code>blink</code> are applied =&gt; Eyes close twice and eyelids pierce cheeks</li>
+<li><code>lookRight</code> is applied at the same time as<code>blink</code> =&gt; Eyes penetrate the eyelids</li>
+</ul>
+<p>Etc.
+To protect against these, there is the ability to override the value of a procedural Expression when procedural Expression is enabled at the same time for a non-procedural Expression.</p>
+<blockquote>
+<p>Do not lip sync during <code>happy</code></p>
+</blockquote>
+<p>For lip sync, blinking and gaze
+You can set overrideMouth, overrideBlink, and overrideLookAt.</p>
+<p>Each override property affects the following procedural facial expressions:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Target</th>
+<th style="text-align: left;">Properties</th>
+<th style="text-align: left;">ExpressionPreset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Lip Sync</td>
+<td style="text-align: left;"><code>overrideMouth</code></td>
+<td style="text-align: left;"><code>aa</code>, <code>ih</code>,<code>ou</code>, <code>ee</code>,<code>oh</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Blink</td>
+<td style="text-align: left;"><code>overrideBlink</code></td>
+<td style="text-align: left;"><code>blink</code>, <code>blinkLeft</code>,<code>blinkRight</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Gaze</td>
+<td style="text-align: left;"><code>overrideLookAt</code></td>
+<td style="text-align: left;"><code>lookUp</code>, <code>lookDown</code>,<code>lookLeft</code>, <code>lookRight</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The specification does not specifically define whether these override properties work for custom facial expressions.
+Make the appropriate settings according to the demand on the application side.
+For example, if you want to use a lip sync that is not included in the VRM preset for each application using a custom facial expression, you can use the override property to control the expression of that custom facial expression.</p>
+<p>For the above reasons, it is recommended that VRM implementations provide an interface that allows custom facial expressions to be overridden.</p>
+</blockquote>
+<p>Like overrideBlink for blink, settings for the same kind are treated as invalid.</p>
+<p>The settings are all the same, and the effects are as follows.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">none</td>
+<td style="text-align: left;">do nothing</td>
+</tr>
+<tr>
+<td style="text-align: left;">block</td>
+<td style="text-align: left;">Set the target weight to 0. For example, when overrideBlink = block is set for happy, when happy.weight&gt; 0, the weight of blink, blinkLeft, blinkRight is overridden to 0.</td>
+</tr>
+<tr>
+<td style="text-align: left;">blend</td>
+<td style="text-align: left;">Attenuates the target weight. For example, when overrideBlink = blend is set for happy, blink, blinkLeft, and blinkRight are blended with happy.weight and attenuated (see below).</td>
+</tr>
+</tbody>
+</table>
+<p>blend details</p>
+<p>For example, if happy is set to overrideBlink = blend
+As the value of happy fades from 0 to 1, it linearly attenuates blink.
+The behavior of the intermediate value between 0 and 1 is different from block.</p>
+<pre><code class="language-js">var value = 0;
+if (happyWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += happyWeight;
+if (angryWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += angryWeight;
+if (sadWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += sadWeight;
+if (relaxedWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += relaxedWeight;
+if (surprisedWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += surprisedWeight;
+var factor = 1.0 - saturate(value);
+SetBlinkWeight(blinkWeight * factor);
+</code></pre>
+<h3 id="interaction-between-override-and-isbinary">Interaction between override and isBinary</h3>
+<p>When an expression with isBinary overrides other expressions, the binary output value MUST be used to affect other expressions.</p>
+<blockquote>
+<p>This specification prevents other expressions from being suppressed when the overriding expression is not expressed visually on the character.
+For example, if <code>isBinary</code> is set to <code>true</code> for the <code>happy</code> expression and <code>block</code> or <code>blend</code> is set for <code>overrideBlink</code>, when the value of <code>happy</code> is greater than or equals 0.5, <code>blink</code> is completely suppressed. Conversely, when the value of <code>happy</code> is less than 0.5, the input value of <code>blink</code> is evaluated regardless of the value of <code>happy</code>.</p>
+<p><img alt="Figure explaining the output value of happy in the example above" src="../figures/override-isbinary-en.png" /></p>
+</blockquote>
+<p>When an expression with isBinary is overridden by other expressions, the expression MUST be completely suppressed if the effect received is greater than 0.0.</p>
+<blockquote>
+<p>This specification prevents expressions with <code>isBinary</code> that are overridden by other expressions from being expressed with values other than 0 or 1.
+For example, if <code>overrideBlink</code> of the expression <code>happy</code> is set to <code>block</code> or <code>blend</code>, and the <code>isBinary</code> of the expression <code>blink</code> is <code>true</code>, <code>blink</code> is completely suppressed if <code>happy</code> has any effect on it.</p>
+</blockquote>
+<h3 id="morphtargetbind">MorphTargetBind</h3>
+<p><code>extensions.VRMC_vrm.expressions [*] .morphTargetBinds [*]</code></p>
+<p>Connect Expression and MorphTarget.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">node</td>
+<td style="text-align: left;">index of target node (has mesh)</td>
+</tr>
+<tr>
+<td style="text-align: left;">index</td>
+<td style="text-align: left;">index of target morph (assuming all primitives have the same morphTarget)</td>
+</tr>
+<tr>
+<td style="text-align: left;">weight</td>
+<td style="text-align: left;">morph value when applied [0-1]. In 0.X [0-100]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="materialcolorbind">MaterialColorBind</h3>
+<p><code>extensions.VRMC_vrm.expressions [*] .materialColorBinds [*]</code></p>
+<p>Connects the color changes of Expression and Material.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">material</td>
+<td style="text-align: left;">index of the target material</td>
+</tr>
+<tr>
+<td style="text-align: left;">type</td>
+<td style="text-align: left;">Items to be changed in material (color, uvScale, uvOffset)</td>
+</tr>
+<tr>
+<td style="text-align: left;">targetValue</td>
+<td style="text-align: left;">material value when applied (float4)</td>
+</tr>
+</tbody>
+</table>
+<p><code>extensions.VRMC_vrm.expressions [*] .materialColorBinds [*] .type</code></p>
+<p>Each corresponds to the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;"><code>pbrMetallicRoughness</code></th>
+<th style="text-align: left;"><code>KHR_materials_unlit</code></th>
+<th style="text-align: left;"><code>VRMC_materials_mtoon</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">color</td>
+<td style="text-align: left;"><code>pbrMetallicRoughness.baseColorFactor</code></td>
+<td style="text-align: left;"><code>pbrMetallicRoughness.baseColorFactor</code></td>
+<td style="text-align: left;"><code>pbrMetallicRoughness.baseColorFactor</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">emissionColor</td>
+<td style="text-align: left;"><code>emissiveFactor</code></td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;"><code>emissiveFactor</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">shadeColor</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;"><code>extensions.VRMC_materials_mtoon.shadeColorFactor</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">matcapColor</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;"><code>extensions.VRMC_materials_mtoon.matcapFactor</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">rimColor</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;"><code>extensions.VRMC_materials_mtoon.parametricRimColorFactor</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">outlineColor</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;">Unused</td>
+<td style="text-align: left;"><code>extensions.VRMC_materials_mtoon.outlineColorFactor</code></td>
+</tr>
+</tbody>
+</table>
+<p>Although <code>targetValue</code> is defined as a float4, The 4th value must be ignored if there is no 4th component in the destination parameter.</p>
+<h3 id="texturetransformbind">TextureTransformBind</h3>
+<p><code>extensions.VRMC_vrm.expressions [*] .textureTransformBinds [*]</code></p>
+<p>It connects the expression and the change of scale and offset of the texture of the target Material.
+Of the textures used in the target material, all UV-accessed textures use the same value.</p>
+<p>The texture that does not have UV access is MToon's <code>matcap</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">material</td>
+<td style="text-align: left;">index of the target material</td>
+</tr>
+<tr>
+<td style="text-align: left;">scale</td>
+<td style="text-align: left;">scale value when applied (float2, default = [1, 1])</td>
+</tr>
+<tr>
+<td style="text-align: left;">offset</td>
+<td style="text-align: left;">offset value when applied (float2)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expression-update-algorithm">Expression update algorithm</h2>
+<h3 id="morphtarget">MorphTarget</h3>
+<ul>
+<li>Set all MorphTargets to 0</li>
+<li>Accumulate the expression value (Weight) <code>void AccumulateValue (Expression expression, float value)</code></li>
+<li>Apply the integrated value</li>
+</ul>
+<h3 id="materialcolor">MaterialColor</h3>
+<ul>
+<li>Initialize all MaterialColor (not 0)</li>
+<li>Accumulate the Expression value (Weight) <code>void AccumulateValue (Exoressuib expression, float value)</code></li>
+<li>Apply the integrated value <code>Base + (A.Target --Base) * A.Weight + (B.Target --Base) * B.Weight</code></li>
+<li>Since the initial value of MaterialColor is not always 0, the difference from the initial value is added up.</li>
+</ul>
+<h3 id="texturetransform">TextureTransform</h3>
+<ul>
+<li>Initialize all TextureTransform (not 0)</li>
+<li>Accumulate the Expression value (Weight) <code>void AccumulateValue (Exoressuib expression, float value)</code></li>
+<li>Apply the integrated value</li>
+</ul>
+<blockquote>
+<p>TODO: More details about the apply part should be covered</p>
+</blockquote>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 12:11:15 UTC">August 3, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

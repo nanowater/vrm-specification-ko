@@ -1,0 +1,3772 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../VRMC_vrm-1.0/tpose/">
+      
+      
+        <link rel="next" href="how_to_transform_human_pose/">
+      
+      
+        
+          <link rel="alternate" href="../../../specification/VRMC_vrm_animation-1.0/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="ko">
+        
+          <link rel="alternate" href="../../../ja/specification/VRMC_vrm_animation-1.0/" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>VRMC_vrm_animation - VRM Specification</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vrmc_vrm_animation" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../" title="VRM Specification" class="md-header__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VRM Specification
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VRMC_vrm_animation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="언어설정">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../specification/VRMC_vrm_animation-1.0/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ko" class="md-select__link">
+              한국어 (Korean)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../ja/specification/VRMC_vrm_animation-1.0/" hreflang="ja" class="md-select__link">
+              日本語 (Japanese)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/nanowater/vrm-specification-ko" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="VRM Specification" class="md-nav__button md-logo" aria-label="VRM Specification" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VRM Specification
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nanowater/vrm-specification-ko" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nanowater/vrm-specification-ko
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Specification (한국어 번역 프로젝트)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed san
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seed san
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/Seed-san/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seed-san
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1 Constraint Twist Sample
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRM1 Constraint Twist Sample
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRM1_Constraint_Twist_Sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM1_Constraint_Twist_Sample
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon UV Animation Test
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon UV Animation Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overridden
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overridden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overridden Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm expressions isBinary Overrides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samples/VRMC_vrm_expressions_isBinary_Overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm expressions isBinary Overrides Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Specification
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    0.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    0.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM 사양
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials hdr emissiveMultiplier 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_hdr_emissiveMultiplier-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_hdr_emissiveMultiplier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC materials mtoon 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC materials mtoon 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_mtoon-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_materials_mtoon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_materials_mtoon-1.0/MToon_comparision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    이 문서는 오래되었습니다 (This document is outdated).
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC node constraint 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC node constraint 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_node_constraint-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_node_constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC springBone extended collider 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC springBone extended collider 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_springBone_extended_collider-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_springBone_extended_collider-1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/firstPerson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.firstPerson
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/humanoid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.humanoid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/lookAt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.lookAt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm.meta
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../VRMC_vrm-1.0/tpose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRM T-pose: VRM이 정의하는 자세 사양
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC vrm animation 1.0
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VRMC vrm animation 1.0
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm_animation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VRMC_vrm_animation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#animations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Animations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Humanoid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LookAt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LookAt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시선 방향
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시점 위치
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        glTF Schema Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VRMC_vrm_animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationspecversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.specVersion ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationhumanoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.humanoid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationexpressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationlookat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.lookAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="humanoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanbones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanbones_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="humanoid.humanBones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanboneshumanoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones.(Humanoid 본 이름)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanboneshumanbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones.humanBone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="humanoid.humanBones.humanBone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanboneshumanbonenode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones.humanBone.node ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionspreset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionscustom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.custom
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionspreset_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.preset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions.preset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionspreset_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.preset.(프리셋 표정 이름)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionscustom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.custom
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions.custom">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionscustom_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.custom.(커스텀 표정 이름)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionsexpression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.expression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions.expression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionsexpressionnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.expression.node ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookat_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lookAt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="lookAt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookatnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lookAt.node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookatoffsetfromheadbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lookAt.offsetFromHeadBone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="how_to_transform_human_pose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    포즈 데이터의 호환성에 대하여
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#animations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Animations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Humanoid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LookAt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LookAt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시선 방향
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시점 위치
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gltf-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        glTF Schema Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="glTF Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VRMC_vrm_animation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationspecversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.specVersion ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationhumanoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.humanoid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationexpressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vrmc_vrm_animationlookat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VRMC_vrm_animation.lookAt
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoid_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="humanoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanbones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanbones_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="humanoid.humanBones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanboneshumanoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones.(Humanoid 본 이름)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanboneshumanbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones.humanBone
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="humanoid.humanBones.humanBone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humanoidhumanboneshumanbonenode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        humanoid.humanBones.humanBone.node ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionspreset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionscustom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.custom
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionspreset_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.preset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions.preset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionspreset_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.preset.(프리셋 표정 이름)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionscustom_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.custom
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions.custom">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionscustom_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.custom.(커스텀 표정 이름)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionsexpression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.expression
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="expressions.expression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expressionsexpressionnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        expressions.expression.node ✅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookat_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lookAt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="lookAt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-schema_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookatnode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lookAt.node
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lookatoffsetfromheadbone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lookAt.offsetFromHeadBone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vrmc_vrm_animation">VRMC_vrm_animation</h1>
+<p><em>Version 1.0</em></p>
+<h2 id="contents">Contents</h2>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+<ul>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#status">Status</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#concepts">Concepts</a></li>
+<li><a href="#animations">Animations</a></li>
+<li><a href="#humanoid">Humanoid</a></li>
+<li><a href="#expressions">Expressions</a></li>
+<li><a href="#lookat">LookAt</a><ul>
+<li><a href="#시선-방향">시선 방향</a></li>
+<li><a href="#시점-위치">시점 위치</a></li>
+</ul>
+</li>
+<li><a href="#gltf-schema-updates">glTF Schema Updates</a></li>
+<li><a href="#vrmc_vrm_animation">VRMC_vrm_animation</a><ul>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#json-schema">JSON Schema</a></li>
+<li><a href="#vrmc_vrm_animationspecversion-">VRMC_vrm_animation.specVersion ✅</a></li>
+<li><a href="#vrmc_vrm_animationhumanoid">VRMC_vrm_animation.humanoid</a></li>
+<li><a href="#vrmc_vrm_animationexpressions">VRMC_vrm_animation.expressions</a></li>
+<li><a href="#vrmc_vrm_animationlookat">VRMC_vrm_animation.lookAt</a></li>
+</ul>
+</li>
+<li><a href="#humanoid-1">humanoid</a><ul>
+<li><a href="#properties-1">Properties</a></li>
+<li><a href="#json-schema-1">JSON Schema</a></li>
+<li><a href="#humanoidhumanbones-">humanoid.humanBones ✅</a></li>
+</ul>
+</li>
+<li><a href="#humanoidhumanbones">humanoid.humanBones</a><ul>
+<li><a href="#properties-2">Properties</a></li>
+<li><a href="#json-schema-2">JSON Schema</a></li>
+<li><a href="#humanoidhumanboneshumanoid-본-이름">humanoid.humanBones.(Humanoid 본 이름)</a></li>
+</ul>
+</li>
+<li><a href="#humanoidhumanboneshumanbone">humanoid.humanBones.humanBone</a><ul>
+<li><a href="#properties-3">Properties</a></li>
+<li><a href="#json-schema-3">JSON Schema</a></li>
+<li><a href="#humanoidhumanboneshumanbonenode-">humanoid.humanBones.humanBone.node ✅</a></li>
+</ul>
+</li>
+<li><a href="#expressions-1">expressions</a><ul>
+<li><a href="#properties-4">Properties</a></li>
+<li><a href="#json-schema-4">JSON Schema</a></li>
+<li><a href="#expressionspreset">expressions.preset</a></li>
+<li><a href="#expressionscustom">expressions.custom</a></li>
+</ul>
+</li>
+<li><a href="#expressionspreset-1">expressions.preset</a><ul>
+<li><a href="#properties-5">Properties</a></li>
+<li><a href="#json-schema-5">JSON Schema</a></li>
+<li><a href="#expressionspreset프리셋-표정-이름">expressions.preset.(프리셋 표정 이름)</a></li>
+</ul>
+</li>
+<li><a href="#expressionscustom-1">expressions.custom</a><ul>
+<li><a href="#properties-6">Properties</a></li>
+<li><a href="#json-schema-6">JSON Schema</a></li>
+<li><a href="#expressionscustom커스텀-표정-이름">expressions.custom.(커스텀 표정 이름)</a></li>
+</ul>
+</li>
+<li><a href="#expressionsexpression">expressions.expression</a><ul>
+<li><a href="#properties-7">Properties</a></li>
+<li><a href="#json-schema-7">JSON Schema</a></li>
+<li><a href="#expressionsexpressionnode-">expressions.expression.node ✅</a></li>
+</ul>
+</li>
+<li><a href="#lookat-1">lookAt</a><ul>
+<li><a href="#properties-8">Properties</a></li>
+<li><a href="#json-schema-8">JSON Schema</a></li>
+<li><a href="#lookatnode">lookAt.node</a></li>
+<li><a href="#lookatoffsetfromheadbone">lookAt.offsetFromHeadBone</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li>신도 테츠로 (進藤 哲郎)</li>
+<li>0b5vr</li>
+</ul>
+<h2 id="status">Status</h2>
+<p>Complete</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>glTF 2.0 사양을 향해 책정되었습니다.</p>
+<p>또한, 사양 내 일부 정의가 <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/README.ja.md"><code>VRMC_vrm</code></a>에 의존합니다.</p>
+<h2 id="overview">Overview</h2>
+<p><code>VRMC_vrm_animation</code> 사양은 인간형 모델에 대한 애니메이션을 기술하기 위한 glTF 확장입니다.
+인간형 모델을 기술하는 glTF 확장인 <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/README.ja.md"><code>VRMC_vrm</code></a>으로 표현된 모델에 적용하는 것을 가정하고 있습니다.</p>
+<p>glTF에서 정의된 노드의 계층 구조에 대해, 각 노드와 인간의 본(bone), 표정, 시선 방향을 연관지어, 임의의 인간형 모델에 적용할 수 있는 애니메이션을 표현합니다.
+애니메이션의 실제 데이터는 glTF의 코어 정의의 애니메이션 부분을 이용합니다.</p>
+<p>애니메이션만을 기술하는 독립적인 glTF 파일에 사용되는 것을 가정하고 있습니다.
+<code>VRMC_vrm</code>을 사용하여 기술된 VRM 모델에 본 확장이 포함되는 것은 가정하고 있지 않습니다.</p>
+<h2 id="concepts">Concepts</h2>
+<h3 id="animations">Animations</h3>
+<p>glTF의 코어 정의의 애니메이션을 이용합니다.</p>
+<p>원칙적으로 애니메이션을 사용할 때는 <code>animations</code>에 정의된 첫 번째 애니메이션을 불러오는 것으로 합니다.
+하나의 파일에 여러 애니메이션이 포함되어 있을 수 있습니다.
+구현은 하나의 파일 내에 포함된 여러 애니메이션을 지원할 수 있지만, 필수는 아닙니다.</p>
+<p>glTF 애니메이션은 임의 시간에 키프레임을 삽입할 수 있으므로 프레임 레이트(frame rate)의 개념이 없습니다.
+다음 사항을 고려하여 너무 높지도 낮지도 않은 프레임 레이트의 기준으로 초당 30프레임을 제안합니다.</p>
+<ul>
+<li>게임에서는 60 FPS나 30 FPS가 일반적입니다</li>
+<li>모션 캡처의 원시 데이터(가공 전)는 높은 프레임 레이트인 경우가 있습니다</li>
+<li>영상에서는 24FPS 등이 있습니다</li>
+</ul>
+<p>애니메이션을 Linear로 Interpolation(보간)하는 것을 가정하여,
+30 FPS로 충분한 부드러움을 확보할 수 있을 것으로 보입니다.</p>
+<h3 id="humanoid">Humanoid</h3>
+<p>Humanoid는 본 확장 내에서 정의하는 인간 본의 정의입니다.
+각 Humanoid 본은 glTF의 노드로 표현됩니다.</p>
+<p><code>VRMC_vrm_animation/humanoid</code> 내에서 glTF의 노드와 인간의 본의 대응 관계를 나타냅니다.
+Humanoid에서 이용하는 본 및 그 구조에 대해서는 <code>VRMC_vrm</code> 확장의 Humanoid를 따릅니다.</p>
+<p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.ja.md</p>
+<p>단, Humanoid 본 중 <code>leftEye</code>와 <code>rightEye</code>는 이에 대해 애니메이션 데이터를 가질 수 없습니다.
+이들은 후술할 LookAt에서 다뤄집니다.</p>
+<blockquote>
+<p>미래의 확장성을 고려하여, Humanoid 본의 계층 구조 전체를 애니메이션 데이터 내에 수록하고 있습니다.</p>
+</blockquote>
+<p>Humanoid 본으로 지정된 노드는 애니메이션이 적용되지 않은 레스트 포즈(rest pose)에서 "VRM T-pose"라고 불리는 포즈를 따라야 합니다.</p>
+<p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/tpose.ja.md</p>
+<p>Humanoid 본으로 지정된 노드에 대한 애니메이션을 애니메이션 데이터로 취급합니다.
+Humanoid 본에 대한 애니메이션에 스케일(scale)을 포함해서는 안 됩니다.
+또한 Hips 본 이외의 애니메이션에 평행 이동(translation)을 포함해서는 안 됩니다.</p>
+<blockquote>
+<p>구현 내에서는, 예를 들어 Unity의 Humanoid 시스템을 사용하여 고급 애니메이션 전송이 이루어지는 것이 바람직하지만, 이것이 어려울 경우 단순히 FK 애니메이션으로 전송할 수도 있습니다.</p>
+</blockquote>
+<p>또한 애니메이션 데이터와 별개로 <code>T-Pose</code>를 표현하는 node 계층 구조에 <code>scale</code>을 포함하지 않는 것을 강력히 권장합니다.</p>
+<blockquote>
+<p>데이터를 생성하는 애플리케이션에서 계층 구조와 애니메이션에 스케일 값을 사전에 곱함으로써 해결할 수 있습니다.
+런타임(runtime)에 로드하는 프로그램 측의 부담을 줄이는 것을 의도하고 있습니다.</p>
+</blockquote>
+<p>반면에 회전은 임의의 값이라도 문제 없습니다. <a href="how_to_transform_human_pose/">포즈 데이터의 호환성에 대하여</a>를 참조하십시오.</p>
+<h3 id="expressions">Expressions</h3>
+<p>Expressions는 본 확장 내에서 정의하는 인간 표정의 정의입니다.
+각 Expressions는 [0, 1] 범위의 스칼라(scalar)를 가중치(weight)로 가지며, 이 수치가 그 표정이 어느 정도 발현되었는지를 나타냅니다.</p>
+<blockquote>
+<p><code>VRMC_vrm</code> 확장에서는 Expressions의 가중치가 메시의 모프(morph), 매터리얼의 색상, 텍스처의 UV에 적용됩니다.</p>
+</blockquote>
+<p><code>VRMC_vrm_animation/expressions</code> 내에서 glTF의 노드와 표정과의 대응 관계를 나타냅니다.
+Expressions의 정의에 대해서는 <code>VRMC_vrm</code> 확장의 Expressions를 따릅니다.</p>
+<p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/expressions.ja.md</p>
+<p>단, 프리셋 표정 중 <code>lookUp</code>, <code>lookDown</code>, <code>lookLeft</code>, <code>lookRight</code>는 이에 대해 애니메이션 데이터를 가질 수 없습니다.
+이들은 후술할 LookAt에서 다뤄집니다.</p>
+<p>Expressions 중 <code>VRMC_vrm</code> 확장에서 프리셋 표정으로 정의된 것을 프리셋 표정(preset expression), 그 이외를 커스텀 표정(custom expression)으로 정의합니다.
+커스텀 표정에 프리셋과 같은 이름의 표정을 포함할 수 없습니다.</p>
+<p>Expressions로 지정된 노드에 대한 애니메이션 중, 평행 이동의 X 성분을 해당 표정의 가중치에 대한 애니메이션 데이터로 취급합니다.
+가중치 값은 [0, 1] 범위 내에 들어가는 것이 바람직합니다.
+구현은 [0, 1] 범위를 벗어난 가중치 값을 다룰 때, 그 값을 [0, 1] 범위 내로 맞추어 다루어야 합니다.</p>
+<h3 id="lookat">LookAt</h3>
+<p>LookAt은 본 확장 내에서 정의하는 인간의 시선에 대한 정의입니다.</p>
+<blockquote>
+<p><code>VRMC_vrm</code> 확장에서 LookAt에 의한 시선 제어는 Humanoid의 본 회전에 의한 애니메이션과 Expressions에 의한 애니메이션 2가지 동작 방식을 지원합니다.</p>
+</blockquote>
+<h4 id="_1">시선 방향</h4>
+<p>LookAt은 하나의 시선 방향을 가지며, 모델이 그 방향으로 시선을 움직이는 것을 나타냅니다.</p>
+<p><code>VRMC_vrm_animation/lookAt/node</code>에서 시선 방향을 회전(rotation)으로 가지는 glTF의 노드를 지정합니다.
+지정한 노드의 로컬 공간에서의 회전을 시선 방향의 애니메이션 데이터로 취급합니다.</p>
+<p>glTF에서는 회전이 쿼터니언(quaternion)으로 정의되지만, <code>VRMC_vrm</code>의 LookAt 컴포넌트에 적용할 때는 yaw-pitch의 오일러 각(Euler angles)으로 변환하여 다룹니다.
+이때 오일러 각의 회전 순서는 Extrinsic ZXY로 해석하고, Y축 주위의 회전을 yaw, X축 주위의 회전을 pitch로 합니다.</p>
+<h4 id="_2">시점 위치</h4>
+<p>본 확장 내에서 정의되는 LookAt에 있어서 시점 위치는, <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/lookAt.ja.md#lookat-공간-offsetfromheadbone"><code>VRMC_vrm</code> 사양 내에서 정의된 LookAt 공간</a>을 따라, Humanoid에서 정의된 head 본의 트랜스폼으로부터의 상대적인 공간에 있어서, <code>VRMC_vrm_animation/offsetFromHeadBone</code>만큼 평행 이동한 위치로 합니다.
+또한 그 시선은 초기 상태에서 모델 좌표계의 +Z방향을 향하고 있는 것으로 정의합니다.</p>
+<blockquote>
+<p>Implementation Note: 시선 방향을 가공하지 않고 그대로 이용할 경우, <code>offsetFromHeadBone</code>의 값을 해석할 필요는 없습니다. 전송 대상 모델의 체격에 맞춰 시점 정보에 어떤 형태의 리타겟팅(retargeting)을 적용하고 싶은 경우, <code>offsetFromHeadBone</code>의 값을 더한 애니메이션 측 모델의 시점 위치를 활용하는 것이 효과적일 수 있습니다.</p>
+</blockquote>
+<p>Humanoid가 정의되지 않은 경우 <code>offsetFromHeadBone</code>의 값을 그대로 시점 위치로 해석합니다.</p>
+<h2 id="gltf-schema-updates">glTF Schema Updates</h2>
+<p><code>VRMC_vrm_animation</code> 확장은 glTF의 루트 수준에서 정의됩니다.</p>
+<pre><code class="language-json">{
+  &quot;nodes&quot;: [
+    // ...
+  ],
+  &quot;animations&quot;: [
+    // ...
+  ],
+  &quot;extensions&quot;: {
+    &quot;VRMC_vrm_animation&quot;: {
+      &quot;specVersion&quot;: &quot;1.0&quot;,
+      &quot;humanoid&quot;: {
+        &quot;humanBones&quot;: {
+          &quot;hips&quot;: { &quot;node&quot;: 0 },
+          &quot;spine&quot;: { &quot;node&quot;: 1 },
+          &quot;chest&quot;: { &quot;node&quot;: 2 },
+          // ...
+        }
+      },
+      &quot;expressions&quot;: {
+        &quot;preset&quot;: {
+          &quot;aa&quot;: { &quot;node&quot;: 59 },
+          &quot;blinkLeft&quot;: { &quot;node&quot;: 60 },
+          &quot;blink&quot;: { &quot;node&quot;: 61 },
+          &quot;happy&quot;: { &quot;node&quot;: 62 },
+          &quot;relaxed&quot;: { &quot;node&quot;: 63 }
+        }
+      },
+      &quot;lookAt&quot;: {
+        &quot;node&quot;: 64,
+        &quot;offsetFromHeadBone&quot;: [
+          0.0,
+          0.06,
+          0.0
+        ]
+      }
+    }
+  },
+  // ...
+}
+</code></pre>
+<h3 id="vrmc_vrm_animation_1">VRMC_vrm_animation</h3>
+<p>본 확장의 루트 객체(root object)입니다.</p>
+<h4 id="properties">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>specVersion</code></td>
+<td style="text-align: left;"><code>string</code></td>
+<td style="text-align: left;">본 확장의 사양 버전</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>humanoid</code></td>
+<td style="text-align: left;"><code>humanoid</code></td>
+<td style="text-align: left;">Humanoid 본에 관한 정의</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>expressions</code></td>
+<td style="text-align: left;"><code>expressions</code></td>
+<td style="text-align: left;">Expressions 표정과 노드의 대응 관계</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lookAt</code></td>
+<td style="text-align: left;"><code>lookAt</code></td>
+<td style="text-align: left;">시점·시선에 관한 정의</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.schema.json">VRMC_vrm_animation.schema.json</a></p>
+<h4 id="vrmc_vrm_animationspecversion">VRMC_vrm_animation.specVersion ✅</h4>
+<p><code>VRMC_vrm_animation</code> 확장의 사양 버전을 나타냅니다. 값은 <code>"1.0"</code>입니다.</p>
+<ul>
+<li>타입: <code>string</code></li>
+<li>필수: Yes</li>
+</ul>
+<h4 id="vrmc_vrm_animationhumanoid">VRMC_vrm_animation.humanoid</h4>
+<p>Humanoid 본과 노드의 대응 관계를 나타내는 객체입니다.</p>
+<ul>
+<li>타입: <code>humanoid</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="vrmc_vrm_animationexpressions">VRMC_vrm_animation.expressions</h4>
+<p>Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.</p>
+<ul>
+<li>타입: <code>expressions</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="vrmc_vrm_animationlookat">VRMC_vrm_animation.lookAt</h4>
+<p>시점·시선에 관한 정의를 수행하는 객체입니다.</p>
+<ul>
+<li>타입: <code>lookAt</code></li>
+<li>필수: No</li>
+</ul>
+<hr />
+<h3 id="humanoid_1">humanoid</h3>
+<p>Humanoid 본에 관한 정의를 수행하는 객체입니다.</p>
+<h4 id="properties_1">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">humanBones</td>
+<td style="text-align: left;"><code>humanoid.humanBones</code></td>
+<td style="text-align: left;">Humanoid 본과 노드의 대응 관계를 나타냄</td>
+<td style="text-align: left;">Yes ✅</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_1">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.humanoid.schema.json">VRMC_vrm_animation.humanoid.schema.json</a></p>
+<h4 id="humanoidhumanbones">humanoid.humanBones ✅</h4>
+<p>Humanoid 본과 노드의 대응 관계를 나타내는 객체입니다.</p>
+<ul>
+<li>타입: <code>humanoid.humanBones</code></li>
+<li>필수: Yes</li>
+</ul>
+<h3 id="humanoidhumanbones_1">humanoid.humanBones</h3>
+<p>Humanoid 본과 노드의 대응 관계를 나타내는 객체입니다.</p>
+<h4 id="properties_2">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(Humanoid 본 이름)</td>
+<td style="text-align: left;"><code>humanoid.humanBones.humanBone</code></td>
+<td style="text-align: left;">하나의 Humanoid 본</td>
+<td style="text-align: left;">Mixed</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_2">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.humanoid.humanBones.schema.json">VRMC_vrm_animation.humanoid.humanBones.schema.json</a></p>
+<h4 id="humanoidhumanboneshumanoid">humanoid.humanBones.(Humanoid 본 이름)</h4>
+<p>하나의 Humanoid 본을 나타내는 객체입니다.
+<code>VRMC_vrm</code> 확장에서 정의되어 있는 Humanoid 본 이름을 키 이름으로 가집니다(<code>hips</code>나 <code>leftUpperArm</code> 등).
+단, Humanoid 본 중 <code>leftEye</code>와 <code>rightEye</code>는 정의할 수 없습니다.</p>
+<ul>
+<li>타입: <code>humanoid.humanBones.humanBone</code></li>
+<li>필수: VRM 사양에서 필수 본으로 정의되어 있는 경우, 이 값은 필수입니다.</li>
+</ul>
+<h3 id="humanoidhumanboneshumanbone">humanoid.humanBones.humanBone</h3>
+<p>하나의 Humanoid 본을 나타내는 객체입니다.</p>
+<h4 id="properties_3">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>node</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">Humanoid 본에 대응하는 노드의 인덱스</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_3">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.humanoid.humanBones.humanBone.schema.json">VRMC_vrm_animation.humanoid.humanBones.humanBone.schema.json</a></p>
+<h4 id="humanoidhumanboneshumanbonenode">humanoid.humanBones.humanBone.node ✅</h4>
+<p>Humanoid 본에 대응하는 노드의 인덱스입니다.</p>
+<ul>
+<li>타입: <code>integer</code></li>
+<li>필수: Yes</li>
+</ul>
+<hr />
+<h3 id="expressions_1">expressions</h3>
+<p>Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.</p>
+<h4 id="properties_4">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>preset</code></td>
+<td style="text-align: left;"><code>expressions.preset</code></td>
+<td style="text-align: left;">프리셋 표정에 대한 정의</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>custom</code></td>
+<td style="text-align: left;"><code>expressions.custom</code></td>
+<td style="text-align: left;">커스텀 표정에 대한 정의</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_4">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
+<h4 id="expressionspreset">expressions.preset</h4>
+<p>프리셋 표정에 대한 정의를 포함하는 객체입니다.</p>
+<ul>
+<li>타입: <code>expressions.preset</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="expressionscustom">expressions.custom</h4>
+<p>커스텀 표정에 대한 정의를 포함하는 객체입니다.</p>
+<ul>
+<li>타입: <code>expressions.custom</code></li>
+<li>필수: No</li>
+</ul>
+<h3 id="expressionspreset_1">expressions.preset</h3>
+<p>프리셋 표정에 대한 정의를 포함하는 객체입니다.</p>
+<h4 id="properties_5">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(프리셋 표정 이름)</td>
+<td style="text-align: left;"><code>expressions.expression</code></td>
+<td style="text-align: left;">하나의 프리셋 표정</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_5">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
+<h4 id="expressionspreset_2">expressions.preset.(프리셋 표정 이름)</h4>
+<p>하나의 프리셋 표정을 나타내는 객체입니다.
+<code>VRMC_vrm</code> 확장에서 정의되어 있는 프리셋 표정의 이름을 키 이름으로 가집니다(<code>aa</code>나 <code>leftBlink</code> 등).
+단, 프리셋 표정 중 <code>lookUp</code>, <code>lookDown</code>, <code>lookLeft</code>, <code>lookRight</code>는 정의할 수 없습니다.</p>
+<ul>
+<li>타입: <code>expressions.expression</code></li>
+<li>필수: No</li>
+</ul>
+<h3 id="expressionscustom_1">expressions.custom</h3>
+<p>커스텀 표정에 대한 정의를 포함하는 객체입니다.</p>
+<h4 id="properties_6">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">(커스텀 표정 이름)</td>
+<td style="text-align: left;"><code>expressions.expression</code></td>
+<td style="text-align: left;">하나의 커스텀 표정</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_6">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
+<h4 id="expressionscustom_2">expressions.custom.(커스텀 표정 이름)</h4>
+<p>하나의 커스텀 표정을 나타내는 객체입니다.
+<code>VRMC_vrm</code> 확장에서 정의되는 프리셋 표정의 이름 이외라면 임의의 표정 이름을 지정할 수 있습니다.</p>
+<ul>
+<li>타입: <code>expressions.expression</code></li>
+<li>필수: No</li>
+</ul>
+<h3 id="expressionsexpression">expressions.expression</h3>
+<p>하나의 표정을 나타내는 객체입니다.</p>
+<h4 id="properties_7">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>node</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">표정에 대응하는 노드의 인덱스</td>
+<td style="text-align: left;">✅ Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_7">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.expression.schema.json">VRMC_vrm_animation.expressions.expression.schema.json</a></p>
+<h4 id="expressionsexpressionnode">expressions.expression.node ✅</h4>
+<p>표정에 대응하는 노드의 인덱스입니다.</p>
+<ul>
+<li>타입: <code>integer</code></li>
+<li>필수: Yes</li>
+</ul>
+<hr />
+<h3 id="lookat_1">lookAt</h3>
+<p>시점·시선에 관한 정의를 수행하는 객체입니다.</p>
+<h4 id="properties_8">Properties</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">타입</th>
+<th style="text-align: left;">설명</th>
+<th style="text-align: left;">필수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>node</code></td>
+<td style="text-align: left;"><code>integer</code></td>
+<td style="text-align: left;">시선 방향에 대응하는 노드의 인덱스</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>offsetFromHeadBone</code></td>
+<td style="text-align: left;"><code>number[3]</code></td>
+<td style="text-align: left;">Humanoid의 head로부터 시점 위치의 오프셋(offset)</td>
+<td style="text-align: left;">No</td>
+</tr>
+</tbody>
+</table>
+<h4 id="json-schema_8">JSON Schema</h4>
+<p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.lookAt.schema.json">VRMC_vrm_animation.lookAt.schema.json</a></p>
+<h4 id="lookatnode">lookAt.node</h4>
+<p>시선 방향에 대응하는 노드의 인덱스입니다.</p>
+<ul>
+<li>타입: <code>integer</code></li>
+<li>필수: No</li>
+</ul>
+<h4 id="lookatoffsetfromheadbone">lookAt.offsetFromHeadBone</h4>
+<p>Humanoid의 head로부터 시점 위치의 오프셋(offset)입니다.</p>
+<p>Humanoid가 정의되지 않은 경우 <code>offsetFromHeadBone</code>의 값을 그대로 시점 위치로 해석합니다.</p>
+<ul>
+<li>타입: <code>number[3]</code></li>
+<li>필수: No</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="마지막 업데이트">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 3일 12:11:15 UTC">2026년 8월 3일</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
