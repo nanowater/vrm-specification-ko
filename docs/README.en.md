@@ -24,5 +24,3 @@ Contributions via **Pull Requests (PR)** or **Issues** for typo/mistranslation c
 Feel free to open an issue or submit a PR if you would like to help improve the translation.
 
 ---
-
-_Last Updated: 2026-08-03_
