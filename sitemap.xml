@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/"/>
@@ -10,7 +10,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/samples/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/"/>
@@ -18,7 +18,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/Seed-san/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/samples/Seed-san/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/Seed-san/"/>
@@ -26,7 +26,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/VRM1_Constraint_Twist_Sample/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/samples/VRM1_Constraint_Twist_Sample/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRM1_Constraint_Twist_Sample/"/>
@@ -34,7 +34,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/VRMC_materials_mtoon_UV_Animation_Test/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
@@ -42,7 +42,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/VRMC_vrm_expressions_isBinary_Overridden/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
@@ -50,7 +50,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/samples/VRMC_vrm_expressions_isBinary_Overrides/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
@@ -58,7 +58,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/0.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/0.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/0.0/"/>
@@ -66,7 +66,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
@@ -74,7 +74,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_materials_mtoon-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_materials_mtoon-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/"/>
@@ -82,7 +82,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_materials_mtoon-1.0/MToon_comparision/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
@@ -90,7 +90,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_node_constraint-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_node_constraint-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_node_constraint-1.0/"/>
@@ -98,7 +98,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_springBone-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_springBone-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone-1.0/"/>
@@ -106,7 +106,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_springBone_extended_collider-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_springBone_extended_collider-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone_extended_collider-1.0/"/>
@@ -114,7 +114,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/"/>
@@ -122,7 +122,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/expressions/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/expressions/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/expressions/"/>
@@ -130,7 +130,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/firstPerson/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/firstPerson/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/firstPerson/"/>
@@ -138,7 +138,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/humanoid/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/humanoid/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/humanoid/"/>
@@ -146,7 +146,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/lookAt/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/lookAt/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/lookAt/"/>
@@ -154,7 +154,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/meta/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/meta/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/meta/"/>
@@ -162,7 +162,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/tpose/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm-1.0/tpose/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/tpose/"/>
@@ -170,7 +170,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm_animation-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm_animation-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/"/>
@@ -178,7 +178,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
@@ -186,22 +186,15 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/"/>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/"/>
     </url>
     <url>
-        <loc>https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/</loc>
-        <lastmod>2026-08-03</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/"/>
-    </url>
-    <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/"/>
@@ -209,7 +202,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/Seed-san/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/Seed-san/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/Seed-san/"/>
@@ -217,7 +210,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/VRM1_Constraint_Twist_Sample/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRM1_Constraint_Twist_Sample/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRM1_Constraint_Twist_Sample/"/>
@@ -225,7 +218,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_materials_mtoon_UV_Animation_Test/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
@@ -233,7 +226,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overridden/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
@@ -241,7 +234,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overrides/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
@@ -249,7 +242,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/0.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/0.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/0.0/"/>
@@ -257,7 +250,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
@@ -265,7 +258,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_mtoon-1.0/"/>
@@ -273,7 +266,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/MToon_comparision/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
@@ -281,7 +274,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_node_constraint-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_node_constraint-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_node_constraint-1.0/"/>
@@ -289,7 +282,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_springBone-1.0/"/>
@@ -297,7 +290,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone_extended_collider-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone_extended_collider-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_springBone_extended_collider-1.0/"/>
@@ -305,7 +298,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/"/>
@@ -313,7 +306,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/expressions/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/expressions/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/expressions/"/>
@@ -321,7 +314,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/firstPerson/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/firstPerson/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/firstPerson/"/>
@@ -329,7 +322,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/humanoid/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/humanoid/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/humanoid/"/>
@@ -337,7 +330,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/lookAt/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/lookAt/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/lookAt/"/>
@@ -345,7 +338,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/meta/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/meta/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/meta/"/>
@@ -353,7 +346,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/tpose/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/tpose/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/tpose/"/>
@@ -361,7 +354,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm_animation-1.0/"/>
@@ -369,7 +362,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
@@ -377,22 +370,15 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/"/>
         <xhtml:link rel="alternate" hreflang="ko" href="https://nanowater.github.io/vrm-specification-ko/"/>
     </url>
     <url>
-        <loc>https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/</loc>
-        <lastmod>2026-08-03</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/READING_GUIDE/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/READING_GUIDE/"/>
-    </url>
-    <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/"/>
@@ -400,7 +386,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/Seed-san/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/Seed-san/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/Seed-san/"/>
@@ -408,7 +394,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/VRM1_Constraint_Twist_Sample/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRM1_Constraint_Twist_Sample/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRM1_Constraint_Twist_Sample/"/>
@@ -416,7 +402,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_materials_mtoon_UV_Animation_Test/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_materials_mtoon_UV_Animation_Test/"/>
@@ -424,7 +410,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_vrm_expressions_isBinary_Overridden/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overridden/"/>
@@ -432,7 +418,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_vrm_expressions_isBinary_Overrides/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/samples/VRMC_vrm_expressions_isBinary_Overrides/"/>
@@ -440,7 +426,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/0.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/0.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/0.0/"/>
@@ -448,7 +434,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/"/>
@@ -456,7 +442,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_mtoon-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_mtoon-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/"/>
@@ -464,7 +450,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_materials_mtoon-1.0/MToon_comparision/"/>
@@ -472,7 +458,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_node_constraint-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_node_constraint-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_node_constraint-1.0/"/>
@@ -480,7 +466,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_springBone-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_springBone-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone-1.0/"/>
@@ -488,7 +474,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_springBone_extended_collider-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_springBone_extended_collider-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_springBone_extended_collider-1.0/"/>
@@ -496,7 +482,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/"/>
@@ -504,7 +490,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/expressions/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/expressions/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/expressions/"/>
@@ -512,7 +498,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/firstPerson/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/firstPerson/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/firstPerson/"/>
@@ -520,7 +506,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/humanoid/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/humanoid/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/humanoid/"/>
@@ -528,7 +514,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/lookAt/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/lookAt/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/lookAt/"/>
@@ -536,7 +522,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/meta/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/meta/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/meta/"/>
@@ -544,7 +530,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/tpose/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm-1.0/tpose/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm-1.0/tpose/"/>
@@ -552,7 +538,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm_animation-1.0/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm_animation-1.0/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/"/>
@@ -560,7 +546,7 @@
     </url>
     <url>
         <loc>https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/</loc>
-        <lastmod>2026-08-03</lastmod>
+        <lastmod>2026-08-04</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="ja" href="https://nanowater.github.io/vrm-specification-ko/ja/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://nanowater.github.io/vrm-specification-ko/en/specification/VRMC_vrm_animation-1.0/how_to_transform_human_pose/"/>
