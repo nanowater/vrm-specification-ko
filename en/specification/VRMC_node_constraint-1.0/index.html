@@ -3084,80 +3084,6 @@
 
 <h1 id="vrmc_node_constraint">VRMC_node_constraint</h1>
 <p><em>Version 1.0</em></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
-<ul>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#status">Status</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#purposes">Purposes</a></li>
-<li><a href="#constraints">Constraints</a></li>
-<li><a href="#sources">Sources</a></li>
-<li><a href="#weight">Weight</a></li>
-<li><a href="#roll-constraint">Roll Constraint</a><ul>
-<li><a href="#purposes-1">Purposes</a></li>
-<li><a href="#hierarchy">Hierarchy</a></li>
-<li><a href="#roll-axis">Roll Axis</a></li>
-<li><a href="#evaluation-of-rotations">Evaluation of rotations</a></li>
-<li><a href="#example-of-implementation">Example of Implementation</a></li>
-</ul>
-</li>
-<li><a href="#aim-constraint">Aim Constraint</a><ul>
-<li><a href="#purposes-2">Purposes</a></li>
-<li><a href="#hierarchy-1">Hierarchy</a></li>
-<li><a href="#aim-axis">Aim Axis</a></li>
-<li><a href="#evaluation-of-rotations-1">Evaluation of rotations</a></li>
-<li><a href="#example-of-implementation-1">Example of Implementation</a></li>
-</ul>
-</li>
-<li><a href="#rotation-constraint">Rotation Constraint</a><ul>
-<li><a href="#purposes-3">Purposes</a></li>
-<li><a href="#evaluation-of-rotations-2">Evaluation of rotations</a></li>
-<li><a href="#example-of-implementation-2">Example of Implementation</a></li>
-</ul>
-</li>
-<li><a href="#gltf-schema-updates">glTF Schema Updates</a></li>
-<li><a href="#extending-nodes">Extending Nodes</a></li>
-<li><a href="#vrmc_node_constraint">VRMC_node_constraint</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#vrmc_node_constraintspecversion-">VRMC_node_constraint.specVersion ✅</a></li>
-<li><a href="#vrmc_node_constraintconstraint-">VRMC_node_constraint.constraint ✅</a></li>
-</ul>
-</li>
-<li><a href="#constraint">constraint</a><ul>
-<li><a href="#properties-1">Properties</a></li>
-<li><a href="#constraintroll">constraint.roll</a></li>
-<li><a href="#constraintaim">constraint.aim</a></li>
-<li><a href="#constraintrotation">constraint.rotation</a></li>
-</ul>
-</li>
-<li><a href="#rollconstraint">rollConstraint</a><ul>
-<li><a href="#properties-2">Properties</a></li>
-<li><a href="#rollconstraintsource-">rollConstraint.source ✅</a></li>
-<li><a href="#rollconstraintrollaxis-">rollConstraint.rollAxis ✅</a></li>
-<li><a href="#rollconstraintweight">rollConstraint.weight</a></li>
-</ul>
-</li>
-<li><a href="#aimconstraint">aimConstraint</a><ul>
-<li><a href="#properties-3">Properties</a></li>
-<li><a href="#aimconstraintsource-">aimConstraint.source ✅</a></li>
-<li><a href="#aimconstraintaimaxis-">aimConstraint.aimAxis ✅</a></li>
-<li><a href="#aimconstraintweight">aimConstraint.weight</a></li>
-</ul>
-</li>
-<li><a href="#rotationconstraint">rotationConstraint</a><ul>
-<li><a href="#properties-4">Properties</a></li>
-<li><a href="#rotationconstraintsource-">rotationConstraint.source ✅</a></li>
-<li><a href="#rotationconstraintweight">rotationConstraint.weight</a></li>
-</ul>
-</li>
-<li><a href="#implementation-notes">Implementation Notes</a></li>
-<li><a href="#dependency-resolution-between-constraints">Dependency resolution between constraints</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li>Shindo Tetsuro</li>
@@ -3196,11 +3122,11 @@ We expect implementations to have enough features that artists need, and we do n
 </ul>
 <h4 id="hierarchy">Hierarchy</h4>
 <p>Roll Constraint assumes hierarchies like following for example:</p>
-<pre><code class="language-markdown">- LowerArm
-  - Hand
-  - Twist1 (RollConstraint, Source is LowerArm)
-  - Twist2 (RollConstraint, Source is LowerArm)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>LowerArm
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Hand
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Twist1 (RollConstraint, Source is LowerArm)
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>Twist2 (RollConstraint, Source is LowerArm)
+</code></pre></div>
 <h4 id="roll-axis">Roll Axis</h4>
 <p>Roll Constraint specifies a <em>roll axis</em>, which indicates which axis of destination should transfer from the source.</p>
 <p>Roll axis can be one of <code>"X"</code>, <code>"Y"</code>, or <code>"Z"</code>.</p>
@@ -3212,19 +3138,19 @@ Also, if the source is rotating outside of the roll axis, it <strong>SHOULD</str
 <p><em>This section is non-normative.</em></p>
 </blockquote>
 <p>This is the example implementation written in a pseudocode:</p>
-<pre><code class="language-js">deltaSrcQuat = srcRestQuat.inverse * srcQuat
-deltaSrcQuatInParent = srcRestQuat * deltaSrcQuat * srcRestQuat.inverse // source to parent
-deltaSrcQuatInDst = dstRestQuat.inverse * deltaSrcQuatInParent * dstRestQuat // parent to destination
+<div class="highlight"><pre><span></span><code><span class="nx">deltaSrcQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">srcRestQuat</span><span class="p">.</span><span class="nx">inverse</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">srcQuat</span>
+<span class="nx">deltaSrcQuatInParent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">srcRestQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">deltaSrcQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">srcRestQuat</span><span class="p">.</span><span class="nx">inverse</span><span class="w"> </span><span class="c1">// source to parent</span>
+<span class="nx">deltaSrcQuatInDst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dstRestQuat</span><span class="p">.</span><span class="nx">inverse</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">deltaSrcQuatInParent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">dstRestQuat</span><span class="w"> </span><span class="c1">// parent to destination</span>
 
-toVec = rollAxis.applyQuaternion( deltaSrcQuatInDst )
-fromToQuat = Quaternion.fromToRotation( rollAxis, toVec )
+<span class="nx">toVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rollAxis</span><span class="p">.</span><span class="nx">applyQuaternion</span><span class="p">(</span><span class="w"> </span><span class="nx">deltaSrcQuatInDst</span><span class="w"> </span><span class="p">)</span>
+<span class="nx">fromToQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Quaternion</span><span class="p">.</span><span class="nx">fromToRotation</span><span class="p">(</span><span class="w"> </span><span class="nx">rollAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">toVec</span><span class="w"> </span><span class="p">)</span>
 
-targetQuat = Quaternion.slerp(
-  dstRestQuat,
-  dstRestQuat * fromToQuat.inverse * deltaSrcQuatInDst,
-  weight
-)
-</code></pre>
+<span class="nx">targetQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Quaternion</span><span class="p">.</span><span class="nx">slerp</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">dstRestQuat</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">dstRestQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuat</span><span class="p">.</span><span class="nx">inverse</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">deltaSrcQuatInDst</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">weight</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="aim-constraint">Aim Constraint</h3>
 <p>Aim Constraint constrains a rotation of a destination to make it aim towards a source.</p>
 <h4 id="purposes_2">Purposes</h4>
@@ -3234,10 +3160,10 @@ targetQuat = Quaternion.slerp(
 </ul>
 <h4 id="hierarchy_1">Hierarchy</h4>
 <p>Aim Constraint assumes hierarchies like following for example:</p>
-<pre><code class="language-markdown">- UpperArm
-  - LowerArm
-- Aim (AimConstraint, Source is LowerArm)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>UpperArm
+<span class="w">  </span><span class="k">-</span><span class="w"> </span>LowerArm
+<span class="k">-</span><span class="w"> </span>Aim (AimConstraint, Source is LowerArm)
+</code></pre></div>
 <h4 id="aim-axis">Aim Axis</h4>
 <p>Aim Constraint specifies a <em>aim axis</em>, which indicates which axis of destination should aim at the source.</p>
 <p>Aim axis can be one of <code>"PositiveX"</code>, <code>"NegativeX"</code>, <code>"PositiveY"</code>, <code>"NegativeY"</code>, <code>"PositiveZ"</code>, or <code>"NegativeZ"</code>.</p>
@@ -3249,16 +3175,16 @@ The rotation <strong>SHOULD</strong> be the smallest possible rotation that meet
 <p><em>This section is non-normative.</em></p>
 </blockquote>
 <p>This is the example implementation written in a pseudocode:</p>
-<pre><code class="language-js">fromVec = aimAxis.applyQuaternion( dstParentWorldQuat * dstRestQuat )
-toVec = ( srcWorldPos - dstWorldPos ).normalized
-fromToQuat = Quaternion.fromToRotation( fromVec, toVec )
+<div class="highlight"><pre><span></span><code><span class="nx">fromVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">aimAxis</span><span class="p">.</span><span class="nx">applyQuaternion</span><span class="p">(</span><span class="w"> </span><span class="nx">dstParentWorldQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">dstRestQuat</span><span class="w"> </span><span class="p">)</span>
+<span class="nx">toVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nx">srcWorldPos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">dstWorldPos</span><span class="w"> </span><span class="p">).</span><span class="nx">normalized</span>
+<span class="nx">fromToQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Quaternion</span><span class="p">.</span><span class="nx">fromToRotation</span><span class="p">(</span><span class="w"> </span><span class="nx">fromVec</span><span class="p">,</span><span class="w"> </span><span class="nx">toVec</span><span class="w"> </span><span class="p">)</span>
 
-targetQuat = Quaternion.slerp(
-  dstRestQuat,
-  dstParentWorldQuat.inverse * fromToQuat * dstParentWorldQuat * dstRestQuat,
-  weight
-)
-</code></pre>
+<span class="nx">targetQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Quaternion</span><span class="p">.</span><span class="nx">slerp</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">dstRestQuat</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">dstParentWorldQuat</span><span class="p">.</span><span class="nx">inverse</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">dstParentWorldQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">dstRestQuat</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">weight</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="rotation-constraint">Rotation Constraint</h3>
 <p>Rotation Constraint constrains a rotation of a destination using a rotation of a source.</p>
 <p>This extension defines the Rotation Constraint in Local-Local.</p>
@@ -3277,51 +3203,51 @@ targetQuat = Quaternion.slerp(
 <p><em>This section is non-normative.</em></p>
 </blockquote>
 <p>This is the example implementation written in a pseudocode:</p>
-<pre><code class="language-js">srcDeltaQuat = srcRestQuat.inverse * srcQuat
+<div class="highlight"><pre><span></span><code><span class="nx">srcDeltaQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">srcRestQuat</span><span class="p">.</span><span class="nx">inverse</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">srcQuat</span>
 
-targetQuat = Quaternion.slerp(
-  dstRestQuat,
-  dstRestQuat * srcDeltaQuat,
-  weight
-)
-</code></pre>
+<span class="nx">targetQuat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Quaternion</span><span class="p">.</span><span class="nx">slerp</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">dstRestQuat</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">dstRestQuat</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">srcDeltaQuat</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">weight</span>
+<span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
 <h3 id="extending-nodes">Extending Nodes</h3>
 <p>A constraint will be described by adding a <code>VRMC_node_constraint</code> extension to a node.
 For example, the following defines a Rotation Constraint that constrains the rotation of the node <code>NodeB</code> by another node <code>NodeA</code>:</p>
-<pre><code class="language-json">{
-  &quot;extensionsUsed&quot;: {
-    &quot;VRMC_node_constraint&quot;
-  },
-  &quot;nodes&quot;: [
-    {
-      &quot;name&quot;: &quot;NodeA&quot;,
-    },
-    {
-      &quot;name&quot;: &quot;NodeB&quot;,
-      // node.extensions
-      &quot;extensions&quot;: {
-        &quot;VRMC_node_constraint&quot;: {
-          &quot;specVersion&quot;: &quot;1.0&quot;,
-          &quot;constraint&quot;: {
-            &quot;rotation&quot;: {
-              &quot;source&quot;: 0,
-              &quot;weight&quot;: 1.0
-            }
-          }
-        }
-      }
-    }
-  ],
-  // other glTF 2.0 informations
-  &quot;materials&quot;: [
-    {
-      // ...
-    }
-  ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;VRMC_node_constraint&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NodeA&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NodeB&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// node.extensions</span>
+<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_node_constraint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;constraint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rotation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="c1">// other glTF 2.0 informations</span>
+<span class="w">  </span><span class="nt">&quot;materials&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h3 id="vrmc_node_constraint_1">VRMC_node_constraint</h3>
 <p>The root object of the extension.</p>
@@ -3598,7 +3524,7 @@ The value will be <code>"1.0"</code> .</p>
 <p>A constraint often depends on other constraints.
 Constraints should be updated in correct orders under cases that has dependencies, to prevent constraints from referring transforms that is not updated yet.</p>
 <p>The pseudocode is an example of procedure how constraints should be updated:</p>
-<pre><code>let constraintsPending = empty set of Constraint
+<div class="highlight"><pre><span></span><code>let constraintsPending = empty set of Constraint
 let constraintsDone = empty set of Constraint
 
 function updateConstraint( constraint: Constraint )
@@ -3624,7 +3550,7 @@ function updateConstraints
     updateConstraint( constraint )
   end foreach
 end function
-</code></pre>
+</code></pre></div>
 
 
 
@@ -3645,7 +3571,7 @@ end function
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 12:11:15 UTC">August 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 06:59:55 UTC">August 4, 2026</span>
   </span>
 
     

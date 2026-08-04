@@ -1778,73 +1778,35 @@ VRM specification repository is <a href="https://github.com/vrm-c/vrm-specificat
 <ul>
 <li>20181109: Corrected parts where JsonSchema's <code>Vector3</code> type is erroneously set to <code>array</code></li>
 </ul>
-<pre><code class="language-js">{
-    &quot;x&quot;: {
-        &quot;type&quot;: &quot;number&quot;
-    },
-    &quot;y&quot;: {
-        &quot;type&quot;: &quot;number&quot;
-    },
-    &quot;z&quot;: {
-        &quot;type&quot;: &quot;number&quot;
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">&quot;z&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h1 id="contents">Contents</h1>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-<ul>
-<li><a href="#file-extension">File extension</a></li>
-<li><a href="#json-extension">Json extension</a></li>
-<li><a href="#vrm-extension-vrm-version-etc">VRM extension: VRM version, etc.</a></li>
-<li><a href="#savable-elements">Savable elements</a></li>
-<li><a href="#gltf-20-texture">GLTF-2.0: Texture</a></li>
-<li><a href="#gltf-20-material-jsonextensionsvrmmaterialproperties">GLTF-2.0: Material (json.extensions.VRM.materialProperties)</a></li>
-<li><a href="#vrm-extension-extensionsvrmmaterialproperties">VRM extension: <code>/extensions/VRM/materialProperties</code></a></li>
-<li><a href="#gltf-20-mesh">GLTF-2.0: Mesh</a></li>
-<li><a href="#gltf-20-skinning-information">GLTF-2.0: Skinning information</a></li>
-<li><a href="#gltf-20-node">GLTF-2.0: Node</a></li>
-<li><a href="#rules-for-saving-values">Rules for saving values</a></li>
-<li><a href="#gltf2-rules">GLTF2 rules</a></li>
-<li><a href="#vrm-rules">VRM rules</a></li>
-<li><a href="#available-shaders-in-vrm">Available shaders in VRM</a></li>
-<li><a href="#unlit-type">Unlit type</a></li>
-<li><a href="#mtoon">MToon</a></li>
-<li><a href="#vrm-extension-models-bone-mapping-jsonextensionsvrmhumanoid">VRM extension: Model's bone mapping (json.extensions.VRM.humanoid)</a></li>
-<li><a href="#defined-bones">Defined bones</a></li>
-<li><a href="#vrm-extension-model-information-jsonextensionsvrmmeta">VRM extension: Model information (json.extensions.VRM.meta)</a></li>
-<li><a href="#information">Information</a></li>
-<li><a href="#permission--license-information">Permission / License information</a></li>
-<li><a href="#vrm-extension-morph-setting-jsonextensionsvrmblendshapemaster">VRM extension: Morph setting (json.extensions.VRM.blendShapeMaster)</a></li>
-<li><a href="#blendshape-groups-jsonextensionsvrmblendshapemasterblendshapegroups">BlendShape groups (json.extensions.VRM.blendShapeMaster.blendShapeGroups)</a></li>
-<li><a href="#vrm-extension-first-person-settings-jsonextensionsvrmfirstperson">VRM extension: First-person settings (json.extensions.VRM.firstPerson)</a></li>
-<li><a href="#firstpersonbone-jsonextensionsvrmfirstpersonfirstpersonbone">firstPersonBone (json.extensions.VRM.firstPerson.firstPersonBone)</a></li>
-<li><a href="#firstpersonboneoffset-jsonextensionsvrmfirstpersonfirstpersonboneoffset">firstPersonBoneOffset (json.extensions.VRM.firstPerson.firstPersonBoneOffset)</a></li>
-<li><a href="#meshannotations-jsonextensionsvrmfirstpersonmeshannotations">meshAnnotations (json.extensions.VRM.firstPerson.meshAnnotations)</a></li>
-<li><a href="#eye-control-settings">Eye control settings</a></li>
-<li><a href="#vrm-extension-spring-bone-settings-jsonextensionsvrmsecondaryanimation">VRM extension: Spring bone settings (json.extensions.VRM.secondaryAnimation)</a></li>
-<li><a href="#spring-bone-secondaryanimationbonegroups">Spring bone (secondaryAnimation.boneGroups)</a></li>
-<li><a href="#collider-group-settings-jsonextensionsvrmsecondaryanimationcollidergroups">Collider group settings (json.extensions.VRM.secondaryAnimation.colliderGroups)</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h1 id="file-extension">File extension</h1>
 <p>The file extension<code>.vrm</code>is used. It is compatible with<code>.glb</code>. If ModelFileName.vrm is changed to ModelFileName.glb, it can be loaded by GLTF-compatible applications (however, custom settings in VRM will not be shown).</p>
 <h1 id="json-extension">Json extension</h1>
 <p>Extended as<code>VRM Extension</code>in the JSON part of GLB.</p>
-<pre><code class="language-js">{
-  &quot;extensionsUsed&quot;: {
-    &quot;VRM&quot;
-  },
-  &quot;extensions&quot;: {
-    &quot;VRM&quot;: {
-      // The information of VRM extension
-    }
-  },
-  // The information of general GLTF-2.0
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;extensionsUsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;VRM&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">&quot;extensions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;VRM&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// The information of VRM extension</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// The information of general GLTF-2.0</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>VRM JsonSchema:</p>
 <ul>
 <li>https://github.com/vrm-c/vrm-specification/tree/master/specification/0.0/schema</li>
@@ -1857,39 +1819,39 @@ VRM specification repository is <a href="https://github.com/vrm-c/vrm-specificat
 <ul>
 <li>Starting from v0.36:<code>/extensions/VRM/exporterVersion</code></li>
 </ul>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm&quot;,
-    &quot;description&quot;: &quot;VRM extension is for 3d humanoid avatars (and models) in VR applications.&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;exporterVersion&quot;: {
-            &quot;description&quot;: &quot;Version of exporter that vrm created. UniVRM-0.42&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;meta&quot;: {
-            &quot;$ref&quot;: &quot;vrm.meta.schema.json&quot;
-        },
-        &quot;humanoid&quot;: {
-            &quot;$ref&quot;: &quot;vrm.humanoid.schema.json&quot;
-        },
-        &quot;firstPerson&quot;: {
-            &quot;$ref&quot;: &quot;vrm.firstperson.schema.json&quot;
-        },
-        &quot;blendShapeMaster&quot;: {
-            &quot;$ref&quot;: &quot;vrm.blendshape.schema.json&quot;
-        },
-        &quot;secondaryAnimation&quot;: {
-            &quot;$ref&quot;: &quot;vrm.secondaryanimation.schema.json&quot;
-        },
-        &quot;materialProperties&quot;: {
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.material.schema.json&quot;
-            }
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;VRM extension is for 3d humanoid avatars (and models) in VR applications.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;exporterVersion&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Version of exporter that vrm created. UniVRM-0.42&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.meta.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;humanoid&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.humanoid.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;firstPerson&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;blendShapeMaster&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;secondaryAnimation&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.secondaryanimation.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;materialProperties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.material.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h1 id="savable-elements">Savable elements</h1>
 <p>The information of an entire humanoid model. </p>
 <h2 id="gltf-20-texture">GLTF-2.0: Texture</h2>
@@ -1908,37 +1870,37 @@ Please refer to <a href="#vrmshader">Available shaders in VRM</a>.</p>
 <ul>
 <li>https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.material.schema.json</li>
 </ul>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.material&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;name&quot;: {
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;shader&quot;: {
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;renderQueue&quot;: {
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;floatProperties&quot;: {
-            &quot;type&quot;: &quot;object&quot;
-        },
-        &quot;vectorProperties&quot;: {
-            &quot;type&quot;: &quot;object&quot;
-        },
-        &quot;textureProperties&quot;: {
-            &quot;type&quot;: &quot;object&quot;
-        },
-        &quot;keywordMap&quot;: {
-            &quot;type&quot;: &quot;object&quot;
-        },
-        &quot;tagMap&quot;: {
-            &quot;type&quot;: &quot;object&quot;
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.material&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;shader&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;renderQueue&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;floatProperties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;vectorProperties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;textureProperties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;keywordMap&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;tagMap&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="gltf-20-mesh">GLTF-2.0: Mesh</h2>
 <ul>
 <li>GLTF-2.0<code>/meshes/</code></li>
@@ -2015,42 +1977,42 @@ There are four types available for handling degree of transparency:</p>
 <p>The shader that supports cel shading and outline. Texture can be set more finely than Unlit.</p>
 <h1 id="vrm-extension-models-bone-mapping-jsonextensionsvrmhumanoid">VRM extension: Model's bone mapping (json.extensions.VRM.humanoid)</h1>
 <p>The table of standard bones defined by Node and Humanoid.</p>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.humanoid.bone&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;bone&quot;: {
-            &quot;description&quot;: &quot;Human bone name.&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;hips&quot;,&quot;leftUpperLeg&quot;,&quot;rightUpperLeg&quot;,&quot;leftLowerLeg&quot;,&quot;rightLowerLeg&quot;,&quot;leftFoot&quot;,&quot;rightFoot&quot;,&quot;spine&quot;,&quot;chest&quot;,&quot;neck&quot;,&quot;head&quot;,&quot;leftShoulder&quot;,&quot;rightShoulder&quot;,&quot;leftUpperArm&quot;,&quot;rightUpperArm&quot;,&quot;leftLowerArm&quot;,&quot;rightLowerArm&quot;,&quot;leftHand&quot;,&quot;rightHand&quot;,&quot;leftToes&quot;,&quot;rightToes&quot;,&quot;leftEye&quot;,&quot;rightEye&quot;,&quot;jaw&quot;,&quot;leftThumbProximal&quot;,&quot;leftThumbIntermediate&quot;,&quot;leftThumbDistal&quot;,&quot;leftIndexProximal&quot;,&quot;leftIndexIntermediate&quot;,&quot;leftIndexDistal&quot;,&quot;leftMiddleProximal&quot;,&quot;leftMiddleIntermediate&quot;,&quot;leftMiddleDistal&quot;,&quot;leftRingProximal&quot;,&quot;leftRingIntermediate&quot;,&quot;leftRingDistal&quot;,&quot;leftLittleProximal&quot;,&quot;leftLittleIntermediate&quot;,&quot;leftLittleDistal&quot;,&quot;rightThumbProximal&quot;,&quot;rightThumbIntermediate&quot;,&quot;rightThumbDistal&quot;,&quot;rightIndexProximal&quot;,&quot;rightIndexIntermediate&quot;,&quot;rightIndexDistal&quot;,&quot;rightMiddleProximal&quot;,&quot;rightMiddleIntermediate&quot;,&quot;rightMiddleDistal&quot;,&quot;rightRingProximal&quot;,&quot;rightRingIntermediate&quot;,&quot;rightRingDistal&quot;,&quot;rightLittleProximal&quot;,&quot;rightLittleIntermediate&quot;,&quot;rightLittleDistal&quot;,&quot;upperChest&quot;]
-        },
-        &quot;node&quot;: {
-            &quot;description&quot;: &quot;Reference node index&quot;,
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;useDefaultValues&quot;: {
-            &quot;description&quot;: &quot;Unity's HumanLimit.useDefaultValues&quot;,
-            &quot;type&quot;: &quot;boolean&quot;
-        },
-        &quot;min&quot;: {
-            &quot;description&quot;: &quot;Unity's HumanLimit.min&quot;,
-            &quot;type&quot;: &quot;array&quot;
-        },
-        &quot;max&quot;: {
-            &quot;description&quot;: &quot;Unity's HumanLimit.max&quot;,
-            &quot;type&quot;: &quot;array&quot;
-        },
-        &quot;center&quot;: {
-            &quot;description&quot;: &quot;Unity's HumanLimit.center&quot;,
-            &quot;type&quot;: &quot;array&quot;
-        },
-        &quot;axisLength&quot;: {
-            &quot;description&quot;: &quot;Unity's HumanLimit.axisLength&quot;,
-            &quot;type&quot;: &quot;number&quot;
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.humanoid.bone&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;bone&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Human bone name.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hips&quot;</span><span class="p">,</span><span class="s2">&quot;leftUpperLeg&quot;</span><span class="p">,</span><span class="s2">&quot;rightUpperLeg&quot;</span><span class="p">,</span><span class="s2">&quot;leftLowerLeg&quot;</span><span class="p">,</span><span class="s2">&quot;rightLowerLeg&quot;</span><span class="p">,</span><span class="s2">&quot;leftFoot&quot;</span><span class="p">,</span><span class="s2">&quot;rightFoot&quot;</span><span class="p">,</span><span class="s2">&quot;spine&quot;</span><span class="p">,</span><span class="s2">&quot;chest&quot;</span><span class="p">,</span><span class="s2">&quot;neck&quot;</span><span class="p">,</span><span class="s2">&quot;head&quot;</span><span class="p">,</span><span class="s2">&quot;leftShoulder&quot;</span><span class="p">,</span><span class="s2">&quot;rightShoulder&quot;</span><span class="p">,</span><span class="s2">&quot;leftUpperArm&quot;</span><span class="p">,</span><span class="s2">&quot;rightUpperArm&quot;</span><span class="p">,</span><span class="s2">&quot;leftLowerArm&quot;</span><span class="p">,</span><span class="s2">&quot;rightLowerArm&quot;</span><span class="p">,</span><span class="s2">&quot;leftHand&quot;</span><span class="p">,</span><span class="s2">&quot;rightHand&quot;</span><span class="p">,</span><span class="s2">&quot;leftToes&quot;</span><span class="p">,</span><span class="s2">&quot;rightToes&quot;</span><span class="p">,</span><span class="s2">&quot;leftEye&quot;</span><span class="p">,</span><span class="s2">&quot;rightEye&quot;</span><span class="p">,</span><span class="s2">&quot;jaw&quot;</span><span class="p">,</span><span class="s2">&quot;leftThumbProximal&quot;</span><span class="p">,</span><span class="s2">&quot;leftThumbIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;leftThumbDistal&quot;</span><span class="p">,</span><span class="s2">&quot;leftIndexProximal&quot;</span><span class="p">,</span><span class="s2">&quot;leftIndexIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;leftIndexDistal&quot;</span><span class="p">,</span><span class="s2">&quot;leftMiddleProximal&quot;</span><span class="p">,</span><span class="s2">&quot;leftMiddleIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;leftMiddleDistal&quot;</span><span class="p">,</span><span class="s2">&quot;leftRingProximal&quot;</span><span class="p">,</span><span class="s2">&quot;leftRingIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;leftRingDistal&quot;</span><span class="p">,</span><span class="s2">&quot;leftLittleProximal&quot;</span><span class="p">,</span><span class="s2">&quot;leftLittleIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;leftLittleDistal&quot;</span><span class="p">,</span><span class="s2">&quot;rightThumbProximal&quot;</span><span class="p">,</span><span class="s2">&quot;rightThumbIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;rightThumbDistal&quot;</span><span class="p">,</span><span class="s2">&quot;rightIndexProximal&quot;</span><span class="p">,</span><span class="s2">&quot;rightIndexIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;rightIndexDistal&quot;</span><span class="p">,</span><span class="s2">&quot;rightMiddleProximal&quot;</span><span class="p">,</span><span class="s2">&quot;rightMiddleIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;rightMiddleDistal&quot;</span><span class="p">,</span><span class="s2">&quot;rightRingProximal&quot;</span><span class="p">,</span><span class="s2">&quot;rightRingIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;rightRingDistal&quot;</span><span class="p">,</span><span class="s2">&quot;rightLittleProximal&quot;</span><span class="p">,</span><span class="s2">&quot;rightLittleIntermediate&quot;</span><span class="p">,</span><span class="s2">&quot;rightLittleDistal&quot;</span><span class="p">,</span><span class="s2">&quot;upperChest&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;node&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Reference node index&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;useDefaultValues&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Unity&#39;s HumanLimit.useDefaultValues&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;min&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Unity&#39;s HumanLimit.min&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;max&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Unity&#39;s HumanLimit.max&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;center&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Unity&#39;s HumanLimit.center&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;axisLength&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Unity&#39;s HumanLimit.axisLength&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="defined-bones">Defined bones</h2>
 <table>
 <thead>
@@ -2147,70 +2109,70 @@ There are four types available for handling degree of transparency:</p>
 </tbody>
 </table>
 <h1 id="vrm-extension-model-information-jsonextensionsvrmmeta">VRM extension: Model information (json.extensions.VRM.meta)</h1>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.meta&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;title&quot;: {
-            &quot;description&quot;: &quot;Title of VRM model&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;version&quot;: {
-            &quot;description&quot;: &quot;Version of VRM model&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;author&quot;: {
-            &quot;description&quot;: &quot;Author of VRM model&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;contactInformation&quot;: {
-            &quot;description&quot;: &quot;Contact Information of VRM model author&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;reference&quot;: {
-            &quot;description&quot;: &quot;Reference of VRM model&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;texture&quot;: {
-            &quot;description&quot;: &quot;Thumbnail of VRM model&quot;,
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;allowedUserName&quot;: {
-            &quot;description&quot;: &quot;A person who can perform with this avatar&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;OnlyAuthor&quot;,&quot;ExplicitlyLicensedPerson&quot;,&quot;Everyone&quot;]
-        },
-        &quot;violentUssageName&quot;: {
-            &quot;description&quot;: &quot;Permission to perform violent acts with this avatar&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;Disallow&quot;,&quot;Allow&quot;]
-        },
-        &quot;sexualUssageName&quot;: {
-            &quot;description&quot;: &quot;Permission to perform sexual acts with this avatar&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;Disallow&quot;,&quot;Allow&quot;]
-        },
-        &quot;commercialUssageName&quot;: {
-            &quot;description&quot;: &quot;For commercial use&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;Disallow&quot;,&quot;Allow&quot;]
-        },
-        &quot;otherPermissionUrl&quot;: {
-            &quot;description&quot;: &quot;If there are any conditions not mentioned above, put the URL link of the license document here.&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;licenseName&quot;: {
-            &quot;description&quot;: &quot;License type&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;Redistribution_Prohibited&quot;,&quot;CC0&quot;,&quot;CC_BY&quot;,&quot;CC_BY_NC&quot;,&quot;CC_BY_SA&quot;,&quot;CC_BY_NC_SA&quot;,&quot;CC_BY_ND&quot;,&quot;CC_BY_NC_ND&quot;,&quot;Other&quot;]
-        },
-        &quot;otherLicenseUrl&quot;: {
-            &quot;description&quot;: &quot;If “Other” is selected, put the URL link of the license document here.&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.meta&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Title of VRM model&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Version of VRM model&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;author&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Author of VRM model&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;contactInformation&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Contact Information of VRM model author&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;reference&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Reference of VRM model&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;texture&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Thumbnail of VRM model&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;allowedUserName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;A person who can perform with this avatar&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;OnlyAuthor&quot;</span><span class="p">,</span><span class="s2">&quot;ExplicitlyLicensedPerson&quot;</span><span class="p">,</span><span class="s2">&quot;Everyone&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;violentUssageName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Permission to perform violent acts with this avatar&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Disallow&quot;</span><span class="p">,</span><span class="s2">&quot;Allow&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;sexualUssageName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Permission to perform sexual acts with this avatar&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Disallow&quot;</span><span class="p">,</span><span class="s2">&quot;Allow&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;commercialUssageName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;For commercial use&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Disallow&quot;</span><span class="p">,</span><span class="s2">&quot;Allow&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;otherPermissionUrl&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;If there are any conditions not mentioned above, put the URL link of the license document here.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;licenseName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;License type&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Redistribution_Prohibited&quot;</span><span class="p">,</span><span class="s2">&quot;CC0&quot;</span><span class="p">,</span><span class="s2">&quot;CC_BY&quot;</span><span class="p">,</span><span class="s2">&quot;CC_BY_NC&quot;</span><span class="p">,</span><span class="s2">&quot;CC_BY_SA&quot;</span><span class="p">,</span><span class="s2">&quot;CC_BY_NC_SA&quot;</span><span class="p">,</span><span class="s2">&quot;CC_BY_ND&quot;</span><span class="p">,</span><span class="s2">&quot;CC_BY_NC_ND&quot;</span><span class="p">,</span><span class="s2">&quot;Other&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;otherLicenseUrl&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;If “Other” is selected, put the URL link of the license document here.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="information">Information</h2>
 <h3 id="title">Title</h3>
 <p>Set the name of the VRM model</p>
@@ -2270,85 +2232,85 @@ Make sure not to include personal information that is not intended to be disclos
 <p>If “Other” is selected, put the URL link of the license document here.</p>
 <h1 id="vrm-extension-morph-setting-jsonextensionsvrmblendshapemaster">VRM extension: Morph setting (json.extensions.VRM.blendShapeMaster)</h1>
 <p>Set an array of BlendShapeGroups to group BlendShape.</p>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.blendshape&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;blendShapeGroups&quot;: {
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.blendshape.group.schema.json&quot;
-            }
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;blendShapeGroups&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.group.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="blendshape-groups-jsonextensionsvrmblendshapemasterblendshapegroups">BlendShape groups (json.extensions.VRM.blendShapeMaster.blendShapeGroups)</h2>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.blendshape.group&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;name&quot;: {
-            &quot;description&quot;: &quot;Expression name&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;presetName&quot;: {
-            &quot;description&quot;: &quot;Predefined Expression name&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;Neutral&quot;,&quot;A&quot;,&quot;I&quot;,&quot;U&quot;,&quot;E&quot;,&quot;O&quot;,&quot;Blink&quot;,&quot;Joy&quot;,&quot;Angry&quot;,&quot;Sorrow&quot;,&quot;Fun&quot;,&quot;LookUp&quot;,&quot;LookDown&quot;,&quot;LookLeft&quot;,&quot;LookRight&quot;,&quot;Blink_L&quot;,&quot;Blink_R&quot;]
-        },
-        &quot;binds&quot;: {
-            &quot;description&quot;: &quot;Low level blendshape references.&quot;,
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.blendshape.bind.schema.json&quot;
-            }
-        },
-        &quot;materialValues&quot;: {
-            &quot;description&quot;: &quot;Material animation references.&quot;,
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.blendshape.materialbind.schema.json&quot;
-            }
-        }
-    }
-}
-</code></pre>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.blendshape.bind&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;mesh&quot;: {
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;index&quot;: {
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;weight&quot;: {
-            &quot;type&quot;: &quot;number&quot;
-        }
-    }
-}
-</code></pre>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.blendshape.materialbind&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;materialName&quot;: {
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;propertyName&quot;: {
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;targetValue&quot;: {
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;type&quot;: &quot;number&quot;
-            }
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.group&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Expression name&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;presetName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Predefined Expression name&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Neutral&quot;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;U&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="s2">&quot;O&quot;</span><span class="p">,</span><span class="s2">&quot;Blink&quot;</span><span class="p">,</span><span class="s2">&quot;Joy&quot;</span><span class="p">,</span><span class="s2">&quot;Angry&quot;</span><span class="p">,</span><span class="s2">&quot;Sorrow&quot;</span><span class="p">,</span><span class="s2">&quot;Fun&quot;</span><span class="p">,</span><span class="s2">&quot;LookUp&quot;</span><span class="p">,</span><span class="s2">&quot;LookDown&quot;</span><span class="p">,</span><span class="s2">&quot;LookLeft&quot;</span><span class="p">,</span><span class="s2">&quot;LookRight&quot;</span><span class="p">,</span><span class="s2">&quot;Blink_L&quot;</span><span class="p">,</span><span class="s2">&quot;Blink_R&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;binds&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Low level blendshape references.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.bind.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;materialValues&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Material animation references.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.materialbind.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.bind&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;mesh&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;weight&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.blendshape.materialbind&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;materialName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;propertyName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;targetValue&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="expression-name">Expression name</h3>
 <p>Using a name with capital letters (e.g. the predefined expression name) is recommended.</p>
 <h3 id="predefined-expression-name">Predefined expression name</h3>
@@ -2390,7 +2352,7 @@ Make sure not to include personal information that is not intended to be disclos
 </ul>
 <h3 id="blendshape-name-identifier">BlendShape name identifier</h3>
 <p>The following method determines the character string ID that uniquely recognizes BlendShape from the system:</p>
-<pre><code>// Pseudo code
+<div class="highlight"><pre><span></span><code>// Pseudo code
 function GetID(preset, name)
 {
   if (Preset != BlendShapePreset.Unknown)
@@ -2402,61 +2364,61 @@ function GetID(preset, name)
       return name.ToUpper();
   }
 }
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Set Preset and Name to make BlendShape ID unique.  </li>
 </ul>
 <h1 id="vrm-extension-first-person-settings-jsonextensionsvrmfirstperson">VRM extension: First-person settings (json.extensions.VRM.firstPerson)</h1>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.firstperson&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;firstPersonBone&quot;: {
-            &quot;description&quot;: &quot;The bone whose rendering should be turned off in first-person view. Usually Head is specified.&quot;,
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;firstPersonBoneOffset&quot;: {
-            &quot;description&quot;: &quot;The target position of the VR headset in first-person view. It is assumed that an offset from the head bone to the VR headset is added.&quot;,
-            &quot;type&quot;: &quot;object&quot;,
-            &quot;properties&quot;: {
-                &quot;x&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                },
-                &quot;y&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                },
-                &quot;z&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                }
-            }
-        },
-        &quot;meshAnnotations&quot;: {
-            &quot;description&quot;: &quot;Switch display \/ undisplay for each mesh in first-person view or the others.&quot;,
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.firstperson.meshannotation.schema.json&quot;
-            }
-        },
-        &quot;lookAtTypeName&quot;: {
-            &quot;description&quot;: &quot;Eye controller mode.&quot;,
-            &quot;type&quot;: &quot;string&quot;,
-            &quot;enum&quot;: [&quot;Bone&quot;,&quot;BlendShape&quot;]
-        },
-        &quot;lookAtHorizontalInner&quot;: {
-            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
-        },
-        &quot;lookAtHorizontalOuter&quot;: {
-            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
-        },
-        &quot;lookAtVerticalDown&quot;: {
-            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
-        },
-        &quot;lookAtVerticalUp&quot;: {
-            &quot;$ref&quot;: &quot;vrm.firstperson.degreemap.schema.json&quot;
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;firstPersonBone&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The bone whose rendering should be turned off in first-person view. Usually Head is specified.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;firstPersonBoneOffset&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The target position of the VR headset in first-person view. It is assumed that an offset from the head bone to the VR headset is added.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="s2">&quot;z&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;meshAnnotations&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Switch display \/ undisplay for each mesh in first-person view or the others.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson.meshannotation.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;lookAtTypeName&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Eye controller mode.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;enum&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Bone&quot;</span><span class="p">,</span><span class="s2">&quot;BlendShape&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;lookAtHorizontalInner&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson.degreemap.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;lookAtHorizontalOuter&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson.degreemap.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;lookAtVerticalDown&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson.degreemap.schema.json&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;lookAtVerticalUp&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.firstperson.degreemap.schema.json&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>When the user-controlled avatar model is rendered in first-person view (VR applications), the user may inadvertently see inner surfaces of the model’s head[^firstperson]. To address this problem, we can specify model's display states in first-person view.</p>
 <p>[^firstperson]: In some cases the user may see the gum of the model inadvertently.</p>
 <h2 id="firstpersonbone-jsonextensionsvrmfirstpersonfirstpersonbone">firstPersonBone (json.extensions.VRM.firstPerson.firstPersonBone)</h2>
@@ -2489,85 +2451,85 @@ It is assumed that an offset from the head bone to the VR headset is added.</p>
 <h1 id="vrm-extension-spring-bone-settings-jsonextensionsvrmsecondaryanimation">VRM extension: Spring bone settings (json.extensions.VRM.secondaryAnimation)</h1>
 <p>The setting of automatic animation of string-like objects such as tails and hairs.</p>
 <h2 id="spring-bone-secondaryanimationbonegroups">Spring bone (secondaryAnimation.boneGroups)</h2>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.secondaryanimation&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;boneGroups&quot;: {
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.secondaryanimation.spring.schema.json&quot;
-            }
-        },
-        &quot;colliderGroups&quot;: {
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;$ref&quot;: &quot;vrm.secondaryanimation.collidergroup.schema.json&quot;
-            }
-        }
-    }
-}
-</code></pre>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.secondaryanimation.spring&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;comment&quot;: {
-            &quot;description&quot;: &quot;Annotation comment&quot;,
-            &quot;type&quot;: &quot;string&quot;
-        },
-        &quot;stiffiness&quot;: {
-            &quot;description&quot;: &quot;The resilience of the swaying object (the power of returning to the initial pose).&quot;,
-            &quot;type&quot;: &quot;number&quot;
-        },
-        &quot;gravityPower&quot;: {
-            &quot;description&quot;: &quot;The strength of gravity.&quot;,
-            &quot;type&quot;: &quot;number&quot;
-        },
-        &quot;gravityDir&quot;: {
-            &quot;description&quot;: &quot;The direction of gravity. Set (0, -1, 0) for simulating the gravity. Set (1, 0, 0) for simulating the wind.&quot;,
-            &quot;type&quot;: &quot;object&quot;,
-            &quot;properties&quot;: {
-                &quot;x&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                },
-                &quot;y&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                },
-                &quot;z&quot;: {
-                    &quot;type&quot;: &quot;number&quot;
-                }
-            }
-        },
-        &quot;dragForce&quot;: {
-            &quot;description&quot;: &quot;The resistance (deceleration) of automatic animation.&quot;,
-            &quot;type&quot;: &quot;number&quot;
-        },
-        &quot;center&quot;: {
-            &quot;description&quot;: &quot;The reference point of a swaying object can be set at any location except the origin. When implementing UI moving with warp, the parent node to move with warp can be specified if you don't want to make the object swaying with warp movement.&quot;,
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;hitRadius&quot;: {
-            &quot;description&quot;: &quot;The radius of the sphere used for the collision detection with colliders.&quot;,
-            &quot;type&quot;: &quot;number&quot;
-        },
-        &quot;bones&quot;: {
-            &quot;description&quot;: &quot;Specify the node index of the root bone of the swaying object.&quot;,
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;type&quot;: &quot;integer&quot;
-            }
-        },
-        &quot;colliderGroups&quot;: {
-            &quot;description&quot;: &quot;Specify the index of the collider group for collisions with swaying objects.&quot;,
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;type&quot;: &quot;integer&quot;
-            }
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.secondaryanimation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;boneGroups&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.secondaryanimation.spring.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;colliderGroups&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;$ref&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.secondaryanimation.collidergroup.schema.json&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.secondaryanimation.spring&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;comment&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Annotation comment&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;stiffiness&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The resilience of the swaying object (the power of returning to the initial pose).&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;gravityPower&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The strength of gravity.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;gravityDir&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The direction of gravity. Set (0, -1, 0) for simulating the gravity. Set (1, 0, 0) for simulating the wind.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="s2">&quot;z&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;dragForce&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The resistance (deceleration) of automatic animation.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;center&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The reference point of a swaying object can be set at any location except the origin. When implementing UI moving with warp, the parent node to move with warp can be specified if you don&#39;t want to make the object swaying with warp movement.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;hitRadius&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The radius of the sphere used for the collision detection with colliders.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;bones&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Specify the node index of the root bone of the swaying object.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;colliderGroups&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Specify the index of the collider group for collisions with swaying objects.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="root-of-spring-bone-jsonextensionsvrmsecondaryanimationbonegroups0bones">Root of spring bone (json.extensions.VRM.secondaryAnimation.boneGroups[0].bones)</h3>
 <p>Specify the node index of the root bone of the swaying object.</p>
 <h3 id="colliders-for-colliding-with-spring-bone-jsonextensionsvrmsecondaryanimationbonegroups0collidergroups">Colliders for colliding with spring bone (json.extensions.VRM.secondaryAnimation.boneGroups[0].colliderGroups)</h3>
@@ -2587,44 +2549,44 @@ It is assumed that an offset from the head bone to the VR headset is added.</p>
 <p>The resilience of the swaying object (the power of returning to the initial pose).</p>
 <h2 id="collider-group-settings-jsonextensionsvrmsecondaryanimationcollidergroups">Collider group settings (json.extensions.VRM.secondaryAnimation.colliderGroups)</h2>
 <p>Set sphere balls for colliders used for collision detections with swaying objects.</p>
-<pre><code class="language-js">{
-    &quot;title&quot;: &quot;vrm.secondaryanimation.collidergroup&quot;,
-    &quot;type&quot;: &quot;object&quot;,
-    &quot;properties&quot;: {
-        &quot;node&quot;: {
-            &quot;description&quot;: &quot;The node of the collider group for setting up collision detections.&quot;,
-            &quot;type&quot;: &quot;integer&quot;
-        },
-        &quot;colliders&quot;: {
-            &quot;type&quot;: &quot;array&quot;,
-            &quot;items&quot;: {
-                &quot;type&quot;: &quot;object&quot;,
-                &quot;properties&quot;: {
-                    &quot;offset&quot;: {
-                        &quot;description&quot;: &quot;The local coordinate from the node of the collider group.&quot;,
-                        &quot;type&quot;: &quot;object&quot;,
-                        &quot;properties&quot;: {
-                            &quot;x&quot;: {
-                                &quot;type&quot;: &quot;number&quot;
-                            },
-                            &quot;y&quot;: {
-                                &quot;type&quot;: &quot;number&quot;
-                            },
-                            &quot;z&quot;: {
-                                &quot;type&quot;: &quot;number&quot;
-                            }
-                        }
-                    },
-                    &quot;radius&quot;: {
-                        &quot;description&quot;: &quot;The radius of the collider.&quot;,
-                        &quot;type&quot;: &quot;number&quot;
-                    }
-                }
-            }
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vrm.secondaryanimation.collidergroup&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;node&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The node of the collider group for setting up collision detections.&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">&quot;colliders&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;items&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="s2">&quot;offset&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The local coordinate from the node of the collider group.&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;properties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="s2">&quot;x&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                            </span><span class="s2">&quot;y&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                            </span><span class="s2">&quot;z&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                                </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                            </span><span class="p">}</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="s2">&quot;radius&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;The radius of the collider.&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="node-jsonextensionsvrmsecondaryanimationcollidergroups0node">Node (json.extensions.VRM.secondaryAnimation.colliderGroups[0].node)</h3>
 <p>The node of the collider group for setting up collision detections.</p>
 <h3 id="local-coordinate-jsonextensionsvrmsecondaryanimationcollidergroups0colliders1offset">Local coordinate (json.extensions.VRM.secondaryAnimation.colliderGroups[0].colliders[1].offset)</h3>
@@ -2651,7 +2613,7 @@ It is assumed that an offset from the head bone to the VR headset is added.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 12:11:15 UTC">August 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 06:59:55 UTC">August 4, 2026</span>
   </span>
 
     

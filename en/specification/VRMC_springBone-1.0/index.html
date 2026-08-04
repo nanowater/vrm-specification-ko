@@ -2640,52 +2640,6 @@
 
 <h1 id="vrmc_springbone">VRMC_springBone</h1>
 <p><em>Version 1.0</em></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
-<ul>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#status">Status</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#structure">Structure</a></li>
-<li><a href="#terms">Terms</a><ul>
-<li><a href="#springjoint">SpringJoint</a></li>
-<li><a href="#springjointpair">SpringJointPair</a></li>
-<li><a href="#springchain">SpringChain</a></li>
-</ul>
-</li>
-<li><a href="#example">Example</a></li>
-<li><a href="#for-vrm0">For <code>vrm0</code></a></li>
-<li><a href="#exception">Exception</a><ul>
-<li><a href="#multiple-springchains-must-not-be-duplicated-in-the-same-springjoint-prohibited">Multiple SpringChains must not be duplicated in the same SpringJoint (prohibited)</a></li>
-<li><a href="#branching-springchain-undefined">Branching SpringChain (undefined)</a></li>
-</ul>
-</li>
-<li><a href="#evaluation-space">Evaluation Space</a></li>
-<li><a href="#center-space">Center Space</a></li>
-<li><a href="#json">JSON</a></li>
-<li><a href="#vrmc_springbonespecversion"><code>VRMC_springBone.specVersion</code></a></li>
-<li><a href="#vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></a></li>
-<li><a href="#vrmc_springbonecollidergroups"><code>VRMC_springBone.colliderGroups</code></a></li>
-<li><a href="#vrmc_springbonesprings"><code>VRMC_springBone.springs</code></a><ul>
-<li><a href="#joints">joints</a></li>
-</ul>
-</li>
-<li><a href="#vrmc_springbonespringsjoints"><code>VRMC_springBone.springs[*].joints[*]</code></a></li>
-<li><a href="#springbone-algorithm">SpringBone Algorithm</a></li>
-<li><a href="#calculation-order">Calculation order</a></li>
-<li><a href="#initialization">Initialization</a></li>
-<li><a href="#update-procedure">Update procedure</a><ul>
-<li><a href="#inertia-calculation">Inertia calculation</a></li>
-<li><a href="#collision-with-colliders">Collision with colliders</a></li>
-<li><a href="#applying-rotation">Applying rotation</a></li>
-<li><a href="#considering-center-space">Considering center space</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li>Shindo Tatsuro</li>
@@ -2738,77 +2692,77 @@ Calculate the position difference from the previous frame with Tail.
 It also calculates collisions with collisions, if set.
 Head must always be an ancestor of Tail,
 It does not have to be the parent of the Head.</p>
-<pre><code>  Sways
+<div class="highlight"><pre><span></span><code>  Sways
 &lt;- Tail -&gt;
     |
     |
     o
    Head
-</code></pre>
+</code></pre></div>
 <p>Calculate the rotation of the Head from the movement of the Tail.</p>
 <h4 id="springchain">SpringChain</h4>
 <p>A chain of consecutive <code>SpringJoint</code>s.</p>
-<pre><code>a-b-c-d
-</code></pre>
+<div class="highlight"><pre><span></span><code>a-b-c-d
+</code></pre></div>
 <h3 id="example">Example</h3>
-<pre><code>a-b-c-d
-</code></pre>
+<div class="highlight"><pre><span></span><code>a-b-c-d
+</code></pre></div>
 <p>If there are joints, Runtime interprets them as follows.</p>
-<pre><code>Head(rotate)
+<div class="highlight"><pre><span></span><code>Head(rotate)
 | +-Tail(Movement difference / collision)
 v v
 a-b
 b-c
 c-d
-</code></pre>
+</code></pre></div>
 <p>Expands to three <code>HeadSpringJoint and TailSpringJoint pairs</code>.
 The SpringJoint at the end is only used as a Tail, so no SpringJoint parameters are used.
 If you want to rotate d, add Node to the end and set SpringJoint as shown below.
 The Node you add can be empty.</p>
-<pre><code>Head(rotate)
+<div class="highlight"><pre><span></span><code>Head(rotate)
 | +-Tail(Movement difference / collision)
 v v
 a-b
 b-c
 c-d
 d-e
-</code></pre>
+</code></pre></div>
 <h3 id="for-vrm0">For <code>vrm0</code></h3>
-<pre><code>a-b-c-d
-</code></pre>
+<div class="highlight"><pre><span></span><code>a-b-c-d
+</code></pre></div>
 <p>If there are joints, <code>vrm0</code> interprets it as follows.</p>
-<pre><code>Head(rotate)
+<div class="highlight"><pre><span></span><code>Head(rotate)
 | +-Tail(Movement difference / collision)
 v v
 a-b
 b-c
 c-d
 d- (Add SpringJoint at a distance of 7 cm at the end)
-</code></pre>
+</code></pre></div>
 <h3 id="exception">Exception</h3>
 <h4 id="multiple-springchains-must-not-be-duplicated-in-the-same-springjoint-prohibited">Multiple SpringChains must not be duplicated in the same SpringJoint (prohibited)</h4>
 <p>Individual <code>SpringChains</code> must not contain the same joint.
 In the following cases, b, c and d belong to two SpringChains at the same time.</p>
-<pre><code>b-c-d
+<div class="highlight"><pre><span></span><code>b-c-d
 
 a-b-c-d
-</code></pre>
+</code></pre></div>
 <p>Configurations such as the following are implicitly considered duplicates.
 b and c belong to two SpringChains at the same time.
 Even if it is skipped, it will be subject to duplicate check.</p>
-<pre><code>() is skipped node
+<div class="highlight"><pre><span></span><code>() is skipped node
 a-(b)-c
 
 b-(c)-e
-</code></pre>
+</code></pre></div>
 <h4 id="branching-springchain-undefined">Branching SpringChain (undefined)</h4>
 <ul>
 <li>Treat as separate <code>SpringBoneChain</code></li>
 </ul>
-<pre><code>  x-y-z
+<div class="highlight"><pre><span></span><code>  x-y-z
   |
 a-b-c-d
-</code></pre>
+</code></pre></div>
 <ul>
 <li>Treat as two SpringChains, <code>a-b-c-d</code> and<code>x-y-z</code>.</li>
 <li>The execution order between <code>a-b-c-d</code> and<code>x-y-z</code> is undefined. The behavior may differ depending on the implementation. Implementation convenience such as parallel execution may be prioritized.</li>
@@ -2827,104 +2781,104 @@ The center node cannot be any joints of other SpringChains, or descendants of on
 <li>When you want to move SpringBones attached to the head of the model (e.g., hairs, hair ornaments) only when moving its head</li>
 </ul>
 <h2 id="json">JSON</h2>
-<pre><code class="language-json">{
-    &quot;extensionsUsed&quot;: [
-        &quot;VRMC_springBone&quot;
-    ],
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;specVersion&quot;: &quot;1.0&quot;,
-            &quot;colliders&quot;: [
-                {
-                    &quot;node&quot;: 2,
-                    &quot;shape&quot;: {
-                        &quot;sphere&quot;: {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1
-                        }
-                    },
-                },
-                {
-                    &quot;node&quot;: 2,
-                    &quot;shape&quot;: {
-                        &quot;capsule&quot;: {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1,
-                            &quot;tail&quot;: [
-                                0,
-                                0,
-                                1
-                            ]
-                        }
-                    }
-                }
-            ],
-            &quot;colliderGroups&quot;: [
-                {
-                    // group0
-                    &quot;name&quot;: &quot;group0&quot;,
-                    &quot;colliders&quot;: [0, 1]
-                },
-            ],
-            &quot;springs&quot;: [
-                {
-                    &quot;joints&quot;: [
-                        {
-                            &quot;node&quot;: 0 // node0
-                        },
-                        {
-                            &quot;node&quot;: 1 // node1
-                        }
-                    ],
-                    &quot;colliderGroups&quot;: [
-                        0,
-                    ]
-                }
-            ]
-        }
-    },
-    &quot;nodes&quot;: [
-        {
-            &quot;name&quot;: &quot;node0&quot;,
-        },
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;VRMC_springBone&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;capsule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;tail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                                </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                </span><span class="mi">1</span>
+<span class="w">                            </span><span class="p">]</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// group0</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;group0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;springs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;joints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// node0</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">// node1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="vrmc_springbonespecversion"><code>VRMC_springBone.specVersion</code></h3>
 <p>Represents the version of the spec of VRMC_springBone extension.</p>
-<pre><code class="language-json">extensions.VRMC_springBone.specVersion = &quot;1.0&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_spri</span><span class="kc">n</span><span class="err">gBo</span><span class="kc">ne</span><span class="err">.specVersio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span>
+</code></pre></div>
 <h3 id="vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></h3>
 <p>Defines collision detection for SpringBone.
 The target node and its shape.</p>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;colliders&quot;: [
-                {
-                    &quot;node&quot;: 1,
-                    &quot;shape&quot;: {
-                        &quot;sphere&quot;: {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1
-                        }
-                    },
-                },
-                {
-                    &quot;node&quot;: 1,
-                    &quot;shape&quot;: {
-                        &quot;capsule&quot; : {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1,
-                            &quot;tail&quot;: [0, 0, 1]
-                        }
-                    },
-                }
-            ]
-        }
-    }
-}            
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;capsule&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;tail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w">            </span>
+</code></pre></div>
 <p>shape is exclusive with either <code>sphere</code> or<code>capsule</code>.</p>
 <table>
 <thead>
@@ -2973,19 +2927,19 @@ The target node and its shape.</p>
 </tbody>
 </table>
 <h3 id="vrmc_springbonecollidergroups"><code>VRMC_springBone.colliderGroups</code></h3>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;colliderGroups&quot;: [
-                {
-                    &quot;name&quot;: &quot;groupName&quot;,
-                    &quot;colliders&quot;: [0, 1, 2]
-                }
-            ]
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groupName&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3008,22 +2962,22 @@ The target node and its shape.</p>
 </tbody>
 </table>
 <h3 id="vrmc_springbonesprings"><code>VRMC_springBone.springs</code></h3>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;springs&quot;: [
-                {
-                    &quot;name&quot;: &quot;spring0&quot;,
-                    &quot;joints&quot;: [
-                    ],
-                    &quot;colliderGroups&quot;: [0],
-                    &quot;center&quot;: 0
-                }
-            ]
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;springs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spring0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;joints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;center&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3062,31 +3016,31 @@ If the end of joints is not the terminal node, then the descendant nodes will be
 <p>As explained above, by not setting joints, you can skip mid- or terminal nodes and set them to sway. However, if that node has no other purpose, it's redundant and it's a good idea to remove it altogether.</p>
 </blockquote>
 <h3 id="vrmc_springbonespringsjoints"><code>VRMC_springBone.springs[*].joints[*]</code></h3>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;springs&quot;: [
-                {
-                    &quot;joints&quot;: [
-                        {
-                            &quot;node&quot;: 0,
-                            &quot;hitRadius&quot;: 0.1,
-                            &quot;stiffness&quot;: 0.5,
-                            &quot;gravityPower&quot;: 1.0,
-                            &quot;gravityDir&quot;: [0, -1, 0],
-                            &quot;dragForce&quot;: 0.5,
-                        },
-                        {
-                            &quot;node&quot;: 1,
-                            // The joint at the end is not required except for node.
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;springs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;joints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;hitRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;stiffness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;gravityPower&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;gravityDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;dragForce&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="c1">// The joint at the end is not required except for node.</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3141,15 +3095,15 @@ Specifically, if a joint exists at the ancestors of a joint, that ancestors will
 In other words, the update process is performed from the root to the descendants.</p>
 <h3 id="initialization">Initialization</h3>
 <p>In this implementation of SpringBoneJoint, a single joint has following states:</p>
-<pre><code class="language-ts">interface SpringBoneJointState {
-    prevTail: Vector3;
-    currentTail: Vector3;
-    boneAxis: Vector3;
-    boneLength: number;
-    initialLocalMatrix: Matrix4;
-    initialLocalRotation: Quaternion;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">SpringBoneJointState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">prevTail</span><span class="o">:</span><span class="w"> </span><span class="kt">Vector3</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">currentTail</span><span class="o">:</span><span class="w"> </span><span class="kt">Vector3</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">boneAxis</span><span class="o">:</span><span class="w"> </span><span class="kt">Vector3</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">boneLength</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">initialLocalMatrix</span><span class="o">:</span><span class="w"> </span><span class="kt">Matrix4</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">initialLocalRotation</span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><code>prevTail</code> and <code>currentTail</code> represents a position of the specified children, in the world coordinate.
 <code>currentTail</code> represents the current position, <code>prevTail</code> represents the position in the previous frame.</p>
 <p><code>boneAxis</code> represents the direction of the specified children in its rest state, in the local coordinate.
@@ -3171,88 +3125,88 @@ In other words, the update process is performed from the root to the descendants
 <li>Gravity: The force which the tail is pulled by gravity. <code>gravityDir * gravityPower</code></li>
 </ul>
 <p>The pseudocode represents the procedure:</p>
-<pre><code class="language-ts">var {currentTail, prevTail, initialLocalRotation, boneAxis, boneLength} = state;
-var {dragForce, stiffnessForce, gravityDir, gravityPower} = props;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="p">{</span><span class="nx">currentTail</span><span class="p">,</span><span class="w"> </span><span class="nx">prevTail</span><span class="p">,</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="p">,</span><span class="w"> </span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">state</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="p">{</span><span class="nx">dragForce</span><span class="p">,</span><span class="w"> </span><span class="nx">stiffnessForce</span><span class="p">,</span><span class="w"> </span><span class="nx">gravityDir</span><span class="p">,</span><span class="w"> </span><span class="nx">gravityPower</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">;</span>
 
-var worldPosition = node.worldPosition;
-var parentWorldRotation = node.parent ? node.parent.worldRotation : Quaternion.identity;
+<span class="kd">var</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">worldPosition</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">parentWorldRotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">parent</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">node.parent.worldRotation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion.identity</span><span class="p">;</span>
 
-// calculate the next tail position using verlet integration
-var inertia = (currentTail - prevTail) * (1.0f - dragForce);
-var stiffness = deltaTime * parentWorldRotation * initialLocalRotation * boneAxis * stiffnessForce;
-var external = deltaTime * gravityDir * gravityPower;
+<span class="c1">// calculate the next tail position using verlet integration</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">inertia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">currentTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">prevTail</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0</span><span class="nx">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">dragForce</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">stiffness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">parentWorldRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneAxis</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stiffnessForce</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">external</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">gravityDir</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">gravityPower</span><span class="p">;</span>
 
-var nextTail = currentTail + inertia + stiffness + external;
+<span class="kd">var</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTail</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">inertia</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stiffness</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">external</span><span class="p">;</span>
 
-// constrain the length
-nextTail = worldPosition + (nextTail - worldPosition).normalized * boneLength;
-</code></pre>
+<span class="c1">// constrain the length</span>
+<span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="collision-with-colliders">Collision with colliders</h4>
 <p>Perform collision detection with colliders the joint specifies.
 Calculate the distance between a collider and a joint.
 If the distance is smaller than the sum of radii of the collider and the joint, it moves the joint to the position that pushes the joint by the collider, touching each other.</p>
 <p>The following pseudocode represents the procedure.</p>
-<pre><code class="language-ts">for (var collider of colliders) {
-    var {direction, distance} = collider.calculateCollision(nextTail);
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">collider</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">colliders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="p">{</span><span class="nx">direction</span><span class="p">,</span><span class="w"> </span><span class="nx">distance</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">calculateCollision</span><span class="p">(</span><span class="nx">nextTail</span><span class="p">);</span>
 
-    if (distance &lt; 0.0) {
-        // push
-        nextTail = nextTail - direction * distance;
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">distance</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// push</span>
+<span class="w">        </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">distance</span><span class="p">;</span>
 
-        // constrain the length
-        nextTail = worldPosition + (nextTail - worldPosition).normalized * boneLength;
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="c1">// constrain the length</span>
+<span class="w">        </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h4 id="sphere-collider">Sphere Collider</h4>
 <p>The following is a reference implementation of the sphere collider in pseudocode.</p>
-<pre><code class="language-ts">var transformedOffset = collider.offset * collider.worldMatrix;
-var delta = nextTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-// The distance from the collider to the joint. A negative value indicates that they are colliding
-var distance = delta.magnitude - collider.radius - jointRadius;
+<span class="c1">// The distance from the collider to the joint. A negative value indicates that they are colliding</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">magnitude</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="p">;</span>
 
-// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction
-var direction = delta.normalized;
-</code></pre>
+<span class="c1">// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">normalized</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="capsule-collider">Capsule Collider</h4>
 <p>The following is a reference implementation of the capsule collider in pseudocode.</p>
-<pre><code class="language-ts">let transformedOffset = collider.offset * collider.worldMatrix;
-let transformedTail = collider.tail * collider.worldMatrix;
-let offsetToTail = transformedTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">transformedTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">tail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transformedTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-let dot = dot(offsetToTail, delta);
+<span class="kd">let</span><span class="w"> </span><span class="nx">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dot</span><span class="p">(</span><span class="nx">offsetToTail</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="p">);</span>
 
-var delta = nextTail - transformedOffset;
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-if (dot &lt; 0.0) {
-    // When the joint is at the head side of the capsule
-    // Do nothing
-} else if (dot &gt; offsetToTail.sqMagnitude) {
-    // When the joint is at the tail side of the capsule
-    delta -= offsetToTail;
-} else {
-    // When the joint is between the head and tail of the capsule
-    delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
-}
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// When the joint is at the head side of the capsule</span>
+<span class="w">    </span><span class="c1">// Do nothing</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">.</span><span class="nx">sqMagnitude</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// When the joint is at the tail side of the capsule</span>
+<span class="w">    </span><span class="nx">delta</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// When the joint is between the head and tail of the capsule</span>
+<span class="w">    </span><span class="nx">delta</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">.</span><span class="nx">sqMagnitude</span><span class="p">);</span>
+<span class="p">}</span>
 
-// The distance from the collider to the joint. A negative value indicates that they are colliding
-let distance = delta.magnitude - collider.radius - jointRadius;
+<span class="c1">// The distance from the collider to the joint. A negative value indicates that they are colliding</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">magnitude</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="p">;</span>
 
-// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction
-let direction = delta.normalized;
-</code></pre>
+<span class="c1">// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">normalized</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="applying-rotation">Applying rotation</h4>
 <p>Update the rotation of specified node using the <code>nextTail</code> we have calculated in procedures above.</p>
 <p>The pseudocode represents the procedure:</p>
-<pre><code class="language-ts">// update prevTail and currentTail
-prevTail = currentTail;
-currentTail = nextTail;
+<div class="highlight"><pre><span></span><code><span class="c1">// update prevTail and currentTail</span>
+<span class="nx">prevTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTail</span><span class="p">;</span>
+<span class="nx">currentTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="p">;</span>
 
-// update rotation
-var to = (nextTail * (node.parent.worldMatrix * initialLocalMatrix).inverse).normalized;
-node.rotation = initialLocalRotation * fromToQuaternion(boneAxis, to);
-</code></pre>
+<span class="c1">// update rotation</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">initialLocalMatrix</span><span class="p">).</span><span class="nx">inverse</span><span class="p">).</span><span class="nx">normalized</span><span class="p">;</span>
+<span class="nx">node</span><span class="p">.</span><span class="nx">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuaternion</span><span class="p">(</span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">);</span>
+</code></pre></div>
 <h4 id="considering-center-space">Considering center space</h4>
 <p>When <code>center</code> is set to SpringBone, The inertia is evaluated in the <a href="#center-space">center space</a> .
 You can achieve this by evaluating transforms in the world space in the center space instead while calculating the inertia.
@@ -3277,7 +3231,7 @@ External forces (gravity) are calculated in World Space regardless of the <code>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 12:11:15 UTC">August 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 06:59:55 UTC">August 4, 2026</span>
   </span>
 
     

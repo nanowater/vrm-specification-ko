@@ -1081,7 +1081,7 @@
   <span class="md-ellipsis">
     
   
-    이 문서는 오래되었습니다 (This document is outdated).
+    ⚠ 이 문서는 오래되었습니다 (This document is outdated).
   
 
     
@@ -2305,6 +2305,11 @@
 
 
 <h1 id="vrmc_vrmexpressions"><code>VRMC_vrm.expressions</code></h1>
+<div class="admonition warning">
+<p class="admonition-title">🤖 AI 자동 번역 문서</p>
+<p>이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 <strong>오역이나 부정확한 표현이 포함될 수 있습니다</strong>.</p>
+<p>정확한 내용은 <a href="https://github.com/vrm-c/vrm-specification">원본 vrm-specification 문서</a>와 비교하여 확인해 주세요.</p>
+</div>
 <p>본 문서에서는 <code>VRMC_vrm</code> 확장 중 <code>expressions</code> 필드에 대한 사양을 설명합니다.</p>
 <p>Expression은,</p>
 <ul>
@@ -2316,105 +2321,79 @@
 <blockquote>
 <p>예를 들어, <code>입을 삐죽이게 하는 MorphTarget</code>과 <code>눈을 감는 MorphTarget</code>의 조합을 <code>sad</code>로 지정하는 등</p>
 </blockquote>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-<p><strong>Table of Contents</strong> <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
-<ul>
-<li><a href="#expression-%EC%82%AC%EC%96%91">Expression 사양</a></li>
-<li><a href="#expression-%EC%A0%9C%EC%96%B4">Expression 제어</a></li>
-<li><a href="#preset-expressions">Preset Expressions</a></li>
-<li><a href="#%EA%B0%90%EC%A0%95">감정</a></li>
-<li><a href="#%EB%A6%BD%EC%8B%B1%ED%81%AC-%EC%A0%88%EC%B0%A8%EC%A0%81">립싱크 절차적</a></li>
-<li><a href="#%EB%88%88%EA%B9%9C%EB%B9%A1%EC%9E%84-%EC%A0%88%EC%B0%A8%EC%A0%81">눈깜빡임 절차적</a></li>
-<li><a href="#%EC%8B%9C%EC%84%A0-%EC%A0%88%EC%B0%A8%EC%A0%81">시선 절차적</a></li>
-<li><a href="#%EA%B8%B0%ED%83%80">기타</a></li>
-<li><a href="#custom-expressions">Custom Expressions</a></li>
-<li><a href="#%EC%A0%88%EC%B0%A8%EC%A0%81-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%93%9C">절차적 오버라이드</a></li>
-<li><a href="#%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%93%9C%EC%99%80-isbinary%EC%9D%98-%EC%83%81%ED%98%B8%EC%9E%91%EC%9A%A9%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC">오버라이드와 isBinary의 상호작용에 대하여</a></li>
-<li><a href="#morphtargetbind">MorphTargetBind</a></li>
-<li><a href="#materialcolorbind">MaterialColorBind</a></li>
-<li><a href="#texturetransformbind">TextureTransformBind</a></li>
-<li><a href="#expression-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98">Expression 업데이트 알고리즘</a></li>
-<li><a href="#morphtarget">MorphTarget</a></li>
-<li><a href="#materialcolor">MaterialColor</a></li>
-<li><a href="#texturetransform">TextureTransform</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="expression">Expression 사양</h2>
 <h3 id="json-schema">JSON Schema</h3>
-<pre><code class="language-js">{
-  &quot;extensionsUsed&quot;: [
-    &quot;VRMC_vrm&quot;
-  ],
-  &quot;extensions&quot;: {
-    &quot;VRMC_vrm&quot;: {
-      // VRM extension
-      &quot;specVersion&quot;: &quot;1.0&quot;,
-      &quot;humanoid&quot;: {},
-      &quot;meta&quot;: {},
-      &quot;firstPerson&quot;: {},
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;extensionsUsed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;VRMC_vrm&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">&quot;extensions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;VRMC_vrm&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// VRM extension</span>
+<span class="w">      </span><span class="s2">&quot;specVersion&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;humanoid&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="s2">&quot;firstPerson&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
 
-      /* 여기서부터 */
-      &quot;expressions&quot;: {
-        &quot;preset&quot;: {
-          &quot;aa&quot;: { /* expression object */ },
-          &quot;angry&quot;: { /* expression object */ },
-          &quot;blink&quot;: {
-            &quot;isBinary&quot;: false,
-            &quot;morphTargetBinds&quot;: [
-              {
-                &quot;index&quot;: 1,
-                &quot;node&quot;: 2,
-                &quot;weight&quot;: 1
-              },
-              {
-                &quot;index&quot;: 2,
-                &quot;node&quot;: 2,
-                &quot;weight&quot;: 1
-              }
-            ],
-            &quot;overrideBlink&quot;: &quot;none&quot;,
-            &quot;overrideLookAt&quot;: &quot;none&quot;,
-            &quot;overrideMouth&quot;: &quot;none&quot;
-          },
-          &quot;blinkLeft&quot;: { /* expression object */ },
-          &quot;blinkRight&quot;: { /* expression object */ },
-          &quot;ee&quot;: { /* expression object */ },
-          &quot;happy&quot;: { /* expression object */ },
-          &quot;ih&quot;: { /* expression object */ },
-          &quot;lookDown&quot;: { /* expression object */ },
-          &quot;lookLeft&quot;: { /* expression object */ },
-          &quot;lookRight&quot;: { /* expression object */ },
-          &quot;lookUp&quot;: { /* expression object */ },
-          &quot;neutral&quot;: { /* expression object */ },
-          &quot;oh&quot;: { /* expression object */ },
-          &quot;ou&quot;: { /* expression object */ },
-          &quot;relaxed&quot;: { /* expression object */ },
-          &quot;sad&quot;: { /* expression object */ },
-          &quot;surprised&quot;: { /* expression object */ }
-        }
-        &quot;custom&quot;: {
-            &quot;custom_name_1&quot;: { /* expression object */ },
-            &quot;custom_name_2&quot;: { /* expression object */ },
-        },
-      },
-      &quot;lookAt&quot;: {},
-    },
-    /* 여기까지 */
+<span class="w">      </span><span class="cm">/* 여기서부터 */</span>
+<span class="w">      </span><span class="s2">&quot;expressions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;preset&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">&quot;aa&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;angry&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;blink&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;isBinary&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;morphTargetBinds&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;node&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;weight&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">              </span><span class="p">},</span>
+<span class="w">              </span><span class="p">{</span>
+<span class="w">                </span><span class="s2">&quot;index&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;node&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;weight&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="s2">&quot;overrideBlink&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;overrideLookAt&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">&quot;overrideMouth&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;blinkLeft&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;blinkRight&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;ee&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;happy&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;ih&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;lookDown&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;lookLeft&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;lookRight&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;lookUp&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;neutral&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;oh&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;ou&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;relaxed&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;sad&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="s2">&quot;surprised&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="s2">&quot;custom&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s2">&quot;custom_name_1&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="s2">&quot;custom_name_2&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* expression object */</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">&quot;lookAt&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="cm">/* 여기까지 */</span>
 
-    &quot;VRMC_springBone&quot;: {},
-    &quot;VRMC_node_constraint&quot;: {}
-  },
-  // glTF-2.0
-  &quot;materials&quot;: [
-    &quot;extensions&quot;: {
-      &quot;VMRC_materials_mtoon&quot;: {}
-    }
-  ],
-}
-</code></pre>
+<span class="w">    </span><span class="s2">&quot;VRMC_springBone&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="s2">&quot;VRMC_node_constraint&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// glTF-2.0</span>
+<span class="w">  </span><span class="s2">&quot;materials&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;extensions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;VMRC_materials_mtoon&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="expression-object">expression object</h3>
 <p><a href="../schema/VRMC_vrm.expressions.expression.schema.json">VRMC_vrm.expressions.expression</a></p>
 <table>
@@ -2686,16 +2665,16 @@ overrideMouth, overrideBlink, overrideLookAt을 설정할 수 있습니다.</p>
 <p>예를 들어, happy가 overrideBlink = blend로 설정된 경우,
 happy의 값이 0에서 1로 페이드됨에 따라 선형적으로 blink를 감쇠시킵니다.
 0~1 사이의 중간값의 동작이 block과 다릅니다.</p>
-<pre><code class="language-js">var value = 0;
-if (happyWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += happyWeight;
-if (angryWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += angryWeight;
-if (sadWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += sadWeight;
-if (relaxedWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;) value += relaxedWeight;
-if (surprisedWeight &gt; 0 &amp;&amp; happy.overrideBlink == &quot;blend&quot;)
-  value += surprisedWeight;
-var factor = 1.0 - saturate(value);
-SetBlinkWeight(blinkWeight * factor);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">happyWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">happyWeight</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">angryWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">angryWeight</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sadWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">sadWeight</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">relaxedWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">relaxedWeight</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">surprisedWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">surprisedWeight</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">saturate</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="nx">SetBlinkWeight</span><span class="p">(</span><span class="nx">blinkWeight</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">factor</span><span class="p">);</span>
+</code></pre></div>
 <h3 id="isbinary">오버라이드와 isBinary의 상호작용에 대하여</h3>
 <p>isBinary가 지정되어 있는 표정이 다른 표정에 오버라이드 영향을 미치는 경우, 출력값인 이진화된 값을 가지고 다른 표정에 영향을 미쳐야 합니다(MUST).</p>
 <blockquote>
@@ -2879,7 +2858,7 @@ SetBlinkWeight(blinkWeight * factor);
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 3일 12:11:15 UTC">2026년 8월 3일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 4일 09:19:37 UTC">2026년 8월 4일</span>
   </span>
 
     

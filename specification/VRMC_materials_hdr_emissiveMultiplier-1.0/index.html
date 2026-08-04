@@ -1196,7 +1196,7 @@
   <span class="md-ellipsis">
     
   
-    이 문서는 오래되었습니다 (This document is outdated).
+    ⚠ 이 문서는 오래되었습니다 (This document is outdated).
   
 
     
@@ -1949,6 +1949,11 @@
 
 
 <h1 id="vrmc_materials_hdr_emissivemultiplier">VRMC_materials_hdr_emissiveMultiplier</h1>
+<div class="admonition warning">
+<p class="admonition-title">🤖 AI 자동 번역 문서</p>
+<p>이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 <strong>오역이나 부정확한 표현이 포함될 수 있습니다</strong>.</p>
+<p>정확한 내용은 <a href="https://github.com/vrm-c/vrm-specification">원본 vrm-specification 문서</a>와 비교하여 확인해 주세요.</p>
+</div>
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li>카쿠 마우</li>
@@ -1964,24 +1969,23 @@
 <p>이 확장은 매테리얼의 EmissiveFactor 값에 곱하여 이를 덮어씁니다.
 1보다 큰 값의 EmissiveFactor를 가질 수 있습니다.</p>
 <p>매테리얼의 <code>extensions</code>에 정의합니다.</p>
-<pre><code class="language-json">{
-    &quot;materials&quot;: [
-        {
-            &quot;name&quot;: &quot;MyPBRMaterial&quot;,
-            // emission
-            &quot;emissiveTexture&quot;: {
-            },
-            &quot;emissiveFactor&quot;: [1, 1, 1],
-            // extension
-            &quot;extensions&quot;: {
-                &quot;VRMC_materials_hdr_emissiveMultiplier&quot;: {
-                    &quot;emissiveMultiplier&quot;: 2.0,
-                }
-            }
-        }
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;materials&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MyPBRMaterial&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="c1">// emission</span>
+<span class="w">      </span><span class="nt">&quot;emissiveTexture&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">      </span><span class="nt">&quot;emissiveFactor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">      </span><span class="c1">// extension</span>
+<span class="w">      </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_materials_hdr_emissiveMultiplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;emissiveMultiplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <h2 id="defined-properties">Defined Properties</h2>
 <table>
 <thead>
@@ -2005,33 +2009,33 @@
 이 값은 리니어(linear)입니다.</p>
 <h2 id="export">export 시의 변환 예</h2>
 <p>다음과 같이 변환해 주십시오.</p>
-<pre><code class="language-js">// linear color space
-let hdr_emissive_factor = [r, g, b];
+<div class="highlight"><pre><span></span><code><span class="c1">// linear color space</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">hdr_emissive_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">g</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">];</span>
 
-let max_component = r;
-if(g&gt;max_component)
-{
-    max_component = g;
-}
-if(b&gt;max_component)
-{
-    max_component = b;
-}
+<span class="kd">let</span><span class="w"> </span><span class="nx">max_component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">r</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">g</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">max_component</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">max_component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">g</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">max_component</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">max_component</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
 
-if(max_component&gt;1)
-{
-    // linear color space
-    let emissiveFactor = [r/max_component, g/max_component, b/max_component];
-    let emissiveMultiplier = max_component;
-    // VRMC_materials_hdr_emissiveMultiplier를 통해 1을 초과하는 emissive factor 값을 나타냅니다.
-}
-else{
-    // linear color space
-    let emissiveFactor = [r, g, b];
-    let emissiveMultiplier = null;
-    // VRMC_materials_hdr_emissiveMultiplier 확장은 불필요합니다.
-}
-</code></pre>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">max_component</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// linear color space</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">emissiveFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">max_component</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">g</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">max_component</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">b</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">max_component</span><span class="p">,</span>
+<span class="w">  </span><span class="p">];</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">emissiveMultiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">max_component</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// VRMC_materials_hdr_emissiveMultiplier를 통해 1을 초과하는 emissive factor 값을 나타냅니다.</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// linear color space</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">emissiveFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="nx">g</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">];</span>
+<span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">emissiveMultiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">  </span><span class="c1">// VRMC_materials_hdr_emissiveMultiplier 확장은 불필요합니다.</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -2052,7 +2056,7 @@ else{
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 3일 12:11:15 UTC">2026년 8월 3일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 4일 09:19:37 UTC">2026년 8월 4일</span>
   </span>
 
     

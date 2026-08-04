@@ -1081,7 +1081,7 @@
   <span class="md-ellipsis">
     
   
-    이 문서는 오래되었습니다 (This document is outdated).
+    ⚠ 이 문서는 오래되었습니다 (This document is outdated).
   
 
     
@@ -2118,22 +2118,6 @@
 
 <h1 id="vrmc_vrmlookat"><code>VRMC_vrm.lookAt</code></h1>
 <p>本文書では、 <code>VRMC_vrm</code> 拡張のうち <code>lookAt</code> フィールドについての仕様を示します。</p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
-<ul>
-<li><a href="#%E6%A6%82%E8%A6%81">概要</a></li>
-<li><a href="#%E8%A9%B3%E7%B4%B0">詳細</a></li>
-<li><a href="#lookattype">LookAtType</a></li>
-<li><a href="#lookat-%E7%A9%BA%E9%96%93offsetfromheadbone">LookAt 空間(offsetFromHeadBone)</a></li>
-<li><a href="#%E7%AF%84%E5%9B%B2%E3%83%9E%E3%83%83%E3%83%97">範囲マップ</a></li>
-<li><a href="#lookat%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0">LookAtのアルゴリズム</a></li>
-<li><a href="#yaw-and-pitch-in-lookat-space">Yaw and Pitch in lookAt space</a></li>
-<li><a href="#apply-yaw-and-pitch-to-bone">Apply Yaw and Pitch to bone</a></li>
-<li><a href="#apply-yaw-and-pitch-to-expression">Apply Yaw and Pitch to expression</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="_1">概要</h2>
 <p>LookAtは、VRMモデルに対して視線のアニメーションを行うためのコンポーネントです。</p>
 <p>初期姿勢時の <code>Head</code> ボーンをオフセットして得られる <code>LookAt空間</code> で視線を定義します。
@@ -2145,31 +2129,31 @@
 <p>一組の yaw, pitch により両目が同じ方向を見ることを想定しています。
 このことより、寄り目等の両目が異なる方向を向く表現はできません。</p>
 <h2 id="_2">詳細</h2>
-<pre><code class="language-json">extensions.VRMC_vrm.lookAt = {
-  &quot;offsetFromHeadBone&quot;: [
-    0,
-    0.06,
-    0
-  ],
-  &quot;rangeMapHorizontalInner&quot;: {
-    &quot;inputMaxValue&quot;: 90,
-    &quot;outputScale&quot;: 10
-  },
-  &quot;rangeMapHorizontalOuter&quot;: {
-    &quot;inputMaxValue&quot;: 90,
-    &quot;outputScale&quot;: 10
-  },
-  &quot;rangeMapVerticalDown&quot;: {
-    &quot;inputMaxValue&quot;: 90,
-    &quot;outputScale&quot;: 10
-  },
-  &quot;rangeMapVerticalUp&quot;: {
-    &quot;inputMaxValue&quot;: 90,
-    &quot;outputScale&quot;: 10
-  },
-  &quot;type&quot;: &quot;bone&quot;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_vrm.lookA</span><span class="kc">t</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;offsetFromHeadBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="mf">0.06</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">0</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;rangeMapHorizontalInner&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;inputMaxValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outputScale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;rangeMapHorizontalOuter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;inputMaxValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outputScale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;rangeMapVerticalDown&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;inputMaxValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outputScale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;rangeMapVerticalUp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;inputMaxValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;outputScale&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bone&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2249,13 +2233,13 @@ Yaw, Pitch の正の方向は下記のとおりです。</p>
 <li>Yaw: Z-&gt;X方向 =&gt; 左</li>
 <li>Pitch: Y-&gt;Z方向 =&gt; 下</li>
 </ul>
-<pre><code>      Y  Forward
+<div class="highlight"><pre><span></span><code>      Y  Forward
       ^  Z
       | /
       |/
 X&lt;----+
 Left      Right
-</code></pre>
+</code></pre></div>
 <p><code>offsetFromHeadBone</code> は、VR向けHMDの位置を想定しています。
 モデルの一人称視点の位置の取得・反映に用いることができます。</p>
 <blockquote>
@@ -2292,12 +2276,12 @@ Left      Right
 <p><code>yaw</code>, <code>pitch</code> の視線値から、<code>leftEye</code> ボーンと <code>rightEye</code> ボーンに対する <code>local rotation</code> を生成します。
 <code>水平内側</code>, <code>水平外側</code>, <code>垂直上側</code>, <code>垂直下側</code> の４つの区分があります。</p>
 <p>上下左右の rangeMap の使い分けは下記のようになります。</p>
-<pre><code>  + yaw -     + yaw -
+<div class="highlight"><pre><span></span><code>  + yaw -     + yaw -
      ^           ^
      |           |
 outer|inner inner|outer
   left eye    right eye
-</code></pre>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2331,8 +2315,8 @@ outer|inner inner|outer
 </table>
 <p>範囲マップは、視線値によって得られたEuler角 (degree) の絶対値に対して行います。
 出力の単位は、目のボーンのEuler角 (degree) となります。</p>
-<pre><code>const boneLocalEulerAngle = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
-</code></pre>
+<div class="highlight"><pre><span></span><code>const boneLocalEulerAngle = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
+</code></pre></div>
 <h4 id="type-expression">type が expression のときの解釈</h4>
 <p><code>lookUp</code> Expression, <code>lookDown</code> Expression, <code>lookLeft</code> Expression, <code>lookRight</code> Expression に対する <code>weight</code> を生成します。
 <code>水平</code>, <code>垂直上側</code>, <code>垂直下側</code> の3つの区分があります。
@@ -2371,28 +2355,28 @@ outer|inner inner|outer
 </table>
 <p>範囲マップは、視線値によって得られたEuler角 (degree) の絶対値に対して行います。
 出力の単位は、目のexpressionのweight値となります。</p>
-<pre><code>const expressionWeight = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
-</code></pre>
+<div class="highlight"><pre><span></span><code>const expressionWeight = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
+</code></pre></div>
 <h2 id="lookat">LookAtのアルゴリズム</h2>
 <h3 id="yaw-and-pitch-in-lookat-space">Yaw and Pitch in lookAt space</h3>
-<pre><code class="language-cs">public static (float Yaw, float Pitch) CalcYawPitch(this Matrix4x4 lookAtSpace, Vector3 target)
-{
-    var localTarget = lookAtSpace.inverse.MultiplyPoint(target);
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nf">static</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">Yaw</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Pitch</span><span class="p">)</span><span class="w"> </span><span class="n">CalcYawPitch</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Matrix4x4</span><span class="w"> </span><span class="n">lookAtSpace</span><span class="p">,</span><span class="w"> </span><span class="n">Vector3</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">localTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lookAtSpace</span><span class="p">.</span><span class="n">inverse</span><span class="p">.</span><span class="n">MultiplyPoint</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
 
-    var z = Vector3.Dot(localPosition, Vector3.forward);
-    var x = Vector3.Dot(localPosition, Vector3.right);
-    var yaw = (float)Math.Atan2(x, z) * Mathf.Rad2Deg;
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">localPosition</span><span class="p">,</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">forward</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">localPosition</span><span class="p">,</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">right</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">yaw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Atan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Mathf</span><span class="p">.</span><span class="n">Rad2Deg</span><span class="p">;</span>
 
-    // x+y z plane
-    var xz = Mathf.sqrt(x * x + z * z);
-    var y = Vector3.Dot(localPosition, Vector3.up);
-    var pitch = (float)Math.Atan2(-y, xz) * Mathf.Rad2Deg;
+<span class="w">    </span><span class="c1">// x+y z plane</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">xz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mathf</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">localPosition</span><span class="p">,</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">up</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">pitch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="n">Atan2</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">xz</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Mathf</span><span class="p">.</span><span class="n">Rad2Deg</span><span class="p">;</span>
 
-    return (yaw, pitch);
-}
-</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">yaw</span><span class="p">,</span><span class="w"> </span><span class="n">pitch</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="apply-yaw-and-pitch-to-bone">Apply Yaw and Pitch to bone</h3>
-<pre><code>function applyLeftEyeBone(vrm, yawDegrees, pitchDegrees)
+<div class="highlight"><pre><span></span><code>function applyLeftEyeBone(vrm, yawDegrees, pitchDegrees)
 {    
   var yaw = 0;
   if(yawDegrees&gt;0)
@@ -2445,9 +2429,9 @@ function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
 
   vrm.humanoid.rightEye.localRotation = Quaternion.from_YXZEuler(yaw, pitch, 0);
 }
-</code></pre>
+</code></pre></div>
 <h3 id="apply-yaw-and-pitch-to-expression">Apply Yaw and Pitch to expression</h3>
-<pre><code>function applyExpression(vrm, yawDegrees, pitchDegrees)
+<div class="highlight"><pre><span></span><code>function applyExpression(vrm, yawDegrees, pitchDegrees)
 {
   // horizontal
   if(yawDegrees&gt;0)
@@ -2479,7 +2463,7 @@ function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
     vrm.expression.setWeight(LOOK_UP, pitchWeight);
   }
 }
-</code></pre>
+</code></pre></div>
 
 
 
@@ -2500,7 +2484,7 @@ function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
     <span class="md-icon" title="最終更新日">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月3日 12:11:15 UTC">2026年8月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月4日 06:59:55 UTC">2026年8月4日</span>
   </span>
 
     

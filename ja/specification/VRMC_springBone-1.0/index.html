@@ -1081,7 +1081,7 @@
   <span class="md-ellipsis">
     
   
-    이 문서는 오래되었습니다 (This document is outdated).
+    ⚠ 이 문서는 오래되었습니다 (This document is outdated).
   
 
     
@@ -2640,52 +2640,6 @@
 
 <h1 id="vrmc_springbone">VRMC_springBone</h1>
 <p><em>Version 1.0</em></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong>  <em>generated with <a href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
-<ul>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#status">Status</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#%E6%A7%8B%E6%88%90">構成</a></li>
-<li><a href="#%E7%94%A8%E8%AA%9E">用語</a><ul>
-<li><a href="#springjoint">SpringJoint</a></li>
-<li><a href="#headspringjoint-%E3%81%A8-tailspringjoint-%E3%81%AE%E3%83%9A%E3%82%A2">HeadSpringJoint と TailSpringJoint のペア</a></li>
-<li><a href="#springchain">SpringChain</a></li>
-</ul>
-</li>
-<li><a href="#%E4%BE%8B">例</a></li>
-<li><a href="#vrm0-%E3%81%AE%E5%8B%95%E4%BD%9C">vrm0 の動作</a></li>
-<li><a href="#%E4%BE%8B%E5%A4%96">例外</a><ul>
-<li><a href="#%E3%81%82%E3%82%8B-springjoint-%E3%81%8C%E9%87%8D%E8%A4%87%E3%81%97%E3%81%A6%E8%A4%87%E6%95%B0%E3%81%AE-springchain-%E3%81%AB%E6%89%80%E5%B1%9E%E3%81%99%E3%82%8B%E3%81%93%E3%81%A8%E7%A6%81%E6%AD%A2">ある SpringJoint が、重複して複数の SpringChain に所属すること(禁止)</a></li>
-<li><a href="#%E5%88%86%E5%B2%90%E3%81%99%E3%82%8B-springchain-%E6%9C%AA%E5%AE%9A%E7%BE%A9">分岐する SpringChain (未定義)</a></li>
-</ul>
-</li>
-<li><a href="#%E8%A9%95%E4%BE%A1%E3%81%99%E3%82%8B%E5%BA%A7%E6%A8%99%E7%B3%BB">評価する座標系</a></li>
-<li><a href="#center-space">Center Space</a></li>
-<li><a href="#json">JSON</a></li>
-<li><a href="#vrmc_springbonespecversion"><code>VRMC_springBone.specVersion</code></a></li>
-<li><a href="#vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></a></li>
-<li><a href="#vrmc_springbonecollidergroups"><code>VRMC_springBone.colliderGroups</code></a></li>
-<li><a href="#vrmc_springbonesprings"><code>VRMC_springBone.springs</code></a><ul>
-<li><a href="#joints">joints</a></li>
-</ul>
-</li>
-<li><a href="#vrmc_springbonespringsjoints"><code>VRMC_springBone.springs[*].joints[*]</code></a></li>
-<li><a href="#springbone%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0">SpringBoneのアルゴリズム</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0%E9%A0%86%E5%BA%8F">更新順序</a></li>
-<li><a href="#%E5%88%9D%E6%9C%9F%E5%8C%96">初期化</a></li>
-<li><a href="#%E6%9B%B4%E6%96%B0%E5%87%A6%E7%90%86">更新処理</a><ul>
-<li><a href="#%E6%85%A3%E6%80%A7%E8%A8%88%E7%AE%97">慣性計算</a></li>
-<li><a href="#%E3%82%B3%E3%83%A9%E3%82%A4%E3%83%80%E3%83%BC%E3%81%A8%E3%81%AE%E8%A1%9D%E7%AA%81">コライダーとの衝突</a></li>
-<li><a href="#%E5%9B%9E%E8%BB%A2%E3%81%B8%E3%81%AE%E5%8F%8D%E6%98%A0">回転への反映</a></li>
-<li><a href="#center-space%E3%81%AE%E8%80%83%E6%85%AE">Center spaceの考慮</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li>進藤 哲郎</li>
@@ -2738,77 +2692,77 @@ Tail で前フレームとの位置差分の計算します。
 設定がある場合はコリジョンとの衝突も計算します。
 必ず Tail の祖先に Head が存在する必要がありますが、
 Head の直接の親でなくてもかまいません。</p>
-<pre><code>  揺れる
+<div class="highlight"><pre><span></span><code>  揺れる
 &lt;- Tail -&gt;
     |
     |
     o
    Head
-</code></pre>
+</code></pre></div>
 <p>Tail の移動から Head の回転を算出します。</p>
 <h4 id="springchain">SpringChain</h4>
 <p>一連の連続した <code>SpringJoint</code> により構成される鎖状の集合です。</p>
-<pre><code>a-b-c-d
-</code></pre>
+<div class="highlight"><pre><span></span><code>a-b-c-d
+</code></pre></div>
 <h3 id="_3">例</h3>
-<pre><code>a-b-c-d
-</code></pre>
+<div class="highlight"><pre><span></span><code>a-b-c-d
+</code></pre></div>
 <p>という joints があった場合、下記のように解釈します。</p>
-<pre><code>Head(回転する)
+<div class="highlight"><pre><span></span><code>Head(回転する)
 | +-Tail(移動差分・当たり判定)
 v v
 a-b
 b-c
 c-d
-</code></pre>
+</code></pre></div>
 <p>3つの <code>HeadSpringJoint と TailSpringJoint のペア</code> に展開されます。
 末端の SpringJoint は、Tail としてのみ使われるので SpringJoint のパラメータは使用されません。
 dを回転させたい場合は、以下のように末端に Node を追加して SpringJoint 設定をしてください。
 追加する Node は empty でかまいません。</p>
-<pre><code>Head(回転する)
+<div class="highlight"><pre><span></span><code>Head(回転する)
 | +-Tail(移動差分・当たり判定)
 v v
 a-b
 b-c
 c-d
 d-e
-</code></pre>
+</code></pre></div>
 <h3 id="vrm0">vrm0 の動作</h3>
-<pre><code>a-b-c-d
-</code></pre>
+<div class="highlight"><pre><span></span><code>a-b-c-d
+</code></pre></div>
 <p>という joints があった場合、<code>vrm0</code> では下記のように解釈します。</p>
-<pre><code>Head(回転する)
+<div class="highlight"><pre><span></span><code>Head(回転する)
 | +-Tail(移動差分・当たり判定)
 v v
 a-b
 b-c
 c-d
 d-(末尾 7cm の遠さに SpringJoint を追加する)
-</code></pre>
+</code></pre></div>
 <h3 id="_4">例外</h3>
 <h4 id="springjoint-springchain">ある SpringJoint が、重複して複数の SpringChain に所属すること(禁止)</h4>
 <p>個々の <code>SpringChain</code> は同じ joint を含んではいけない。
 以下の場合、b, c, d が同時に２つの SpringChain に所属しています。</p>
-<pre><code>b-c-d
+<div class="highlight"><pre><span></span><code>b-c-d
 
 a-b-c-d
-</code></pre>
+</code></pre></div>
 <p>以下のような構成は、暗黙裡に重複すると見なします。
 b, c が同時に２つの SpringChain に所属しています。
 スキップされていても重複判定の対象になります。</p>
-<pre><code>() はスキップされる node
+<div class="highlight"><pre><span></span><code>() はスキップされる node
 a-(b)-c
 
 b-(c)-e
-</code></pre>
+</code></pre></div>
 <h4 id="springchain_1">分岐する SpringChain (未定義)</h4>
 <ul>
 <li>別々の <code>SpringBoneChain</code> として扱ってください</li>
 </ul>
-<pre><code>  x-y-z
+<div class="highlight"><pre><span></span><code>  x-y-z
   |
 a-b-c-d
-</code></pre>
+</code></pre></div>
 <ul>
 <li><code>a-b-c-d</code> と <code>x-y-z</code> の２本の SpringChain として処理する。</li>
 <li><code>a-b-c-d</code> と <code>x-y-z</code> のどちらを先に処理するか、移動差分をどのタイミングで得るかなどは特に指定せずに未定義とします。実装によって挙動が異なる可能性があります。並列実行など実装の都合を優先してよい。</li>
@@ -2827,109 +2781,109 @@ a-b-c-d
 <li>頭についているSpringBone（例えば、髪の毛や髪飾り）について、頭を動かした場合のみレスポンシブに動いてほしい</li>
 </ul>
 <h2 id="json">JSON</h2>
-<pre><code class="language-json">{
-    &quot;extensionsUsed&quot;: [
-        &quot;VRMC_springBone&quot;
-    ],
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            // collider の配列
-            &quot;specVersion&quot;: &quot;1.0&quot;,
-            &quot;colliders&quot;: [
-                {
-                    &quot;node&quot;: 2,
-                    &quot;shape&quot;: {
-                        &quot;sphere&quot;: {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1
-                        }
-                    },
-                },
-                {
-                    &quot;node&quot;: 2,
-                    &quot;shape&quot;: {
-                        &quot;capsule&quot;: {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1,
-                            &quot;tail&quot;: [
-                                0,
-                                0,
-                                1
-                            ]
-                        }
-                    }
-                }
-            ],
-            // colliderGroup の配列
-            &quot;colliderGroups&quot;: [
-                {
-                    // group0
-                    &quot;name&quot;: &quot;group0&quot;,
-                    &quot;colliders&quot;: [0, 1]
-                },
-            ],
-            // springBone の配列
-            &quot;springs&quot;: [
-                {
-                    &quot;joints&quot;: [
-                        {
-                            &quot;node&quot;: 0 // node0
-                        },
-                        {
-                            &quot;node&quot;: 1 // node1
-                        }
-                    ],
-                    &quot;colliderGroups&quot;: [
-                        0,
-                    ]
-                }
-            ]
-        }
-    },
-    // 通常のGLTF-2.0の情報
-    &quot;nodes&quot;: [
-        {
-            &quot;name&quot;: &quot;node0&quot;,
-        },
-        // 省略
-    ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;VRMC_springBone&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// collider の配列</span>
+<span class="w">            </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;capsule&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;tail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                                </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                                </span><span class="mi">1</span>
+<span class="w">                            </span><span class="p">]</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="c1">// colliderGroup の配列</span>
+<span class="w">            </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// group0</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;group0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="c1">// springBone の配列</span>
+<span class="w">            </span><span class="nt">&quot;springs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;joints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">// node0</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">// node1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="c1">// 通常のGLTF-2.0の情報</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// 省略</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="vrmc_springbonespecversion"><code>VRMC_springBone.specVersion</code></h3>
 <p>VRMC_springBone 拡張の仕様バージョンを表します。</p>
-<pre><code class="language-json">extensions.VRMC_springBone.specVersion = &quot;1.0&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_spri</span><span class="kc">n</span><span class="err">gBo</span><span class="kc">ne</span><span class="err">.specVersio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span>
+</code></pre></div>
 <h3 id="vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></h3>
 <p>SpringBone に対する当たり判定を定義します。
 対象のノードとその形状 (shape) です。</p>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;colliders&quot;: [
-                {
-                    &quot;node&quot;: 1,
-                    &quot;shape&quot;: {
-                        &quot;sphere&quot;: {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1
-                        }
-                    },
-                },
-                {
-                    &quot;node&quot;: 1,
-                    &quot;shape&quot;: {
-                        &quot;capsule&quot; : {
-                            &quot;offset&quot;: [0, 0, 0],
-                            &quot;radius&quot;: 1,
-                            &quot;tail&quot;: [0, 0, 1]
-                        }
-                    },
-                }
-            ]
-        }
-    }
-}            
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="nt">&quot;capsule&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;tail&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span><span class="w">            </span>
+</code></pre></div>
 <p>shape は <code>sphere</code> または <code>capsule</code> のどちらかで排他です。</p>
 <table>
 <thead>
@@ -2973,19 +2927,19 @@ a-b-c-d
 </tbody>
 </table>
 <h3 id="vrmc_springbonecollidergroups"><code>VRMC_springBone.colliderGroups</code></h3>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;colliderGroups&quot;: [
-                {
-                    &quot;name&quot;: &quot;groupName&quot;,
-                    &quot;colliders&quot;: [0, 1, 2]
-                }
-            ]
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;groupName&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3008,23 +2962,23 @@ a-b-c-d
 </tbody>
 </table>
 <h3 id="vrmc_springbonesprings"><code>VRMC_springBone.springs</code></h3>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;springs&quot;: [
-                {
-                    &quot;name&quot;: &quot;spring0&quot;,
-                    &quot;joints&quot;: [
-                        // 次項を参照してください
-                    ],
-                    &quot;colliderGroups&quot;: [0],
-                    &quot;center&quot;: 0
-                }
-            ]
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;springs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spring0&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;joints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="c1">// 次項を参照してください</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;colliderGroups&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;center&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3063,31 +3017,31 @@ joints の最後が末端nodeではない場合は、それより子孫のnode�
 <p>上記の説明の通り、 joints を設定しないことによって、途中もしくは終端の node をスキップして揺れるように設定することができます。しかし、その node に他の用途がない場合は、その node は冗長となっているため、node ごと削除することをおすすめします。</p>
 </blockquote>
 <h3 id="vrmc_springbonespringsjoints"><code>VRMC_springBone.springs[*].joints[*]</code></h3>
-<pre><code class="language-json">{
-    &quot;extensions&quot;: {
-        &quot;VRMC_springBone&quot;: {
-            &quot;springs&quot;: [
-                {
-                    &quot;joints&quot;: [
-                        {
-                            &quot;node&quot;: 0,
-                            &quot;hitRadius&quot;: 0.1,
-                            &quot;stiffness&quot;: 0.5,
-                            &quot;gravityPower&quot;: 1.0,
-                            &quot;gravityDir&quot;: [0, -1, 0],
-                            &quot;dragForce&quot;: 0.5,
-                        },
-                        {
-                            &quot;node&quot;: 1,
-                            // 末尾の joint は node 以外は不要です。
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;springs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;joints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;hitRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;stiffness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;gravityPower&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<span class="w">                            </span><span class="nt">&quot;gravityDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span>
+<span class="w">                            </span><span class="nt">&quot;dragForce&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">                            </span><span class="c1">// 末尾の joint は node 以外は不要です。</span>
+<span class="w">                        </span><span class="p">}</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -3142,15 +3096,15 @@ joints の最後が末端nodeではない場合は、それより子孫のnode�
 すなわち、根本から先端にかけて順番に更新処理が行われます。</p>
 <h3 id="_7">初期化</h3>
 <p>本実装で扱うひとつのSpringBoneJointは、以下のようなステートを持ちます:</p>
-<pre><code class="language-ts">interface SpringBoneJointState {
-    prevTail: Vector3;
-    currentTail: Vector3;
-    boneAxis: Vector3;
-    boneLength: number;
-    initialLocalMatrix: Matrix4;
-    initialLocalRotation: Quaternion;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">SpringBoneJointState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">prevTail</span><span class="o">:</span><span class="w"> </span><span class="kt">Vector3</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">currentTail</span><span class="o">:</span><span class="w"> </span><span class="kt">Vector3</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">boneAxis</span><span class="o">:</span><span class="w"> </span><span class="kt">Vector3</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">boneLength</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">initialLocalMatrix</span><span class="o">:</span><span class="w"> </span><span class="kt">Matrix4</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">initialLocalRotation</span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><code>prevTail</code> ・ <code>currentTail</code> は、そのJointが対象とする子Nodeの、ワールド空間における位置を表します。
 <code>currentTail</code> が現在のフレームの位置、 <code>prevTail</code> が1フレーム前の位置を表します。</p>
 <p><code>boneAxis</code> は、そのJointが対象とする子Nodeの、ローカル空間におけるレスト状態の伸びる方向を表します。
@@ -3172,87 +3126,87 @@ joints の最後が末端nodeではない場合は、それより子孫のnode�
 <li>重力: tailが重力に引っ張られる力。 <code>gravityDir * gravityPower</code> が係数となります。</li>
 </ul>
 <p>以下の擬似コードに処理を表します:</p>
-<pre><code class="language-ts">var {currentTail, prevTail, initialLocalRotation, boneAxis, boneLength} = state;
-var {dragForce, stiffnessForce, gravityDir, gravityPower} = props;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="p">{</span><span class="nx">currentTail</span><span class="p">,</span><span class="w"> </span><span class="nx">prevTail</span><span class="p">,</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="p">,</span><span class="w"> </span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">state</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="p">{</span><span class="nx">dragForce</span><span class="p">,</span><span class="w"> </span><span class="nx">stiffnessForce</span><span class="p">,</span><span class="w"> </span><span class="nx">gravityDir</span><span class="p">,</span><span class="w"> </span><span class="nx">gravityPower</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">props</span><span class="p">;</span>
 
-var worldPosition = node.worldPosition;
-var parentWorldRotation = node.parent ? node.parent.worldRotation : Quaternion.identity;
+<span class="kd">var</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">worldPosition</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">parentWorldRotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">node</span><span class="p">.</span><span class="nx">parent</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">node.parent.worldRotation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion.identity</span><span class="p">;</span>
 
-// verlet 積分で次の位置を計算
-var inertia = (currentTail - prevTail) * (1.0f - dragForce);
-var stiffness = deltaTime * parentWorldRotation * initialLocalRotation * boneAxis * stiffnessForce;
-var external = deltaTime * gravityDir * gravityPower;
+<span class="c1">// verlet 積分で次の位置を計算</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">inertia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">currentTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">prevTail</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0</span><span class="nx">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">dragForce</span><span class="p">);</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">stiffness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">parentWorldRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneAxis</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stiffnessForce</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">external</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">deltaTime</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">gravityDir</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">gravityPower</span><span class="p">;</span>
 
-var nextTail = currentTail + inertia + stiffness + external;
+<span class="kd">var</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTail</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">inertia</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stiffness</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">external</span><span class="p">;</span>
 
-// 長さの制約
-nextTail = worldPosition + (nextTail - worldPosition).normalized * boneLength;
-</code></pre>
+<span class="c1">// 長さの制約</span>
+<span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="_10">コライダーとの衝突</h4>
 <p>Jointが対象とするColliderとの衝突判定を行います。
 Colliderそれぞれに対して距離の判定を行い、距離がColliderとJointの半径の和より小さかった場合は、それらが接する位置までジョイントを押しのける処理を行います。</p>
 <p>以下の擬似コードに処理を表します:</p>
-<pre><code class="language-ts">for (var collider of colliders) {
-    var {direction, distance} = collider.calculateCollision(nextTail);
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">collider</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">colliders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="p">{</span><span class="nx">direction</span><span class="p">,</span><span class="w"> </span><span class="nx">distance</span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">calculateCollision</span><span class="p">(</span><span class="nx">nextTail</span><span class="p">);</span>
 
-    if (distance &lt; 0.0) {
-        // 押しのける
-        nextTail = nextTail - direction * distance;
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">distance</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// 押しのける</span>
+<span class="w">        </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">distance</span><span class="p">;</span>
 
-        // 長さの制約
-        nextTail = worldPosition + (nextTail - worldPosition).normalized * boneLength;
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="c1">// 長さの制約</span>
+<span class="w">        </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h4 id="_11">球コライダー</h4>
 <p>以下の擬似コードに、球コライダーの参考実装を示します。</p>
-<pre><code class="language-ts">var transformedOffset = collider.offset * collider.worldMatrix;
-var delta = nextTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-// ジョイントとコライダーの距離。負の値は衝突していることを示す
-var distance = delta.magnitude - collider.radius - jointRadius;
+<span class="c1">// ジョイントとコライダーの距離。負の値は衝突していることを示す</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">magnitude</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="p">;</span>
 
-// ジョイントとコライダーの距離の方向。衝突している場合、この方向にジョイントを押し出す
-var direction = delta.normalized;
-</code></pre>
+<span class="c1">// ジョイントとコライダーの距離の方向。衝突している場合、この方向にジョイントを押し出す</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">normalized</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="_12">カプセルコライダー</h4>
 <p>以下の擬似コードに、カプセルコライダーの参考実装を示します。</p>
-<pre><code class="language-ts">let transformedOffset = collider.offset * collider.worldMatrix;
-let transformedTail = collider.tail * collider.worldMatrix;
-let offsetToTail = transformedTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">transformedTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">tail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transformedTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-let dot = dot(offsetToTail, delta);
+<span class="kd">let</span><span class="w"> </span><span class="nx">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dot</span><span class="p">(</span><span class="nx">offsetToTail</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="p">);</span>
 
-var delta = nextTail - transformedOffset;
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-if (dot &lt; 0.0) {
-    // ジョイントがカプセルの始点側にある場合
-    // なにもしない
-} else if (dot &gt; offsetToTail.sqMagnitude) {
-    // ジョイントがカプセルの終点側にある場合
-    delta -= offsetToTail;
-} else {
-    // ジョイントがカプセルの始点と終点の間にある場合
-    delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
-}
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ジョイントがカプセルの始点側にある場合</span>
+<span class="w">    </span><span class="c1">// なにもしない</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">.</span><span class="nx">sqMagnitude</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ジョイントがカプセルの終点側にある場合</span>
+<span class="w">    </span><span class="nx">delta</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ジョイントがカプセルの始点と終点の間にある場合</span>
+<span class="w">    </span><span class="nx">delta</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">.</span><span class="nx">sqMagnitude</span><span class="p">);</span>
+<span class="p">}</span>
 
-// ジョイントとコライダーの距離。負の値は衝突していることを示す
-let distance = delta.magnitude - collider.radius - jointRadius;
+<span class="c1">// ジョイントとコライダーの距離。負の値は衝突していることを示す</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">magnitude</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="p">;</span>
 
-// ジョイントとコライダーの距離の方向。衝突している場合、この方向にジョイントを押し出す
-let direction = delta.normalized;
-</code></pre>
+<span class="c1">// ジョイントとコライダーの距離の方向。衝突している場合、この方向にジョイントを押し出す</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">normalized</span><span class="p">;</span>
+</code></pre></div>
 <h4 id="_13">回転への反映</h4>
 <p>上記の計算で得られた新しい <code>nextTail</code> をもとに、Jointが対象とするNodeの回転を更新します。</p>
 <p>以下の擬似コードに処理を表します:</p>
-<pre><code class="language-ts">// prevTail・currentTailの更新
-prevTail = currentTail;
-currentTail = nextTail;
+<div class="highlight"><pre><span></span><code><span class="c1">// prevTail・currentTailの更新</span>
+<span class="nx">prevTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">currentTail</span><span class="p">;</span>
+<span class="nx">currentTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="p">;</span>
 
-// 回転の更新
-var to = (nextTail * (node.parent.worldMatrix * initialLocalMatrix).inverse).normalized;
-node.rotation = initialLocalRotation * fromToQuaternion(boneAxis, to);
-</code></pre>
+<span class="c1">// 回転の更新</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">initialLocalMatrix</span><span class="p">).</span><span class="nx">inverse</span><span class="p">).</span><span class="nx">normalized</span><span class="p">;</span>
+<span class="nx">node</span><span class="p">.</span><span class="nx">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuaternion</span><span class="p">(</span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">);</span>
+</code></pre></div>
 <h4 id="center-space_1">Center spaceの考慮</h4>
 <p>SpringBoneに <code>center</code> が設定されている場合、SpringBoneの慣性は<a href="#center-space">Center Space</a>で評価されます。
 これは、上記の慣性計算において、World Spaceで評価していたトランスフォームを代わりにCenter Spaceで評価することで実現できます。
@@ -3277,7 +3231,7 @@ node.rotation = initialLocalRotation * fromToQuaternion(boneAxis, to);
     <span class="md-icon" title="最終更新日">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月3日 12:11:15 UTC">2026年8月3日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月4日 06:59:55 UTC">2026年8月4日</span>
   </span>
 
     

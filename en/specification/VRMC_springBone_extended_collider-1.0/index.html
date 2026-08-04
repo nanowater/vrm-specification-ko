@@ -2906,71 +2906,6 @@
 
 <h1 id="vrmc_springbone_extended_collider-10">VRMC_springBone_extended_collider-1.0</h1>
 <p><em>Version 1.0</em></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-<ul>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#status">Status</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#extended-colliders">Extended Colliders</a><ul>
-<li><a href="#inside-sphere-collider">Inside Sphere Collider</a></li>
-<li><a href="#inside-capsule-collider">Inside Capsule Collider</a></li>
-<li><a href="#plane-collider">Plane Collider</a></li>
-</ul>
-</li>
-<li><a href="#gltf-schema-updates">glTF Schema Updates</a></li>
-<li><a href="#extending-colliders">Extending Colliders</a></li>
-<li><a href="#exporter-implemantation">Exporter Implemantation</a><ul>
-<li><a href="#fallback-inside-sphere-collider---inside-capsule-collider">Fallback: Inside Sphere Collider /  Inside Capsule Collider</a></li>
-<li><a href="#fallback-plane-collider">Fallback: Plane Collider</a></li>
-</ul>
-</li>
-<li><a href="#vrmc_springbone_extended_collider">VRMC_springBone_extended_collider</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#json-schema">JSON Schema</a></li>
-<li><a href="#vrmc_springbone_extended_colliderspecversion-">VRMC_springBone_extended_collider.specVersion ✅</a></li>
-<li><a href="#vrmc_springbone_extended_collidershape">VRMC_springBone_extended_collider.shape</a></li>
-</ul>
-</li>
-<li><a href="#shape">Shape</a><ul>
-<li><a href="#properties-1">Properties</a></li>
-<li><a href="#json-schema-1">JSON Schema</a></li>
-<li><a href="#shapesphere">Shape.sphere</a></li>
-<li><a href="#shapecapsule">Shape.capsule</a></li>
-<li><a href="#shapeplane">Shape.plane</a></li>
-</ul>
-</li>
-<li><a href="#shapesphere">ShapeSphere</a><ul>
-<li><a href="#properties-2">Properties</a></li>
-<li><a href="#shapesphereoffset">ShapeSphere.offset</a></li>
-<li><a href="#shapesphereradius">ShapeSphere.radius</a></li>
-<li><a href="#shapesphereinside">ShapeSphere.inside</a></li>
-</ul>
-</li>
-<li><a href="#shapecapsule">ShapeCapsule</a><ul>
-<li><a href="#properties-3">Properties</a></li>
-<li><a href="#shapecapsuleoffset">ShapeCapsule.offset</a></li>
-<li><a href="#shapecapsuleradius">ShapeCapsule.radius</a></li>
-<li><a href="#shapecapsuletail">ShapeCapsule.tail</a></li>
-<li><a href="#shapecapsuleinside">ShapeCapsule.inside</a></li>
-</ul>
-</li>
-<li><a href="#shapeplane">ShapePlane</a><ul>
-<li><a href="#properties-4">Properties</a></li>
-<li><a href="#shapeplaneoffset">ShapePlane.offset</a></li>
-<li><a href="#shapeplanenormal">ShapePlane.normal</a></li>
-<li><a href="#properties-5">Properties</a></li>
-</ul>
-</li>
-<li><a href="#appendix-reference-implementations">Appendix: Reference Implementations</a></li>
-<li><a href="#inside-sphere-collider-1">Inside Sphere Collider</a></li>
-<li><a href="#inside-capsule-collider-1">Inside Capsule Collider</a></li>
-<li><a href="#plane-collider-1">Plane Collider</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li>0b5vr</li>
@@ -3000,46 +2935,46 @@ The plane is defined as an infinite plane and has no finite size.</p>
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
 <h3 id="extending-colliders">Extending Colliders</h3>
 <p>The constraints are described by adding the <code>VRMC_springBone_extended_collider</code> extension to the colliders defined in <code>VRMC_springBone</code>.</p>
-<pre><code class="language-json">{
-  &quot;extensionsUsed&quot;: [
-    &quot;VRMC_springBone&quot;,
-    &quot;VRMC_springBone_extended_collider&quot;
-  ],
-  &quot;extensions&quot;: {
-    &quot;VRMC_springBone&quot;: {
-      &quot;specVersion&quot;: &quot;1.0&quot;,
-      &quot;colliders&quot;: [
-        {
-          &quot;node&quot;: 0,
-          &quot;shape&quot;: {
-            &quot;sphere&quot;: {
-              &quot;radius&quot;: 0.0,
-              &quot;offset&quot;: [0.0, -10000.0, 0.0]
-            }
-          },
-          &quot;extensions&quot;: {
-            &quot;VRMC_springBone_extended_collider&quot;: {
-              &quot;specVersion&quot;: &quot;1.0&quot;,
-              &quot;shape&quot;: {
-                &quot;sphere&quot;: {
-                  &quot;radius&quot;: 0.5,
-                  &quot;offset&quot;: [0.0, 0.0, 0.0],
-                  &quot;inside&quot;: true
-                }
-              }
-            }
-          }
-        },
-        // ...
-      ]
-    }
-  },
-  // other glTF 2.0 informations
-  &quot;nodes&quot;: [
-    // ...
-  ]
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;VRMC_springBone&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;VRMC_springBone_extended_collider&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;VRMC_springBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;VRMC_springBone_extended_collider&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                  </span><span class="nt">&quot;inside&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// ...</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="c1">// other glTF 2.0 informations</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="exporter-implemantation">Exporter Implemantation</h3>
 <blockquote>
 <p>*This section is non-normative. *</p>
@@ -3048,60 +2983,60 @@ The plane is defined as an infinite plane and has no finite size.</p>
 <h4 id="fallback-inside-sphere-collider-inside-capsule-collider">Fallback: Inside Sphere Collider /  Inside Capsule Collider</h4>
 <p>When exporting a sphere/capsule collider defined as an inside collider, consider having a fallback value such as setting a sphere collider far away from the origin so that the fallback collider does not affect spring bones in environments that do not support <code>VRMC_springBone_extended_collider</code>.</p>
 <p>Below is an example of outputting so that the fallback collider has no effect.</p>
-<pre><code class="language-json">    // Example of placing a sphere collider with a radius of 0 far away and making it pseudo-ignored in the fallback environment.
-      &quot;colliders&quot;: [
-        {
-          &quot;node&quot;: 0,
-          &quot;shape&quot;: {
-            &quot;sphere&quot;: {
-              &quot;radius&quot;: 0.0,
-              &quot;offset&quot;: [0.0, -10000.0, 0.0]
-            }
-          },
-          &quot;extensions&quot;: {
-            &quot;VRMC_springBone_extended_collider&quot;: {
-              &quot;specVersion&quot;: &quot;1.0-draft&quot;,
-              &quot;shape&quot;: {
-                &quot;sphere&quot;: {
-                  &quot;radius&quot;: 0.5,
-                  &quot;offset&quot;: [0.0, 0.0, 0.0],
-                  &quot;inside&quot;: true
-                }
-              }
-            }
-          }
-        }
-      ]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// Example of placing a sphere collider with a radius of 0 far away and making it pseudo-ignored in the fallback environment.</span>
+<span class="w">      </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;VRMC_springBone_extended_collider&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0-draft&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span>
+<span class="w">                  </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                  </span><span class="nt">&quot;inside&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+</code></pre></div>
 <h4 id="fallback-plane-collider">Fallback: Plane Collider</h4>
 <p>When exporting a plane collider, consider having a fallback value such as using a sphere collider with a large enough radius so that the fallback collider approximates the behavior of a plane collider in environments that do not support <code>VRMC_springBone_extended_collider</code>.</p>
 <p>Below is an example of exporting a fallback collider to approximate a plane collider.</p>
-<pre><code class="language-json">    // Example of placing a sphere collider with a radius of 1000 and approximating a plane collider in a fallback environment.
-    // The precision of float type is approximately 6 digits. 1000 was selected for 0.1mm accuracy.
-      &quot;colliders&quot;: [
-        {
-          &quot;node&quot;: 0,
-          &quot;shape&quot;: {
-            &quot;sphere&quot;: {
-              &quot;radius&quot;: 1000.0,
-              // Specify plane offset - normal * radius
-              &quot;offset&quot;: [0.0, -1000.0, 0.0]
-            }
-          },
-          &quot;extensions&quot;: {
-            &quot;VRMC_springBone_extended_collider&quot;: {
-              &quot;specVersion&quot;: &quot;1.0-draft&quot;,
-              &quot;shape&quot;: {
-                &quot;palne&quot;: {
-                  &quot;offset&quot;: [0.0, 0.0, 0.0],
-                  &quot;normal&quot;: [0.0, 1.0, 0.0],
-                }
-              }
-            }
-          }
-        }
-      ]
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="c1">// Example of placing a sphere collider with a radius of 1000 and approximating a plane collider in a fallback environment.</span>
+<span class="w">    </span><span class="c1">// The precision of float type is approximately 6 digits. 1000 was selected for 0.1mm accuracy.</span>
+<span class="w">      </span><span class="nt">&quot;colliders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;sphere&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span>
+<span class="w">              </span><span class="c1">// Specify plane offset - normal * radius</span>
+<span class="w">              </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">-1000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;VRMC_springBone_extended_collider&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0-draft&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;palne&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                  </span><span class="nt">&quot;normal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">],</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+</code></pre></div>
 <h3 id="vrmc_springbone_extended_collider">VRMC_springBone_extended_collider</h3>
 <p>The root object of this extension.</p>
 <h4 id="properties">Properties</h4>
@@ -3363,60 +3298,60 @@ The vector MUST be normalized.</p>
 <p>translate: Please refer to the reference implementation of the <code>VRMC_springBone</code> extension for the application of <code>distance</code> and <code>direction</code> calculated by the following reference implementation.</p>
 <h3 id="inside-sphere-collider_1">Inside Sphere Collider</h3>
 <p>The following is a reference implementation of the inside sphere collider in pseudocode.</p>
-<pre><code class="language-ts">var transformedOffset = collider.offset * collider.worldMatrix;
-var delta = nextTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-// The distance from the collider to the joint. A negative value indicates that they are colliding
-var distance = collider.radius - jointRadius - delta.magnitude;
+<span class="c1">// The distance from the collider to the joint. A negative value indicates that they are colliding</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">magnitude</span><span class="p">;</span>
 
-// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction
-var direction = -delta.normalized;
-</code></pre>
+<span class="c1">// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">delta</span><span class="p">.</span><span class="nx">normalized</span><span class="p">;</span>
+</code></pre></div>
 <blockquote>
 <p>Implementation Note: The only difference between the implementation of the inside sphere collider and the existing sphere collider is the distance calculation and direction calculation. The rest of the implementation can be reused from the existing sphere collider.</p>
 </blockquote>
 <h3 id="inside-capsule-collider_1">Inside Capsule Collider</h3>
 <p>The following is a reference implementation of the inside capsule collider in pseudocode.</p>
-<pre><code class="language-ts">var transformedOffset = collider.offset * collider.worldMatrix;
-var transformedTail = collider.tail * collider.worldMatrix;
-var offsetToTail = transformedTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">transformedTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">tail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transformedTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-var dot = dot(offsetToTail, delta);
+<span class="kd">var</span><span class="w"> </span><span class="nx">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dot</span><span class="p">(</span><span class="nx">offsetToTail</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="p">);</span>
 
-var delta = nextTail - transformedOffset;
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-if (dot &lt; 0.0) {
-    // When the joint is at the head side of the capsule
-    // Do nothing
-} else if (dot &gt; offsetToTail.sqMagnitude) {
-    // When the joint is at the tail side of the capsule
-    delta -= offsetToTail;
-} else {
-    // When the joint is between the head and tail of the capsule
-    delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
-}
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// When the joint is at the head side of the capsule</span>
+<span class="w">    </span><span class="c1">// Do nothing</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">.</span><span class="nx">sqMagnitude</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// When the joint is at the tail side of the capsule</span>
+<span class="w">    </span><span class="nx">delta</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// When the joint is between the head and tail of the capsule</span>
+<span class="w">    </span><span class="nx">delta</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="nx">dot</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">offsetToTail</span><span class="p">.</span><span class="nx">sqMagnitude</span><span class="p">);</span>
+<span class="p">}</span>
 
-// The distance from the collider to the joint. A negative value indicates that they are colliding
-var distance = collider.radius - jointRadius - delta.magnitude;
+<span class="c1">// The distance from the collider to the joint. A negative value indicates that they are colliding</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">delta</span><span class="p">.</span><span class="nx">magnitude</span><span class="p">;</span>
 
-// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction
-var direction = -delta.normalized;
-</code></pre>
+<span class="c1">// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nx">delta</span><span class="p">.</span><span class="nx">normalized</span><span class="p">;</span>
+</code></pre></div>
 <blockquote>
 <p>Implementation Note: The only difference between the implementation of the inside capsule collider and the existing capsule collider is the distance calculation and direction calculation. The rest of the implementation can be reused from the existing capsule collider.</p>
 </blockquote>
 <h3 id="plane-collider_1">Plane Collider</h3>
 <p>The following is a reference implementation of the plane collider in pseudocode.</p>
-<pre><code class="language-ts">var transformedOffset = collider.offset * collider.worldMatrix;
-var transformedNormal = (colliderNormal * normalMatrixFrom(collider.worldMatrix)).normalized;
-var delta = nextTail - transformedOffset;
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">offset</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">transformedNormal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">colliderNormal</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">normalMatrixFrom</span><span class="p">(</span><span class="nx">collider</span><span class="p">.</span><span class="nx">worldMatrix</span><span class="p">)).</span><span class="nx">normalized</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">transformedOffset</span><span class="p">;</span>
 
-// The distance from the collider to the joint. A negative value indicates that they are colliding
-var distance = dot(delta, transformedNormal) - jointRadius;
+<span class="c1">// The distance from the collider to the joint. A negative value indicates that they are colliding</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dot</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span><span class="w"> </span><span class="nx">transformedNormal</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">jointRadius</span><span class="p">;</span>
 
-// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction
-var direction = transformedNormal;
-</code></pre>
+<span class="c1">// The direction from the collider to the joint. If they are colliding, the joint will be pushed in this direction</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">transformedNormal</span><span class="p">;</span>
+</code></pre></div>
 
 
 
@@ -3437,7 +3372,7 @@ var direction = transformedNormal;
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2026 12:11:15 UTC">August 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 06:59:55 UTC">August 4, 2026</span>
   </span>
 
     

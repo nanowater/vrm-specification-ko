@@ -1081,7 +1081,7 @@
   <span class="md-ellipsis">
     
   
-    이 문서는 오래되었습니다 (This document is outdated).
+    ⚠ 이 문서는 오래되었습니다 (This document is outdated).
   
 
     
@@ -3149,88 +3149,13 @@
 
 
 <h1 id="vrmc_vrm_animation">VRMC_vrm_animation</h1>
+<div class="admonition warning">
+<p class="admonition-title">🤖 AI 자동 번역 문서</p>
+<p>이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 <strong>오역이나 부정확한 표현이 포함될 수 있습니다</strong>.</p>
+<p>정확한 내용은 <a href="https://github.com/vrm-c/vrm-specification">원본 vrm-specification 문서</a>와 비교하여 확인해 주세요.</p>
+</div>
 <p><em>Version 1.0</em></p>
 <h2 id="contents">Contents</h2>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-<ul>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#status">Status</a></li>
-<li><a href="#dependencies">Dependencies</a></li>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#concepts">Concepts</a></li>
-<li><a href="#animations">Animations</a></li>
-<li><a href="#humanoid">Humanoid</a></li>
-<li><a href="#expressions">Expressions</a></li>
-<li><a href="#lookat">LookAt</a><ul>
-<li><a href="#시선-방향">시선 방향</a></li>
-<li><a href="#시점-위치">시점 위치</a></li>
-</ul>
-</li>
-<li><a href="#gltf-schema-updates">glTF Schema Updates</a></li>
-<li><a href="#vrmc_vrm_animation">VRMC_vrm_animation</a><ul>
-<li><a href="#properties">Properties</a></li>
-<li><a href="#json-schema">JSON Schema</a></li>
-<li><a href="#vrmc_vrm_animationspecversion-">VRMC_vrm_animation.specVersion ✅</a></li>
-<li><a href="#vrmc_vrm_animationhumanoid">VRMC_vrm_animation.humanoid</a></li>
-<li><a href="#vrmc_vrm_animationexpressions">VRMC_vrm_animation.expressions</a></li>
-<li><a href="#vrmc_vrm_animationlookat">VRMC_vrm_animation.lookAt</a></li>
-</ul>
-</li>
-<li><a href="#humanoid-1">humanoid</a><ul>
-<li><a href="#properties-1">Properties</a></li>
-<li><a href="#json-schema-1">JSON Schema</a></li>
-<li><a href="#humanoidhumanbones-">humanoid.humanBones ✅</a></li>
-</ul>
-</li>
-<li><a href="#humanoidhumanbones">humanoid.humanBones</a><ul>
-<li><a href="#properties-2">Properties</a></li>
-<li><a href="#json-schema-2">JSON Schema</a></li>
-<li><a href="#humanoidhumanboneshumanoid-본-이름">humanoid.humanBones.(Humanoid 본 이름)</a></li>
-</ul>
-</li>
-<li><a href="#humanoidhumanboneshumanbone">humanoid.humanBones.humanBone</a><ul>
-<li><a href="#properties-3">Properties</a></li>
-<li><a href="#json-schema-3">JSON Schema</a></li>
-<li><a href="#humanoidhumanboneshumanbonenode-">humanoid.humanBones.humanBone.node ✅</a></li>
-</ul>
-</li>
-<li><a href="#expressions-1">expressions</a><ul>
-<li><a href="#properties-4">Properties</a></li>
-<li><a href="#json-schema-4">JSON Schema</a></li>
-<li><a href="#expressionspreset">expressions.preset</a></li>
-<li><a href="#expressionscustom">expressions.custom</a></li>
-</ul>
-</li>
-<li><a href="#expressionspreset-1">expressions.preset</a><ul>
-<li><a href="#properties-5">Properties</a></li>
-<li><a href="#json-schema-5">JSON Schema</a></li>
-<li><a href="#expressionspreset프리셋-표정-이름">expressions.preset.(프리셋 표정 이름)</a></li>
-</ul>
-</li>
-<li><a href="#expressionscustom-1">expressions.custom</a><ul>
-<li><a href="#properties-6">Properties</a></li>
-<li><a href="#json-schema-6">JSON Schema</a></li>
-<li><a href="#expressionscustom커스텀-표정-이름">expressions.custom.(커스텀 표정 이름)</a></li>
-</ul>
-</li>
-<li><a href="#expressionsexpression">expressions.expression</a><ul>
-<li><a href="#properties-7">Properties</a></li>
-<li><a href="#json-schema-7">JSON Schema</a></li>
-<li><a href="#expressionsexpressionnode-">expressions.expression.node ✅</a></li>
-</ul>
-</li>
-<li><a href="#lookat-1">lookAt</a><ul>
-<li><a href="#properties-8">Properties</a></li>
-<li><a href="#json-schema-8">JSON Schema</a></li>
-<li><a href="#lookatnode">lookAt.node</a></li>
-<li><a href="#lookatoffsetfromheadbone">lookAt.offsetFromHeadBone</a></li>
-</ul>
-</li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2 id="contributors">Contributors</h2>
 <ul>
 <li>신도 테츠로 (進藤 哲郎)</li>
@@ -3324,46 +3249,42 @@ Expressions의 정의에 대해서는 <code>VRMC_vrm</code> 확장의 Expression
 <p>Humanoid가 정의되지 않은 경우 <code>offsetFromHeadBone</code>의 값을 그대로 시점 위치로 해석합니다.</p>
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
 <p><code>VRMC_vrm_animation</code> 확장은 glTF의 루트 수준에서 정의됩니다.</p>
-<pre><code class="language-json">{
-  &quot;nodes&quot;: [
-    // ...
-  ],
-  &quot;animations&quot;: [
-    // ...
-  ],
-  &quot;extensions&quot;: {
-    &quot;VRMC_vrm_animation&quot;: {
-      &quot;specVersion&quot;: &quot;1.0&quot;,
-      &quot;humanoid&quot;: {
-        &quot;humanBones&quot;: {
-          &quot;hips&quot;: { &quot;node&quot;: 0 },
-          &quot;spine&quot;: { &quot;node&quot;: 1 },
-          &quot;chest&quot;: { &quot;node&quot;: 2 },
-          // ...
-        }
-      },
-      &quot;expressions&quot;: {
-        &quot;preset&quot;: {
-          &quot;aa&quot;: { &quot;node&quot;: 59 },
-          &quot;blinkLeft&quot;: { &quot;node&quot;: 60 },
-          &quot;blink&quot;: { &quot;node&quot;: 61 },
-          &quot;happy&quot;: { &quot;node&quot;: 62 },
-          &quot;relaxed&quot;: { &quot;node&quot;: 63 }
-        }
-      },
-      &quot;lookAt&quot;: {
-        &quot;node&quot;: 64,
-        &quot;offsetFromHeadBone&quot;: [
-          0.0,
-          0.06,
-          0.0
-        ]
-      }
-    }
-  },
-  // ...
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;animations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;VRMC_vrm_animation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;specVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;humanoid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;humanBones&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;hips&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;spine&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;chest&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+<span class="w">          </span><span class="c1">// ...</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;expressions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;preset&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;aa&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;blinkLeft&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;blink&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">61</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;happy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">62</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;relaxed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;lookAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;offsetFromHeadBone&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.06</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="vrmc_vrm_animation_1">VRMC_vrm_animation</h3>
 <p>본 확장의 루트 객체(root object)입니다.</p>
 <h4 id="properties">Properties</h4>
@@ -3714,7 +3635,7 @@ Expressions의 정의에 대해서는 <code>VRMC_vrm</code> 확장의 Expression
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 3일 12:11:15 UTC">2026년 8월 3일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 4일 09:19:37 UTC">2026년 8월 4일</span>
   </span>
 
     
