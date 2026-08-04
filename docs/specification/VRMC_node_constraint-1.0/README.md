@@ -2,64 +2,6 @@
 
 *Version 1.0*
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [Overview](#overview)
-  - [Purposes](#purposes)
-- [Constraints](#constraints)
-  - [Sources](#sources)
-  - [Weight](#weight)
-  - [Roll Constraint](#roll-constraint)
-    - [Purposes](#purposes-1)
-    - [Hierarchy](#hierarchy)
-    - [Roll Axis](#roll-axis)
-    - [Evaluation of rotations](#evaluation-of-rotations)
-    - [Example of Implementation](#example-of-implementation)
-  - [Aim Constraint](#aim-constraint)
-    - [Purposes](#purposes-2)
-    - [Hierarchy](#hierarchy-1)
-    - [Aim Axis](#aim-axis)
-    - [Evaluation of rotations](#evaluation-of-rotations-1)
-    - [Example of Implementation](#example-of-implementation-1)
-  - [Rotation Constraint](#rotation-constraint)
-    - [Purposes](#purposes-3)
-    - [Evaluation of rotations](#evaluation-of-rotations-2)
-    - [Example of Implementation](#example-of-implementation-2)
-- [glTF Schema Updates](#gltf-schema-updates)
-  - [Extending Nodes](#extending-nodes)
-  - [VRMC_node_constraint](#vrmc_node_constraint)
-    - [Properties](#properties)
-    - [VRMC_node_constraint.specVersion ✅](#vrmc_node_constraintspecversion-)
-    - [VRMC_node_constraint.constraint ✅](#vrmc_node_constraintconstraint-)
-  - [constraint](#constraint)
-    - [Properties](#properties-1)
-    - [constraint.roll](#constraintroll)
-    - [constraint.aim](#constraintaim)
-    - [constraint.rotation](#constraintrotation)
-  - [rollConstraint](#rollconstraint)
-    - [Properties](#properties-2)
-    - [rollConstraint.source ✅](#rollconstraintsource-)
-    - [rollConstraint.rollAxis ✅](#rollconstraintrollaxis-)
-    - [rollConstraint.weight](#rollconstraintweight)
-  - [aimConstraint](#aimconstraint)
-    - [Properties](#properties-3)
-    - [aimConstraint.source ✅](#aimconstraintsource-)
-    - [aimConstraint.aimAxis ✅](#aimconstraintaimaxis-)
-    - [aimConstraint.weight](#aimconstraintweight)
-  - [rotationConstraint](#rotationconstraint)
-    - [Properties](#properties-4)
-    - [rotationConstraint.source ✅](#rotationconstraintsource-)
-    - [rotationConstraint.weight](#rotationconstraintweight)
-- [Implementation Notes](#implementation-notes)
-  - [Dependency resolution between constraints](#dependency-resolution-between-constraints)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 * 신도 테츠로

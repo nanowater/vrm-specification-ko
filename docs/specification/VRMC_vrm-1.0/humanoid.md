@@ -17,20 +17,6 @@ extensions.VRMC_vrm.humanoid = {
 }
 ```
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [휴머노이드 본 목록](#%ED%9C%B4%EB%A8%B8%EB%85%B8%EC%9D%B4%EB%93%9C-%EB%B3%B8-%EB%AA%A9%EB%A1%9D)
-  - [몸통](#%EB%AA%B8%ED%86%B5)
-  - [머리](#%EB%A8%B8%EB%A6%AC)
-  - [다리](#%EB%8B%A4%EB%A6%AC)
-  - [팔](#%ED%8C%94)
-  - [손가락](#%EC%86%90%EA%B0%80%EB%9D%BD)
-- [휴머노이드 본의 부모 자식 관계](#%ED%9C%B4%EB%A8%B8%EB%85%B8%EC%9D%B4%EB%93%9C-%EB%B3%B8%EC%9D%98-%EB%B6%80%EB%AA%A8-%EC%9E%90%EC%8B%9D-%EA%B4%80%EA%B3%84)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## 휴머노이드 본 목록
 
 * 휴머노이드 본은 VRM 내에서 동일한 것이 여러 개 존재해서는 안 됩니다.

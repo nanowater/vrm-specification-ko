@@ -2,40 +2,6 @@
 
 *Version 1.0*
 
-## 목차
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [병용하는 확장](#%EB%B3%91%EC%9A%A9%ED%95%98%EB%8A%94-%ED%99%95%EC%9E%A5)
-- [KHR_texture_transform의 제한](#khr_texture_transform%EC%9D%98-%EC%A0%9C%ED%95%9C)
-  - [VRM1에서의 KHR_texture_transform 비권장 기능](#vrm1%EC%97%90%EC%84%9C%EC%9D%98-khr_texture_transform-%EB%B9%84%EA%B6%8C%EC%9E%A5-%EA%B8%B0%EB%8A%A5)
-- [Overview](#overview)
-  - [JSON Schema](#json-schema)
-  - [VRMC_vrm의 사양 버전](#vrmc_vrm%EC%9D%98-%EC%82%AC%EC%96%91-%EB%B2%84%EC%A0%84)
-  - [형식과 확장자](#%ED%98%95%EC%8B%9D%EA%B3%BC-%ED%99%95%EC%9E%A5%EC%9E%90)
-- [glTF Schema Updates](#gltf-schema-updates)
-  - [좌표 단위](#%EC%A2%8C%ED%91%9C-%EB%8B%A8%EC%9C%84)
-  - [사용하지 않는 항목](#%EC%82%AC%EC%9A%A9%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94-%ED%95%AD%EB%AA%A9)
-  - [저장된 TANGENT를 무시해도 무방하다](#%EC%A0%80%EC%9E%A5%EB%90%9C-tangent%EB%A5%BC-%EB%AC%B4%EC%8B%9C%ED%95%B4%EB%8F%84-%EB%AC%B4%EB%B0%A9%ED%95%98%EB%8B%A4)
-    - [`meshes[*].primitives[*].attributes.TANGENT`](#meshesprimitivesattributestangent)
-    - [`meshes[*].primitives[*].targets.TANGENT`](#meshesprimitivestargetstangent)
-  - [`meshes[*].extras.targetNames` 모프 타겟 이름(권장)](#meshesextrastargetnames-%EB%AA%A8%ED%94%84-%ED%83%80%EA%B2%9F-%EC%9D%B4%EB%A6%84%EA%B6%8C%EC%9E%A5)
-- [`VRMC_vrm.humanoid` 노드에 휴머노이드 본 할당(필수)](#vrmc_vrmhumanoid-%EB%85%B8%EB%93%9C%EC%97%90-%ED%9C%B4%EB%A8%B8%EB%85%B8%EC%9D%B4%EB%93%9C-%EB%B3%B8-%ED%95%A0%EB%8B%B9%ED%95%84%EC%88%98)
-- [`VRMC_vrm.meta` 모델 정보(필수)](#vrmc_vrmmeta-%EB%AA%A8%EB%8D%B8-%EC%A0%95%EB%B3%B4%ED%95%84%EC%88%98)
-- [`VRMC_vrm.firstPerson` 1인칭(선택)](#vrmc_vrmfirstperson-1%EC%9D%B8%EC%B9%AD%EC%84%A0%ED%83%9D)
-- [Expression, LookAt, SpringBone, Constraints 적용 순서](#expression-lookat-springbone-constraints-%EC%A0%81%EC%9A%A9-%EC%88%9C%EC%84%9C)
-- [`VRMC_vrm.expressions` 표정(선택)](#vrmc_vrmexpressions-%ED%91%9C%EC%A0%95%EC%84%A0%ED%83%9D)
-- [`VRMC_vrm.lookAt` 시선 제어(선택)](#vrmc_vrmlookat-%EC%8B%9C%EC%84%A0-%EC%A0%9C%EC%96%B4%EC%84%A0%ED%83%9D)
-- [Known Implementations](#known-implementations)
-- [Resources](#resources)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 * Shindo Tetsuro (進藤 哲郎)

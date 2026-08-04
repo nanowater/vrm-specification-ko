@@ -17,20 +17,6 @@ extensions.VRMC_vrm.humanoid = {
 }
 ```
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [List of humanoid bones](#list-of-humanoid-bones)
-  - [Torso](#torso)
-  - [Head](#head)
-  - [Leg](#leg)
-  - [Arm](#arm)
-  - [Finger](#finger)
-- [Humanoid bone parent-child relationship](#humanoid-bone-parent-child-relationship)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Forbidden Transforms
 
 For transforms of humanoid bones, scale components MUST have positive values (zero is not permitted).

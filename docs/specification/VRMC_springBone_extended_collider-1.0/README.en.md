@@ -3,56 +3,6 @@
 *Version 1.0*
 
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [Overview](#overview)
-  - [Extended Colliders](#extended-colliders)
-    - [Inside Sphere Collider](#inside-sphere-collider)
-    - [Inside Capsule Collider](#inside-capsule-collider)
-    - [Plane Collider](#plane-collider)
-- [glTF Schema Updates](#gltf-schema-updates)
-  - [Extending Colliders](#extending-colliders)
-  - [Exporter Implemantation](#exporter-implemantation)
-    - [Fallback: Inside Sphere Collider /  Inside Capsule Collider](#fallback-inside-sphere-collider---inside-capsule-collider)
-    - [Fallback: Plane Collider](#fallback-plane-collider)
-  - [VRMC_springBone_extended_collider](#vrmc_springbone_extended_collider)
-    - [Properties](#properties)
-    - [JSON Schema](#json-schema)
-    - [VRMC_springBone_extended_collider.specVersion ✅](#vrmc_springbone_extended_colliderspecversion-)
-    - [VRMC_springBone_extended_collider.shape](#vrmc_springbone_extended_collidershape)
-  - [Shape](#shape)
-    - [Properties](#properties-1)
-    - [JSON Schema](#json-schema-1)
-    - [Shape.sphere](#shapesphere)
-    - [Shape.capsule](#shapecapsule)
-    - [Shape.plane](#shapeplane)
-  - [ShapeSphere](#shapesphere)
-    - [Properties](#properties-2)
-    - [ShapeSphere.offset](#shapesphereoffset)
-    - [ShapeSphere.radius](#shapesphereradius)
-    - [ShapeSphere.inside](#shapesphereinside)
-  - [ShapeCapsule](#shapecapsule)
-    - [Properties](#properties-3)
-    - [ShapeCapsule.offset](#shapecapsuleoffset)
-    - [ShapeCapsule.radius](#shapecapsuleradius)
-    - [ShapeCapsule.tail](#shapecapsuletail)
-    - [ShapeCapsule.inside](#shapecapsuleinside)
-  - [ShapePlane](#shapeplane)
-    - [Properties](#properties-4)
-    - [ShapePlane.offset](#shapeplaneoffset)
-    - [ShapePlane.normal](#shapeplanenormal)
-    - [Properties](#properties-5)
-- [Appendix: Reference Implementations](#appendix-reference-implementations)
-  - [Inside Sphere Collider](#inside-sphere-collider-1)
-  - [Inside Capsule Collider](#inside-capsule-collider-1)
-  - [Plane Collider](#plane-collider-1)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 - 0b5vr

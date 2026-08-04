@@ -2,40 +2,6 @@
 
 *Version 1.0*
 
-## 目次
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [併用する拡張](#%E4%BD%B5%E7%94%A8%E3%81%99%E3%82%8B%E6%8B%A1%E5%BC%B5)
-- [KHR_texture_transform の制限](#khr_texture_transform-%E3%81%AE%E5%88%B6%E9%99%90)
-  - [VRM1での KHR_texture_transform の非推奨の機能](#vrm1%E3%81%A7%E3%81%AE-khr_texture_transform-%E3%81%AE%E9%9D%9E%E6%8E%A8%E5%A5%A8%E3%81%AE%E6%A9%9F%E8%83%BD)
-- [Overview](#overview)
-  - [JSON Schema](#json-schema)
-  - [VRMC_vrm の仕様バージョン](#vrmc_vrm-%E3%81%AE%E4%BB%95%E6%A7%98%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3)
-  - [形式と拡張子](#%E5%BD%A2%E5%BC%8F%E3%81%A8%E6%8B%A1%E5%BC%B5%E5%AD%90)
-- [glTF Schema Updates](#gltf-schema-updates)
-  - [座標の単位](#%E5%BA%A7%E6%A8%99%E3%81%AE%E5%8D%98%E4%BD%8D)
-  - [使わない項目](#%E4%BD%BF%E3%82%8F%E3%81%AA%E3%81%84%E9%A0%85%E7%9B%AE)
-  - [保存された TANGENT を無視してもよい](#%E4%BF%9D%E5%AD%98%E3%81%95%E3%82%8C%E3%81%9F-tangent-%E3%82%92%E7%84%A1%E8%A6%96%E3%81%97%E3%81%A6%E3%82%82%E3%82%88%E3%81%84)
-    - [`meshes[*].primitives[*].attributes.TANGENT`](#meshesprimitivesattributestangent)
-    - [`meshes[*].primitives[*].targets.TANGENT`](#meshesprimitivestargetstangent)
-  - [`meshes[*].extras.targetNames` モーフターゲットの名前(推奨)](#meshesextrastargetnames-%E3%83%A2%E3%83%BC%E3%83%95%E3%82%BF%E3%83%BC%E3%82%B2%E3%83%83%E3%83%88%E3%81%AE%E5%90%8D%E5%89%8D%E6%8E%A8%E5%A5%A8)
-- [`VRMC_vrm.humanoid` ノードへのヒューマノイドボーンの割り当て(必須)](#vrmc_vrmhumanoid-%E3%83%8E%E3%83%BC%E3%83%89%E3%81%B8%E3%81%AE%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89%E3%83%9C%E3%83%BC%E3%83%B3%E3%81%AE%E5%89%B2%E3%82%8A%E5%BD%93%E3%81%A6%E5%BF%85%E9%A0%88)
-- [`VRMC_vrm.meta` モデル情報(必須)](#vrmc_vrmmeta-%E3%83%A2%E3%83%87%E3%83%AB%E6%83%85%E5%A0%B1%E5%BF%85%E9%A0%88)
-- [`VRMC_vrm.firstPerson` 一人称(オプション)](#vrmc_vrmfirstperson-%E4%B8%80%E4%BA%BA%E7%A7%B0%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3)
-- [Expression, LookAt, SpringBone, Constraints の適用順](#expression-lookat-springbone-constraints-%E3%81%AE%E9%81%A9%E7%94%A8%E9%A0%86)
-- [`VRMC_vrm.expressions` 表情(オプション)](#vrmc_vrmexpressions-%E8%A1%A8%E6%83%85%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3)
-- [`VRMC_vrm.lookAt` 視線制御(オプション)](#vrmc_vrmlookat-%E8%A6%96%E7%B7%9A%E5%88%B6%E5%BE%A1%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3)
-- [Known Implementations](#known-implementations)
-- [Resources](#resources)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 * 進藤 哲郎

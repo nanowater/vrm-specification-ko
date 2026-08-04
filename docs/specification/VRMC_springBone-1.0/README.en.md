@@ -2,44 +2,6 @@
 
 *Version 1.0*
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [Overview](#overview)
-- [Structure](#structure)
-  - [Terms](#terms)
-    - [SpringJoint](#springjoint)
-    - [SpringJointPair](#springjointpair)
-    - [SpringChain](#springchain)
-  - [Example](#example)
-  - [For `vrm0`](#for-vrm0)
-  - [Exception](#exception)
-    - [Multiple SpringChains must not be duplicated in the same SpringJoint (prohibited)](#multiple-springchains-must-not-be-duplicated-in-the-same-springjoint-prohibited)
-    - [Branching SpringChain (undefined)](#branching-springchain-undefined)
-- [Evaluation Space](#evaluation-space)
-  - [Center Space](#center-space)
-- [JSON](#json)
-  - [`VRMC_springBone.specVersion`](#vrmc_springbonespecversion)
-  - [`VRMC_springBone.colliders`](#vrmc_springbonecolliders)
-  - [`VRMC_springBone.colliderGroups`](#vrmc_springbonecollidergroups)
-  - [`VRMC_springBone.springs`](#vrmc_springbonesprings)
-    - [joints](#joints)
-  - [`VRMC_springBone.springs[*].joints[*]`](#vrmc_springbonespringsjoints)
-- [SpringBone Algorithm](#springbone-algorithm)
-  - [Calculation order](#calculation-order)
-  - [Initialization](#initialization)
-  - [Update procedure](#update-procedure)
-    - [Inertia calculation](#inertia-calculation)
-    - [Collision with colliders](#collision-with-colliders)
-    - [Applying rotation](#applying-rotation)
-    - [Considering center space](#considering-center-space)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 * Shindo Tatsuro

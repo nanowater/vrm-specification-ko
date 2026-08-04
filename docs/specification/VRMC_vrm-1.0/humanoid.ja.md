@@ -17,20 +17,6 @@ extensions.VRMC_vrm.humanoid = {
 }
 ```
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [ヒューマノイドボーンの一覧](#%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89%E3%83%9C%E3%83%BC%E3%83%B3%E3%81%AE%E4%B8%80%E8%A6%A7)
-  - [胴](#%E8%83%B4)
-  - [頭](#%E9%A0%AD)
-  - [脚](#%E8%84%9A)
-  - [腕](#%E8%85%95)
-  - [指](#%E6%8C%87)
-- [ヒューマノイドボーンの親子関係](#%E3%83%92%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%8E%E3%82%A4%E3%83%89%E3%83%9C%E3%83%BC%E3%83%B3%E3%81%AE%E8%A6%AA%E5%AD%90%E9%96%A2%E4%BF%82)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## ヒューマノイドボーンの一覧
 
 * ヒューマノイドボーンは VRM 内で同じものが複数存在してはいけません。

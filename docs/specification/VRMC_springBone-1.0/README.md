@@ -2,44 +2,6 @@
 
 *Version 1.0*
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [Overview](#overview)
-- [구성](#%EA%B5%AC%EC%84%B1)
-  - [용어](#%EC%9A%A9%EC%96%B4)
-    - [SpringJoint](#springjoint)
-    - [HeadSpringJoint와 TailSpringJoint의 쌍](#headspringjoint%EC%99%80-tailspringjoint%EC%9D%98-%EC%8C%8D)
-    - [SpringChain](#springchain)
-  - [예시](#%EC%98%88%EC%8B%9C)
-  - [vrm0의 동작](#vrm0%EC%9D%98-%EB%8F%99%EC%9E%91)
-  - [예외](#%EC%98%88%EC%99%B8)
-    - [어떤 SpringJoint가 중복해서 여러 SpringChain에 소속되는 것(금지)](#%EC%96%B4%EB%96%A4-springjoint%EA%B0%80-%EC%A4%91%EB%B3%B5%ED%95%B4%EC%84%9C-%EC%97%AC%EB%9F%AC-springchain%EC%97%90-%EC%86%8C%EC%86%8D%EB%90%98%EB%8A%94-%EA%B2%83%EA%B8%88%EC%A7%80)
-    - [분기하는 SpringChain (미정의)](#%EB%B6%84%EA%B8%B0%ED%95%98%EB%8A%94-springchain-%EB%AF%B8%EC%A0%95%EC%9D%98)
-- [평가하는 좌표계](#%ED%8F%89%EA%B0%80%ED%95%98%EB%8A%94-%EC%A2%8C%ED%91%9C%EA%B3%84)
-  - [Center Space](#center-space)
-- [JSON](#json)
-  - [`VRMC_springBone.specVersion`](#vrmc_springbonespecversion)
-  - [`VRMC_springBone.colliders`](#vrmc_springbonecolliders)
-  - [`VRMC_springBone.colliderGroups`](#vrmc_springbonecollidergroups)
-  - [`VRMC_springBone.springs`](#vrmc_springbonesprings)
-    - [joints](#joints)
-  - [`VRMC_springBone.springs[*].joints[*]`](#vrmc_springbonespringsjoints)
-- [SpringBone의 알고리즘](#springbone%EC%9D%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-  - [업데이트 순서](#%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%88%9C%EC%84%9C)
-  - [초기화](#%EC%B4%88%EA%B8%B0%ED%99%94)
-  - [업데이트 처리](#%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%B2%98%EB%A6%AC)
-    - [관성 계산](#%EA%B4%80%EC%84%B1-%EA%B3%84%EC%82%B0)
-    - [Collider와의 충돌](#collider%EC%99%80%EC%9D%98-%EC%B6%A9%EB%8F%8C)
-    - [회전에 대한 반영](#%ED%9A%8C%EC%A0%84%EC%97%90-%EB%8C%80%ED%95%9C-%EB%B0%98%EC%98%81)
-    - [Center space의 고려](#center-space%EC%9D%98-%EA%B3%A0%EB%A0%A4)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 * Shindo Tetsuro (進藤 哲郎)

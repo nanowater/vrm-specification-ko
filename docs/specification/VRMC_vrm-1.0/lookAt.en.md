@@ -2,22 +2,6 @@
 
 This document provides specifications for the `lookAt` field of the` VRMC_vrm` extension.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Overview](#overview)
-- [Detail](#detail)
-  - [LookAtType](#lookattype)
-  - [LookAt space (offsetFromHeadBone)](#lookat-space-offsetfromheadbone)
-  - [RangeMap](#rangemap)
-- [LookAt algorithm](#lookat-algorithm)
-  - [Yaw and Pitch in lookAt space](#yaw-and-pitch-in-lookat-space)
-  - [Apply Yaw and Pitch to bone](#apply-yaw-and-pitch-to-bone)
-  - [Apply Yaw and Pitch to expression](#apply-yaw-and-pitch-to-expression)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Overview
 
 LookAt is a component for animating the line of sight into a VRM model.

@@ -2,22 +2,6 @@
 
 본 문서에서는 `VRMC_vrm` 확장 중 `lookAt` 필드에 대한 사양을 설명합니다.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [개요](#%EA%B0%9C%EC%9A%94)
-- [상세](#%EC%83%81%EC%84%B8)
-  - [LookAtType](#lookattype)
-  - [LookAt 공간(offsetFromHeadBone)](#lookat-%EA%B3%B5%EA%B0%84offsetfromheadbone)
-  - [범위 맵](#%EB%B2%94%EC%9C%84-%EB%A7%B5)
-- [LookAt의 알고리즘](#lookat%EC%9D%98-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-  - [Yaw and Pitch in lookAt space](#yaw-and-pitch-in-lookat-space)
-  - [Apply Yaw and Pitch to bone](#apply-yaw-and-pitch-to-bone)
-  - [Apply Yaw and Pitch to expression](#apply-yaw-and-pitch-to-expression)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## 개요
 
 LookAt은 VRM 모델에 대해 시선 애니메이션을 수행하기 위한 컴포넌트입니다.

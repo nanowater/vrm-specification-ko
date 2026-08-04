@@ -12,32 +12,6 @@ Expression은,
 
 > 예를 들어, `입을 삐죽이게 하는 MorphTarget`과 `눈을 감는 MorphTarget`의 조합을 `sad`로 지정하는 등
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
-- [Expression 사양](#expression-%EC%82%AC%EC%96%91)
-  - [Expression 제어](#expression-%EC%A0%9C%EC%96%B4)
-- [Preset Expressions](#preset-expressions)
-  - [감정](#%EA%B0%90%EC%A0%95)
-  - [립싱크 절차적](#%EB%A6%BD%EC%8B%B1%ED%81%AC-%EC%A0%88%EC%B0%A8%EC%A0%81)
-  - [눈깜빡임 절차적](#%EB%88%88%EA%B9%9C%EB%B9%A1%EC%9E%84-%EC%A0%88%EC%B0%A8%EC%A0%81)
-  - [시선 절차적](#%EC%8B%9C%EC%84%A0-%EC%A0%88%EC%B0%A8%EC%A0%81)
-  - [기타](#%EA%B8%B0%ED%83%80)
-- [Custom Expressions](#custom-expressions)
-- [절차적 오버라이드](#%EC%A0%88%EC%B0%A8%EC%A0%81-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%93%9C)
-  - [오버라이드와 isBinary의 상호작용에 대하여](#%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%93%9C%EC%99%80-isbinary%EC%9D%98-%EC%83%81%ED%98%B8%EC%9E%91%EC%9A%A9%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC)
-  - [MorphTargetBind](#morphtargetbind)
-  - [MaterialColorBind](#materialcolorbind)
-  - [TextureTransformBind](#texturetransformbind)
-- [Expression 업데이트 알고리즘](#expression-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
-  - [MorphTarget](#morphtarget)
-  - [MaterialColor](#materialcolor)
-  - [TextureTransform](#texturetransform)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Expression 사양
 
 ### JSON Schema

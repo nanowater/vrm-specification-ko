@@ -12,31 +12,6 @@ It is a function to specify the meaning for the group of.
 
 > For example, the combination of `Mouth-to-mouth MorphTarget` and` Eye-closing MorphTarget` should be `sad`.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Expression Specification](#expression-specification)
-  - [Expression control](#expression-control)
-- [Preset Expressions](#preset-expressions)
-  - [Emotions](#emotions)
-  - [Lip Sync Procedural](#lip-sync-procedural)
-  - [Blink procedural](#blink-procedural)
-  - [gaze procedural](#gaze-procedural)
-  - [Other](#other)
-- [Custom Expressions](#custom-expressions)
-- [Procedural override](#procedural-override)
-  - [Interaction between override and isBinary](#interaction-between-override-and-isbinary)
-  - [MorphTargetBind](#morphtargetbind)
-  - [MaterialColorBind](#materialcolorbind)
-  - [TextureTransformBind](#texturetransformbind)
-- [Expression update algorithm](#expression-update-algorithm)
-  - [MorphTarget](#morphtarget)
-  - [MaterialColor](#materialcolor)
-  - [TextureTransform](#texturetransform)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Expression Specification
 
 ### JSON Schema

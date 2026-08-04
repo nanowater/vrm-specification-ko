@@ -2,36 +2,6 @@
 
 본 문서에서는 `VRMC_vrm` 확장 중 `meta` 필드에 대한 사양을 설명합니다.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Meta](#meta)
-- [라이선스](#%EB%9D%BC%EC%9D%B4%EC%84%A0%EC%8A%A4)
-- [glTF Schema Updates](#gltf-schema-updates)
-  - [프로퍼티](#%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0)
-  - [meta.name ✅](#metaname-)
-  - [meta.version](#metaversion)
-  - [meta.authors ✅](#metaauthors-)
-  - [meta.copyrightInformation](#metacopyrightinformation)
-  - [meta.contactInformation](#metacontactinformation)
-  - [meta.references](#metareferences)
-  - [meta.thirdPartyLicenses](#metathirdpartylicenses)
-  - [meta.thumbnailImage](#metathumbnailimage)
-  - [meta.licenseUrl ✅](#metalicenseurl-)
-  - [meta.avatarPermission](#metaavatarpermission)
-  - [meta.allowExcessivelyViolentUsage](#metaallowexcessivelyviolentusage)
-  - [meta.allowExcessivelySexualUsage](#metaallowexcessivelysexualusage)
-  - [meta.commercialUsage](#metacommercialusage)
-  - [meta.allowPoliticalOrReligiousUsage](#metaallowpoliticalorreligioususage)
-  - [meta.allowAntisocialOrHateUsage](#metaallowantisocialorhateusage)
-  - [meta.creditNotation](#metacreditnotation)
-  - [meta.allowRedistribution](#metaallowredistribution)
-  - [meta.modification](#metamodification)
-  - [meta.otherLicenseUrl](#metaotherlicenseurl)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Meta
 
 VRM의 `meta` 필드에서는 모델에 관한 메타 정보를 기술할 수 있습니다.

@@ -4,37 +4,6 @@
 
 ## Contents
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Contributors](#contributors)
-- [Status](#status)
-- [Dependencies](#dependencies)
-- [Extensions used along with VRMC_vrm](#extensions-used-along-with-vrmc_vrm)
-- [Limitation of KHR_texture_transform](#limitation-of-khr_texture_transform)
-  - [Obsolete properties of KHR_texture_transform with VRM1](#obsolete-properties-of-khr_texture_transform-with-vrm1)
-- [Overview](#overview)
-  - [JSON Schema](#json-schema)
-  - [Version of VRMC_vrm specification](#version-of-vrmc_vrm-specification)
-  - [Format and Extension](#format-and-extension)
-- [glTF schema Updates](#gltf-schema-updates)
-  - [Coordinate Units](#coordinate-units)
-  - [Unused Items](#unused-items)
-    - [Allow ignore stored TANGENT](#allow-ignore-stored-tangent)
-    - [`meshes[*].primitives[*].attributes.TANGENT`](#meshesprimitivesattributestangent)
-    - [`meshes[*].primitives[*].targets.TANGENT`](#meshesprimitivestargetstangent)
-  - [`meshes[*].extras.targetNames` names of morphTargets (recommendation)](#meshesextrastargetnames-names-of-morphtargets-recommendation)
-- [`VRMC_vrm.humanoid` Assignment to humanoid bones (required)](#vrmc_vrmhumanoid-assignment-to-humanoid-bones-required)
-- [`VRMC_vrm.meta` Model information (required)](#vrmc_vrmmeta-model-information-required)
-- [`VRMC_vrm.firstPerson` First person (optional)](#vrmc_vrmfirstperson-first-person-optional)
-- [Expression, LookAt, SpringBone, Constraints application order](#expression-lookat-springbone-constraints-application-order)
-- [`VRMC_vrm.expressions` Facial expressions (optional)](#vrmc_vrmexpressions-facial-expressions-optional)
-- [`VRMC_vrm.lookAt` Eye control (optional)](#vrmc_vrmlookat-eye-control-optional)
-- [Known Implementations](#known-implementations)
-- [Resources](#resources)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 ## Contributors
 
 * Shindo Tetsuro
