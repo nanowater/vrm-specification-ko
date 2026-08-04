@@ -1,6 +1,12 @@
 # VRMC_vrm_animation
 
-*Version 1.0*
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
+_Version 1.0_
 
 ## Contents
 
@@ -43,9 +49,9 @@ glTF의 코어 정의의 애니메이션을 이용합니다.
 glTF 애니메이션은 임의 시간에 키프레임을 삽입할 수 있으므로 프레임 레이트(frame rate)의 개념이 없습니다.
 다음 사항을 고려하여 너무 높지도 낮지도 않은 프레임 레이트의 기준으로 초당 30프레임을 제안합니다.
 
-* 게임에서는 60 FPS나 30 FPS가 일반적입니다
-* 모션 캡처의 원시 데이터(가공 전)는 높은 프레임 레이트인 경우가 있습니다
-* 영상에서는 24FPS 등이 있습니다
+- 게임에서는 60 FPS나 30 FPS가 일반적입니다
+- 모션 캡처의 원시 데이터(가공 전)는 높은 프레임 레이트인 경우가 있습니다
+- 영상에서는 24FPS 등이 있습니다
 
 애니메이션을 Linear로 Interpolation(보간)하는 것을 가정하여,
 30 FPS로 충분한 부드러움을 확보할 수 있을 것으로 보입니다.
@@ -148,7 +154,7 @@ Humanoid가 정의되지 않은 경우 `offsetFromHeadBone`의 값을 그대로 
         "humanBones": {
           "hips": { "node": 0 },
           "spine": { "node": 1 },
-          "chest": { "node": 2 },
+          "chest": { "node": 2 }
           // ...
         }
       },
@@ -163,14 +169,10 @@ Humanoid가 정의되지 않은 경우 `offsetFromHeadBone`의 값을 그대로 
       },
       "lookAt": {
         "node": 64,
-        "offsetFromHeadBone": [
-          0.0,
-          0.06,
-          0.0
-        ]
+        "offsetFromHeadBone": [0.0, 0.06, 0.0]
       }
     }
-  },
+  }
   // ...
 }
 ```
@@ -181,12 +183,12 @@ Humanoid가 정의되지 않은 경우 `offsetFromHeadBone`의 값을 그대로 
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`specVersion`|`string`|본 확장의 사양 버전|✅ Yes|
-|`humanoid`|`humanoid`|Humanoid 본에 관한 정의|No|
-|`expressions`|`expressions`|Expressions 표정과 노드의 대응 관계|No|
-|`lookAt`|`lookAt`|시점·시선에 관한 정의|No|
+|               | 타입          | 설명                                | 필수   |
+| :------------ | :------------ | :---------------------------------- | :----- |
+| `specVersion` | `string`      | 본 확장의 사양 버전                 | ✅ Yes |
+| `humanoid`    | `humanoid`    | Humanoid 본에 관한 정의             | No     |
+| `expressions` | `expressions` | Expressions 표정과 노드의 대응 관계 | No     |
+| `lookAt`      | `lookAt`      | 시점·시선에 관한 정의               | No     |
 
 #### JSON Schema
 
@@ -228,9 +230,9 @@ Humanoid 본에 관한 정의를 수행하는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|humanBones|`humanoid.humanBones`|Humanoid 본과 노드의 대응 관계를 나타냄|Yes ✅|
+|            | 타입                  | 설명                                    | 필수   |
+| :--------- | :-------------------- | :-------------------------------------- | :----- |
+| humanBones | `humanoid.humanBones` | Humanoid 본과 노드의 대응 관계를 나타냄 | Yes ✅ |
 
 #### JSON Schema
 
@@ -249,9 +251,9 @@ Humanoid 본과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|(Humanoid 본 이름)|`humanoid.humanBones.humanBone`|하나의 Humanoid 본|Mixed|
+|                    | 타입                            | 설명               | 필수  |
+| :----------------- | :------------------------------ | :----------------- | :---- |
+| (Humanoid 본 이름) | `humanoid.humanBones.humanBone` | 하나의 Humanoid 본 | Mixed |
 
 #### JSON Schema
 
@@ -272,9 +274,9 @@ Humanoid 본과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`node`|`integer`|Humanoid 본에 대응하는 노드의 인덱스|✅ Yes|
+|        | 타입      | 설명                                 | 필수   |
+| :----- | :-------- | :----------------------------------- | :----- |
+| `node` | `integer` | Humanoid 본에 대응하는 노드의 인덱스 | ✅ Yes |
 
 #### JSON Schema
 
@@ -295,10 +297,10 @@ Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`preset`|`expressions.preset`|프리셋 표정에 대한 정의|No|
-|`custom`|`expressions.custom`|커스텀 표정에 대한 정의|No|
+|          | 타입                 | 설명                    | 필수 |
+| :------- | :------------------- | :---------------------- | :--- |
+| `preset` | `expressions.preset` | 프리셋 표정에 대한 정의 | No   |
+| `custom` | `expressions.custom` | 커스텀 표정에 대한 정의 | No   |
 
 #### JSON Schema
 
@@ -310,7 +312,6 @@ Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.
 
 - 타입: `expressions.preset`
 - 필수: No
-
 
 #### expressions.custom
 
@@ -325,9 +326,9 @@ Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|(프리셋 표정 이름)|`expressions.expression`|하나의 프리셋 표정|No|
+|                    | 타입                     | 설명               | 필수 |
+| :----------------- | :----------------------- | :----------------- | :--- |
+| (프리셋 표정 이름) | `expressions.expression` | 하나의 프리셋 표정 | No   |
 
 #### JSON Schema
 
@@ -348,9 +349,9 @@ Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|(커스텀 표정 이름)|`expressions.expression`|하나의 커스텀 표정|No|
+|                    | 타입                     | 설명               | 필수 |
+| :----------------- | :----------------------- | :----------------- | :--- |
+| (커스텀 표정 이름) | `expressions.expression` | 하나의 커스텀 표정 | No   |
 
 #### JSON Schema
 
@@ -370,9 +371,9 @@ Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`node`|`integer`|표정에 대응하는 노드의 인덱스|✅ Yes|
+|        | 타입      | 설명                          | 필수   |
+| :----- | :-------- | :---------------------------- | :----- |
+| `node` | `integer` | 표정에 대응하는 노드의 인덱스 | ✅ Yes |
 
 #### JSON Schema
 
@@ -393,10 +394,10 @@ Expressions 표정과 노드의 대응 관계를 나타내는 객체입니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`node`|`integer`|시선 방향에 대응하는 노드의 인덱스|No|
-|`offsetFromHeadBone`|`number[3]`|Humanoid의 head로부터 시점 위치의 오프셋(offset)|No|
+|                      | 타입        | 설명                                             | 필수 |
+| :------------------- | :---------- | :----------------------------------------------- | :--- |
+| `node`               | `integer`   | 시선 방향에 대응하는 노드의 인덱스               | No   |
+| `offsetFromHeadBone` | `number[3]` | Humanoid의 head로부터 시점 위치의 오프셋(offset) | No   |
 
 #### JSON Schema
 

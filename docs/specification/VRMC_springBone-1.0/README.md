@@ -1,12 +1,18 @@
 # VRMC_springBone
 
-*Version 1.0*
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
+_Version 1.0_
 
 ## Contributors
 
-* Shindo Tetsuro (進藤 哲郎)
-* Su Po-Chang (蘇 柏彰)
-* Obuchi Yutaka (小渕 豊)
+- Shindo Tetsuro (進藤 哲郎)
+- Su Po-Chang (蘇 柏彰)
+- Obuchi Yutaka (小渕 豊)
 
 ## Status
 
@@ -26,13 +32,14 @@ Node에 관성에 의한 속도 유지와 원래 자세로 돌아가려는 스�
 ## 구성
 
 ### 용어
+
 설명을 위해 다음 용어를 도입합니다.
 
-| 용어                                      | 의미                 | json                                             |
-|-------------------------------------------|----------------------|--------------------------------------------------|
-| SpringJoint                               | 설정이 된 node       | `springs[i].joints[j]`                           |
+| 용어                                   | 의미                 | json                                             |
+| -------------------------------------- | -------------------- | ------------------------------------------------ |
+| SpringJoint                            | 설정이 된 node       | `springs[i].joints[j]`                           |
 | HeadSpringJoint와 TailSpringJoint의 쌍 | 연속된 두 joint의 쌍 | `springs[i].joints[j]`, `springs[i].joints[j+1]` |
-| SpringChain                               | 연속된 joint 전체    | `springs[i]`                                     |
+| SpringChain                            | 연속된 joint 전체    | `springs[i]`                                     |
 
 #### SpringJoint
 
@@ -149,8 +156,8 @@ b-(c)-e
 a-b-c-d
 ```
 
-* `a-b-c-d`와 `x-y-z` 2개의 SpringChain으로 처리한다.
-* `a-b-c-d`와 `x-y-z` 중 어느 것을 먼저 처리할지, 이동 차이를 어느 타이밍에 얻을지 등은 특별히 지정하지 않고 미정의로 합니다. 구현에 따라 동작이 다를 수 있습니다. 병렬 실행 등 구현의 편의를 우선해도 좋습니다.
+- `a-b-c-d`와 `x-y-z` 2개의 SpringChain으로 처리한다.
+- `a-b-c-d`와 `x-y-z` 중 어느 것을 먼저 처리할지, 이동 차이를 어느 타이밍에 얻을지 등은 특별히 지정하지 않고 미정의로 합니다. 구현에 따라 동작이 다를 수 있습니다. 병렬 실행 등 구현의 편의를 우선해도 좋습니다.
 
 ## 평가하는 좌표계
 
@@ -174,71 +181,63 @@ Center 노드는 해당 SpringChain의 0번째 Joint이거나 그 조상 node여
 
 ```json
 {
-    "extensionsUsed": [
-        "VRMC_springBone"
-    ],
-    "extensions": {
-        "VRMC_springBone": {
-            // collider 배열
-            "specVersion": "1.0",
-            "colliders": [
-                {
-                    "node": 2,
-                    "shape": {
-                        "sphere": {
-                            "offset": [0, 0, 0],
-                            "radius": 1
-                        }
-                    },
-                },
-                {
-                    "node": 2,
-                    "shape": {
-                        "capsule": {
-                            "offset": [0, 0, 0],
-                            "radius": 1,
-                            "tail": [
-                                0,
-                                0,
-                                1
-                            ]
-                        }
-                    }
-                }
-            ],
-            // colliderGroup 배열
-            "colliderGroups": [
-                {
-                    // group0
-                    "name": "group0",
-                    "colliders": [0, 1]
-                },
-            ],
-            // springBone 배열
-            "springs": [
-                {
-                    "joints": [
-                        {
-                            "node": 0 // node0
-                        },
-                        {
-                            "node": 1 // node1
-                        }
-                    ],
-                    "colliderGroups": [
-                        0,
-                    ]
-                }
-            ]
-        }
-    },
-    // 일반적인 GLTF-2.0 정보
-    "nodes": [
+  "extensionsUsed": ["VRMC_springBone"],
+  "extensions": {
+    "VRMC_springBone": {
+      // collider 배열
+      "specVersion": "1.0",
+      "colliders": [
         {
-            "name": "node0",
+          "node": 2,
+          "shape": {
+            "sphere": {
+              "offset": [0, 0, 0],
+              "radius": 1
+            }
+          }
         },
-        // 생략
-    ]
+        {
+          "node": 2,
+          "shape": {
+            "capsule": {
+              "offset": [0, 0, 0],
+              "radius": 1,
+              "tail": [0, 0, 1]
+            }
+          }
+        }
+      ],
+      // colliderGroup 배열
+      "colliderGroups": [
+        {
+          // group0
+          "name": "group0",
+          "colliders": [0, 1]
+        }
+      ],
+      // springBone 배열
+      "springs": [
+        {
+          "joints": [
+            {
+              "node": 0 // node0
+            },
+            {
+              "node": 1 // node1
+            }
+          ],
+          "colliderGroups": [0]
+        }
+      ]
+    }
+  },
+  // 일반적인 GLTF-2.0 정보
+  "nodes": [
+    {
+      "name": "node0"
+    }
+    // 생략
+  ]
 }
 ```
 
@@ -257,64 +256,64 @@ SpringBone에 대한 충돌 판정을 정의합니다.
 
 ```json
 {
-    "extensions": {
-        "VRMC_springBone": {
-            "colliders": [
-                {
-                    "node": 1,
-                    "shape": {
-                        "sphere": {
-                            "offset": [0, 0, 0],
-                            "radius": 1
-                        }
-                    },
-                },
-                {
-                    "node": 1,
-                    "shape": {
-                        "capsule" : {
-                            "offset": [0, 0, 0],
-                            "radius": 1,
-                            "tail": [0, 0, 1]
-                        }
-                    },
-                }
-            ]
+  "extensions": {
+    "VRMC_springBone": {
+      "colliders": [
+        {
+          "node": 1,
+          "shape": {
+            "sphere": {
+              "offset": [0, 0, 0],
+              "radius": 1
+            }
+          }
+        },
+        {
+          "node": 1,
+          "shape": {
+            "capsule": {
+              "offset": [0, 0, 0],
+              "radius": 1,
+              "tail": [0, 0, 1]
+            }
+          }
         }
+      ]
     }
-}            
+  }
+}
 ```
 
 shape는 `sphere` 또는 `capsule` 중 하나로 배타적입니다.
 
-| key                  | type    | 비고                                                                               |
-|:---------------------|:--------|:-----------------------------------------------------------------------------------|
-| node                 | integer | 대상 노드                                                                       |
-| shape.sphere.offset  | float3  | shape가 구(sphere)인 경우에만: 대상 노드의 로컬 좌표계에서의 구의 중심 위치       |
-| shape.sphere.radius  | float   | shape가 구(sphere)인 경우에만: 구의 반지름                                                       |
+| key                  | type    | 비고                                                                                            |
+| :------------------- | :------ | :---------------------------------------------------------------------------------------------- |
+| node                 | integer | 대상 노드                                                                                       |
+| shape.sphere.offset  | float3  | shape가 구(sphere)인 경우에만: 대상 노드의 로컬 좌표계에서의 구의 중심 위치                     |
+| shape.sphere.radius  | float   | shape가 구(sphere)인 경우에만: 구의 반지름                                                      |
 | shape.capsule.offset | float3  | shape가 캡슐(capsule)인 경우에만: 대상 노드의 로컬 좌표계에서의 캡슐 시작점 쪽 반원의 중심 위치 |
-| shape.capsule.radius | float   | shape가 캡슐(capsule)인 경우에만: 캡슐의 반원 부분과 원기둥 부분의 반지름                           |
-| shape.capsule.tail   | float3  | shape가 캡슐(capsule)인 경우에만: 대상 노드의 로컬 좌표계에서의 캡슐 끝점 쪽 반원의 중심 위치 |
+| shape.capsule.radius | float   | shape가 캡슐(capsule)인 경우에만: 캡슐의 반원 부분과 원기둥 부분의 반지름                       |
+| shape.capsule.tail   | float3  | shape가 캡슐(capsule)인 경우에만: 대상 노드의 로컬 좌표계에서의 캡슐 끝점 쪽 반원의 중심 위치   |
 
 ### `VRMC_springBone.colliderGroups`
 
 ```json
 {
-    "extensions": {
-        "VRMC_springBone": {
-            "colliderGroups": [
-                {
-                    "name": "groupName",
-                    "colliders": [0, 1, 2]
-                }
-            ]
+  "extensions": {
+    "VRMC_springBone": {
+      "colliderGroups": [
+        {
+          "name": "groupName",
+          "colliders": [0, 1, 2]
         }
+      ]
     }
+  }
 }
 ```
 
-| key       | type      | 비고                                                     |
-|:----------|:----------|:---------------------------------------------------------|
+| key       | type      | 비고                                                  |
+| :-------- | :-------- | :---------------------------------------------------- |
 | name      | string    | 그룹의 이름                                           |
 | colliders | integer[] | 앞 항목의 VRMC_springBone.colliders에 대한 index 목록 |
 
@@ -322,36 +321,36 @@ shape는 `sphere` 또는 `capsule` 중 하나로 배타적입니다.
 
 ```json
 {
-    "extensions": {
-        "VRMC_springBone": {
-            "springs": [
-                {
-                    "name": "spring0",
-                    "joints": [
-                        // 다음 항목을 참조하십시오
-                    ],
-                    "colliderGroups": [0],
-                    "center": 0
-                }
-            ]
+  "extensions": {
+    "VRMC_springBone": {
+      "springs": [
+        {
+          "name": "spring0",
+          "joints": [
+            // 다음 항목을 참조하십시오
+          ],
+          "colliderGroups": [0],
+          "center": 0
         }
+      ]
     }
+  }
 }
 ```
 
 | 이름           | 비고                                                               |
-|:---------------|:------------------------------------------------------------------|
-| name           | Spring 이름                                                           |
-| joints         | springBone을 구성하는 Joint 목록                                       |
+| :------------- | :----------------------------------------------------------------- |
+| name           | Spring 이름                                                        |
+| joints         | springBone을 구성하는 Joint 목록                                   |
 | colliderGroups | 이 spring과 충돌하는 `VRMC_springBone.colliderGroups`의 index 목록 |
-| center         | [Center Space](#center-space)의 루트로 사용할 노드의 인덱스                |
+| center         | [Center Space](#center-space)의 루트로 사용할 노드의 인덱스        |
 
 #### joints
 
 `SpringBoneChain`을 나타냅니다.
 다음 제약이 있습니다.
 
-* joints[n]은 joints[n+1]의 부모 또는 조상일 것
+- joints[n]은 joints[n+1]의 부모 또는 조상일 것
 
 joints[n]과 joints[n+1]이 직접적인 부모 자식 node가 아닐 경우, 사이의 node는 무시됩니다.
 joints의 마지막이 끝 node가 아닐 경우, 그 자손 node는 무시되어 개별적으로 흔들리지 않습니다.
@@ -362,43 +361,43 @@ joints의 마지막이 끝 node가 아닐 경우, 그 자손 node는 무시되�
 
 ```json
 {
-    "extensions": {
-        "VRMC_springBone": {
-            "springs": [
-                {
-                    "joints": [
-                        {
-                            "node": 0,
-                            "hitRadius": 0.1,
-                            "stiffness": 0.5,
-                            "gravityPower": 1.0,
-                            "gravityDir": [0, -1, 0],
-                            "dragForce": 0.5,
-                        },
-                        {
-                            "node": 1,
-                            // 끝부분 joint는 node 이외에는 필요하지 않습니다.
-                        }
-                    ]
-                }
-            ]
+  "extensions": {
+    "VRMC_springBone": {
+      "springs": [
+        {
+          "joints": [
+            {
+              "node": 0,
+              "hitRadius": 0.1,
+              "stiffness": 0.5,
+              "gravityPower": 1.0,
+              "gravityDir": [0, -1, 0],
+              "dragForce": 0.5
+            },
+            {
+              "node": 1
+              // 끝부분 joint는 node 이외에는 필요하지 않습니다.
+            }
+          ]
         }
+      ]
     }
+  }
 }
 ```
 
-| 이름         | 값           | 비고                                     |
-|:-------------|:-------------|:-----------------------------------------|
-| node         | integer      | 대상 node의 index                      |
-| hitRadius    | float(meter) | springBone의 충돌 판정 크기          |
-| stiffness    | 0 이상        | 강성 (초기 상태로 돌아가려는 힘)           |
+| 이름         | 값           | 비고                                           |
+| :----------- | :----------- | :--------------------------------------------- |
+| node         | integer      | 대상 node의 index                              |
+| hitRadius    | float(meter) | springBone의 충돌 판정 크기                    |
+| stiffness    | 0 이상       | 강성 (초기 상태로 돌아가려는 힘)               |
 | gravityPower |              | 중력의 힘 (SpringBone에 매 프레임 가해지는 힘) |
-| gravityDir   | [x, y, z]    | 중력 방향                                 |
-| dragForce    | [0-1]        | 감속 (SpringBone을 감속시키는 힘)           |
+| gravityDir   | [x, y, z]    | 중력 방향                                      |
+| dragForce    | [0-1]        | 감속 (SpringBone을 감속시키는 힘)              |
 
 ## SpringBone의 알고리즘
 
-> *이 섹션은 non-normative(비규범적)입니다.*
+> _이 섹션은 non-normative(비규범적)입니다._
 
 이 섹션에서는 SpringBone의 레퍼런스 구현을 보여줍니다.
 
@@ -418,12 +417,12 @@ SpringBone 계통 전체의 업데이트는 SpringBoneJoint끼리의 의존성�
 
 ```ts
 interface SpringBoneJointState {
-    prevTail: Vector3;
-    currentTail: Vector3;
-    boneAxis: Vector3;
-    boneLength: number;
-    initialLocalMatrix: Matrix4;
-    initialLocalRotation: Quaternion;
+  prevTail: Vector3;
+  currentTail: Vector3;
+  boneAxis: Vector3;
+  boneLength: number;
+  initialLocalMatrix: Matrix4;
+  initialLocalRotation: Quaternion;
 }
 ```
 
@@ -481,15 +480,16 @@ Collider 각각에 대해 거리 판정을 수행하며, 거리가 Collider와 J
 
 ```ts
 for (var collider of colliders) {
-    var {direction, distance} = collider.calculateCollision(nextTail);
+  var { direction, distance } = collider.calculateCollision(nextTail);
 
-    if (distance < 0.0) {
-        // 밀어낸다
-        nextTail = nextTail - direction * distance;
+  if (distance < 0.0) {
+    // 밀어낸다
+    nextTail = nextTail - direction * distance;
 
-        // 길이 제약
-        nextTail = worldPosition + (nextTail - worldPosition).normalized * boneLength;
-    }
+    // 길이 제약
+    nextTail =
+      worldPosition + (nextTail - worldPosition).normalized * boneLength;
+  }
 }
 ```
 
@@ -522,14 +522,14 @@ let dot = dot(offsetToTail, delta);
 var delta = nextTail - transformedOffset;
 
 if (dot < 0.0) {
-    // 조인트가 캡슐의 시작점 쪽에 있는 경우
-    // 아무것도 하지 않음
+  // 조인트가 캡슐의 시작점 쪽에 있는 경우
+  // 아무것도 하지 않음
 } else if (dot > offsetToTail.sqMagnitude) {
-    // 조인트가 캡슐의 끝점 쪽에 있는 경우
-    delta -= offsetToTail;
+  // 조인트가 캡슐의 끝점 쪽에 있는 경우
+  delta -= offsetToTail;
 } else {
-    // 조인트가 캡슐의 시작점과 끝점 사이에 있는 경우
-    delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
+  // 조인트가 캡슐의 시작점과 끝점 사이에 있는 경우
+  delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
 }
 
 // 조인트와 콜라이더 간의 거리. 음수 값은 충돌하고 있음을 나타냄
@@ -551,7 +551,8 @@ prevTail = currentTail;
 currentTail = nextTail;
 
 // 회전 업데이트
-var to = (nextTail * (node.parent.worldMatrix * initialLocalMatrix).inverse).normalized;
+var to = (nextTail * (node.parent.worldMatrix * initialLocalMatrix).inverse)
+  .normalized;
 node.rotation = initialLocalRotation * fromToQuaternion(boneAxis, to);
 ```
 

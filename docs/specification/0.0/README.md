@@ -1,11 +1,17 @@
 # VRM 사양
 
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
 [glTF-2.0](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md)의 바이너리 형식 glb를 기반으로 한, VR용 모델 포맷입니다.
-VRM 사양의 저장소는 여기: [VRM specification](https://github.com/vrm-c/vrm-specification). 
+VRM 사양의 저장소는 여기: [VRM specification](https://github.com/vrm-c/vrm-specification).
 
 # 업데이트 내역
 
-* 20181109: JsonSchema의 `Vector3` 타입이 잘못하여 `array`로 되어있던 부분 수정
+- 20181109: JsonSchema의 `Vector3` 타입이 잘못하여 `array`로 되어있던 부분 수정
 
 ```js
 {
@@ -46,15 +52,15 @@ GLB의 JSON 부분에 `VRM Extension`으로서 확장하고 있습니다.
 
 사양의 JsonSchema를 작성했습니다.
 
-* https://github.com/vrm-c/vrm-specification/tree/master/specification/0.0/schema
+- https://github.com/vrm-c/vrm-specification/tree/master/specification/0.0/schema
 
 GLTF-2.0의 JsonSchema
 
-* https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema
+- https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema
 
 # VRM 확장: VRM 버전 등
 
-* `/extensions/VRM/exporterVersion`은 v0.36부터
+- `/extensions/VRM/exporterVersion`은 v0.36부터
 
 ```js
 {
@@ -97,13 +103,13 @@ GLTF-2.0의 JsonSchema
 
 ## GLTF-2.0: Texture
 
-* GLTF-2.0의 `/textures/`
+- GLTF-2.0의 `/textures/`
 
 VRM 확장은 없습니다.
 
 ## GLTF-2.0: Material(json.extensions.VRM.materialProperties)
 
-* GLTF-2.0의 `/materials/`
+- GLTF-2.0의 `/materials/`
 
 GLTF의 매테리얼로 폴백(fallback)된 정보를 저장하고 있습니다(확장자를 GLB로 변경했을 경우에 사용됨).
 
@@ -113,7 +119,7 @@ VRM 독자적인 매테리얼 정보를 저장하고 있습니다.
 현재 Unity에 필요한 항목을 저장하고 있습니다.
 선택 가능한 Shader는 [VRM이 제공하는 셰이더](#vrmshader)를 참조하십시오.
 
-* https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.material.schema.json
+- https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.material.schema.json
 
 ```js
 {
@@ -150,39 +156,39 @@ VRM 독자적인 매테리얼 정보를 저장하고 있습니다.
 
 ## GLTF-2.0: Mesh
 
-* GLTF-2.0의 `/meshes/`
+- GLTF-2.0의 `/meshes/`
 
 VRM 확장은 없습니다.
 
 ### 버텍스 어트리뷰트
 
-* GLTF-2.0의 `/meshes/*/primitives/*/attributes`
+- GLTF-2.0의 `/meshes/*/primitives/*/attributes`
 
-  * TANGENT (vec4) // v0.42부터 저장을 중단하고, import 시에 normal과 uv로부터 계산하도록 하고 있습니다.
+  - TANGENT (vec4) // v0.42부터 저장을 중단하고, import 시에 normal과 uv로부터 계산하도록 하고 있습니다.
 
 ### 모프 타겟 정보
 
-* `/meshes/*/primitives/*/extras/targetNames`
+- `/meshes/*/primitives/*/extras/targetNames`
 
 에 MorphTarget의 명칭을 기록하고 있습니다.
 
 ## GLTF-2.0: 스키닝 정보
 
-* GLTF-2.0의 `/skins/`
+- GLTF-2.0의 `/skins/`
 
 VRM 확장은 없습니다.
 
 ## GLTF-2.0: Node
 
-* GLTF-2.0의 `/nodes/`
+- GLTF-2.0의 `/nodes/`
 
 VRM 확장은 없습니다.
 
-* node
-  * name
-  * position(vec3)
-  * rotation(quaternion)
-  * scale(vec3)
+- node
+  - name
+  - position(vec3)
+  - rotation(quaternion)
+  - scale(vec3)
 
 # 저장하는 값에 대한 규약
 
@@ -191,8 +197,8 @@ VRM 확장은 없습니다.
 GLTF2의 규약을 준수합니다.
 특히 중요한 항목입니다.
 
-* 미터 단위
-* 오른손 Y-UP 좌표계[^OpenGLCoord]
+- 미터 단위
+- 오른손 Y-UP 좌표계[^OpenGLCoord]
 
 [^OpenGLCoord]: OpenGL 좌표계. +X가 오른쪽, +Y가 위, +Z가 앞쪽입니다.
 
@@ -200,17 +206,18 @@ GLTF2의 규약을 준수합니다.
 
 인간형 모델에 특화하여 호환성을 높이기 위해, 이하의 제약을 부여합니다.
 
-* 모델은 원점에 위치한다
-* 모델은 -Z 방향을 향한다[^OpenGLCoord]
-* 모델의 계층 구조는 Y-UP[^ZUP]
-* 모델의 메시(Mesh)는 Y-UP[^ZUP]
-* 모델의 계층 구조는 T-Pose
-* 모델의 메시(Mesh)는 T-Pose
-* 본(Bone)에 회전을 넣지 않는다
-* 본(Bone)에 스케일을 넣지 않는다
-* 헤드 본은 정면을 향하고 있다[^LookAt]
+- 모델은 원점에 위치한다
+- 모델은 -Z 방향을 향한다[^OpenGLCoord]
+- 모델의 계층 구조는 Y-UP[^ZUP]
+- 모델의 메시(Mesh)는 Y-UP[^ZUP]
+- 모델의 계층 구조는 T-Pose
+- 모델의 메시(Mesh)는 T-Pose
+- 본(Bone)에 회전을 넣지 않는다
+- 본(Bone)에 스케일을 넣지 않는다
+- 헤드 본은 정면을 향하고 있다[^LookAt]
 
 [^ZUP]: Blender나 3ds Max 등의 Z-UP 모델러에서 유래한 모델로, 계층 중간에 x축 -90도 회전을 넣어 Z-UP이 중첩되어 있는 경우가 있습니다.
+
 [^LookAt]: 시선 제어는 T-Pose 시의 헤드 방향을 기준으로 목표물의 방향을 계산합니다.
 
 <a name="vrmshader"></a>
@@ -224,12 +231,13 @@ GLTF2의 규약을 준수합니다.
 라이팅・셰이딩을 하지 않고 텍스처 색을 그대로 표시합니다.
 반투명 처리에 따라 4종류를 준비하고 있습니다.
 
-* UnlitTexture(불투명)
-* UnlitCutout(투명도가 임곗값 이하인 부분을 투명하게 처리)
-* UnlitTransparent(알파 블렌드. ZWrite 안 함)[^Transparent]
-* UnlitTransparentZWrite(알파 블렌드. ZWrite 함)[^TransparentZWrite]
+- UnlitTexture(불투명)
+- UnlitCutout(투명도가 임곗값 이하인 부분을 투명하게 처리)
+- UnlitTransparent(알파 블렌드. ZWrite 안 함)[^Transparent]
+- UnlitTransparentZWrite(알파 블렌드. ZWrite 함)[^TransparentZWrite]
 
 [^Transparent]: 연기나 볼의 홍조 등 실체가 없는 오브젝트용입니다.
+
 [^TransparentZWrite]: 반투명 의상이나, 머리카락 끝이 반투명한 등 실체가 있는 오브젝트용입니다.
 
 ## MToon
@@ -281,29 +289,29 @@ Node와 Humanoid에서 정의되는 표준 본의 대응표입니다.
 
 ## 정의하고 있는 본
 
-|본 이름                |필수・옵션      |
-|:---------------------|:--------------|
-|neck                  |필수           |
-|head                  |필수           |
-|left/right Eye        |옵션           |
-|jaw                   |옵션           |
-|hips                  |필수           |
-|spine                 |필수           |
-|chest                 |필수           |
-|upperChest            |옵션           |
-|left/right Shoulder   |옵션           |
-|left/right UpperArm   |필수           |
-|left/right LowerArm   |필수           |
-|left/right Hand       |필수           |
-|left/right UpperLeg   |필수           |
-|left/right LowerLeg   |필수           |
-|left/right Foot       |필수           |
-|left/right Toe        |옵션           |  
-|left/right Thumb Proximal, Intermediate, Distal |옵션|
-|left/right Index Proximal, Intermediate, Distal |옵션|
-|left/right Middle Proximal, Intermediate, Distal|옵션|
-|left/right Ring Proximal, Intermediate, Distal  |옵션|
-|left/right Little Proximal, Intermediate, Distal|옵션|
+| 본 이름                                          | 필수・옵션 |
+| :----------------------------------------------- | :--------- |
+| neck                                             | 필수       |
+| head                                             | 필수       |
+| left/right Eye                                   | 옵션       |
+| jaw                                              | 옵션       |
+| hips                                             | 필수       |
+| spine                                            | 필수       |
+| chest                                            | 필수       |
+| upperChest                                       | 옵션       |
+| left/right Shoulder                              | 옵션       |
+| left/right UpperArm                              | 필수       |
+| left/right LowerArm                              | 필수       |
+| left/right Hand                                  | 필수       |
+| left/right UpperLeg                              | 필수       |
+| left/right LowerLeg                              | 필수       |
+| left/right Foot                                  | 필수       |
+| left/right Toe                                   | 옵션       |
+| left/right Thumb Proximal, Intermediate, Distal  | 옵션       |
+| left/right Index Proximal, Intermediate, Distal  | 옵션       |
+| left/right Middle Proximal, Intermediate, Distal | 옵션       |
+| left/right Ring Proximal, Intermediate, Distal   | 옵션       |
+| left/right Little Proximal, Intermediate, Distal | 옵션       |
 
 # VRM 확장: 모델 정보(json.extensions.VRM.meta)
 
@@ -414,30 +422,30 @@ Personation / Characterization Permission
 
 A person who can perform with this avatar
 
-* 아바타를 조작하는 것은 아바타 제작자에게만 허용된다(Only Author)
-* 명확하게 허가된 사람만(Explictly Licensed Person)
-* 모두에게 허가(Everyone)
+- 아바타를 조작하는 것은 아바타 제작자에게만 허용된다(Only Author)
+- 명확하게 허가된 사람만(Explictly Licensed Person)
+- 모두에게 허가(Everyone)
 
 #### 이 아바타를 사용하여 폭력 표현을 연기하는 것의 허가(json.extensions.VRM.meta.violentUssageName)
 
 Violent acts using this avatar
 
-* 불허(Disallow)
-* 허가(Allow)
+- 불허(Disallow)
+- 허가(Allow)
 
 #### 이 아바타를 사용하여 성적 표현을 연기하는 것의 허가(json.extensions.VRM.meta.sexualUssageName)
 
 Sexuality acts using this avatar
 
-* 불허(Disallow)
-* 허가(Allow)
+- 불허(Disallow)
+- 허가(Allow)
 
 #### 상업적 이용의 허가(json.extensions.VRM.meta.commercialUssageName)
 
 For commercial use
 
-* 불허(Disallow)
-* 허가(Allow)
+- 불허(Disallow)
+- 허가(Allow)
 
 #### 그 외 라이선스 조건(json.extensions.VRM.meta.otherPermissionUrl)
 
@@ -453,15 +461,15 @@ Redistribution / Modifications License
 
 License Type
 
-* 재배포 금지(Redistribution Prohibited)
-* [저작권 포기(CC0)](https://creativecommons.org/publicdomain/zero/1.0/deed.ko)
-* [Creative Commons CC BY 라이선스(CC_BY)](https://creativecommons.org/licenses/by/4.0/deed.ko)
-* [Creative Commons CC BY NC 라이선스(CC_BY_NC)](https://creativecommons.org/licenses/by-nc/4.0/deed.ko)
-* [Creative Commons CC BY SA 라이선스(CC_BY_SA)](https://creativecommons.org/licenses/by-sa/4.0/deed.ko)
-* [Creative Commons CC BY NC SA 라이선스(CC_BY_NC_SA)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)
-* [Creative Commons CC BY ND 라이선스(CC_BY_ND)](https://creativecommons.org/licenses/by-nd/4.0/deed.ko)
-* [Creative Commons CC BY NC ND 라이선스(CC_BY_NC_ND)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko)
-* 기타(Other)
+- 재배포 금지(Redistribution Prohibited)
+- [저작권 포기(CC0)](https://creativecommons.org/publicdomain/zero/1.0/deed.ko)
+- [Creative Commons CC BY 라이선스(CC_BY)](https://creativecommons.org/licenses/by/4.0/deed.ko)
+- [Creative Commons CC BY NC 라이선스(CC_BY_NC)](https://creativecommons.org/licenses/by-nc/4.0/deed.ko)
+- [Creative Commons CC BY SA 라이선스(CC_BY_SA)](https://creativecommons.org/licenses/by-sa/4.0/deed.ko)
+- [Creative Commons CC BY NC SA 라이선스(CC_BY_NC_SA)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)
+- [Creative Commons CC BY ND 라이선스(CC_BY_ND)](https://creativecommons.org/licenses/by-nd/4.0/deed.ko)
+- [Creative Commons CC BY NC ND 라이선스(CC_BY_NC_ND)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko)
+- 기타(Other)
 
 #### 그 외 라이선스 조건(json.extensions.VRM.meta.otherLicenseUrl)
 
@@ -569,39 +577,39 @@ BlendShape를 그룹화하는 BlendShapeGroup의 배열을 설정합니다.
 
 대기 상태의 표정
 
-* Neutral
+- Neutral
 
 립싱크
 
-* A
-* I
-* U
-* E
-* O
+- A
+- I
+- U
+- E
+- O
 
 눈 깜빡임
 
-* Blink
-* Blink_L
-* Blink_R
+- Blink
+- Blink_L
+- Blink_R
 
 희로애락
 
-* Fun
-* Angry
-* Sorrow
-* Joy
+- Fun
+- Angry
+- Sorrow
+- Joy
 
 시선 제어
 
-* LookUp
-* LookDown
-* LookLeft
-* LookRight
+- LookUp
+- LookDown
+- LookLeft
+- LookRight
 
 기타
 
-* Unknown
+- Unknown
 
 ### 블렌드 셰이프 이름의 식별명
 
@@ -622,7 +630,7 @@ function GetID(preset, name)
 }
 ```
 
-* 블렌드 셰이프 ID가 고유해지도록 Preset과 Name을 설정한다.
+- 블렌드 셰이프 ID가 고유해지도록 Preset과 Name을 설정한다.
 
 # VRM 확장: 1인칭 설정(json.extensions.VRM.firstPerson)
 
@@ -697,10 +705,10 @@ function GetID(preset, name)
 각 메시에 대해 1인칭 시점과 그 외의 경우에 표시・비표시를 전환할 수 있습니다.
 이하의 설정이 있습니다.
 
-* Auto: firstPersonBone과 그 자손에 대해 본 Weight를 갖는 폴리곤을 자동으로 비표시합니다.[^firstPersonAuto]
-* FirstPersonOnly: 1인칭 시에만 표시
-* ThirdPersonOnly: 3인칭 시에만 표시(머리 등 1인칭 시에 비표시할 메시에 지정합니다)
-* Both: 딱히 표시 전환을 하지 않음
+- Auto: firstPersonBone과 그 자손에 대해 본 Weight를 갖는 폴리곤을 자동으로 비표시합니다.[^firstPersonAuto]
+- FirstPersonOnly: 1인칭 시에만 표시
+- ThirdPersonOnly: 3인칭 시에만 표시(머리 등 1인칭 시에 비표시할 메시에 지정합니다)
+- Both: 딱히 표시 전환을 하지 않음
 
 [^firstPersonAuto]: 실행 시에 자동으로 비표시 부분을 삭제한 모델을 생성합니다.
 
@@ -710,8 +718,8 @@ function GetID(preset, name)
 
 ### 시선 타입(json.extensions.VRM.firstPerson.lookAtTypeName)
 
-* Bone: 본으로 시선을 조작합니다.
-* BlendShape: BlendShape로 시선을 조작합니다. BlendShapePreset.LookUp, LookDown, LookLeft, LookRight를 사용합니다.
+- Bone: 본으로 시선을 조작합니다.
+- BlendShape: BlendShape로 시선을 조작합니다. BlendShapePreset.LookUp, LookDown, LookLeft, LookRight를 사용합니다.
 
 ### 각도 조정
 

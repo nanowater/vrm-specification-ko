@@ -1,12 +1,18 @@
 # VRMC_node_constraint
 
-*Version 1.0*
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
+_Version 1.0_
 
 ## Contributors
 
-* 신도 테츠로
-* 소 하쿠쇼
-* 오부치 유타카
+- 신도 테츠로
+- 소 하쿠쇼
+- 오부치 유타카
 
 ## Status
 
@@ -31,11 +37,11 @@ VRM에서 다루는 컨스트레인트(Constraint)는 실시간으로 [Humanoid 
 
 ## Constraints
 
-본 확장에서는 3가지 컨스트레인트 *Roll Constraint*, *Aim Constraint*, *Rotation Constraint*가 정의되어 있습니다.
+본 확장에서는 3가지 컨스트레인트 _Roll Constraint_, _Aim Constraint_, *Rotation Constraint*가 정의되어 있습니다.
 
 ### Sources
 
-각 Constraint는 제약되는 *Destination* 노드와 그것을 제약하는 *Source* 노드를 각각 하나씩 지정합니다.
+각 Constraint는 제약되는 _Destination_ 노드와 그것을 제약하는 _Source_ 노드를 각각 하나씩 지정합니다.
 
 Node가 Constraint의 Source가 되기 위해서는 다음 조건이 필요합니다:
 
@@ -82,23 +88,23 @@ Source의 회전 평가는 Source의 레스트 상태를 기준으로 Destinatio
 
 #### Example of Implementation
 
-> *이 섹션은 Non-Normative입니다.*
+> _이 섹션은 Non-Normative입니다._
 
 아래에 의사 코드(Pseudo-code)로 구현 예를 나타냅니다:
 
 ```js
-deltaSrcQuat = srcRestQuat.inverse * srcQuat
-deltaSrcQuatInParent = srcRestQuat * deltaSrcQuat * srcRestQuat.inverse // source to parent
-deltaSrcQuatInDst = dstRestQuat.inverse * deltaSrcQuatInParent * dstRestQuat // parent to destination
+deltaSrcQuat = srcRestQuat.inverse * srcQuat;
+deltaSrcQuatInParent = srcRestQuat * deltaSrcQuat * srcRestQuat.inverse; // source to parent
+deltaSrcQuatInDst = dstRestQuat.inverse * deltaSrcQuatInParent * dstRestQuat; // parent to destination
 
-toVec = rollAxis.applyQuaternion( deltaSrcQuatInDst )
-fromToQuat = Quaternion.fromToRotation( rollAxis, toVec )
+toVec = rollAxis.applyQuaternion(deltaSrcQuatInDst);
+fromToQuat = Quaternion.fromToRotation(rollAxis, toVec);
 
 targetQuat = Quaternion.slerp(
   dstRestQuat,
   dstRestQuat * fromToQuat.inverse * deltaSrcQuatInDst,
-  weight
-)
+  weight,
+);
 ```
 
 ### Aim Constraint
@@ -133,20 +139,20 @@ Destination의 회전은, Destination이 레스트 상태에서 Destination의 A
 
 #### Example of Implementation
 
-> *이 섹션은 Non-Normative입니다.*
+> _이 섹션은 Non-Normative입니다._
 
 아래에 의사 코드로 구현 예를 나타냅니다:
 
 ```js
-fromVec = aimAxis.applyQuaternion( dstParentWorldQuat * dstRestQuat )
-toVec = ( srcWorldPos - dstWorldPos ).normalized
-fromToQuat = Quaternion.fromToRotation( fromVec, toVec )
+fromVec = aimAxis.applyQuaternion(dstParentWorldQuat * dstRestQuat);
+toVec = (srcWorldPos - dstWorldPos).normalized;
+fromToQuat = Quaternion.fromToRotation(fromVec, toVec);
 
 targetQuat = Quaternion.slerp(
   dstRestQuat,
   dstParentWorldQuat.inverse * fromToQuat * dstParentWorldQuat * dstRestQuat,
-  weight
-)
+  weight,
+);
 ```
 
 ### Rotation Constraint
@@ -169,18 +175,14 @@ Source의 회전은 Source가 레스트 상태에서 Source의 오리엔테이�
 
 #### Example of Implementation
 
-> *이 섹션은 Non-Normative입니다.*
+> _이 섹션은 Non-Normative입니다._
 
 아래에 의사 코드로 구현 예를 나타냅니다:
 
 ```js
-srcDeltaQuat = srcRestQuat.inverse * srcQuat
+srcDeltaQuat = srcRestQuat.inverse * srcQuat;
 
-targetQuat = Quaternion.slerp(
-  dstRestQuat,
-  dstRestQuat * srcDeltaQuat,
-  weight
-)
+targetQuat = Quaternion.slerp(dstRestQuat, dstRestQuat * srcDeltaQuat, weight);
 ```
 
 ---
@@ -234,9 +236,9 @@ targetQuat = Quaternion.slerp(
 
 #### Properties
 
-|               | 타입       | 설명                    | 필수  |
-|:--------------|:---------|:-----------------------|:------|
-| `specVersion` | `string` | 본 확장의 사양 버전을 나타냅니다. | ✅ Yes |
+|               | 타입     | 설명                                  | 필수   |
+| :------------ | :------- | :------------------------------------ | :----- |
+| `specVersion` | `string` | 본 확장의 사양 버전을 나타냅니다.     | ✅ Yes |
 | `constraint`  | `object` | Constraint를 나타내는 오브젝트입니다. | ✅ Yes |
 
 - JSON schema: [VRMC_node_constraint.schema.json](./schema/VRMC_node_constraint.schema.json)
@@ -266,8 +268,8 @@ VRMC_node_constraint 확장의 사양 버전을 나타냅니다.
 
 #### Properties
 
-|            | 타입       | 설명                         | 필수 |
-|:-----------|:---------|:---------------------------|:-----|
+|            | 타입     | 설명                              | 필수 |
+| :--------- | :------- | :-------------------------------- | :--- |
 | `roll`     | `object` | Roll Constraint를 기술합니다.     | No   |
 | `aim`      | `object` | Aim Constraint를 기술합니다.      | No   |
 | `rotation` | `object` | Rotation Constraint를 기술합니다. | No   |
@@ -303,11 +305,11 @@ VRMC_node_constraint 확장의 사양 버전을 나타냅니다.
 
 #### Properties
 
-|            | 타입        | 설명                    | 필수              |
-|:-----------|:----------|:------------------------|:------------------|
-| `source`   | `integer` | 이 Node를 제약하는 Node의 Index | ✅ Yes             |
-| `rollAxis` | `string`  | 이 Constraint의 Roll Axis  | ✅ Yes             |
-| `weight`   | `number`  | 이 Constraint의 Weight     | No, 초기값: `1.0` |
+|            | 타입      | 설명                            | 필수              |
+| :--------- | :-------- | :------------------------------ | :---------------- |
+| `source`   | `integer` | 이 Node를 제약하는 Node의 Index | ✅ Yes            |
+| `rollAxis` | `string`  | 이 Constraint의 Roll Axis       | ✅ Yes            |
+| `weight`   | `number`  | 이 Constraint의 Weight          | No, 초기값: `1.0` |
 
 - JSON schema: [VRMC_node_constraint.rollConstraint.schema.json](./schema/VRMC_node_constraint.rollConstraint.schema.json)
 
@@ -345,11 +347,11 @@ VRMC_node_constraint 확장의 사양 버전을 나타냅니다.
 
 #### Properties
 
-|           | 타입        | 설명                    | 필수              |
-|:----------|:----------|:------------------------|:------------------|
-| `source`  | `integer` | 이 Node를 제약하는 Node의 Index | ✅ Yes             |
-| `aimAxis` | `string`  | 이 Constraint의 Aim Axis   | ✅ Yes             |
-| `weight`  | `number`  | 이 Constraint의 Weight     | No, 초기값: `1.0` |
+|           | 타입      | 설명                            | 필수              |
+| :-------- | :-------- | :------------------------------ | :---------------- |
+| `source`  | `integer` | 이 Node를 제약하는 Node의 Index | ✅ Yes            |
+| `aimAxis` | `string`  | 이 Constraint의 Aim Axis        | ✅ Yes            |
+| `weight`  | `number`  | 이 Constraint의 Weight          | No, 초기값: `1.0` |
 
 - JSON schema: [VRMC_node_constraint.aimConstraint.schema.json](./schema/VRMC_node_constraint.aimConstraint.schema.json)
 
@@ -390,10 +392,10 @@ VRMC_node_constraint 확장의 사양 버전을 나타냅니다.
 
 #### Properties
 
-|          | 타입        | 설명                    | 필수              |
-|:---------|:----------|:------------------------|:------------------|
-| `source` | `integer` | 이 Node를 제약하는 Node의 Index | ✅ Yes             |
-| `weight` | `number`  | 이 Constraint의 Weight     | No, 초기값: `1.0` |
+|          | 타입      | 설명                            | 필수              |
+| :------- | :-------- | :------------------------------ | :---------------- |
+| `source` | `integer` | 이 Node를 제약하는 Node의 Index | ✅ Yes            |
+| `weight` | `number`  | 이 Constraint의 Weight          | No, 초기값: `1.0` |
 
 - JSON schema: [VRMC_node_constraint.rotationConstraint.schema.json](./schema/VRMC_node_constraint.rotationConstraint.schema.json)
 
@@ -416,7 +418,7 @@ VRMC_node_constraint 확장의 사양 버전을 나타냅니다.
 
 ## Implementation Notes
 
-> *이 섹션은 non-normative입니다.*
+> _이 섹션은 non-normative입니다._
 
 ### Dependency resolution between constraints
 

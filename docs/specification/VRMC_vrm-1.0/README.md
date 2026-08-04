@@ -1,73 +1,70 @@
 # VRMC_vrm
 
-*Version 1.0*
+_Version 1.0_
 
-## Contributors
+## 기여자 (Contributors)
 
-* Shindo Tetsuro (進藤 哲郎)
-* Hirose Junichi (廣瀬 淳一)
-* Su Po-Chang (蘇 柏彰)
-* Obuchi Yutaka (小渕 豊)
-* Kado Masataka (角 真宇)
+- Shindo Tetsuro (進藤 哲郎)
+- Hirose Junichi (廣瀬 淳一)
+- Su Po-Chang (蘇 柏彰)
+- Obuchi Yutaka (小渕 豊)
+- Kado Masataka (角 真宇)
 
-## Status
+## 상태
 
-Complete
+완료 (Complete)
 
-## Dependencies
+## 의존성 (Dependencies)
 
-Written against the glTF 2.0 spec.
+glTF 2.0 명세를 기반으로 작성됨.
 
-## 병용하는 확장
+## VRMC_vrm과 함께 사용되는 확장자들
 
-VRMC_vrm 확장은 다음 확장들과 함께 사용될 것을 가정하고 있습니다.
+VRMC_vrm 확장자는 아래와 같은 확장자들과 함께 사용되도록 설계되었습니다.
 
-* KHR_materials_unlit
-* KHR_texture_transform
-* KHR_materials_emissive_strength
-* VRMC_materials_mtoon
-* VRMC_springBone
-* VRMC_node_constraint
+- KHR_materials_unlit
+- KHR_texture_transform
+- KHR_materials_emissive_strength
+- VRMC_materials_mtoon
+- VRMC_springBone
+- VRMC_node_constraint
 
-## KHR_texture_transform의 제한
+## KHR_texture_transform의 제약 사항
 
-[KHR_texture_transform](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md)은
-모든 머티리얼의 텍스처 [textureInfo](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json)에 대해,
-개별적으로 `offset`, `rotation`, `scale`, `texCoord`를 지정할 수 있습니다.
+[KHR_texture_transform](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md)확장은 모든 머티리얼의 각 텍스처 [textureInfo](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json)에 대해
+`offset`, `rotation`, `scale`, `texCoord`를 독립적으로 지정할 수 있도록 합니다.
 
-glTF 표준 PBR 머티리얼의 경우,
+glTF 표준 PBR Material의 경우, 적용 대상은 다음과 같습니다.
 
-* pbrMetallicRoughness.baseColorTexture (KHR_materials_unlit의 경우는 이것만)
-* pbrMetallicRoughness.metallicRoughnessTexture
-* normalTexture
-* occlusionTexture
-* emissiveTexture
-
-입니다.
+- pbrMetallicRoughness.baseColorTexture (KHR_materials_unlit이 활성화된 경우에만)
+- pbrMetallicRoughness.metallicRoughnessTexture
+- normalTexture
+- occlusionTexture
+- emissiveTexture
 
 ### VRM1에서의 KHR_texture_transform 비권장 기능
 
 구현에 따라 KHR_texture_transform이 확장하는 항목을 개별적으로 설정하지 못할 수 있습니다.
 따라서 다음 항목에 대해서는 사용하지 않을 것을 권장합니다.
 
-* rotation
-* texCoord
+- rotation
+- texCoord
 
-## Overview
+## 개요 (Overview)
 
 glTF가 씬(Scene)을 표현하는 반면,
-VRM은 VR 아바타용 인간형 모델 하나를 표현합니다.
+VRM은 VR 아바타용 인간형(Humanoid) 모델 하나를 표현합니다.
 
-### 모델 공간
+### 모델 공간 (Model Space)
 
-VRM에서는 VRM 모델을 구성하는 glTF 씬의 원점으로부터 상대적인 트랜스폼을 관측하는 '모델 공간'을 정의합니다.
-이는 VRM 모델을 다루는 애플리케이션 상의 월드 공간과는 구분됩니다.
+VRM에서는 VRM 모델을 구성하는 glTF 씬의 원점을 기준으로 트랜스폼을 관측하는 "모델 공간"을 정의합니다.
+이는 VRM 모델을 다루는 애플리케이션상의 월드 공간과는 구별됩니다.
 
-모델 공간은 [`VRMC_node_constraint`](../VRMC_node_constraint-1.0/README.ja.md) 확장에서 이용됩니다.
+모델 공간은 [`VRMC_node_constraint`](../VRMC_node_constraint-1.0/README.md) 확장에서 이용됩니다.
 
-> VRM 모델을 애플리케이션 상에서 움직일 때는 Humanoid에서 정의하는 Hips를 움직일 뿐만 아니라,
-> glTF 씬의 루트째로 모델을 움직임으로써 모델 공간을 존중하는 것이 기대됩니다.
-> 다시 말해, 모델의 루트가 항상 월드 공간의 루트에 머무르는 것 같은 사용은 권장되지 않습니다.
+> 애플리케이션상에서 VRM 모델을 움직일 때는 Humanoid에서 정의하는 Hips만 움직이는 것이 아니라,
+> glTF 씬의 루트 노드 전체를 함께 움직여 모델 공간을 보존하는 것을 권장합니다.
+> 다시 말해, 모델의 루트가 항상 월드 공간의 원점에만 머무르도록 사용하는 것은 권장되지 않습니다.
 
 ### JSON Schema
 
@@ -98,11 +95,11 @@ VRM에서는 VRM 모델을 구성하는 glTF 씬의 원점으로부터 상대적
 }
 ```
 
-* https://github.com/vrm-c/vrm-specification/tree/master/specification/VRMC_vrm-1.0/schema
+- [https://github.com/vrm-c/vrm-specification/tree/master/specification/VRMC_vrm-1.0/schema](https://github.com/vrm-c/vrm-specification/tree/master/specification/VRMC_vrm-1.0/schema)
 
 GLTF-2.0의 JsonSchema
 
-* https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema
+- [https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0/schema)
 
 ### VRMC_vrm의 사양 버전
 
@@ -112,114 +109,119 @@ extensions.VRMC_vrm.specVersion = "1.0"
 
 ### 형식과 확장자
 
-`.glb` 형식으로 저장하고 확장자로 `.vrm`을 사용합니다.
+`.glb` 형식으로 저장하고 파일 확장자로 `.vrm`을 사용합니다.
 
-## glTF Schema Updates
+## glTF 스키마 변경 사항 (glTF Schema Updates)
 
 ### 좌표 단위
 
-glTF의 [coordinate-system-and-units](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#coordinate-system-and-units)를 준수하여 미터(meter) 단위입니다.
+glTF의 [coordinate-system-and-units](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#coordinate-system-and-units)를 준수하여 미터(m) 단위를 사용합니다.
 
 ### 사용하지 않는 항목
 
 다음 항목은 사용하지 않습니다.
 
-* animations
-* cameras
+- animations
+- cameras
 
-### 저장된 TANGENT를 무시해도 무방하다
+### 저장된 TANGENT 무시 허용
 
-TANGENT를 올바르게 다루는 것이 기술적으로 어렵기 때문에 내보내지 않거나, 읽지 않고 계산하는 것을 허용합니다.
+탄젠트(TANGENT)를 정확하게 다루는 것이 기술적으로 어렵기 때문에, 내보내기 시 포함하지 않거나, 불러오기 시 읽지 않고 직접 계산하여 사용하는 것을 허용합니다.
 
 #### `meshes[*].primitives[*].attributes.TANGENT`
 
-* import: MikkTSpace 알고리즘으로 계산해 주십시오.
+- import: MikkTSpace 알고리즘으로 계산하십시오.
 
-https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#meshes
+[https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#meshes](https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md#meshes)
 
-> Implementation note: When tangents are not specified, client implementations should calculate tangents using default MikkTSpace algorithms. For best results, the mesh triangles should also be processed using default MikkTSpace algorithms.
+> 구현 참고 사항: 탄젠트가 지정되지 않은 경우, 클라이언트 구현체는 기본 MikkTSpace 알고리즘을 사용하여 탄젠트를 계산해야 합니다. 최상의 결과를 얻으려면 메쉬의 삼각형도 기본 MikkTSpace 알고리즘으로 처리해야 합니다.
 
-* export: MikkTSpace 알고리즘으로 계산할 것을 기대하고 export하지 않는 것을 권장합니다.
+- export: 읽는 측에서 MikkTSpace 알고리즘으로 계산할 것을 전제로 내보내지 않는 것을 권장합니다.
 
 #### `meshes[*].primitives[*].targets.TANGENT`
 
-* morphTarget에서 tangent가 애니메이션되는 것은 권장하지 않습니다.
-* export: 출력하지 않는 것을 권장합니다.
-* import: 무시하는 것을 권장합니다.
+- morphTarget에서 tangent가 애니메이션되는 것은 권장하지 않습니다.
+- export: 출력하지 않는 것을 권장합니다.
+- import: 무시하는 것을 권장합니다.
 
-### `meshes[*].extras.targetNames` 모프 타겟 이름(권장)
+### `meshes[*].extras.targetNames` 모프 타겟 이름 (권장)
 
 `meshes[*].primitives[*].targets.name`이 없으므로 대체하여 `meshes[*].extras.targetNames`에 저장합니다.
 
-* https://github.com/KhronosGroup/glTF/issues/1036
+- [https://github.com/KhronosGroup/glTF/issues/1036](https://github.com/KhronosGroup/glTF/issues/1036)
 
-## `VRMC_vrm.humanoid` 노드에 휴머노이드 본 할당(필수)
+## `VRMC_vrm.humanoid` 노드에 휴머노이드 본 할당 (필수)
 
-인간형 모델을 정의하기 위해 인체의 부위(휴머노이드 본)를 glTF.Node에 할당합니다.
+인간형 모델을 정의하기 위해 인체의 각 부위(휴머노이드 본)를 glTF.Node에 할당합니다.
 
-별도 문서에서 사양을 설명합니다.
+세부 명세는 별도 문서에서 다룹니다.
 
-[./humanoid.md](./humanoid.md)
+[humanoid.md](./humanoid.md)
 
-## `VRMC_vrm.meta` 모델 정보(필수)
+## `VRMC_vrm.meta` 모델 정보 (필수)
 
-별도 문서에서 사양을 설명합니다.
+세부 명세는 별도 문서에서 다룹니다.
 
-[./meta.md](./meta.md)
+[meta.md](./meta.md)
 
-## `VRMC_vrm.firstPerson` 1인칭(선택)
+## `VRMC_vrm.firstPerson` 1인칭 (선택 사항)
 
-VRM은 VR을 가정한 1인칭 시점의 설정을 정의하고 있습니다.
+VRM은 VR 환경을 고려한 1인칭 시점 설정을 정의합니다.
 
-별도 문서에서 사양을 설명합니다.
+세부 명세는 별도 문서에서 다룹니다.
 
-[./firstPerson.md](./firstPerson.md)
+[firstPerson.md](./firstPerson.md)
 
-## Expression, LookAt, SpringBone, Constraints 적용 순서 
+## Expression, LookAt, SpringBone, Constraints 적용 순서
 
-* VRMC_vrm.lookAt
-* VRMC_vrm.expression
-* VRMC_node_constraint
-* VRMC_springBone
+- VRMC_vrm.lookAt
+- VRMC_vrm.expression
+- VRMC_node_constraint
+- VRMC_springBone
 
-은 Node, Mesh에 변경이 있어 실행 순서의 영향을 받습니다.
-권장되는 업데이트 적용 순서는 다음과 같습니다.
+위 항목들은 Node 및 Mesh를 변경하므로 실행 순서에 영향을 받습니다.
 
-1. 휴머노이드 본을 해결
+권장하는 업데이트 적용 순서는 다음과 같습니다.
+
+1. 휴머노이드 본 해결
 2. 머리 위치가 결정되므로 LookAt을 해결
-  * Bone 타입 => leftEye, rightEye 본을 회전
-  * Expression 타입 => 다음 항목
+
+- Bone 타입 => leftEye, rightEye 본을 회전
+- Expression 타입 => 다음 단계 수행
+
 3. ExpressionUpdate
-  * 희로애락 컨트롤러 등 외부 입력 => Expression 가중치(weight)를 설정
-  * LipSync => Expression 가중치를 설정
-  * AutoBlink => Expression 가중치를 설정
-  * Expression 타입의 LookAt => Expression 가중치를 설정
-4. Expression을 Apply한다
-5. 제약(Constraint)을 해결
-6. SpringBone을 해결
 
-## `VRMC_vrm.expressions` 표정(선택)
+- 감정(Emotions and sorrows) 컨트롤러 등 외부 입력 => Expression 가중치(weight)를 설정
+- LipSync => Expression 가중치를 설정
+- AutoBlink => Expression 가중치를 설정
+- Expression 타입의 LookAt => Expression 가중치를 설정
 
-VRM은 휴머노이드용으로 Expression을 정의하고 있습니다.
+4. Expression 적용
+5. 제약(Constraint) 해결
+6. SpringBone 해결
 
-> VRM-0 사양에서 사용하던 BlendShape라는 단어는 MorphTarget과 같은 것을 가리키지만 의미가 다르므로, BlendShape에서 Expression으로 이름을 변경했습니다.
+## `VRMC_vrm.expressions` 얼굴 표정 (선택 사항)
 
-별도 문서에서 사양을 설명합니다.
+VRM은 휴머노이드 모델을 위한 표정(Expression)을 정의합니다.
 
-[./expressions.md](./expressions.md)
+> VRM 0.x 사양에서 사용하던 BlendShape라는 용어는 MorphTarget과 동일한 것을 가리켜 의미상 혼동이 있었으므로, BlendShape에서 Expression으로 명칭을 변경했습니다.
 
-## `VRMC_vrm.lookAt` 시선 제어(선택)
+세부 명세는 별도 문서에서 다룹니다.
 
-VRM은 휴머노이드용으로 시선 제어를 정의하고 있습니다.
+[expressions.md](./expressions.md)
 
-별도 문서에서 사양을 설명합니다.
+## `VRMC_vrm.lookAt` 시선 제어 (선택 사항)
 
-[./lookAt.md](./lookAt.md)
+VRM은 휴머노이드 모델을 위한 시선 제어를 정의합니다.
 
-## Known Implementations
+세부 명세는 별도 문서에서 다룹니다.
 
-* https://vrm.dev/vrm_applications/
+[lookAt.md](./lookAt.md)
 
-## Resources
+## 알려진 구현체 (Known Implementations)
 
-* https://vrm.dev/
+- [https://vrm.dev/vrm_applications/](https://vrm.dev/vrm_applications/)
+
+## 참고 자료 (Resources)
+
+- [https://vrm.dev/](https://vrm.dev/)

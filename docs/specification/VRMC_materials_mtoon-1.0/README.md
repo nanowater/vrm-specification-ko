@@ -1,11 +1,17 @@
 # VRMC_materials_mtoon
 
-*Version 1.0*
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
+_Version 1.0_
 
 ## Contributors
 
-* 카쿠 마우
-* 오부치 유타카
+- 카쿠 마우
+- 오부치 유타카
 
 ## Status
 
@@ -37,29 +43,30 @@ MToon 셰이더의 구현이 어려운 경우, `KHR_materials_unlit`으로 폴�
 
 ```json
 {
-    "materials": [
-        {
-            "name": "MyUnlitMaterial",
-            "pbrMetallicRoughness": {
-                "baseColorFactor": [ 0.5, 0.8, 0.0, 1.0 ]
-                // texture
-            },
-            // emission
+  "materials": [
+    {
+      "name": "MyUnlitMaterial",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [0.5, 0.8, 0.0, 1.0]
+        // texture
+      },
+      // emission
 
-            "extensions": {
-                "VRMC_materials_mtoon": {
-                    "specVersion": "1.0",
-                    // ...
-                }
-            }
+      "extensions": {
+        "VRMC_materials_mtoon": {
+          "specVersion": "1.0"
+          // ...
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
 ## Definition
 
 ### Types
+
 타입 정의 중 Color와 Texture는 glTF에 준하여 리니어 색 공간(Linear Colorspace)에 저장됩니다.
 
 ### Vertex Colors
@@ -67,11 +74,10 @@ MToon 셰이더의 구현이 어려운 경우, `KHR_materials_unlit`으로 폴�
 MToon 매테리얼에 대해서는 버텍스 컬러를 무시합니다.
 
 ### Coordinates
+
 UV 좌표계에 대해서
 
-
 ### BRDF
-
 
 ### Meta
 
@@ -79,8 +85,8 @@ MToon 자체의 메타 정보에 관한 정의를 설명합니다.
 
 #### MToon Defined Properties
 
-|             | 타입       | 설명             | 필수  |
-|-------------|----------|----------------|:------|
+|             | 타입     | 설명                | 필수   |
+| ----------- | -------- | ------------------- | :----- |
 | specVersion | `string` | 이 확장의 버전 번호 | ✅ Yes |
 
 #### specVersion
@@ -126,10 +132,10 @@ Unity에 있어서 매테리얼별 Render Queue 값에 오프셋으로 가산되
 값이 클수록 렌더링 순서는 뒤로 미뤄집니다.
 값이 가질 수 있는 범위에 대해 다음 표에 나타냅니다.
 
-|                                                            | Min Value | Max Value |
-|:-----------------------------------------------------------|:----------|:----------|
-| `alphaMode`가 `OPAQUE`                                     | `0`       | `0`       |
-| `alphaMode`가 `MASK`                                       | `0`       | `0`       |
+|                                                             | Min Value | Max Value |
+| :---------------------------------------------------------- | :-------- | :-------- |
+| `alphaMode`가 `OPAQUE`                                      | `0`       | `0`       |
+| `alphaMode`가 `MASK`                                        | `0`       | `0`       |
 | `alphaMode`가 `BLEND`이고 `transparentWithZWrite`가 `true`  | `0`       | `+9`      |
 | `alphaMode`가 `BLEND`이고 `transparentWithZWrite`가 `false` | `-9`      | `0`       |
 
@@ -141,10 +147,10 @@ Unity에서의 Render Queue에 상당하는 렌더링 순서 제어가 구현상
 
 #### MToon Defined Properties
 
-|                           | 타입        | 설명                                             | 필수                |
-|:--------------------------|:----------|:-----------------------------------------------|:------------------|
+|                           | 타입      | 설명                                                     | 필수                |
+| :------------------------ | :-------- | :------------------------------------------------------- | :------------------ |
 | `transparentWithZWrite`   | `boolean` | `alphaMode`가 `BLEND`일 때, ZBuffer 쓰기를 수행할지 여부 | No, 초기값: `false` |
-| `renderQueueOffsetNumber` | `integer` | 렌더링 순서에 대한 오프셋 값                               | No, 초기값: `0`     |
+| `renderQueueOffsetNumber` | `integer` | 렌더링 순서에 대한 오프셋 값                             | No, 초기값: `0`     |
 
 #### transparentWithZWrite
 
@@ -234,12 +240,12 @@ color = color * lightColor
 
 #### MToon Defined Properties
 
-|                      | 타입          | 설명                           | 필수                     |
-|:---------------------|:------------|:------------------------------|:-------------------------|
-| shadeColorFactor     | `number[3]` | Shade 색                        | No, Default: `[0, 0, 0]` |
-| shadeMultiplyTexture | `object`    | Shade 색의 곱셈 텍스처              | No                       |
-| shadingShiftFactor   | `number`    | 셰이딩 경계를 시프트(shift)하는 값            | No, Default: `0.0`       |
-| shadingShiftTexture  | `object`    | 셰이딩 경계를 시프트하는 텍스처         | No                       |
+|                      | 타입        | 설명                                     | 필수                     |
+| :------------------- | :---------- | :--------------------------------------- | :----------------------- |
+| shadeColorFactor     | `number[3]` | Shade 색                                 | No, Default: `[0, 0, 0]` |
+| shadeMultiplyTexture | `object`    | Shade 색의 곱셈 텍스처                   | No                       |
+| shadingShiftFactor   | `number`    | 셰이딩 경계를 시프트(shift)하는 값       | No, Default: `0.0`       |
+| shadingShiftTexture  | `object`    | 셰이딩 경계를 시프트하는 텍스처          | No                       |
 | shadingToonyFactor   | `number`    | 셰이딩 경계의 평활도(블러)를 지정하는 값 | No, Default: `0.9`       |
 
 #### shadeColorFactor
@@ -303,10 +309,10 @@ color = color * lightColor
 
 #### Properties
 
-|          | 타입        | 설명                             | 필수              |
-|:---------|:----------|:---------------------------------|:------------------|
-| index    | `integer` | 텍스처의 index                      | ✅ Yes             |
-| texCoord | `integer` | 텍스처 맵핑에 사용하는 TEXCOORD          | No, 초기값: `0`   |
+|          | 타입      | 설명                                      | 필수              |
+| :------- | :-------- | :---------------------------------------- | :---------------- |
+| index    | `integer` | 텍스처의 index                            | ✅ Yes            |
+| texCoord | `integer` | 텍스처 맵핑에 사용하는 TEXCOORD           | No, 초기값: `0`   |
 | scale    | `number`  | 텍스처의 셰이딩 경계 기여도를 지정하는 값 | No, 초기값: `1.0` |
 
 #### shadingShiftTextureInfo.index ✅
@@ -393,8 +399,8 @@ color = color + gi * litColor
 
 #### MToon Defined Properties
 
-|                   | 타입       | 설명              | 필수               |
-|:------------------|:---------|:----------------|:-------------------|
+|                      | 타입     | 설명                    | 필수               |
+| :------------------- | :------- | :---------------------- | :----------------- |
 | giEqualizationFactor | `number` | 전역 조명의 균일화 계수 | No, Default: `0.9` |
 
 #### giEqualizationFactor
@@ -486,14 +492,14 @@ color = color + rim
 
 #### MToon Defined Properties
 
-|                                 | 타입          | 설명                      | 필수                    |
-|:--------------------------------|:------------|:--------------------------|:------------------------|
-| matcapFactor                    | `number[3]` | MatCap 텍스처에 곱해지는 색    | No, 초기값: `[1, 1, 1]` |
-| matcapTexture                   | `object`    | MatCap 텍스처              | No                      |
-| parametricRimColorFactor        | `number[3]` | 파라메트릭 림 라이트의 색           | No, 초기값: `[0, 0, 0]` |
-| parametricRimFresnelPowerFactor | `number`    | 파라메트릭 림 라이트의 프레넬 계수     | No, 초기값: `5.0`       |
-| parametricRimLiftFactor         | `number`    | 파라메트릭 림 라이트의 덧셈 항       | No, 초기값: `0.0`       |
-| rimMultiplyTexture              | `object`    | 림 라이팅에 대해 곱해지는 텍스처 | No                      |
+|                                 | 타입        | 설명                                      | 필수                    |
+| :------------------------------ | :---------- | :---------------------------------------- | :---------------------- |
+| matcapFactor                    | `number[3]` | MatCap 텍스처에 곱해지는 색               | No, 초기값: `[1, 1, 1]` |
+| matcapTexture                   | `object`    | MatCap 텍스처                             | No                      |
+| parametricRimColorFactor        | `number[3]` | 파라메트릭 림 라이트의 색                 | No, 초기값: `[0, 0, 0]` |
+| parametricRimFresnelPowerFactor | `number`    | 파라메트릭 림 라이트의 프레넬 계수        | No, 초기값: `5.0`       |
+| parametricRimLiftFactor         | `number`    | 파라메트릭 림 라이트의 덧셈 항            | No, 초기값: `0.0`       |
+| rimMultiplyTexture              | `object`    | 림 라이팅에 대해 곱해지는 텍스처          | No                      |
 | rimLightingMixFactor            | `number`    | 림 라이팅이 광원으로부터 받는 영향의 비율 | No, 초기값: `1.0`       |
 
 #### matcapFactor
@@ -599,12 +605,12 @@ MToon의 윤곽선은 스키닝 후의 버텍스 정보를 바탕으로 계산�
 
 #### MToon Defined Properties
 
-|                             | 타입          | 설명                                 | 필수                    |
-|-----------------------------|-------------|------------------------------------|-------------------------|
-| outlineWidthMode            | `string`    | 윤곽선 렌더링 모드                       | No, 초기값: `"none"`    |
-| outlineWidthFactor          | `number`    | 윤곽선 두께                             | No, 초기값: `0.0`       |
-| outlineWidthMultiplyTexture | `object`    | 윤곽선 두께 지정 텍스처                    | No                      |
-| outlineColorFactor          | `number[3]` | 윤곽선 색                             | No, 초기값: `[0, 0, 0]` |
+|                             | 타입        | 설명                                         | 필수                    |
+| --------------------------- | ----------- | -------------------------------------------- | ----------------------- |
+| outlineWidthMode            | `string`    | 윤곽선 렌더링 모드                           | No, 초기값: `"none"`    |
+| outlineWidthFactor          | `number`    | 윤곽선 두께                                  | No, 초기값: `0.0`       |
+| outlineWidthMultiplyTexture | `object`    | 윤곽선 두께 지정 텍스처                      | No                      |
+| outlineColorFactor          | `number[3]` | 윤곽선 색                                    | No, 초기값: `[0, 0, 0]` |
 | outlineLightingMixFactor    | `float`     | 윤곽선 색에 표면의 셰이딩 결과를 곱하는 비율 | No, 초기값: `1.0`       |
 
 #### outlineWidthMode
@@ -754,12 +760,12 @@ uv = uv + vec2( scrollX, scrollY ) * uvAnimMask;
 
 #### MToon Defined Properties
 
-|                                | 타입       | 설명                           | 필수              |
-|--------------------------------|----------|------------------------------|-------------------|
+|                                | 타입     | 설명                                          | 필수              |
+| ------------------------------ | -------- | --------------------------------------------- | ----------------- |
 | uvAnimationMaskTexture         | `object` | UV 애니메이션을 수행할 범위를 지정하는 텍스처 | No                |
-| uvAnimationScrollXSpeedFactor  | `number` | UV 애니메이션의 X 방향 이동 속도    | No, 초기값: `0.0` |
-| uvAnimationScrollYSpeedFactor  | `number` | UV 애니메이션의 Y 방향 이동 속도    | No, 초기값: `0.0` |
-| uvAnimationRotationSpeedFactor | `number` | UV 애니메이션의 회전 속도            | No, 초기값: `0.0` |
+| uvAnimationScrollXSpeedFactor  | `number` | UV 애니메이션의 X 방향 이동 속도              | No, 초기값: `0.0` |
+| uvAnimationScrollYSpeedFactor  | `number` | UV 애니메이션의 Y 방향 이동 속도              | No, 초기값: `0.0` |
+| uvAnimationRotationSpeedFactor | `number` | UV 애니메이션의 회전 속도                     | No, 초기값: `0.0` |
 
 #### uvAnimationMaskTexture
 

@@ -1,10 +1,16 @@
-# **이 문서는 오래되었습니다 (This document is outdated).**
+# **⚠ 이 문서는 오래되었습니다 (This document is outdated).**
 
-* 0.0은 unity 셰이더의 프로퍼티 이름에서 파생되었습니다
-* 1.0은 json.key입니다
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
+- 0.0은 unity 셰이더의 프로퍼티 이름에서 파생되었습니다
+- 1.0은 json.key입니다
 
 | 0.0                       | 1.0draft                                                                                  | new color space*1 or type       | memo                    |
-|---------------------------|-------------------------------------------------------------------------------------------|---------------------------------|-------------------------|
+| ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------- | ----------------------- |
 | _MToonVersion             | materials.i.extensions.VRMC_materials_mtoon.version                                       | int->str                        |                         |
 | _BlendMode                | materials.i.alphaMode *3                                                                  | int->Enum(str)                  |                         |
 |                           | materials.i.extensions.VRMC_materials_mtoon.transparentWithZWrite                         | bool                            |                         |
@@ -47,6 +53,6 @@
 | _UvAnimScrollY            | materials.i.extensions.uvAnimationScrollYSpeedFactor                                      | mixed decimal                   |                         |
 | _UvAnimRotation           | materials.i.extensions.uvAnimationRotationSpeedFactor                                     | mixed decimal                   |                         |
 
- *1 (0.0은 구현에 의해 혼동되므로 설명이 없습니다)
- *2 (0.0은 값이며, 1.0draft는 기본 값으로부터의 오프셋입니다(2019/12/6 미정의))
- *3 transparentWithZWrite는 alphaMode=transparent 및 extensions.vrmc_materials_mtoon.transparentWithZWrite=true 에 대응
+*1 (0.0은 구현에 의해 혼동되므로 설명이 없습니다)
+*2 (0.0은 값이며, 1.0draft는 기본 값으로부터의 오프셋입니다(2019/12/6 미정의))
+*3 transparentWithZWrite는 alphaMode=transparent 및 extensions.vrmc_materials_mtoon.transparentWithZWrite=true 에 대응

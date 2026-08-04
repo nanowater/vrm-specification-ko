@@ -1,5 +1,11 @@
 # `VRMC_vrm.lookAt`
 
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
 본 문서에서는 `VRMC_vrm` 확장 중 `lookAt` 필드에 대한 사양을 설명합니다.
 
 ## 개요
@@ -44,23 +50,23 @@ extensions.VRMC_vrm.lookAt = {
 }
 ```
 
-| 이름                    | 비고                                                                 |
-|:------------------------|:---------------------------------------------------------------------|
-| type                    | bone 또는 expression                                               |
+| 이름                    | 비고                                                                          |
+| :---------------------- | :---------------------------------------------------------------------------- |
+| type                    | bone 또는 expression                                                          |
 | offsetFromHeadBone      | lookAt의 기준 위치(두 눈 사이가 기준)로의 헤드 본으로부터의 위치 offset입니다 |
-| rangeMapHorizontalInner | 수평 안쪽의 눈 가동 범위                                               |
-| rangeMapHorizontalOuter | 수평 바깥쪽의 눈 가동 범위(Expression의 LookLeft, LookRight는 이것을 사용)  |
-| rangeMapVerticalDown    | 아래 방향의 눈 가동 범위                                                 |
-| rangeMapVerticalUp      | 위 방향의 눈 가동 범위                                                 |
+| rangeMapHorizontalInner | 수평 안쪽의 눈 가동 범위                                                      |
+| rangeMapHorizontalOuter | 수평 바깥쪽의 눈 가동 범위(Expression의 LookLeft, LookRight는 이것을 사용)    |
+| rangeMapVerticalDown    | 아래 방향의 눈 가동 범위                                                      |
+| rangeMapVerticalUp      | 위 방향의 눈 가동 범위                                                        |
 
 ### LookAtType
 
 아래의 2종류를 정의하고 있습니다.
 
-| 이름       | 대상                                                    | 값               |
-|:-----------|:--------------------------------------------------------|------------------|
-| bone       | Humanoid leftEye 본과 rightEye 본의 LocalRotation | EulerAngles      |
-| expression | Expression의 LookAt, LookDown, LookLeft, LookRight      | ExpressionWeight |
+| 이름       | 대상                                               | 값               |
+| :--------- | :------------------------------------------------- | ---------------- |
+| bone       | Humanoid leftEye 본과 rightEye 본의 LocalRotation  | EulerAngles      |
+| expression | Expression의 LookAt, LookDown, LookLeft, LookRight | ExpressionWeight |
 
 > expression은 MorphTarget, MaterialColor, TextureTransform이 가능합니다.
 > LookAt에서는 주로 MorphTarget에 의한 정점 이동과 TextureTransform에 의한 눈 텍스처의 offset 이동에 의해 시선이 표현되는 것으로 상정하고 있습니다.
@@ -71,9 +77,9 @@ extensions.VRMC_vrm.lookAt = {
 
 LookAt 공간은 월드 상의 특정 트랜스폼으로부터의 상대적인 공간으로 정의되며, 이 트랜스폼을 다음과 같이 정의합니다.
 
-* 트랜스폼의 부모는 head이며, head의 움직임에 따라 움직입니다.
-* 트랜스폼의 head로부터의 로컬 위치는 프로퍼티 `offsetFromHeadBone`에 의해 결정됩니다.
-* 트랜스폼의 head로부터의 로컬 회전은 head의 모델 공간에서의 레스트(rest) 회전의 역입니다.
+- 트랜스폼의 부모는 head이며, head의 움직임에 따라 움직입니다.
+- 트랜스폼의 head로부터의 로컬 위치는 프로퍼티 `offsetFromHeadBone`에 의해 결정됩니다.
+- 트랜스폼의 head로부터의 로컬 회전은 head의 모델 공간에서의 레스트(rest) 회전의 역입니다.
 
 > head가 모델 공간에서의 레스트 회전을 가짐으로써, `offsetFromHeadBone`에 의한 시점 위치의 이동 방향이 모델 공간의 축과 일치하지 않을 수 있습니다.
 > 또한, head가 모델 공간에서 레스트 회전을 가지고 있는 경우에도 시선의 앞 방향은 모델 좌표계에서의 +Z 축과 일치합니다.
@@ -81,8 +87,8 @@ LookAt 공간은 월드 상의 특정 트랜스폼으로부터의 상대적인 �
 본 문서에서는 glTF의 오른손 좌표계, Y-Up, Z-Forward 좌표계를 사용하여 설명합니다.
 Yaw, Pitch의 양의 방향은 다음과 같습니다.
 
-* Yaw: Z->X 방향 => 왼쪽
-* Pitch: Y->Z 방향 => 아래
+- Yaw: Z->X 방향 => 왼쪽
+- Pitch: Y->Z 방향 => 아래
 
 ```
       Y  Forward
@@ -98,17 +104,16 @@ Left      Right
 
 > Implementation note: 모델에 `offsetFromHeadBone`이 존재하지 않는 경우, 구현마다 적절한 값으로 폴백(fallback)을 수행하는 것을 권장합니다.
 
-
 ### 범위 맵
 
 `LookAt 공간`에서 평가된 시선 값 `Yaw`와 `Pitch`를 `bone` 또는 `expression`에 적용하기 전에 값을 가공할 수 있습니다.
 
 ![range_map](./figures/range_map.png)
 
-| name          | 기능                                                                                    |
-|---------------|-----------------------------------------------------------------------------------------|
+| name          | 기능                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------- |
 | inputMaxValue | Yaw 또는 Pitch의 상한값. 이 값이 작을수록 같은 시선 값에 대해 시선이 크게 움직입니다. |
-| outputScale   | `bone의 회전` 또는 `Expression의 Weight`의 최댓값.                                  |
+| outputScale   | `bone의 회전` 또는 `Expression의 Weight`의 최댓값.                                    |
 
 #### inputMaxValue가 0일 때의 동작
 
@@ -133,7 +138,7 @@ outer|inner inner|outer
 ```
 
 |             | leftEye rangeMap        | rightEye rangeMap       |
-|-------------|-------------------------|-------------------------|
+| ----------- | ----------------------- | ----------------------- |
 | Yaw>0(좌)   | rangeMapHorizontalOuter | rangeMapHorizontalInner |
 | Yaw<0(우)   | rangeMapHorizontalInner | rangeMapHorizontalOuter |
 | Pitch>0(하) | rangeMapVerticalDown    | rangeMapVerticalDown    |
@@ -154,7 +159,7 @@ const boneLocalEulerAngle = min(fabs(value), inputMaxValue)/inputMaxValue * outp
 `rangeMapHorizontalOuter`를 사용합니다.
 
 |             | expression | rangeMap                |
-|-------------|------------|-------------------------|
+| ----------- | ---------- | ----------------------- |
 | Yaw>0(좌)   | lookLeft   | rangeMapHorizontalOuter |
 | Yaw<0(우)   | lookRight  | rangeMapHorizontalOuter |
 | Pitch>0(하) | lookDown   | rangeMapVerticalDown    |
@@ -168,6 +173,7 @@ const expressionWeight = min(fabs(value), inputMaxValue)/inputMaxValue * outputS
 ```
 
 ## LookAt의 알고리즘
+
 ### Yaw and Pitch in lookAt space
 
 ```cs
@@ -192,7 +198,7 @@ public static (float Yaw, float Pitch) CalcYawPitch(this Matrix4x4 lookAtSpace, 
 
 ```
 function applyLeftEyeBone(vrm, yawDegrees, pitchDegrees)
-{    
+{
   var yaw = 0;
   if(yawDegrees>0)
   {
@@ -219,7 +225,7 @@ function applyLeftEyeBone(vrm, yawDegrees, pitchDegrees)
 }
 
 function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
-{    
+{
   var yaw = 0;
   if(yawDegrees>0)
   {

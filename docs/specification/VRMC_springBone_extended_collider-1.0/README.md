@@ -1,6 +1,12 @@
 # VRMC_springBone_extended_collider-1.0
 
-*Version 1.0*
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
+_Version 1.0_
 
 ## Contributors
 
@@ -56,10 +62,7 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 ```json
 {
-  "extensionsUsed": [
-    "VRMC_springBone",
-    "VRMC_springBone_extended_collider"
-  ],
+  "extensionsUsed": ["VRMC_springBone", "VRMC_springBone_extended_collider"],
   "extensions": {
     "VRMC_springBone": {
       "specVersion": "1.0",
@@ -84,7 +87,7 @@ glTF 2.0 사양을 향해 책정되었습니다.
               }
             }
           }
-        },
+        }
         // ...
       ]
     }
@@ -98,11 +101,11 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 ### Exporter Implemantation
 
-> *이 섹션은 non-normative(비규범적)입니다.*
+> _이 섹션은 non-normative(비규범적)입니다._
 
 `VRMC_springBone_extended_collider` 확장으로 콜라이더가 정의되어 있는 경우, `VRMC_springBone_extended_collider`에 대응하지 않는 환경에서 적절하게 폴백(Fallback) 처리가 되도록, `VRMC_springBone`에서 정의된 콜라이더에는 무시되거나 근사되는 값을 출력할 것을 권장합니다.
 
-#### Fallback: Inside Sphere Collider /  Inside Capsule Collider
+#### Fallback: Inside Sphere Collider / Inside Capsule Collider
 
 내부 콜라이더가 되는 구・캡슐 콜라이더가 정의된 파일을 출력할 때, `VRMC_springBone_extended_collider`에 대응하지 않는 환경에서 폴백 콜라이더가 영향을 미치지 않도록, 위치를 원점에서 멀리 떨어진 구 콜라이더로 설정하는 등의 회피책을 검토해 주십시오.
 
@@ -175,10 +178,10 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`specVersion`|`string`|이 확장의 버전|✅ Yes|
-|`shape`|[Shape](#shape)|콜라이더의 형태|No|
+|               | 타입            | 설명            | 필수   |
+| :------------ | :-------------- | :-------------- | :----- |
+| `specVersion` | `string`        | 이 확장의 버전  | ✅ Yes |
+| `shape`       | [Shape](#shape) | 콜라이더의 형태 | No     |
 
 #### JSON Schema
 
@@ -206,11 +209,11 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`sphere`|[ShapeSphere](#shapesphere)|구 콜라이더|No|
-|`capsule`|[ShapeCapsule](#shapecapsule)|캡슐 콜라이더|No|
-|`plane`|[ShapePlane](#shapeplane)|평면 콜라이더|No|
+|           | 타입                          | 설명          | 필수 |
+| :-------- | :---------------------------- | :------------ | :--- |
+| `sphere`  | [ShapeSphere](#shapesphere)   | 구 콜라이더   | No   |
+| `capsule` | [ShapeCapsule](#shapecapsule) | 캡슐 콜라이더 | No   |
+| `plane`   | [ShapePlane](#shapeplane)     | 평면 콜라이더 | No   |
 
 #### JSON Schema
 
@@ -243,11 +246,11 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`offset`|`number[3]`|로컬 좌표계에서의 구의 중심 위치|No|
-|`radius`|`number`|구의 반지름|No|
-|`inside`|`boolean`|`true`인 경우 내부 콜라이더|No|
+|          | 타입        | 설명                             | 필수 |
+| :------- | :---------- | :------------------------------- | :--- |
+| `offset` | `number[3]` | 로컬 좌표계에서의 구의 중심 위치 | No   |
+| `radius` | `number`    | 구의 반지름                      | No   |
+| `inside` | `boolean`   | `true`인 경우 내부 콜라이더      | No   |
 
 #### ShapeSphere.offset
 
@@ -277,12 +280,12 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`offset`|`number[3]`|로컬 좌표계에서의 캡슐 시작점 위치|No|
-|`radius`|`number`|캡슐의 반지름|No|
-|`tail`|`number[3]`|로컬 좌표계에서의 캡슐 끝점 위치|No|
-|`inside`|`boolean`|`true`인 경우 내부 콜라이더|No|
+|          | 타입        | 설명                               | 필수 |
+| :------- | :---------- | :--------------------------------- | :--- |
+| `offset` | `number[3]` | 로컬 좌표계에서의 캡슐 시작점 위치 | No   |
+| `radius` | `number`    | 캡슐의 반지름                      | No   |
+| `tail`   | `number[3]` | 로컬 좌표계에서의 캡슐 끝점 위치   | No   |
+| `inside` | `boolean`   | `true`인 경우 내부 콜라이더        | No   |
 
 #### ShapeCapsule.offset
 
@@ -319,10 +322,10 @@ glTF 2.0 사양을 향해 책정되었습니다.
 
 #### Properties
 
-||타입|설명|필수|
-|:-|:-|:-|:-|
-|`offset`|`number[3]`|로컬 좌표계에서의 평면 위치|No|
-|`normal`|`number[3]`|로컬 좌표계에서의 평면 법선 벡터|No|
+|          | 타입        | 설명                             | 필수 |
+| :------- | :---------- | :------------------------------- | :--- |
+| `offset` | `number[3]` | 로컬 좌표계에서의 평면 위치      | No   |
+| `normal` | `number[3]` | 로컬 좌표계에서의 평면 법선 벡터 | No   |
 
 #### ShapePlane.offset
 
@@ -378,14 +381,14 @@ var dot = dot(offsetToTail, delta);
 var delta = nextTail - transformedOffset;
 
 if (dot < 0.0) {
-    // 조인트가 캡슐의 시작점 쪽에 있는 경우
-    // 아무것도 하지 않음
+  // 조인트가 캡슐의 시작점 쪽에 있는 경우
+  // 아무것도 하지 않음
 } else if (dot > lengthSqCapsule) {
   // 조인트가 캡슐의 끝점 쪽에 있는 경우
-    delta -= offsetToTail;
+  delta -= offsetToTail;
 } else {
-    // 조인트가 캡슐의 시작점과 끝점 사이에 있는 경우
-    delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
+  // 조인트가 캡슐의 시작점과 끝점 사이에 있는 경우
+  delta -= offsetToTail * (dot / offsetToTail.sqMagnitude);
 }
 
 // 조인트와 콜라이더 간의 거리. 음수 값은 충돌하고 있음을 나타냄
@@ -403,7 +406,9 @@ var direction = -delta.normalized;
 
 ```ts
 var transformedOffset = collider.offset * collider.worldMatrix;
-var transformedNormal = (colliderNormal * normalMatrixFrom(collider.worldMatrix)).normalized;
+var transformedNormal = (
+  colliderNormal * normalMatrixFrom(collider.worldMatrix)
+).normalized;
 var delta = nextTail - transformedOffset;
 
 // 조인트와 콜라이더 간의 거리. 음수 값은 충돌하고 있음을 나타냄

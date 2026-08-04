@@ -1,5 +1,11 @@
 # `VRMC_vrm.meta`
 
+!!! warning "🤖 AI 자동 번역 문서"
+
+    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
+
+    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
+
 본 문서에서는 `VRMC_vrm` 확장 중 `meta` 필드에 대한 사양을 설명합니다.
 
 ## Meta
@@ -23,27 +29,27 @@ VRM 확장에서는 모델의 라이선스 정보를 `meta` 필드에 기술할 
 
 ### 프로퍼티
 
-| 이름                           | 값         | 설명                                           | 필수                            |
-|:-------------------------------|:-----------|:-----------------------------------------------|:--------------------------------|
-| name                           | `string`   | 모델의 이름                                       | ✅ Yes                           |
-| version                        | `string`   | 모델의 버전                                      | No                              |
-| authors                        | `string[]` | 모델의 제작자 이름                                     | ✅ Yes                           |
-| copyrightInformation           | `string`   | 모델의 저작권자                                   | No                              |
-| contactInformation             | `string`   | 모델의 제작자(대표자) 연락처                       | No                              |
-| references                     | `string[]` | 모델의 '원작(부모 작품)'에 해당하는 것이 있다면 그 정보                | No                              |
-| thirdPartyLicenses             | `string`   | 모델의 서드파티 라이선스 표기                           | No                              |
-| thumbnailImage                 | `integer`  | 모델의 썸네일로 사용될 이미지의 인덱스                       | No                              |
-| licenseUrl                     | `string`   | 이 모델이 참조하는 VRM 라이선스 문서의 URL                  | ✅ Yes                           |
-| avatarPermission               | `string`   | 이 모델에 인격을 부여하는 것에 대한 허락 범위                     | No, 초기값: `OnlyAuthor`        |
-| allowExcessivelyViolentUsage   | `boolean`  | 이 모델을 과도한 폭력 표현이 포함된 콘텐츠에서 사용하는 것을 허락할지 여부     | No, 초기값: `false`             |
-| allowExcessivelySexualUsage    | `boolean`  | 이 모델을 과도한 성적 표현이 포함된 콘텐츠에서 사용하는 것을 허락할지 여부     | No, 초기값: `false`             |
-| commercialUsage                | `string`   | 이 모델을 이용한 상업적 이용의 허락 범위                  | No, 초기값: `personalNonProfit` |
-| allowPoliticalOrReligiousUsage | `boolean`  | 이 모델을 정치·종교적 목적으로 사용하는 것을 허락할지 여부              | No, 초기값: `false`             |
+| 이름                           | 값         | 설명                                                                         | 필수                            |
+| :----------------------------- | :--------- | :--------------------------------------------------------------------------- | :------------------------------ |
+| name                           | `string`   | 모델의 이름                                                                  | ✅ Yes                          |
+| version                        | `string`   | 모델의 버전                                                                  | No                              |
+| authors                        | `string[]` | 모델의 제작자 이름                                                           | ✅ Yes                          |
+| copyrightInformation           | `string`   | 모델의 저작권자                                                              | No                              |
+| contactInformation             | `string`   | 모델의 제작자(대표자) 연락처                                                 | No                              |
+| references                     | `string[]` | 모델의 '원작(부모 작품)'에 해당하는 것이 있다면 그 정보                      | No                              |
+| thirdPartyLicenses             | `string`   | 모델의 서드파티 라이선스 표기                                                | No                              |
+| thumbnailImage                 | `integer`  | 모델의 썸네일로 사용될 이미지의 인덱스                                       | No                              |
+| licenseUrl                     | `string`   | 이 모델이 참조하는 VRM 라이선스 문서의 URL                                   | ✅ Yes                          |
+| avatarPermission               | `string`   | 이 모델에 인격을 부여하는 것에 대한 허락 범위                                | No, 초기값: `OnlyAuthor`        |
+| allowExcessivelyViolentUsage   | `boolean`  | 이 모델을 과도한 폭력 표현이 포함된 콘텐츠에서 사용하는 것을 허락할지 여부   | No, 초기값: `false`             |
+| allowExcessivelySexualUsage    | `boolean`  | 이 모델을 과도한 성적 표현이 포함된 콘텐츠에서 사용하는 것을 허락할지 여부   | No, 초기값: `false`             |
+| commercialUsage                | `string`   | 이 모델을 이용한 상업적 이용의 허락 범위                                     | No, 초기값: `personalNonProfit` |
+| allowPoliticalOrReligiousUsage | `boolean`  | 이 모델을 정치·종교적 목적으로 사용하는 것을 허락할지 여부                   | No, 초기값: `false`             |
 | allowAntisocialOrHateUsage     | `boolean`  | 이 모델을 반사회적·혐오 표현이 포함된 콘텐츠에서 사용하는 것을 허락할지 여부 | No, 초기값: `false`             |
-| creditNotation                 | `string`   | 이 모델의 크레딧 표기 강제 및 포기 지정               | No, 초기값: `required`          |
-| allowRedistribution            | `boolean`  | 이 모델의 재배포를 허락할지 여부                           | No, 초기값: `false`             |
-| modification                   | `string`   | 이 모델의 개조(변경) 허락 범위                            | No, 초기값: `prohibited`        |
-| otherLicenseUrl                | `string`   | 기타 라이선스 조건이 있다면 그 URL                       | No                              |
+| creditNotation                 | `string`   | 이 모델의 크레딧 표기 강제 및 포기 지정                                      | No, 초기값: `required`          |
+| allowRedistribution            | `boolean`  | 이 모델의 재배포를 허락할지 여부                                             | No, 초기값: `false`             |
+| modification                   | `string`   | 이 모델의 개조(변경) 허락 범위                                               | No, 초기값: `prohibited`        |
+| otherLicenseUrl                | `string`   | 기타 라이선스 조건이 있다면 그 URL                                           | No                              |
 
 ### meta.name ✅
 
