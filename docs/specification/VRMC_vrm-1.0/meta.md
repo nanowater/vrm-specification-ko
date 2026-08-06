@@ -208,8 +208,8 @@ VRM 퍼블릭 라이선스 문서의 고유한 URL이 저장되어 있어야 합
 
 이 모델을 개조(변경)하는 것을 허락할지 여부 및 개조한 모델의 재배포를 허락할지 여부를 지정합니다.
 
-`prohibited`인 경우 모델의 개조를 허락하지 않음을 의미합니다.<br>
-`allowModification` 또는 `allowModificationRedistribution`인 경우 모델의 개조를 허락함을 의미합니다.<br>
+`prohibited`인 경우 모델의 개조를 허락하지 않음을 의미합니다.
+`allowModification` 또는 `allowModificationRedistribution`인 경우 모델의 개조를 허락함을 의미합니다.
 `allowModificationRedistribution`인 경우 개조한 모델의 재배포를 허락함을 의미합니다.
 
 - 타입: `string`
