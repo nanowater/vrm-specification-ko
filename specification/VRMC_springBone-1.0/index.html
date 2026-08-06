@@ -2656,9 +2656,9 @@
 <h2 id="dependencies">Dependencies</h2>
 <p>Written against the glTF 2.0 spec.</p>
 <h2 id="overview">Overview</h2>
-<p>Node에 관성에 의한 속도 유지와 원래 자세로 돌아가려는 스프링의 절차적 애니메이션(Procedural Animation)을 구현합니다.
-머리카락이나 의상 등이 흔들리는 것과 같은 시각적인 용도를 가정하고 있습니다.
-강성(stiffness), 감속(drag force), 중력(gravity) 등의 파라미터로 동작을 조정할 수 있습니다.
+<p>Node에 관성에 의한 속도 유지와 원래 자세로 돌아가려는 스프링의 절차적 애니메이션(Procedural Animation)을 구현합니다.<br />
+머리카락이나 의상 등이 흔들리는 것과 같은 시각적인 용도를 가정하고 있습니다.<br />
+강성(stiffness), 감속(drag force), 중력(gravity) 등의 파라미터로 동작을 조정할 수 있습니다.<br />
 또한, SpringBone의 각 마디 끝(구)과 충돌 판정 Node(Collider: 구・캡슐)의 충돌을 설정할 수 있습니다.</p>
 <h2 id="_1">구성</h2>
 <h3 id="_2">용어</h3>
@@ -2692,10 +2692,10 @@
 <h4 id="springjoint">SpringJoint</h4>
 <p>SpringBone 설정을 부여하는, 단일 glTF Node입니다.</p>
 <h4 id="headspringjoint-tailspringjoint">HeadSpringJoint와 TailSpringJoint의 쌍</h4>
-<p>Head(<code>SpringJoint</code>)와 Tail(<code>SpringJoint</code>)의 쌍으로 표시되는 구간.
-Tail에서 이전 프레임과의 위치 차이를 계산합니다.
-설정이 있는 경우 Collider와의 충돌도 계산합니다.
-반드시 Tail의 조상에 Head가 존재해야 하지만,
+<p>Head(<code>SpringJoint</code>)와 Tail(<code>SpringJoint</code>)의 쌍으로 표시되는 구간.<br />
+Tail에서 이전 프레임과의 위치 차이를 계산합니다.<br />
+설정이 있는 경우 Collider와의 충돌도 계산합니다.<br />
+반드시 Tail의 조상에 Head가 존재해야 하지만,<br />
 Head의 직접적인 부모가 아니어도 상관없습니다.</p>
 <div class="highlight"><pre><span></span><code>  흔들림
 &lt;- Tail -&gt;
@@ -2720,9 +2720,9 @@ a-b
 b-c
 c-d
 </code></pre></div>
-<p>3개의 <code>HeadSpringJoint와 TailSpringJoint의 쌍</code>으로 전개됩니다.
-끝부분의 SpringJoint는 Tail로만 사용되므로 SpringJoint의 파라미터는 사용되지 않습니다.
-d를 회전시키고 싶은 경우는, 아래와 같이 끝에 Node를 추가하여 SpringJoint 설정을 하십시오.
+<p>3개의 <code>HeadSpringJoint와 TailSpringJoint의 쌍</code>으로 전개됩니다.<br />
+끝부분의 SpringJoint는 Tail로만 사용되므로 SpringJoint의 파라미터는 사용되지 않습니다.<br />
+d를 회전시키고 싶은 경우는, 아래와 같이 끝에 Node를 추가하여 SpringJoint 설정을 하십시오.<br />
 추가하는 Node는 empty여도 상관없습니다.</p>
 <div class="highlight"><pre><span></span><code>Head(회전함)
 | +-Tail(이동 차이・충돌 판정)
@@ -2746,14 +2746,14 @@ d-(끝부분 7cm 거리에 SpringJoint를 추가한다)
 </code></pre></div>
 <h3 id="_4">예외</h3>
 <h4 id="springjoint-springchain">어떤 SpringJoint가 중복해서 여러 SpringChain에 소속되는 것(금지)</h4>
-<p>각각의 <code>SpringChain</code>은 동일한 joint를 포함해서는 안 됩니다.
+<p>각각의 <code>SpringChain</code>은 동일한 joint를 포함해서는 안 됩니다.<br />
 아래의 경우, b, c, d가 동시에 2개의 SpringChain에 소속되어 있습니다.</p>
 <div class="highlight"><pre><span></span><code>b-c-d
 
 a-b-c-d
 </code></pre></div>
-<p>아래와 같은 구성은 암묵적으로 중복된다고 간주합니다.
-b, c가 동시에 2개의 SpringChain에 소속되어 있습니다.
+<p>아래와 같은 구성은 암묵적으로 중복된다고 간주합니다.<br />
+b, c가 동시에 2개의 SpringChain에 소속되어 있습니다.<br />
 생략(skip)되어 있어도 중복 판정의 대상이 됩니다.</p>
 <div class="highlight"><pre><span></span><code>()는 건너뛰어지는 node
 a-(b)-c
@@ -2775,10 +2775,10 @@ a-b-c-d
 <h2 id="_5">평가하는 좌표계</h2>
 <p>SpringBone에서 Joint 위치 평가에는 원칙적으로 World Space를 사용합니다.</p>
 <h3 id="center-space">Center Space</h3>
-<p><code>center</code> 프로퍼티를 이용함으로써 Joint 위치 평가에 World Space 이외의 것을 사용할 수 있습니다.
-<code>center</code>는 모델 내의 한 Node를 지정할 수 있으며, 지정한 Node로부터 상대적인 Space에서 Joint 위치가 평가됩니다.
+<p><code>center</code> 프로퍼티를 이용함으로써 Joint 위치 평가에 World Space 이외의 것을 사용할 수 있습니다.<br />
+<code>center</code>는 모델 내의 한 Node를 지정할 수 있으며, 지정한 Node로부터 상대적인 Space에서 Joint 위치가 평가됩니다.<br />
 <code>center</code>는 SpringChain 단위로 지정합니다.</p>
-<p>Center 노드는 해당 SpringChain의 0번째 Joint이거나 그 조상 node여야 합니다.
+<p>Center 노드는 해당 SpringChain의 0번째 Joint이거나 그 조상 node여야 합니다.<br />
 또한 Center 노드에는 다른 SpringChain의 Joint 노드 및 그 자손을 지정할 수 없습니다.</p>
 <p>다음과 같이, 주로 SpringBone이 너무 많이 흔들리는 경우에 유효합니다.</p>
 <ul>
@@ -2851,7 +2851,7 @@ a-b-c-d
 <div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_spri</span><span class="kc">n</span><span class="err">gBo</span><span class="kc">ne</span><span class="err">.specVersio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span>
 </code></pre></div>
 <h3 id="vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></h3>
-<p>SpringBone에 대한 충돌 판정을 정의합니다.
+<p>SpringBone에 대한 충돌 판정을 정의합니다.<br />
 대상 Node와 그 모양(shape)입니다.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3003,12 +3003,12 @@ a-b-c-d
 </tbody>
 </table>
 <h4 id="joints">joints</h4>
-<p><code>SpringBoneChain</code>을 나타냅니다.
+<p><code>SpringBoneChain</code>을 나타냅니다.<br />
 다음 제약이 있습니다.</p>
 <ul>
 <li>joints[n]은 joints[n+1]의 부모 또는 조상일 것</li>
 </ul>
-<p>joints[n]과 joints[n+1]이 직접적인 부모 자식 node가 아닐 경우, 사이의 node는 무시됩니다.
+<p>joints[n]과 joints[n+1]이 직접적인 부모 자식 node가 아닐 경우, 사이의 node는 무시됩니다.<br />
 joints의 마지막이 끝 node가 아닐 경우, 그 자손 node는 무시되어 개별적으로 흔들리지 않습니다.</p>
 <blockquote>
 <p>위의 설명대로, joints를 설정하지 않음으로써 중간 혹은 끝부분의 node를 건너뛰고 흔들리도록 설정할 수 있습니다. 그러나 해당 node에 다른 용도가 없는 경우 그 node는 불필요하게 남아있는 것이므로 노드 자체를 삭제할 것을 권장합니다.</p>
@@ -3088,8 +3088,8 @@ joints의 마지막이 끝 node가 아닐 경우, 그 자손 node는 무시되�
 <p>실제 구현은 UniVRM이나 three-vrm 등, VRM 각 구현의 소스 코드에서 볼 수 있습니다.</p>
 <p>SpringBone의 레퍼런스 구현은 Verlet 적분(Verlet Integration)을 사용하여 간단한 물리 시뮬레이션을 수행하는 것입니다.</p>
 <h3 id="_6">업데이트 순서</h3>
-<p>SpringBone 계통 전체의 업데이트는 SpringBoneJoint끼리의 의존성을 해결하며 이루어집니다.
-구체적으로, Joint의 부모에 Joint가 존재할 경우 그 부모가 우선적으로 처리됩니다.
+<p>SpringBone 계통 전체의 업데이트는 SpringBoneJoint끼리의 의존성을 해결하며 이루어집니다.<br />
+구체적으로, Joint의 부모에 Joint가 존재할 경우 그 부모가 우선적으로 처리됩니다.<br />
 즉, 근본(루트)에서부터 끝부분(팁)을 향해 순서대로 업데이트 처리가 이루어집니다.</p>
 <h3 id="_7">초기화</h3>
 <p>본 구현에서 다루는 하나의 SpringBoneJoint는 아래와 같은 상태(State)를 가집니다:</p>
@@ -3102,11 +3102,11 @@ joints의 마지막이 끝 node가 아닐 경우, 그 자손 node는 무시되�
 <span class="w">  </span><span class="nx">initialLocalRotation</span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>prevTail</code> ・ <code>currentTail</code>은 그 Joint가 대상으로 삼는 자식 Node의 월드 공간 내 위치를 나타냅니다.
+<p><code>prevTail</code> ・ <code>currentTail</code>은 그 Joint가 대상으로 삼는 자식 Node의 월드 공간 내 위치를 나타냅니다.<br />
 <code>currentTail</code>이 현재 프레임의 위치, <code>prevTail</code>이 이전 프레임의 위치를 나타냅니다.</p>
-<p><code>boneAxis</code>는 그 Joint가 대상으로 삼는 자식 Node의 로컬 공간 내 정지(Rest) 상태에서 뻗어나가는 방향을 나타냅니다.
+<p><code>boneAxis</code>는 그 Joint가 대상으로 삼는 자식 Node의 로컬 공간 내 정지(Rest) 상태에서 뻗어나가는 방향을 나타냅니다.<br />
 <code>boneLength</code>는 그 Joint가 대상으로 삼는 자식 Node의 월드 공간 내 길이를 나타냅니다.</p>
-<p><code>initialLocalMatrix</code>는 그 Joint가 대상으로 삼는 Node의 정지(Rest) 상태에서의 트랜스폼을 나타냅니다.
+<p><code>initialLocalMatrix</code>는 그 Joint가 대상으로 삼는 Node의 정지(Rest) 상태에서의 트랜스폼을 나타냅니다.<br />
 <code>initialLocalRotation</code>은 그 Joint가 대상으로 삼는 Node의 정지(Rest) 상태에서의 회전을 나타냅니다.</p>
 <h3 id="_8">업데이트 처리</h3>
 <p>대략적으로, 아래의 3단계로 업데이트가 이루어집니다:</p>
@@ -3140,7 +3140,7 @@ joints의 마지막이 끝 node가 아닐 경우, 그 자손 node는 무시되�
 <span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="collider">Collider와의 충돌</h4>
-<p>Joint가 대상으로 하는 Collider와의 충돌 판정을 수행합니다.
+<p>Joint가 대상으로 하는 Collider와의 충돌 판정을 수행합니다.<br />
 Collider 각각에 대해 거리 판정을 수행하며, 거리가 Collider와 Joint의 반지름 합보다 작을 경우 그것들이 접하는 위치까지 조인트를 밀어내는 처리를 합니다.</p>
 <p>아래 의사 코드(Pseudo-code)로 처리를 나타냅니다:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">collider</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">colliders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3207,8 +3207,8 @@ Collider 각각에 대해 거리 판정을 수행하며, 거리가 Collider와 J
 <span class="nx">node</span><span class="p">.</span><span class="nx">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuaternion</span><span class="p">(</span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="center-space_1">Center space의 고려</h4>
-<p>SpringBone에 <code>center</code>가 설정된 경우, SpringBone의 관성은 <a href="#center-space">Center Space</a>에서 평가됩니다.
-이는 위의 관성 계산에서 World Space에서 평가하던 트랜스폼을 대신하여 Center Space에서 평가함으로써 구현할 수 있습니다.
+<p>SpringBone에 <code>center</code>가 설정된 경우, SpringBone의 관성은 <a href="#center-space">Center Space</a>에서 평가됩니다.<br />
+이는 위의 관성 계산에서 World Space에서 평가하던 트랜스폼을 대신하여 Center Space에서 평가함으로써 구현할 수 있습니다.<br />
 외력(중력)에 대해서는 <code>center</code> 설정과 무관하게 World Space에서 계산됩니다.</p>
 
 

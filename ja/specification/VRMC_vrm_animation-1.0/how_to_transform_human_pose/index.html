@@ -2262,30 +2262,30 @@
 <blockquote>
 <p>本ドキュメントは Non-normative です。</p>
 </blockquote>
-<p><code>VRMC_vrm_animation</code> では、人型モデル (Humanoid) のポーズデータを扱います。
-このときに、異なる T-pose を持ったモデル間でのポーズデータの互換性の問題が発生する場合があります。
+<p><code>VRMC_vrm_animation</code> では、人型モデル (Humanoid) のポーズデータを扱います。<br />
+このときに、異なる T-pose を持ったモデル間でのポーズデータの互換性の問題が発生する場合があります。<br />
 本ドキュメントでは、異なる T-pose を持ったモデル間でのポーズデータの互換性を解決する方法を説明します。</p>
 <h2 id="_2">用語の導入</h2>
 <h3 id="humanoid">Humanoid</h3>
-<p>本ドキュメントで扱う <em>Humanoid</em> は、VRM の Humanoid 定義に依存します。
+<p>本ドキュメントで扱う <em>Humanoid</em> は、VRM の Humanoid 定義に依存します。<br />
 <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.ja.md">VRM 仕様内の Humanoid の定義</a>を参照してください。</p>
 <h3 id="t-pose">T-pose</h3>
-<p>本ドキュメントで扱う <em>T-pose</em> は、VRM の T-pose に依存します。
+<p>本ドキュメントで扱う <em>T-pose</em> は、VRM の T-pose に依存します。<br />
 <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/tpose.ja.md">VRM T-pose: VRM が定義する姿勢の仕様</a>を参照してください。</p>
 <h3 id="_3">レスト回転</h3>
 <p>VRM-1.0の定義する T-pose 状態での node の回転状態を <strong>レスト回転</strong> と呼称します。</p>
-<p>VRM-0.X では、レスト回転が無回転であることを仕様化することでポーズデータの互換性の問題が発生しないようにしていました。
+<p>VRM-0.X では、レスト回転が無回転であることを仕様化することでポーズデータの互換性の問題が発生しないようにしていました。<br />
 VRM-1.0 ではこのレスト回転の制約を撤廃しています。</p>
 <h3 id="_4">非必須ボーン</h3>
 <p>VRM で定義された Humanoid ボーンのうち、必須でない <strong>非必須ボーン</strong> は、モデル間で存在の有無が異なる場合があります。</p>
-<p>例えば、 <code>hips</code> や <code>head</code> などのボーンは必須ボーンであるのに対して、 <code>upperChest</code> や <code>leftShoulder</code> などは非必須ボーンです。
+<p>例えば、 <code>hips</code> や <code>head</code> などのボーンは必須ボーンであるのに対して、 <code>upperChest</code> や <code>leftShoulder</code> などは非必須ボーンです。<br />
 このため、<code>upperChest</code> ボーンがあるモデルとないモデルの両方が存在します。</p>
 <h3 id="_5">同じ姿勢</h3>
-<p>各 <code>HumanBone</code> が見た目に同じ向きであるときに <strong>同じ姿勢</strong> であるとします。
+<p>各 <code>HumanBone</code> が見た目に同じ向きであるときに <strong>同じ姿勢</strong> であるとします。<br />
 T-pose 時に少し斜めになっているなどの微妙な差異は含まれるため、完全に同じ姿勢にはなりません。</p>
 <h3 id="_6">ポーズデータ</h3>
 <p><strong>ポーズデータ</strong> は、<code>hips</code> ボーンの平行移動値とすべての Humanoid ボーンのローカル回転で表現されます。</p>
-<p>レスト回転の影響を受けて、同じ姿勢に対する数値が変化します。
+<p>レスト回転の影響を受けて、同じ姿勢に対する数値が変化します。<br />
 また、非必須ボーンの有無の影響を受けて、同じ姿勢に対する数値が変化します。</p>
 <p><strong>T-poseのレスト回転もしくは非必須ボーンの有無が違う場合、同じ姿勢に対するポーズデータは互換性がありません。</strong></p>
 <h2 id="_7">ポーズデータの互換性を持たせる変換処理</h2>
@@ -2310,7 +2310,7 @@ T-pose 時に少し斜めになっているなどの微妙な差異は含まれ�
 <p><code>NormalizedLocalRotation</code> は、レスト回転が無回転のモデルに対して適用したとき、 <code>PoseForA</code> と同じ姿勢となるポーズデータとします。</p>
 <blockquote>
 <p>VRM-0.X の正規化状態とほぼ同じです。 VRM-1.0 で T-pose の定義を明確化したので、同一とは言い切れません。</p>
-<p><code>TPoseA</code> が無回転の場合は <code>PoseForA</code> と<code>NormalizedLocalRotation</code> が等しくなり簡単になります。
+<p><code>TPoseA</code> が無回転の場合は <code>PoseForA</code> と<code>NormalizedLocalRotation</code> が等しくなり簡単になります。<br />
 同様に、 <code>TPoseB</code> が無回転の場合は <code>NormalizedLocalRotation</code> と <code>PoseForB</code> が等しくなり簡単になります。</p>
 </blockquote>
 <h3 id="posefora-normalizedlocalrotation"><code>PoseForA</code> =&gt; <code>NormalizedLocalRotation</code></h3>
@@ -2336,14 +2336,14 @@ T-pose 時に少し斜めになっているなどの微妙な差異は含まれ�
 <h4 id="_12">変換元のモデルのボーンが少ない場合</h4>
 <p>変換元のモデルのボーンが少ない場合、単純に変換元のモデルに含まれるボーンのみを適用することが推奨されます。</p>
 <h4 id="_13">変換先のモデルのボーンが少ない場合</h4>
-<p>変換先のモデルのボーンが少ない場合、本来対象ボーンの回転によって影響を与えるはずだった子ボーンすべてに対して、対象ボーンの回転を適用することが推奨されます。
-例えば、upperChestが変換元のモデルに存在し変換先のモデルに存在しない場合、変換先のモデルのneck・leftShoulder・rightShoulderには、upperChestの回転とそのボーン自体の回転の両方を乗算して適用することが望ましいです。
+<p>変換先のモデルのボーンが少ない場合、本来対象ボーンの回転によって影響を与えるはずだった子ボーンすべてに対して、対象ボーンの回転を適用することが推奨されます。<br />
+例えば、upperChestが変換元のモデルに存在し変換先のモデルに存在しない場合、変換先のモデルのneck・leftShoulder・rightShoulderには、upperChestの回転とそのボーン自体の回転の両方を乗算して適用することが望ましいです。<br />
 すなわち、変換元のアニメーションにおけるボーンごとの見た目の姿勢と、変換先のモデルにおける対応するボーンの見た目の姿勢が同じ向きになることを期待します。</p>
 <h3 id="_14">移動量のスケーリングについて</h3>
-<p>大きさの異なるモデル間では、 hips ボーンの移動量をスケールすると見た目が自然になることが期待できます。
+<p>大きさの異なるモデル間では、 hips ボーンの移動量をスケールすると見た目が自然になることが期待できます。<br />
 一案として以下の式となります。</p>
 <p>変換元のモデルのTポーズ時のhipsの高さを <code>y_src</code> 、変換先のモデルのTポーズ時のhipsの高さを <code>y_dst</code> としたとき、hipsの移動量に乗じるスケール <code>scaling_factor = y_dst / y_src</code></p>
-<p>各ボーンが同じ回転をするモデル間では、移動量は脚の長さに比例するであろうという考え方です。
+<p>各ボーンが同じ回転をするモデル間では、移動量は脚の長さに比例するであろうという考え方です。<br />
 hips の高さを脚の長さとみなします。</p>
 
 

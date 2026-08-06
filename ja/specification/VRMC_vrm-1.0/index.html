@@ -2461,8 +2461,8 @@
 <li>VRMC_node_constraint</li>
 </ul>
 <h2 id="khr_texture_transform">KHR_texture_transform の制限</h2>
-<p><a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a> は、
-すべてのマテリアルのテクスチャー <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json">textureInfo</a> に対して、
+<p><a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a> は、<br />
+すべてのマテリアルのテクスチャー <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json">textureInfo</a> に対して、<br />
 個別に <code>offset</code>, <code>rotation</code>, <code>scale</code>, <code>texCoord</code> を指定することができます。</p>
 <p>glTF 標準のPBRマテリアルの場合、</p>
 <ul>
@@ -2474,22 +2474,22 @@
 </ul>
 <p>です。</p>
 <h3 id="vrm1-khr_texture_transform">VRM1での KHR_texture_transform の非推奨の機能</h3>
-<p>実装によっては KHR_texture_transform の拡張する項目が個別に設定できないことがあります。
+<p>実装によっては KHR_texture_transform の拡張する項目が個別に設定できないことがあります。<br />
 そのため、下記の項目については使用しないことを推奨しています。</p>
 <ul>
 <li>rotation</li>
 <li>texCoord</li>
 </ul>
 <h2 id="overview">Overview</h2>
-<p>glTF はシーンを表現するのに対して、
+<p>glTF はシーンを表現するのに対して、<br />
 VRMはVRアバター向けの人間型モデル一体を表現します。</p>
 <h3 id="_2">モデル空間</h3>
-<p>VRMでは、VRMモデルを構成するglTFシーンの原点から相対にトランスフォームを観測する「モデル空間」を定義します。
+<p>VRMでは、VRMモデルを構成するglTFシーンの原点から相対にトランスフォームを観測する「モデル空間」を定義します。<br />
 これは、VRMモデルを扱うアプリケーション上のワールド空間とは区別されます。</p>
 <p>モデル空間は、 <a href="../VRMC_node_constraint-1.0/"><code>VRMC_node_constraint</code></a> 拡張で利用されます。</p>
 <blockquote>
-<p>VRMモデルをアプリケーション上で動かす際は、Humanoidで定義するHipsを動かすだけでなく、
-glTFシーンのルートごとモデルを動かすことにより、モデル空間を尊重することが期待されます。
+<p>VRMモデルをアプリケーション上で動かす際は、Humanoidで定義するHipsを動かすだけでなく、<br />
+glTFシーンのルートごとモデルを動かすことにより、モデル空間を尊重することが期待されます。<br />
 言い換えれば、モデルのルートが常にワールド空間のルートに留まるような利用は推奨されません。</p>
 </blockquote>
 <h3 id="json-schema">JSON Schema</h3>
@@ -2581,7 +2581,7 @@ glTFシーンのルートごとモデルを動かすことにより、モデル�
 <li>VRMC_node_constraint</li>
 <li>VRMC_springBone</li>
 </ul>
-<p>は Node, Mesh への変更があり実行順の影響があります。
+<p>は Node, Mesh への変更があり実行順の影響があります。<br />
 推奨される更新の適用順は下記のとおりです。</p>
 <ol>
 <li>ヒューマノイドボーンを解決</li>

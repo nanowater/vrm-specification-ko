@@ -3162,19 +3162,19 @@
 <p>Written against the glTF 2.0 spec.</p>
 <p>Also, some definitions in the specifications depend on <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/README.md"><code>VRMC_vrm</code></a>.</p>
 <h2 id="overview">Overview</h2>
-<p>This specification defines the glTF extension <code>VRMC_VRM_animation</code> to describe animation for humanoid models.
+<p>This specification defines the glTF extension <code>VRMC_VRM_animation</code> to describe animation for humanoid models.<br />
 The extension is designed to be applied to the model represented with <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/README.md"><code>VRMC_vrm</code></a> extension, which describes humanoid models.</p>
-<p>The hierarchy of the node defined in the glTF is associated with humanoid bones, expressions, and eye gaze, and describes animation that can be applied to any humanoid model.
+<p>The hierarchy of the node defined in the glTF is associated with humanoid bones, expressions, and eye gaze, and describes animation that can be applied to any humanoid model.<br />
 The actual animation data uses the animation part of the glTF core definition.</p>
-<p>It is intended to be used for separate glTF files that only describe animations.
+<p>It is intended to be used for separate glTF files that only describe animations.<br />
 This extension is not expected to be included in VRM models with the <code>VRMC_vrm</code> extension.</p>
 <h2 id="concepts">Concepts</h2>
 <h3 id="animations">Animations</h3>
 <p>Use animation defined in the glTF core specification.</p>
-<p>As a general rule, when using animations, the first animation defined in <code>animations</code> is loaded.
-A single file may contain multiple animations.
+<p>As a general rule, when using animations, the first animation defined in <code>animations</code> is loaded.<br />
+A single file may contain multiple animations.<br />
 Implementations may support multiple animations contained in a single file.</p>
-<p>glTF animations do not have the concept of frame rate because keyframes can be inserted at any time.
+<p>glTF animations do not have the concept of frame rate because keyframes can be inserted at any time.<br />
 However, to ensure that the animation is played back at a reasonable frame rate, we propose a frame rate of 30 frames per second as a guideline that is not too high or too low, taking into account the following points:</p>
 <ul>
 <li>60 FPS or 30 FPS is common in games</li>
@@ -3183,46 +3183,46 @@ However, to ensure that the animation is played back at a reasonable frame rate,
 </ul>
 <p>Considering that the animation is interpolated linearly in the implementation, 30 FPS should be sufficient to ensure smoothness.</p>
 <h3 id="humanoid">Humanoid</h3>
-<p>Humanoid defines the humanoid bones.
+<p>Humanoid defines the humanoid bones.<br />
 Each humanoid bone is represented as a node in glTF.</p>
-<p><code>VRMC_vrm_animation/humanoid</code> maps the glTF node to the human bone.
+<p><code>VRMC_vrm_animation/humanoid</code> maps the glTF node to the human bone.<br />
 The definition of the bone and its structure used in <code>VRMC_vrm</code> extension are based on the Humanoid of <code>VRMC_vrm</code> extension.</p>
 <p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md</p>
-<p>However, the <code>leftEye</code> and <code>rightEye</code> of the Humanoid bone cannot have animation data for them.
+<p>However, the <code>leftEye</code> and <code>rightEye</code> of the Humanoid bone cannot have animation data for them.<br />
 These are handled by LookAt described later.</p>
 <blockquote>
 <p>For the future extensibility, the entire hierarchy of the Humanoid bone is included in the animation data.</p>
 </blockquote>
 <p>Nodes specified as Humanoid bones must follow the pose called "VRM T-pose" in the rest pose where no animation is applied.</p>
 <p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/tpose.md</p>
-<p>Animations for nodes specified as Humanoid bones are treated as animation data for the Humanoid bone.
-The animation data for the Humanoid bone must not include scales for the Humanoid bone.
+<p>Animations for nodes specified as Humanoid bones are treated as animation data for the Humanoid bone.<br />
+The animation data for the Humanoid bone must not include scales for the Humanoid bone.<br />
 Also, the animation for the Humanoid bone must not include translations for bones other than the Hips bone.</p>
 <blockquote>
 <p>In the implementation, it is desirable to use advanced animation retargeting like Unity's Humanoid system, but if this is difficult, you can simply transfer it as FK animation.</p>
 </blockquote>
 <p>Also, it is strongly recommended that the hierarchy of nodes that represent the <code>T-Pose</code> does not include <code>scale</code> separately from the animation data.</p>
 <blockquote>
-<p>This can be resolved by pre-multiplying the scale value to the hierarchy and animation in the application that generates the data.
+<p>This can be resolved by pre-multiplying the scale value to the hierarchy and animation in the application that generates the data.<br />
 This is intended to reduce the burden on the program that loads the runtime.</p>
 </blockquote>
-<p>However, the hierarchy of T-pose can have any rotation.
+<p>However, the hierarchy of T-pose can have any rotation.<br />
 Please refer to <a href="how_to_transform_human_pose/">Pose Data Compatibility</a> for details.</p>
 <h3 id="expressions">Expressions</h3>
-<p>Expressions defines the expressions.
+<p>Expressions defines the expressions.<br />
 Each expression has a scalar weight in the range of [0, 1], which indicates how much the expression is expressed.</p>
 <blockquote>
 <p>In the <code>VRMC_vrm</code> extension, the weight of the expression is applied to the mesh morph, the color of the material, and the UV of the texture.</p>
 </blockquote>
-<p><code>VRMC_vrm_animation/expressions</code> maps the glTF node to the expression.
+<p><code>VRMC_vrm_animation/expressions</code> maps the glTF node to the expression.<br />
 The definition of the expressions is based on the expressions defined in the <code>VRMC_vrm</code> extension.</p>
 <p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/expressions.ja.md</p>
-<p>However, <code>lookUp</code>, <code>lookDown</code>, <code>lookLeft</code>, and <code>lookRight</code> of the preset expressions cannot have animation data for them.
+<p>However, <code>lookUp</code>, <code>lookDown</code>, <code>lookLeft</code>, and <code>lookRight</code> of the preset expressions cannot have animation data for them.<br />
 These are handled by LookAt described later.</p>
-<p>Among expressions, preset expressions defined by the <code>VRMC_vrm</code> extension are defined as preset expressions, and others are defined as custom expressions.
+<p>Among expressions, preset expressions defined by the <code>VRMC_vrm</code> extension are defined as preset expressions, and others are defined as custom expressions.<br />
 Custom expressions cannot have the same name as the preset expressions.</p>
-<p>Among the animations for the nodes specified as expressions, the X component of the translation is treated as the animation data for the weight of the expression.
-The weight value should be in the range of [0, 1].
+<p>Among the animations for the nodes specified as expressions, the X component of the translation is treated as the animation data for the weight of the expression.<br />
+The weight value should be in the range of [0, 1].<br />
 If the weight value is outside the range of [0, 1], the implementation must clamp the value to the range of [0, 1].</p>
 <h3 id="lookat">LookAt</h3>
 <p>LookAt defines the eye gaze.</p>
@@ -3231,14 +3231,14 @@ If the weight value is outside the range of [0, 1], the implementation must clam
 </blockquote>
 <h4 id="eye-gaze-direction">Eye gaze direction</h4>
 <p>LookAt has an eye gaze direction, which indicates that the model moves its gaze in that direction.</p>
-<p><code>VRMC_vrm_animation/lookAt/node</code> specifies the glTF node that has the rotation as the eye gaze direction.
+<p><code>VRMC_vrm_animation/lookAt/node</code> specifies the glTF node that has the rotation as the eye gaze direction.<br />
 The rotation in the local space of the specified node is treated as the animation data for the eye gaze direction.</p>
-<p>In glTF, the rotation is defined as a quaternion.
-However, when applying it to the LookAt component of the <code>VRMC_vrm</code>, it is converted to the yaw-pitch Euler angle.
+<p>In glTF, the rotation is defined as a quaternion.<br />
+However, when applying it to the LookAt component of the <code>VRMC_vrm</code>, it is converted to the yaw-pitch Euler angle.<br />
 The rotation order of the Euler angle must be interpreted as Extrinsic ZXY, and the rotation around the Y axis is yaw and the rotation around the X axis is pitch.</p>
 <h4 id="eye-gaze-origin-position">Eye gaze origin position</h4>
-<p>The LookAt defined in this extension defines the eye gaze origin position according to the <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/lookAt.md#lookat-space-offsetfromheadbone">LookAt space defined in the <code>VRMC_vrm</code> specification</a>.
-The eye gaze origin position is the position translated by <code>VRMC_vrm_animation/offsetFromHeadBone</code> in the space relative to the head bone defined in Humanoid.
+<p>The LookAt defined in this extension defines the eye gaze origin position according to the <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/lookAt.md#lookat-space-offsetfromheadbone">LookAt space defined in the <code>VRMC_vrm</code> specification</a>.<br />
+The eye gaze origin position is the position translated by <code>VRMC_vrm_animation/offsetFromHeadBone</code> in the space relative to the head bone defined in Humanoid.<br />
 The initial eye gaze is directed toward the +Z axis in the model space.</p>
 <blockquote>
 <p>Implementation Note: If you want to use the eye gaze direction as it is without processing the eye gaze direction, you do not need to interpret the value of <code>offsetFromHeadBone</code>. If you want to apply some retargeting to the eye gaze according to the bone structure of the destination model, it may be effective to use the eye gaze origin position of the animation model taking into account the value of <code>offsetFromHeadBone</code>.</p>
@@ -3328,7 +3328,7 @@ The initial eye gaze is directed toward the +Z axis in the model space.</p>
 <h4 id="json-schema">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.schema.json">VRMC_vrm_animation.schema.json</a></p>
 <h4 id="vrmc_vrm_animationspecversion">VRMC_vrm_animation.specVersion ✅</h4>
-<p>The spec version of the <code>VRMC_vrm_animation</code> extension.
+<p>The spec version of the <code>VRMC_vrm_animation</code> extension.<br />
 The value must be <code>"1.0"</code>.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -3406,8 +3406,8 @@ The value must be <code>"1.0"</code>.</p>
 <h4 id="json-schema_2">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.humanoid.humanBones.schema.json">VRMC_vrm_animation.humanoid.humanBones.schema.json</a></p>
 <h4 id="humanoidhumanboneshumanoid-bone-name">humanoid.humanBones.(Humanoid bone name)</h4>
-<p>An object that represents a humanoid bone.
-The bone name is the name of the humanoid bone defined by the <code>VRMC_vrm</code> extension (<code>hips</code>, <code>leftUpperArm</code>, etc.)
+<p>An object that represents a humanoid bone.<br />
+The bone name is the name of the humanoid bone defined by the <code>VRMC_vrm</code> extension (<code>hips</code>, <code>leftUpperArm</code>, etc.)<br />
 However, <code>leftEye</code> and <code>rightEye</code> cannot be defined.</p>
 <ul>
 <li>Type: <code>humanoid.humanBones.humanBone</code></li>
@@ -3508,8 +3508,8 @@ However, <code>leftEye</code> and <code>rightEye</code> cannot be defined.</p>
 <h4 id="json-schema_5">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
 <h4 id="expressionspresetpreset-expression-name">expressions.preset.(preset expression name)</h4>
-<p>An object that represents a preset expression.
-The expression name is one of the names of the preset expression defined in <code>VRMC_vrm</code> (<code>aa</code>, <code>leftBlink</code>, etc.)
+<p>An object that represents a preset expression.<br />
+The expression name is one of the names of the preset expression defined in <code>VRMC_vrm</code> (<code>aa</code>, <code>leftBlink</code>, etc.)<br />
 However, <code>lookUp</code>, <code>lookDown</code>, <code>lookLeft</code>, and <code>lookRight</code> cannot be defined.</p>
 <ul>
 <li>Type: <code>expressions.expression</code></li>
@@ -3539,7 +3539,7 @@ However, <code>lookUp</code>, <code>lookDown</code>, <code>lookLeft</code>, and 
 <h4 id="json-schema_6">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
 <h4 id="expressionscustomcustom-expression-name">expressions.custom.(custom expression name)</h4>
-<p>An object that represents a custom expression.
+<p>An object that represents a custom expression.<br />
 The expression name can be any name other than the preset expression name defined in <code>VRMC_vrm</code> extension.</p>
 <ul>
 <li>Type: <code>expressions.expression</code></li>

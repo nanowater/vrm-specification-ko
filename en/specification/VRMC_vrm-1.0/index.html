@@ -2494,7 +2494,7 @@
 <li>emissiveTexture</li>
 </ul>
 <h3 id="obsolete-properties-of-khr_texture_transform-with-vrm1">Obsolete properties of KHR_texture_transform with VRM1</h3>
-<p>There are renderer implementations that don't support all properties of KHR_texture_transform for textures of materials.
+<p>There are renderer implementations that don't support all properties of KHR_texture_transform for textures of materials.<br />
 Therefore, we recommend to <em>not</em> use the below properties of KHR_texture_transform:</p>
 <ul>
 <li>rotation</li>
@@ -2503,12 +2503,12 @@ Therefore, we recommend to <em>not</em> use the below properties of KHR_texture_
 <h2 id="overview">Overview</h2>
 <p>glTF represent an entire Scene, whereas VRM represent a Humanoid for VR avatar.</p>
 <h3 id="model-space">Model Space</h3>
-<p>VRM defines a "model space" for each VRM model, that observes relative transforms from the root of the glTF scene.
+<p>VRM defines a "model space" for each VRM model, that observes relative transforms from the root of the glTF scene.<br />
 This is distinct from world space defined in the application that uses the VRM model.</p>
 <p>Model space will be used in the <a href="../VRMC_node_constraint-1.0/"><code>VRMC_node_constraint</code></a> extension.</p>
 <blockquote>
-<p>To move VRM models in an application,
-it is expected that the root of the glTF scene is moved, not only the Hips bone defined in Humanoid.
+<p>To move VRM models in an application,<br />
+it is expected that the root of the glTF scene is moved, not only the Hips bone defined in Humanoid.<br />
 In other words, you should not leave the root of the model at the origin of world space.</p>
 </blockquote>
 <h3 id="json-schema">JSON Schema</h3>
@@ -2559,7 +2559,7 @@ In other words, you should not leave the root of the model at the origin of worl
 <li>cameras</li>
 </ul>
 <h4 id="allow-ignore-stored-tangent">Allow ignore stored TANGENT</h4>
-<p>Because it is difficult to handle the tangent correctly,
+<p>Because it is difficult to handle the tangent correctly,<br />
 it is allowed to not export any tangents. When importing, any stored TANGENT may be ignored, and calculated instead.</p>
 <h4 id="meshesprimitivesattributestangent"><code>meshes[*].primitives[*].attributes.TANGENT</code></h4>
 <ul>
@@ -2601,7 +2601,7 @@ it is allowed to not export any tangents. When importing, any stored TANGENT may
 <li>VRMC_node_constraint</li>
 <li>VRMC_springBone</li>
 </ul>
-<p>These components affect Node and Mesh, and the execution order matters.
+<p>These components affect Node and Mesh, and the execution order matters.<br />
 The recommended order of execution in an update loop is as follows.</p>
 <ol>
 <li>Resolve humanoid bones</li>

@@ -2262,30 +2262,30 @@
 <blockquote>
 <p>This document is non-normative.</p>
 </blockquote>
-<p><code>VRMC_vrm_animation</code> handles pose data of humanoid models.
-There is a pose data compatibility issue between models with different T-poses.
+<p><code>VRMC_vrm_animation</code> handles pose data of humanoid models.<br />
+There is a pose data compatibility issue between models with different T-poses.<br />
 This document explains how to resolve pose data compatibility between models with different T-poses.</p>
 <h2 id="terms">Terms</h2>
 <h3 id="humanoid">Humanoid</h3>
 <p><em>Humanoid</em> referred to in this document depends on the VRM Humanoid definition.</p>
 <p><a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.ja.md">Humanoid definition within the VRM specification</a></p>
 <h3 id="t-pose">T-pose</h3>
-<p><em>T-pose</em> referred to in this document depends on T-pose of VRM.
+<p><em>T-pose</em> referred to in this document depends on T-pose of VRM.<br />
 <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/tpose.ja.md">VRM T-pose: Specification of posture defined by VRM</a></p>
 <h3 id="rest-rotation">rest rotation</h3>
 <p>The rotation state of node in T-pose state defined by VRM-1.0 is <strong>Rest rotation</strong>.</p>
-<p>VRM-0.X made pose data compatible by forcing rest rotations to be no rotations.
+<p>VRM-0.X made pose data compatible by forcing rest rotations to be no rotations.<br />
 VRM-1.0 eliminates this no-rotation restriction on rest rotation.</p>
 <h3 id="non-required-bone">Non-required bone</h3>
 <p><strong>Non-required bones</strong> in VRM may have different presence or absence between models.</p>
-<p>For example, bones such as <code>hips</code> and <code>head</code> are required bones, whereas bones such as <code>upperChest</code> and <code>leftShoulder</code> are non-required bones.
+<p>For example, bones such as <code>hips</code> and <code>head</code> are required bones, whereas bones such as <code>upperChest</code> and <code>leftShoulder</code> are non-required bones.<br />
 Therefore, there are models with and without the <code>upperChest</code> bone.</p>
 <h3 id="same-posture">same posture</h3>
-<p>Suppose each <code>HumanBone</code> has the <strong>same pose</strong> when it is visually oriented the same way.
+<p>Suppose each <code>HumanBone</code> has the <strong>same pose</strong> when it is visually oriented the same way.<br />
 Subtle differences, such as being slightly slanted during T-pose, are considered as the same posture so that it won't be in exactly the same posture.</p>
 <h3 id="pose-data">pose data</h3>
 <p><strong>Pose data</strong> is represented by translation values of the <code>hips</code> bone and local rotations of all Humanoid bones.</p>
-<p>The values for the same posture will change under the influence of rest rotation.
+<p>The values for the same posture will change under the influence of rest rotation.<br />
 Also, the values for the same posture will change depending on the presence or absence of non-required bones.</p>
 <p><strong>If the rest rotation of T-pose or the presence or absence of non-essential bones are different, pose data for the same pose cannot be used as-is.</strong></p>
 <h2 id="conversion-processing-to-make-pose-data-compatible">Conversion processing to make pose data compatible</h2>
@@ -2310,7 +2310,7 @@ Also, the values for the same posture will change depending on the presence or a
 <p><code>NormalizedLocalRotation</code> is pose data that looks the same as <code>PoseForA</code> when applied to a model with no rest rotation.</p>
 <blockquote>
 <p>The intermediate format is almost the same as the normalized state of VRM-0.X. The definition of T-pose was clarified in VRM-1.0, so it cannot be said that they are completely the same.</p>
-<p>If <code>TPoseA</code> has no rotation, <code>PoseForA</code> and <code>NormalizedLocalRotation</code> will be equal, making it easier.
+<p>If <code>TPoseA</code> has no rotation, <code>PoseForA</code> and <code>NormalizedLocalRotation</code> will be equal, making it easier.<br />
 Similarly, if <code>TPoseB</code> has no rotation, <code>NormalizedLocalRotation</code> and <code>PoseForB</code> will be equal, making it easier.</p>
 </blockquote>
 <h3 id="posefora-normalizedlocalrotation"><code>PoseForA</code> =&gt; <code>NormalizedLocalRotation</code></h3>
@@ -2336,14 +2336,14 @@ Similarly, if <code>TPoseB</code> has no rotation, <code>NormalizedLocalRotation
 <h4 id="when-the-source-model-has-few-bones">When the source model has few bones</h4>
 <p>If the source model has few bones, it is recommended to simply apply only the bones contained in the source model.</p>
 <h4 id="when-the-target-model-has-few-bones">When the target model has few bones</h4>
-<p>If the destination model has few bones, it is recommended to apply the rotation of the target bone to all child bones that would otherwise be affected by the rotation of the target bone.
-For example, if upperChest exists in the source model but not in the destination model, the neck, leftShoulder, and rightShoulder of the destination model should be transformed by both the rotation of upperChest and the rotation of the bone itself by multiplying the two.
+<p>If the destination model has few bones, it is recommended to apply the rotation of the target bone to all child bones that would otherwise be affected by the rotation of the target bone.<br />
+For example, if upperChest exists in the source model but not in the destination model, the neck, leftShoulder, and rightShoulder of the destination model should be transformed by both the rotation of upperChest and the rotation of the bone itself by multiplying the two.<br />
 In other words, we expect the visual posture of each bone in the source animation to be in the same orientation as the corresponding bone in the destination model.</p>
 <h3 id="about-translation-scaling">About translation scaling</h3>
-<p>Scaling the hips bone translation between models of different sizes can give a natural look.
+<p>Scaling the hips bone translation between models of different sizes can give a natural look.<br />
 One possible formula is as follows:</p>
 <p>The scaling factor for the hips' translation is <code>scaling_factor = y_dst / y_src</code>, where <code>y_src</code> is the source model's hips height in a T-pose, and <code>y_dst</code> is the target model's hips height in a T-pose</p>
-<p>The idea is that between models where each bone has the same rotation, the amount of movement will be proportional to the leg length.
+<p>The idea is that between models where each bone has the same rotation, the amount of movement will be proportional to the leg length.<br />
 Consider the height of the hips as the length of the leg.</p>
 
 

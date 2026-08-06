@@ -2371,12 +2371,12 @@
 <h1 id="vrmc_vrmmeta"><code>VRMC_vrm.meta</code></h1>
 <p>本文書では、 <code>VRMC_vrm</code> 拡張のうち <code>meta</code> フィールドについての仕様を示します。</p>
 <h2 id="meta">Meta</h2>
-<p>VRMの <code>meta</code> フィールドでは、モデルに関するメタ情報を記述することができます。
+<p>VRMの <code>meta</code> フィールドでは、モデルに関するメタ情報を記述することができます。<br />
 メタ情報には、モデルの名前や作者などの基本的な情報に加え、モデルの利用条件に関わる情報を記述することができます。</p>
 <h2 id="_1">ライセンス</h2>
 <p>VRM拡張では、モデルのライセンス情報を <code>meta</code> フィールドに記述することができます。</p>
-<p><code>meta</code> フィールドに格納されるライセンス情報は、ライセンス文書へのURLとライセンス設定によって構成されます。
-ライセンス文書は、VRMコンソーシアムによって制定されたVRMパブリック・ライセンス文書を指し、 <code>meta.licenseUrl</code> に文書へのユニークなURLが格納されている必要があります。
+<p><code>meta</code> フィールドに格納されるライセンス情報は、ライセンス文書へのURLとライセンス設定によって構成されます。<br />
+ライセンス文書は、VRMコンソーシアムによって制定されたVRMパブリック・ライセンス文書を指し、 <code>meta.licenseUrl</code> に文書へのユニークなURLが格納されている必要があります。<br />
 ライセンス設定は、ライセンス文書から参照される個別の設定であり、モデルのライセンサーが自由に指定することができます。</p>
 <h3 id="licenseurl">licenseUrl</h3>
 <p><code>licenseUrl</code> プロパティは、VRM1.0においては <code>https://vrm.dev/licenses/1.0/</code> を許容します。</p>
@@ -2522,7 +2522,7 @@
 </ul>
 <h3 id="metaauthors">meta.authors ✅</h3>
 <p>モデルの作者名です。</p>
-<p>必ず、一つ以上の空文字でない項目が必要です。
+<p>必ず、一つ以上の空文字でない項目が必要です。<br />
 アバターの造形者・代表者名を最初に書くことを推奨します。</p>
 <ul>
 <li>型: <code>string[]</code></li>
@@ -2538,7 +2538,7 @@
 <h3 id="metacontactinformation">meta.contactInformation</h3>
 <p>モデルの作者（代表者）への連絡先です。</p>
 <blockquote>
-<p>このプロパティは、ユーザーがなんらかの理由で作者に連絡を取りたい場合に備えて、ソーシャルアカウントの情報やWebサイトなど、モデルの作者の連絡先情報を表示するために使用されることを意図しています。
+<p>このプロパティは、ユーザーがなんらかの理由で作者に連絡を取りたい場合に備えて、ソーシャルアカウントの情報やWebサイトなど、モデルの作者の連絡先情報を表示するために使用されることを意図しています。<br />
 電話番号や住所など、公衆に公開されることを意図しない個人情報を含めないようにしてください。</p>
 </blockquote>
 <ul>
@@ -2560,8 +2560,8 @@
 </ul>
 <h3 id="metathumbnailimage">meta.thumbnailImage</h3>
 <p>モデルのサムネイルを、 <code>gltf.images</code> に定義されたインデックスを用いて指定します。</p>
-<p>画像は正方形である必要があります。解像度は 1024x1024 を推奨します。
-利便性のため、画像は glTF が標準でサポートする jpg もしくは png である必要があります。
+<p>画像は正方形である必要があります。解像度は 1024x1024 を推奨します。<br />
+利便性のため、画像は glTF が標準でサポートする jpg もしくは png である必要があります。<br />
 拡張を用いて他形式を用いることは許可されません。</p>
 <p>VRMを利用するアプリケーションが、モデルのアイコンとして表示することを想定しています。</p>
 <ul>
@@ -2570,7 +2570,7 @@
 <li>最小値: <code>&gt;= 0</code></li>
 </ul>
 <h3 id="metalicenseurl">meta.licenseUrl ✅</h3>
-<p>このモデルが参照する、ライセンス文書へのURLを指定します。
+<p>このモデルが参照する、ライセンス文書へのURLを指定します。<br />
 VRMパブリック・ライセンス文書へのユニークなURLが格納されている必要があります。</p>
 <ul>
 <li>型: <code>string</code></li>
@@ -2578,8 +2578,8 @@ VRMパブリック・ライセンス文書へのユニークなURLが格納さ�
 </ul>
 <h3 id="metaavatarpermission">meta.avatarPermission</h3>
 <p>このモデルをアバターとして操作し演じることを許可するユーザを指定します。</p>
-<p><code>onlyAuthor</code> は、モデルの作者のみにアバターとしての操作が許可されることを示します。
-<code>onlySeparatelyLicensedPerson</code> は、別の文書でライセンス許諾されたユーザにアバターとしての操作が許可されることを示します。例えば、有料で販売されるモデルに対して用いられることを想定しています。
+<p><code>onlyAuthor</code> は、モデルの作者のみにアバターとしての操作が許可されることを示します。<br />
+<code>onlySeparatelyLicensedPerson</code> は、別の文書でライセンス許諾されたユーザにアバターとしての操作が許可されることを示します。例えば、有料で販売されるモデルに対して用いられることを想定しています。<br />
 <code>everyone</code> は、誰にでもこのモデルをアバターとして操作することが許可されることを示します。</p>
 <ul>
 <li>型: <code>string</code></li>
@@ -2603,8 +2603,8 @@ VRMパブリック・ライセンス文書へのユニークなURLが格納さ�
 </ul>
 <h3 id="metacommercialusage">meta.commercialUsage</h3>
 <p>このモデルを商用利用することを許可するかを指定します。</p>
-<p><code>personalNonProfit</code> は、個人のユーザが非商用目的に限り利用することを許可することを示します。
-<code>personalProfit</code> は、個人のユーザが商用・非商用のどちらの目的に関わらず利用することを許可することを示します。
+<p><code>personalNonProfit</code> は、個人のユーザが非商用目的に限り利用することを許可することを示します。<br />
+<code>personalProfit</code> は、個人のユーザが商用・非商用のどちらの目的に関わらず利用することを許可することを示します。<br />
 法人のユーザは、このプロパティが <code>corporation</code> でない限り、該当するモデルの利用が許可されません。</p>
 <ul>
 <li>型: <code>string</code></li>
@@ -2628,7 +2628,7 @@ VRMパブリック・ライセンス文書へのユニークなURLが格納さ�
 </ul>
 <h3 id="metacreditnotation">meta.creditNotation</h3>
 <p>このモデルのクレジット表記を要求することを指定します。</p>
-<p>このプロパティが <code>required</code> の場合、ユーザはモデルのクレジット表記を必ずしなければなりません。
+<p>このプロパティが <code>required</code> の場合、ユーザはモデルのクレジット表記を必ずしなければなりません。<br />
 このプロパティが <code>unnecessary</code> の場合、ユーザはモデルのクレジット表記を必ずする必要はありません。</p>
 <ul>
 <li>型: <code>string</code></li>
@@ -2645,8 +2645,8 @@ VRMパブリック・ライセンス文書へのユニークなURLが格納さ�
 </ul>
 <h3 id="metamodification">meta.modification</h3>
 <p>このモデルを改変することを許可するか否か、および改変したモデルの再配布を許可するか否かを指定します。</p>
-<p>このプロパティが <code>prohibited</code> の場合、モデルの改変を許可しないことを示します。
-このプロパティが <code>allowModification</code> もしくは <code>allowModificationRedistribution</code> の場合、モデルの改変を許可することを示します。
+<p>このプロパティが <code>prohibited</code> の場合、モデルの改変を許可しないことを示します。<br />
+このプロパティが <code>allowModification</code> もしくは <code>allowModificationRedistribution</code> の場合、モデルの改変を許可することを示します。<br />
 このプロパティが <code>allowModificationRedistribution</code> の場合、改変したモデルの再配布を許可することを示します。</p>
 <ul>
 <li>型: <code>string</code></li>

@@ -3099,7 +3099,7 @@
 <p>この拡張では、 Roll Constraint, Aim Constraint, Rotation Constraint を定義しています。</p>
 <h3 id="purposes">Purposes</h3>
 <p>VRMで扱うコンストレイントは、リアルタイムに<a href="../VRMC_vrm-1.0/humanoid/">Humanoidボーン</a>に対して割り当てられる回転情報を用いて、補助ボーンを制御するようなユースケースを意識して設計されています。</p>
-<p>また、プラットフォームを跨いでコンストレイントが用いられることを念頭に、用途に特化したセマンティックな定義を行います。
+<p>また、プラットフォームを跨いでコンストレイントが用いられることを念頭に、用途に特化したセマンティックな定義を行います。<br />
 そのため、実装にはアーティストが本来実現したい結果が得られることを期待し、挙動が実装間で完全に一致することを目指すものではありません。</p>
 <h2 id="constraints">Constraints</h2>
 <p>本拡張では、3つのコンストレイント <em>Roll Constraint</em>, <em>Aim Constraint</em>, <em>Rotation Constraint</em> が定義されています。</p>
@@ -3131,7 +3131,7 @@
 <p>Roll Constraintは、<em>Roll Axis</em>を一軸指定することができ、それによりDestinationの回転のうちどの軸をSourceに伝えるかを指定します。</p>
 <p>Roll Axisには、 <code>"X"</code> ・ <code>"Y"</code> ・ <code>"Z"</code> のいずれかを指定します。</p>
 <h4 id="evaluation-of-rotations">Evaluation of rotations</h4>
-<p>Sourceの回転の評価は、Sourceのレスト状態を基準に、Destinationのレスト状態におけるRoll Axisまわりの回転を評価することが推奨されます。
+<p>Sourceの回転の評価は、Sourceのレスト状態を基準に、Destinationのレスト状態におけるRoll Axisまわりの回転を評価することが推奨されます。<br />
 また、SourceがRoll Axisまわり以外に回転している場合は、Roll Axisがその回転と同じ方向に向く最小の回転との差分を用いてロールの回転の評価を行うことが推奨されます。</p>
 <h4 id="example-of-implementation">Example of Implementation</h4>
 <blockquote>
@@ -3213,7 +3213,7 @@
 <hr />
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
 <h3 id="extending-nodes">Extending Nodes</h3>
-<p>コンストレイントは、nodeに <code>VRMC_node_constraint</code> 拡張を追加することで記述されます。
+<p>コンストレイントは、nodeに <code>VRMC_node_constraint</code> 拡張を追加することで記述されます。<br />
 以下は、 <code>NodeB</code> を <code>NodeA</code> で制約するRotation Constraintの記述例です:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3279,7 +3279,7 @@
 <li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.schema.json">VRMC_node_constraint.schema.json</a></li>
 </ul>
 <h4 id="vrmc_node_constraintspecversion">VRMC_node_constraint.specVersion ✅</h4>
-<p>VRMC_node_constraint 拡張の仕様バージョンを表します。
+<p>VRMC_node_constraint 拡張の仕様バージョンを表します。<br />
 値は <code>"1.0"</code> です。</p>
 <ul>
 <li>型: <code>string</code></li>
@@ -3520,7 +3520,7 @@
 <p><em>このセクションはnon-normativeです。</em></p>
 </blockquote>
 <h3 id="dependency-resolution-between-constraints">Dependency resolution between constraints</h3>
-<p>constraintは、他のconstraintに依存することがあります。
+<p>constraintは、他のconstraintに依存することがあります。<br />
 constraintの処理中に、まだ更新されていないtransformを参照することを防ぐため、constraintsの更新は適切な順序で行われるべきです。</p>
 <p>以下の擬似コードは、constraintsがどのように更新されるべきか、手続きの一例を表したものです:</p>
 <div class="highlight"><pre><span></span><code>let constraintsPending = empty set of Constraint

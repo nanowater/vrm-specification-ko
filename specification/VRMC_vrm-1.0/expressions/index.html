@@ -2435,12 +2435,12 @@
 </tbody>
 </table>
 <h3 id="expression_1">Expression 제어</h3>
-<p>각 Expression이 사용될 때, 해당 표정의 강도를 나타내는 'Value' 상태를 가질 것을 가정합니다.
-Value는 [0-1] 범위의 값을 갖는 수치입니다.
+<p>각 Expression이 사용될 때, 해당 표정의 강도를 나타내는 'Value' 상태를 가질 것을 가정합니다.<br />
+Value는 [0-1] 범위의 값을 갖는 수치입니다.<br />
 VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여한 경우, 값을 클램핑(Clamp)해 주십시오.</p>
 <h2 id="preset-expressions">Preset Expressions</h2>
-<p>이하는 프리셋 표정 목록입니다.
-이러한 표정 정의는 <code>expressions.preset</code> 내에 저장됩니다.
+<p>이하는 프리셋 표정 목록입니다.<br />
+이러한 표정 정의는 <code>expressions.preset</code> 내에 저장됩니다.<br />
 모든 프리셋 표정은 선택적(Optional)입니다.</p>
 <h3 id="_1">감정</h3>
 <table>
@@ -2583,13 +2583,13 @@ VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여�
 </tbody>
 </table>
 <h2 id="custom-expressions">Custom Expressions</h2>
-<p>위에서 언급한 Preset Expressions 외에도 사용자가 독자적으로 표정을 정의할 수 있습니다.
-Custom Expressions는 <code>expressions.custom</code> 내에 저장됩니다.
+<p>위에서 언급한 Preset Expressions 외에도 사용자가 독자적으로 표정을 정의할 수 있습니다.<br />
+Custom Expressions는 <code>expressions.custom</code> 내에 저장됩니다.<br />
 프리셋 이름과 같은 이름의 Custom Expressions는 허용되지 않습니다.</p>
 <h2 id="_6">절차적 오버라이드</h2>
-<p>립싱크, 눈깜빡임, 시선은 절차적으로 분류합니다.
-절차적이란 시스템에 의해 자동으로 생성되는 것을 가정합니다.
-따라서, 이러한 Expression이 다른 Expression과 동시에 활성화되어버려,
+<p>립싱크, 눈깜빡임, 시선은 절차적으로 분류합니다.<br />
+절차적이란 시스템에 의해 자동으로 생성되는 것을 가정합니다.<br />
+따라서, 이러한 Expression이 다른 Expression과 동시에 활성화되어버려,<br />
 메시(Mesh)가 깨져버릴 가능성이 있습니다.</p>
 <p>예를 들어,</p>
 <ul>
@@ -2597,12 +2597,12 @@ Custom Expressions는 <code>expressions.custom</code> 내에 저장됩니다.
 <li>눈을 감는 <code>sad</code>와 동시에 <code>blink</code>가 적용됨 =&gt; 눈을 두 번 감아서 눈꺼풀이 뺨을 관통함</li>
 <li><code>blink</code>와 동시에 <code>lookRight</code>가 적용됨 =&gt; 눈이 눈꺼풀을 관통함</li>
 </ul>
-<p>등입니다.
+<p>등입니다.<br />
 이를 방지하기 위해, 절차적이 아닌 Expression에 대해 동시에 절차적인 Expression이 활성화된 경우, 절차적인 Expression의 값을 오버라이드하는 기능이 있습니다.</p>
 <blockquote>
 <p><code>happy</code> 중에는 립싱크를 하지 않게 하는 등</p>
 </blockquote>
-<p>립싱크, 눈깜빡임, 시선에 대해
+<p>립싱크, 눈깜빡임, 시선에 대해<br />
 overrideMouth, overrideBlink, overrideLookAt을 설정할 수 있습니다.</p>
 <p>각각의 override 프로퍼티는 다음 절차적 표정에 대해 작용합니다:</p>
 <table>
@@ -2632,8 +2632,8 @@ overrideMouth, overrideBlink, overrideLookAt을 설정할 수 있습니다.</p>
 </tbody>
 </table>
 <blockquote>
-<p>커스텀 표정에 대해 이러한 override 프로퍼티가 작용할지 여부는 사양에서 특별히 정의하지 않습니다.
-애플리케이션 측의 요구에 맞게 적절히 설정해 주십시오.
+<p>커스텀 표정에 대해 이러한 override 프로퍼티가 작용할지 여부는 사양에서 특별히 정의하지 않습니다.<br />
+애플리케이션 측의 요구에 맞게 적절히 설정해 주십시오.<br />
 예를 들어, VRM의 프리셋에 포함되지 않는 립싱크를 커스텀 표정을 사용해 애플리케이션마다 이용하고 싶을 때, 해당 커스텀 표정의 발현을 override 프로퍼티를 사용하여 제어하는 사용법이 상정됩니다.</p>
 <p>위와 같은 이유로, VRM 구현은 커스텀 표정을 override 대상에 포함할 수 있도록 인터페이스를 제공하는 것이 권장됩니다.</p>
 </blockquote>
@@ -2662,8 +2662,8 @@ overrideMouth, overrideBlink, overrideLookAt을 설정할 수 있습니다.</p>
 </tbody>
 </table>
 <p>blend 세부사항</p>
-<p>예를 들어, happy가 overrideBlink = blend로 설정된 경우,
-happy의 값이 0에서 1로 페이드됨에 따라 선형적으로 blink를 감쇠시킵니다.
+<p>예를 들어, happy가 overrideBlink = blend로 설정된 경우,<br />
+happy의 값이 0에서 1로 페이드됨에 따라 선형적으로 blink를 감쇠시킵니다.<br />
 0~1 사이의 중간값의 동작이 block과 다릅니다.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">happyWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">happyWeight</span><span class="p">;</span>
@@ -2678,13 +2678,13 @@ happy의 값이 0에서 1로 페이드됨에 따라 선형적으로 blink를 감
 <h3 id="isbinary">오버라이드와 isBinary의 상호작용에 대하여</h3>
 <p>isBinary가 지정되어 있는 표정이 다른 표정에 오버라이드 영향을 미치는 경우, 출력값인 이진화된 값을 가지고 다른 표정에 영향을 미쳐야 합니다(MUST).</p>
 <blockquote>
-<p>이는 오버라이드 영향을 미치는 표정이 캐릭터 상에 시각적으로 발현되지 않았음에도 불구하고 다른 표정이 오버라이드에 의해 억제되는 것을 방지하기 위한 사양입니다.
+<p>이는 오버라이드 영향을 미치는 표정이 캐릭터 상에 시각적으로 발현되지 않았음에도 불구하고 다른 표정이 오버라이드에 의해 억제되는 것을 방지하기 위한 사양입니다.<br />
 예를 들어, 표정 <code>happy</code>의 <code>isBinary</code>가 <code>true</code>이고 <code>overrideBlink</code>에 <code>block</code> 또는 <code>blend</code>가 지정된 경우, <code>happy</code>의 값이 0.5 이상일 때 <code>blink</code>는 완전히 억제됩니다. 반대로 <code>happy</code>의 값이 0.5 미만일 때 <code>blink</code>는 <code>happy</code>의 값과 관계없이 평가됩니다.</p>
 <p><img alt="위의 예시에서의 happy 출력값 도해" src="../figures/override-isbinary-ko.png" /></p>
 </blockquote>
 <p>isBinary가 지정되어 있는 표정이 다른 표정으로부터 오버라이드 영향을 받는 경우, 받고 있는 영향이 0.0보다 크다면 완전히 억제되어야 합니다(MUST).</p>
 <blockquote>
-<p>이는 오버라이드 영향을 받는 <code>isBinary</code>가 <code>true</code>인 표정이 0 또는 1 이외의 값으로 발현되는 것을 방지하기 위한 사양입니다.
+<p>이는 오버라이드 영향을 받는 <code>isBinary</code>가 <code>true</code>인 표정이 0 또는 1 이외의 값으로 발현되는 것을 방지하기 위한 사양입니다.<br />
 예를 들어, 표정 <code>happy</code>의 <code>overrideBlink</code>가 <code>block</code> 또는 <code>blend</code>이고, 표정 <code>blink</code>의 <code>isBinary</code>가 <code>true</code>인 경우, <code>happy</code>가 조금이라도 오버라이드 영향을 주고 있다면 <code>blink</code>는 완전히 억제됩니다.</p>
 </blockquote>
 <h3 id="morphtargetbind">MorphTargetBind</h3>
@@ -2790,7 +2790,7 @@ happy의 값이 0에서 1로 페이드됨에 따라 선형적으로 blink를 감
 <p><code>targetValue</code>는 float4로 저장되지만, 대상 파라미터에 4번째 성분이 존재하지 않는 경우 4번째 값은 무시됩니다.</p>
 <h3 id="texturetransformbind">TextureTransformBind</h3>
 <p><code>extensions.VRMC_vrm.expressions[*].textureTransformBinds[*]</code></p>
-<p>Expression과 대상 Material 텍스처의 scale, offset 변화를 연결합니다.
+<p>Expression과 대상 Material 텍스처의 scale, offset 변화를 연결합니다.<br />
 대상 머티리얼에서 사용되는 텍스처 중 UV에 접근하는 텍스처 모두 동일한 값을 사용할 것으로 합니다.</p>
 <p>UV에 접근하지 않는 텍스처는 MToon의 <code>matcap</code>입니다.</p>
 <table>

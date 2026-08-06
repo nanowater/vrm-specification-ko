@@ -3099,7 +3099,7 @@
 <p>This extension defines Roll Constraint, Aim Constraint, and Rotation Constraint.</p>
 <h3 id="purposes">Purposes</h3>
 <p>The Constraint extension in VRM is designed for purposes that controls additional bones using transform informations applied to <a href="../VRMC_vrm-1.0/humanoid/">humanoid bones</a> in realtime.</p>
-<p>In addition, it defines constraints with semantical meaning considering the constraints are used across platforms.
+<p>In addition, it defines constraints with semantical meaning considering the constraints are used across platforms.<br />
 We expect implementations to have enough features that artists need, and we do not aim to make the behavior completely identical between implementations of the extension.</p>
 <h2 id="constraints">Constraints</h2>
 <p>A constraint can be either <em>Roll Constraint</em>, <em>Aim Constraint</em>, or <em>Rotation Constraint</em>.</p>
@@ -3131,7 +3131,7 @@ We expect implementations to have enough features that artists need, and we do n
 <p>Roll Constraint specifies a <em>roll axis</em>, which indicates which axis of destination should transfer from the source.</p>
 <p>Roll axis can be one of <code>"X"</code>, <code>"Y"</code>, or <code>"Z"</code>.</p>
 <h4 id="evaluation-of-rotations">Evaluation of rotations</h4>
-<p>It <strong>SHOULD</strong> evaluate the rotation from the rest transform of the source to the current orientation of the source, around the roll axis of the rest transform of the destination.
+<p>It <strong>SHOULD</strong> evaluate the rotation from the rest transform of the source to the current orientation of the source, around the roll axis of the rest transform of the destination.<br />
 Also, if the source is rotating outside of the roll axis, it <strong>SHOULD</strong> evaluate the roll axis using the difference between a minimum rotation which makes the roll axis direct at the same direction.</p>
 <h4 id="example-of-implementation">Example of Implementation</h4>
 <blockquote>
@@ -3168,7 +3168,7 @@ Also, if the source is rotating outside of the roll axis, it <strong>SHOULD</str
 <p>Aim Constraint specifies a <em>aim axis</em>, which indicates which axis of destination should aim at the source.</p>
 <p>Aim axis can be one of <code>"PositiveX"</code>, <code>"NegativeX"</code>, <code>"PositiveY"</code>, <code>"NegativeY"</code>, <code>"PositiveZ"</code>, or <code>"NegativeZ"</code>.</p>
 <h4 id="evaluation-of-rotations_1">Evaluation of rotations</h4>
-<p>It <strong>SHOULD</strong> evaluate the rotation from the rest transform of the destination to the orientation that makes the aim axis aim at the source in world coordinates.
+<p>It <strong>SHOULD</strong> evaluate the rotation from the rest transform of the destination to the orientation that makes the aim axis aim at the source in world coordinates.<br />
 The rotation <strong>SHOULD</strong> be the smallest possible rotation that meets the condition.</p>
 <h4 id="example-of-implementation_1">Example of Implementation</h4>
 <blockquote>
@@ -3214,7 +3214,7 @@ The rotation <strong>SHOULD</strong> be the smallest possible rotation that meet
 <hr />
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
 <h3 id="extending-nodes">Extending Nodes</h3>
-<p>A constraint will be described by adding a <code>VRMC_node_constraint</code> extension to a node.
+<p>A constraint will be described by adding a <code>VRMC_node_constraint</code> extension to a node.<br />
 For example, the following defines a Rotation Constraint that constrains the rotation of the node <code>NodeB</code> by another node <code>NodeA</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3280,7 +3280,7 @@ For example, the following defines a Rotation Constraint that constrains the rot
 <li>JSON schema: <a href="../../../specification/VRMC_node_constraint-1.0/schema/VRMC_node_constraint.schema.json">VRMC_node_constraint.schema.json</a></li>
 </ul>
 <h4 id="vrmc_node_constraintspecversion">VRMC_node_constraint.specVersion ✅</h4>
-<p>Represents the version of VRMC_node_constraint extension.
+<p>Represents the version of VRMC_node_constraint extension.<br />
 The value will be <code>"1.0"</code> .</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -3521,7 +3521,7 @@ The value will be <code>"1.0"</code> .</p>
 <p><em>This section is non-normative.</em></p>
 </blockquote>
 <h3 id="dependency-resolution-between-constraints">Dependency resolution between constraints</h3>
-<p>A constraint often depends on other constraints.
+<p>A constraint often depends on other constraints.<br />
 Constraints should be updated in correct orders under cases that has dependencies, to prevent constraints from referring transforms that is not updated yet.</p>
 <p>The pseudocode is an example of procedure how constraints should be updated:</p>
 <div class="highlight"><pre><span></span><code>let constraintsPending = empty set of Constraint

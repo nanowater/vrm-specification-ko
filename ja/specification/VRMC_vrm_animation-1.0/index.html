@@ -3162,67 +3162,67 @@
 <p>glTF 2.0仕様に向けて策定されています。</p>
 <p>また、仕様内の一部定義が <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/README.ja.md"><code>VRMC_vrm</code></a> に依存します。</p>
 <h2 id="overview">Overview</h2>
-<p><code>VRMC_vrm_animation</code> 仕様は、人間型モデルに対するアニメーションを記述するためのglTF拡張です。
+<p><code>VRMC_vrm_animation</code> 仕様は、人間型モデルに対するアニメーションを記述するためのglTF拡張です。<br />
 人間型モデルを記述するglTF拡張である <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/README.ja.md"><code>VRMC_vrm</code></a> で表現されたモデルに対して適用することを想定しています。</p>
-<p>glTFで定義されたノードのヒエラルキーに対して、各ノードと人間のボーン・表情・視線方向を関連付けて、任意の人間型モデルに適用できるアニメーションを表現します。
+<p>glTFで定義されたノードのヒエラルキーに対して、各ノードと人間のボーン・表情・視線方向を関連付けて、任意の人間型モデルに適用できるアニメーションを表現します。<br />
 アニメーションの実データは、glTFのコア定義のアニメーション部分を利用します。</p>
-<p>アニメーションのみを記述する独立したglTFファイルに使用されることを想定しています。
+<p>アニメーションのみを記述する独立したglTFファイルに使用されることを想定しています。<br />
 <code>VRMC_vrm</code> を用いて記述されたVRMモデルに対して本拡張が含まれることは想定していません。</p>
 <h2 id="concepts">Concepts</h2>
 <h3 id="animations">Animations</h3>
 <p>glTFのコア定義のアニメーションを利用します。</p>
-<p>原則、アニメーションを用いる際は、 <code>animations</code> に定義された最初のアニメーションを読み込むものとします。
-1つのファイルに複数のアニメーションが含まれている場合があります。
+<p>原則、アニメーションを用いる際は、 <code>animations</code> に定義された最初のアニメーションを読み込むものとします。<br />
+1つのファイルに複数のアニメーションが含まれている場合があります。<br />
 実装は、1つのファイル内に含まれた複数のアニメーションに対応することができますが、必須ではありません。</p>
-<p>glTF アニメーションは、任意時間にキーフレームを挿入できるのでフレームレートの概念がありません。
+<p>glTF アニメーションは、任意時間にキーフレームを挿入できるのでフレームレートの概念がありません。<br />
 以下の点を考慮し、高すぎず低すぎないフレームレートの目安として秒間 30 フレームを提案します。</p>
 <ul>
 <li>ゲームでは 60 FPS や 30 FPS が一般的です</li>
 <li>モーションキャプチャーの生データ(加工前)は高フレームレートの場合があります</li>
 <li>映像では 24FPS などがあります</li>
 </ul>
-<p>アニメーションを Linear で Interpolation することを想定して、
+<p>アニメーションを Linear で Interpolation することを想定して、<br />
 30 FPS で十分な滑らかさを確保できると思われます。</p>
 <h3 id="humanoid">Humanoid</h3>
-<p>Humanoidは、本拡張内で定義する人間のボーンの定義です。
+<p>Humanoidは、本拡張内で定義する人間のボーンの定義です。<br />
 各Humanoidボーンは、glTFのノードとして表現されます。</p>
-<p><code>VRMC_vrm_animation/humanoid</code> 内で、glTFのノードと人間のボーンの対応関係を示します。
+<p><code>VRMC_vrm_animation/humanoid</code> 内で、glTFのノードと人間のボーンの対応関係を示します。<br />
 Humanoidで利用するボーンおよびその構造について、 <code>VRMC_vrm</code> 拡張のHumanoidに準拠します。</p>
 <p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.ja.md</p>
-<p>ただし、Humanoidボーンのうち <code>leftEye</code> ・ <code>rightEye</code> は、これらに対してアニメーションデータを持つことはできません。
+<p>ただし、Humanoidボーンのうち <code>leftEye</code> ・ <code>rightEye</code> は、これらに対してアニメーションデータを持つことはできません。<br />
 これらは、後述するLookAtで扱われます。</p>
 <blockquote>
 <p>将来的な拡張性を見越して、Humanoidボーンのヒエラルキー全体をアニメーションデータ内に収録しています。</p>
 </blockquote>
 <p>Humanoidボーンとして指定されたノードは、アニメーションが適用されていないレストポーズにおいて、「VRM T-pose」と呼ばれるポーズに従っている必要があります。</p>
 <p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/tpose.ja.md</p>
-<p>Humanoidボーンとして指定されたノードに対するアニメーションを、アニメーションデータとして扱います。
-Humanoidボーンに対するアニメーションにスケールを含めてはいけません。
+<p>Humanoidボーンとして指定されたノードに対するアニメーションを、アニメーションデータとして扱います。<br />
+Humanoidボーンに対するアニメーションにスケールを含めてはいけません。<br />
 また、Hipsボーン以外に対するアニメーションに平行移動を含めてはいけません。</p>
 <blockquote>
 <p>実装内では、例えばUnityのHumanoidシステムを用いて高度なアニメーション転送がされることが望ましいですが、これが難しい場合は、単純にFKアニメーションとして転送することもできます。</p>
 </blockquote>
 <p>また、 アニメーションデータとは別に <code>T-Pose</code> を表現する node のヒエラルキーに <code>scale</code> を含めないことを強く推奨します。</p>
 <blockquote>
-<p>データを生成するアプリケーションで、ヒエラルキーとアニメーションにスケール値を事前に乗算することで解決できます。
+<p>データを生成するアプリケーションで、ヒエラルキーとアニメーションにスケール値を事前に乗算することで解決できます。<br />
 ランタイムロードするプログラムの側の負担を軽減することを意図しています。</p>
 </blockquote>
 <p>一方で、回転は任意で問題ありません。<a href="how_to_transform_human_pose/">ポーズデータの互換性について</a>を参照してください。</p>
 <h3 id="expressions">Expressions</h3>
-<p>Expressionsは、本拡張内で定義する人間の表情の定義です。
+<p>Expressionsは、本拡張内で定義する人間の表情の定義です。<br />
 各Expressionsは、 [0, 1] の範囲のスカラをウェイトとして持ち、この数値がどの程度その表情が発現しているかを表します。</p>
 <blockquote>
 <p><code>VRMC_vrm</code> 拡張では、Expressionsのウェイトがメッシュのモーフ・マテリアルの色・テクスチャのUVに対して適用されます。</p>
 </blockquote>
-<p><code>VRMC_vrm_animation/expressions</code> 内で、glTFのノードと表情との対応関係を示します。
+<p><code>VRMC_vrm_animation/expressions</code> 内で、glTFのノードと表情との対応関係を示します。<br />
 Expressionsの定義について、 <code>VRMC_vrm</code> 拡張のExpressionsに準拠します。</p>
 <p>https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/expressions.ja.md</p>
-<p>ただし、プリセット表情のうち <code>lookUp</code> ・ <code>lookDown</code> ・ <code>lookLeft</code> ・ <code>lookRight</code> は、これらに対してアニメーションデータを持つことはできません。
+<p>ただし、プリセット表情のうち <code>lookUp</code> ・ <code>lookDown</code> ・ <code>lookLeft</code> ・ <code>lookRight</code> は、これらに対してアニメーションデータを持つことはできません。<br />
 これらは、後述するLookAtで扱われます。</p>
-<p>Expressionsのうち、 <code>VRMC_vrm</code> 拡張でプリセット表情として定義されているものをプリセット表情、それ以外をカスタム表情と定義します。
+<p>Expressionsのうち、 <code>VRMC_vrm</code> 拡張でプリセット表情として定義されているものをプリセット表情、それ以外をカスタム表情と定義します。<br />
 カスタム表情に、プリセットと同じ名前の表情を含めることはできません。</p>
-<p>Expressionsとして指定されたノードに対するアニメーションのうち、平行移動のX成分を、その表情のウェイトに対するアニメーションデータとして扱います。
-ウェイト値は [0, 1] の範囲内に収まっていることが望ましいです。
+<p>Expressionsとして指定されたノードに対するアニメーションのうち、平行移動のX成分を、その表情のウェイトに対するアニメーションデータとして扱います。<br />
+ウェイト値は [0, 1] の範囲内に収まっていることが望ましいです。<br />
 実装は、 [0, 1] の範囲から外れたウェイト値を扱う場合、その値を [0, 1] の範囲内に収めて扱わなければいけません。</p>
 <h3 id="lookat">LookAt</h3>
 <p>LookAtは、本拡張内で定義する人間の視線についての定義です。</p>
@@ -3231,12 +3231,12 @@ Expressionsの定義について、 <code>VRMC_vrm</code> 拡張のExpressions�
 </blockquote>
 <h4 id="_1">視線方向</h4>
 <p>LookAtは、一つの視線方向を持ち、モデルがその方向に視線を動かすことを示します。</p>
-<p><code>VRMC_vrm_animation/lookAt/node</code> で、視線方向を回転として持つglTFのノードを指定します。
+<p><code>VRMC_vrm_animation/lookAt/node</code> で、視線方向を回転として持つglTFのノードを指定します。<br />
 指定したノードのローカル空間における回転を、視線方向のアニメーションデータとして扱います。</p>
-<p>glTFでは回転はクォータニオンとして定義されますが、 <code>VRMC_vrm</code> のLookAtコンポーネントに適用する際はyaw-pitchのオイラー角に変換して扱います。
+<p>glTFでは回転はクォータニオンとして定義されますが、 <code>VRMC_vrm</code> のLookAtコンポーネントに適用する際はyaw-pitchのオイラー角に変換して扱います。<br />
 このとき、オイラー角の回転順序は、Extrinsic ZXYで解釈し、Y軸周りの回転をyaw・X軸周りの回転をpitchとします。</p>
 <h4 id="_2">視点位置</h4>
-<p>本拡張内で定義されるLookAtにおいて、視点の位置は、<a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/lookAt.ja.md#lookat-%E7%A9%BA%E9%96%93-offsetfromheadbone"><code>VRMC_vrm</code> 仕様内で定義されたLookAt空間</a>に従い、Humanoidで定義されたheadボーンのトランスフォームからの相対的な空間において、 <code>VRMC_vrm_animation/offsetFromHeadBone</code> だけ平行移動した位置とします。
+<p>本拡張内で定義されるLookAtにおいて、視点の位置は、<a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/lookAt.ja.md#lookat-%E7%A9%BA%E9%96%93-offsetfromheadbone"><code>VRMC_vrm</code> 仕様内で定義されたLookAt空間</a>に従い、Humanoidで定義されたheadボーンのトランスフォームからの相対的な空間において、 <code>VRMC_vrm_animation/offsetFromHeadBone</code> だけ平行移動した位置とします。<br />
 また、その視線は初期状態において、モデル座標系における+Z方向を向いているものと定義します。</p>
 <blockquote>
 <p>Implementation Note: 視線方向を加工せずにそのまま利用する場合、 <code>offsetFromHeadBone</code> の値を解釈する必要はありません。転送先のモデルの体格に合わせて、視点情報に何らかのリターゲティングを適用したい場合、 <code>offsetFromHeadBone</code> の値を加味したアニメーション側のモデルの視点位置を活用するのが有効な場合があります。</p>
@@ -3403,8 +3403,8 @@ Expressionsの定義について、 <code>VRMC_vrm</code> 拡張のExpressions�
 <h4 id="json-schema_2">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.humanoid.humanBones.schema.json">VRMC_vrm_animation.humanoid.humanBones.schema.json</a></p>
 <h4 id="humanoidhumanboneshumanoid">humanoid.humanBones.(Humanoidボーン名)</h4>
-<p>ひとつのHumanoidボーンを表すオブジェクトです。
-<code>VRMC_vrm</code> 拡張で定義されているHumanoidボーンの名前をキー名として持ちます（<code>hips</code> や <code>leftUpperArm</code> など）。
+<p>ひとつのHumanoidボーンを表すオブジェクトです。<br />
+<code>VRMC_vrm</code> 拡張で定義されているHumanoidボーンの名前をキー名として持ちます（<code>hips</code> や <code>leftUpperArm</code> など）。<br />
 ただし、Humanoidボーンのうち <code>leftEye</code> ・ <code>rightEye</code> は定義できません。</p>
 <ul>
 <li>型: <code>humanoid.humanBones.humanBone</code></li>
@@ -3505,8 +3505,8 @@ Expressionsの定義について、 <code>VRMC_vrm</code> 拡張のExpressions�
 <h4 id="json-schema_5">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
 <h4 id="expressionspreset_2">expressions.preset.(プリセット表情名)</h4>
-<p>ひとつのプリセット表情を表すオブジェクトです。
-<code>VRMC_vrm</code> 拡張で定義されているプリセット表情の名前をキー名として持ちます（<code>aa</code> や <code>leftBlink</code> など）。
+<p>ひとつのプリセット表情を表すオブジェクトです。<br />
+<code>VRMC_vrm</code> 拡張で定義されているプリセット表情の名前をキー名として持ちます（<code>aa</code> や <code>leftBlink</code> など）。<br />
 ただし、プリセット表情のうち <code>lookUp</code> ・ <code>lookDown</code> ・ <code>lookLeft</code> ・ <code>lookRight</code> は定義できません。</p>
 <ul>
 <li>型: <code>expressions.expression</code></li>
@@ -3536,7 +3536,7 @@ Expressionsの定義について、 <code>VRMC_vrm</code> 拡張のExpressions�
 <h4 id="json-schema_6">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_vrm_animation-1.0/schema/VRMC_vrm_animation.expressions.schema.json">VRMC_vrm_animation.expressions.schema.json</a></p>
 <h4 id="expressionscustom_2">expressions.custom.(カスタム表情名)</h4>
-<p>ひとつのカスタム表情を表すオブジェクトです。
+<p>ひとつのカスタム表情を表すオブジェクトです。<br />
 <code>VRMC_vrm</code> 拡張で定義されるプリセット表情の名前以外であれば、任意の表情名を指定可能です。</p>
 <ul>
 <li>型: <code>expressions.expression</code></li>

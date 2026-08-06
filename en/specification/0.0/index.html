@@ -1772,7 +1772,7 @@
 
 
 <h1 id="vrm-specifications">VRM specifications</h1>
-<p>VRM is based on glb format, which is a binary form of <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md">glTF 2.0</a>. It is a model format for VR.
+<p>VRM is based on glb format, which is a binary form of <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md">glTF 2.0</a>. It is a model format for VR.<br />
 VRM specification repository is <a href="https://github.com/vrm-c/vrm-specification">VRM specification</a>.</p>
 <h1 id="update-history">Update history</h1>
 <ul>
@@ -1865,7 +1865,7 @@ VRM specification repository is <a href="https://github.com/vrm-c/vrm-specificat
 </ul>
 <p>Saves information that can revert back to GLTF material (it is used when file extension is changed to GLB).</p>
 <h2 id="vrm-extension-extensionsvrmmaterialproperties">VRM extension: <code>/extensions/VRM/materialProperties</code></h2>
-<p>Saves VRM unique material information and items necessary for Unity.
+<p>Saves VRM unique material information and items necessary for Unity.<br />
 Please refer to <a href="#vrmshader">Available shaders in VRM</a>.</p>
 <ul>
 <li>https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.material.schema.json</li>
@@ -1963,7 +1963,7 @@ Please refer to <a href="#vrmshader">Available shaders in VRM</a>.</p>
 <h1 id="available-shaders-in-vrm">Available shaders in VRM</h1>
 <p>The following shaders are available assuming operation of cel-style character model:</p>
 <h2 id="unlit-type">Unlit type</h2>
-<p>Texture color is displayed as it is without lighting / shading.
+<p>Texture color is displayed as it is without lighting / shading.<br />
 There are four types available for handling degree of transparency:</p>
 <ul>
 <li>UnlitTexture (opacity)</li>
@@ -1971,7 +1971,7 @@ There are four types available for handling degree of transparency:</p>
 <li>UnlitTransparent (Alpha blending. ZWrite is not used)[^Transparent]</li>
 <li>UnlitTransparentZWrite (Alpha blending. ZWrite is used)[^TransparentZWrite]</li>
 </ul>
-<p>[^Transparent]: For objects without substances such as smoke and cheek color.
+<p>[^Transparent]: For objects without substances such as smoke and cheek color.<br />
 [^TransparentZWrite]: For objects with substances such as semi-transparent clothes and the ends of semi-transparent hairs.</p>
 <h2 id="mtoon">MToon</h2>
 <p>The shader that supports cel shading and outline. Texture can be set more finely than Unlit.</p>
@@ -2181,7 +2181,7 @@ There are four types available for handling degree of transparency:</p>
 <h3 id="contact-information">Contact Information</h3>
 <p>Enter the contact information of the author</p>
 <blockquote>
-<p>This property is intended to be used to display the contact information of the author of the model such as social account information or website, in case the user wants to contact the author for some reason.
+<p>This property is intended to be used to display the contact information of the author of the model such as social account information or website, in case the user wants to contact the author for some reason.<br />
 Make sure not to include personal information that is not intended to be disclosed to the public, such as phone numbers or addresses.</p>
 </blockquote>
 <h3 id="reference">Reference</h3>
@@ -2424,7 +2424,7 @@ function GetID(preset, name)
 <h2 id="firstpersonbone-jsonextensionsvrmfirstpersonfirstpersonbone">firstPersonBone (json.extensions.VRM.firstPerson.firstPersonBone)</h2>
 <p>The bone whose rendering should be turned off in first-person view. Usually<code>Head</code>is specified.</p>
 <h2 id="firstpersonboneoffset-jsonextensionsvrmfirstpersonfirstpersonboneoffset">firstPersonBoneOffset (json.extensions.VRM.firstPerson.firstPersonBoneOffset)</h2>
-<p>The target position of the VR headset in first-person view. 
+<p>The target position of the VR headset in first-person view. <br />
 It is assumed that an offset from the head bone to the VR headset is added.</p>
 <h2 id="meshannotations-jsonextensionsvrmfirstpersonmeshannotations">meshAnnotations (json.extensions.VRM.firstPerson.meshAnnotations)</h2>
 <p>Switch display / undisplay for each mesh in first-person view or the others. The following settings are available:  </p>

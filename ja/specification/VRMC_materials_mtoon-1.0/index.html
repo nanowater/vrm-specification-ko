@@ -3712,9 +3712,9 @@
 <p>MToonシェーダの実装が難しい場合、 <code>KHR_materials_unlit</code> にフォールバックしてください。</p>
 <h2 id="overview">Overview</h2>
 <p>この拡張は、 VRM 向けのトゥーンシェーダ実装です。</p>
-<p>トゥーンシェーダ的な効果を付与しつつ、 PBR のシーンライティングと協調することを目的とします。
+<p>トゥーンシェーダ的な効果を付与しつつ、 PBR のシーンライティングと協調することを目的とします。<br />
 日本の手描きアニメ表現への特化はしません。</p>
-<p>その際、本来トゥーンシェーダは画像処理的なアプローチを必要としますが、本拡張ではそれを避けて近似定義を行います。
+<p>その際、本来トゥーンシェーダは画像処理的なアプローチを必要としますが、本拡張ではそれを避けて近似定義を行います。<br />
 したがって本定義では、特定のレンダリング手法に依存した定義を含みます。</p>
 <h2 id="extending-materials">Extending Materials</h2>
 <p>マテリアルの <code>extensions</code> に定義します。</p>
@@ -3768,7 +3768,7 @@
 </tbody>
 </table>
 <h4 id="specversion">specVersion</h4>
-<p>VRMC_materials_mtoon 拡張のバージョン番号を示します。
+<p>VRMC_materials_mtoon 拡張のバージョン番号を示します。<br />
 値は <code>"1.0"</code> です。</p>
 <ul>
 <li>型: <code>string</code></li>
@@ -3777,18 +3777,18 @@
 <h3 id="rendering">Rendering</h3>
 <p>描画に関する MToon の定義を述べます。</p>
 <h4 id="render-mode">Render Mode</h4>
-<p>このマテリアルがどのようなアルファ処理で描画されるのかを指定します。
-アルファ値は、 glTF の仕様で定義される <code>pbrMetallicRoughness.baseColorFactor</code> および <code>pbrMetallicRoughness.baseColorTexture</code> で定義されるアルファ値を参照します。
-アルファ値の処理は、 glTF の仕様で定義される <code>alphaMode</code> および <code>alphaCutoff</code> を用います。
+<p>このマテリアルがどのようなアルファ処理で描画されるのかを指定します。<br />
+アルファ値は、 glTF の仕様で定義される <code>pbrMetallicRoughness.baseColorFactor</code> および <code>pbrMetallicRoughness.baseColorTexture</code> で定義されるアルファ値を参照します。<br />
+アルファ値の処理は、 glTF の仕様で定義される <code>alphaMode</code> および <code>alphaCutoff</code> を用います。<br />
 それぞれの処理の詳細については、 glTF の仕様に準拠します。</p>
-<p>glTF で定義される <code>alphaMode</code> に加え、本拡張では <code>transparentWithZWrite</code> というプロパティを提供します。
-通常 <code>alphaMode</code> が <code>BLEND</code> の際は、 ZBuffer に対する書き込みを推奨しませんが、
+<p>glTF で定義される <code>alphaMode</code> に加え、本拡張では <code>transparentWithZWrite</code> というプロパティを提供します。<br />
+通常 <code>alphaMode</code> が <code>BLEND</code> の際は、 ZBuffer に対する書き込みを推奨しませんが、<br />
 このプロパティが <code>true</code> の場合、 <code>alphaMode</code> が <code>BLEND</code> の際に、 ZBuffer に対する書き込みを推奨します。</p>
 <blockquote>
 <p><code>transparentWithZWrite</code> の実装が困難な場合、通常のアルファブレンディングの処理にフォールバックしてください。</p>
 </blockquote>
 <h4 id="render-queue">Render Queue</h4>
-<p>このマテリアルがどのような順番で描画されるべきなのかを指定します。
+<p>このマテリアルがどのような順番で描画されるべきなのかを指定します。<br />
 MToon は次のような順番で描画されることを期待します。</p>
 <ol>
 <li><code>alphaMode</code> が <code>OPAQUE</code></li>
@@ -3796,12 +3796,12 @@ MToon は次のような順番で描画されることを期待します。</p>
 <li><code>alphaMode</code> が <code>BLEND</code> かつ <code>transparentWithZWrite</code> が <code>true</code></li>
 <li><code>alphaMode</code> が <code>BLEND</code> かつ <code>transparentWithZWrite</code> が <code>false</code></li>
 </ol>
-<p>トゥーンシェーダでは半透明表現が多用されるため、描画順序に起因する問題が発生しがちです。
-MToon ではそのために <code>transparentWithZWrite</code> を導入していますが、さらに描画順制御の仕組みを導入しています。
-<code>renderQueueOffsetNumber</code> はそれぞれの Render Mode のデフォルト描画順に対するオフセット値です。
-Unity におけるマテリアルごとの Render Queue 値に対してオフセットとして加算される挙動を期待します。
-<code>renderQueueOffsetNumber</code> は <code>alphaMode</code> が <code>BLEND</code> のときに作用します。
-値が大きいほど、描画の順番は後回しにされます。
+<p>トゥーンシェーダでは半透明表現が多用されるため、描画順序に起因する問題が発生しがちです。<br />
+MToon ではそのために <code>transparentWithZWrite</code> を導入していますが、さらに描画順制御の仕組みを導入しています。<br />
+<code>renderQueueOffsetNumber</code> はそれぞれの Render Mode のデフォルト描画順に対するオフセット値です。<br />
+Unity におけるマテリアルごとの Render Queue 値に対してオフセットとして加算される挙動を期待します。<br />
+<code>renderQueueOffsetNumber</code> は <code>alphaMode</code> が <code>BLEND</code> のときに作用します。<br />
+値が大きいほど、描画の順番は後回しにされます。<br />
 値のとりうる範囲について次の表に示します。</p>
 <table>
 <thead>
@@ -3880,7 +3880,7 @@ Unity におけるマテリアルごとの Render Queue 値に対してオフセ
 <h3 id="lighting">Lighting</h3>
 <p>ライティングに関する定義を述べます。</p>
 <h4 id="lighting-model">Lighting Model</h4>
-<p>MToon は Lambert 反射モデルを拡張します。
+<p>MToon は Lambert 反射モデルを拡張します。<br />
 通常の Lambert 反射モデルと同様、面の法線とライトベクトルによって陰影が付けられますが、以下のような特徴を持つことで、トゥーン表現を可能とします:</p>
 <ul>
 <li>通常のベースカラーとは別に、陰色の指定ができます。</li>
@@ -3890,7 +3890,7 @@ Unity におけるマテリアルごとの Render Queue 値に対してオフセ
 <p>ベースカラーは、 glTF コア仕様のマテリアル定義に含まれる <code>pbrMetallicRoughness.baseColorFactor</code> および <code>pbrMetallicRoughness.baseColorTexture</code> を用います。</p>
 <h4 id="shade-color">Shade Color</h4>
 <p>MToonでは、ベースカラーとは別に、陰色の指定ができます。</p>
-<p>通常の Lambert 反射モデルの場合、光の当たっていない陰の面は黒くレンダリングされますが、 MToon ではベースカラーと陰色が線形補間されるような挙動となります。
+<p>通常の Lambert 反射モデルの場合、光の当たっていない陰の面は黒くレンダリングされますが、 MToon ではベースカラーと陰色が線形補間されるような挙動となります。<br />
 また、ベースカラーがテクスチャによって乗算されるのと同様、陰色に対しても陰色用のテクスチャを別途指定することができ、テクスチャ色が陰色に対して乗算されます。</p>
 <p>陰色は、 MToon 拡張によって定義される <code>shadeColorFactor</code> および <code>shadeMultiplyTexture</code> を用います。</p>
 <p><img src="figures/mtoon-lit-shade.png" width="67%"></p>
@@ -3898,11 +3898,11 @@ Unity におけるマテリアルごとの Render Queue 値に対してオフセ
 <p>法線マップを利用できます。 glTF コア仕様のマテリアル定義に含まれる <code>normalTexture</code> を用います。</p>
 <h4 id="shading-shift">Shading Shift</h4>
 <p>MToon では、面の法線とライトベクトルの内積に応じてベースカラーと陰色を線形補間しますが、このベースカラーと陰色の境界の位置および広さ（ぼかし具合）を調整することができます。</p>
-<p>シェーディング境界の位置は、 MToon 拡張によって定義される <code>shadingShiftFactor</code> および <code>shadingShiftTexture</code> を用います。
+<p>シェーディング境界の位置は、 MToon 拡張によって定義される <code>shadingShiftFactor</code> および <code>shadingShiftTexture</code> を用います。<br />
 シェーディング境界の広さ（ぼかし具合）は、 MToon 拡張によって定義される <code>shadingToonyFactor</code> を用います。</p>
-<p><code>shadingShiftTexture</code> は、 <code>shadingShiftFactor</code> によって設定されるシェーディング境界の位置を調整します。
-このテクスチャによって、部分的に光のあたり方を調整することができます。
-<code>shadingShiftTexture</code> は、 <code>shadingShiftFactor</code> と加算で処理されます。
+<p><code>shadingShiftTexture</code> は、 <code>shadingShiftFactor</code> によって設定されるシェーディング境界の位置を調整します。<br />
+このテクスチャによって、部分的に光のあたり方を調整することができます。<br />
+<code>shadingShiftTexture</code> は、 <code>shadingShiftFactor</code> と加算で処理されます。<br />
 また、 <code>shadingShiftTexture.scale</code> を用いて、このテクスチャがシェーディング境界にどの程度寄与するかを制御することができます。</p>
 <p><img src="figures/mtoon-shading-ramp.png" width="67%"></p>
 <h4 id="implementation">Implementation</h4>
@@ -3966,7 +3966,7 @@ color = color * lightColor
 </tbody>
 </table>
 <h4 id="shadecolorfactor">shadeColorFactor</h4>
-<p>陰色を指定します。
+<p>陰色を指定します。<br />
 値はリニア色空間で評価されます。</p>
 <ul>
 <li>型: <code>number[3]</code></li>
@@ -3974,8 +3974,8 @@ color = color * lightColor
 </ul>
 <h4 id="shademultiplytexture">shadeMultiplyTexture</h4>
 <p>陰色に乗算されるテクスチャを指定します。</p>
-<p>テクスチャの値は sRGB 伝達関数でエンコードされています。
-アサインされたテクスチャの RGB コンポーネントを参照し、リニア色空間に変換して評価されます。
+<p>テクスチャの値は sRGB 伝達関数でエンコードされています。<br />
+アサインされたテクスチャの RGB コンポーネントを参照し、リニア色空間に変換して評価されます。<br />
 未定義の場合、RGB の各値は <code>1.0</code> として評価されなければなりません。</p>
 <p><code>shadeColorFactor</code> で設定された値に対して乗算されます。</p>
 <ul>
@@ -3992,11 +3992,11 @@ color = color * lightColor
 <h4 id="shadingshifttexture">shadingShiftTexture</h4>
 <p>シェーディング境界をシフトするテクスチャを指定します。</p>
 <p>具体的にどう計算がされるかについては、上記 <a href="#Shading%20Shift">Shading Shift</a> を参照ください。</p>
-<p>テクスチャの値はリニア色空間です。
-アサインされたテクスチャの R コンポーネントを参照し、リニア色空間で評価されます。
+<p>テクスチャの値はリニア色空間です。<br />
+アサインされたテクスチャの R コンポーネントを参照し、リニア色空間で評価されます。<br />
 未定義の場合、R コンポーネントの値は <code>0.0</code> として評価されなければなりません。</p>
 <blockquote>
-<p>アサインされたテクスチャのRコンポーネントを参照するため、白黒のマスクテクスチャを使用することもできますし、チャンネルごとに他のマスクを持ったRGBのテクスチャを利用することもできます。
+<p>アサインされたテクスチャのRコンポーネントを参照するため、白黒のマスクテクスチャを使用することもできますし、チャンネルごとに他のマスクを持ったRGBのテクスチャを利用することもできます。<br />
 <code>outlineWidthMultiplyTexture</code> (Gチャンネルを使う) および <code>uvAnimationMaskTexture</code> (Bチャンネルを使う) を組み合わせることができます。</p>
 </blockquote>
 <ul>
@@ -4058,7 +4058,7 @@ color = color * lightColor
 <li>最小値: <code>&gt;= 0</code></li>
 </ul>
 <h4 id="shadingshifttextureinfoscale">shadingShiftTextureInfo.scale</h4>
-<p>テクスチャのシェーディング境界への寄与を指定します。
+<p>テクスチャのシェーディング境界への寄与を指定します。<br />
 この値はリニア値です。</p>
 <ul>
 <li>型: <code>number</code></li>
@@ -4066,24 +4066,24 @@ color = color * lightColor
 </ul>
 <h3 id="global-illumination">Global Illumination</h3>
 <p>IBL (Image-based Lighting) や SH (Spherical Harmonics) Lighting などの特定の位置や方向に依存しない、いわゆる大域照明に対する挙動の定義を述べます。</p>
-<p>一般にトゥーンシェーダにおいて、描画された陰影を見てジオメトリの凹凸を詳細に読み取れる表現は望ましくありません。
-そのため本拡張では Shading Toony と Shading Shift のパラメタを導入しています。
+<p>一般にトゥーンシェーダにおいて、描画された陰影を見てジオメトリの凹凸を詳細に読み取れる表現は望ましくありません。<br />
+そのため本拡張では Shading Toony と Shading Shift のパラメタを導入しています。<br />
 これらのパラメタはジオメトリの凹凸、つまり法線方向と光源の入射方向の変化に対して陰影が大きく変化しないように制御することができます。</p>
-<p>しかし IBL や SH Lighting といった大域照明においては、これらのパラメタでは不十分です。
+<p>しかし IBL や SH Lighting といった大域照明においては、これらのパラメタでは不十分です。<br />
 大域照明は方向が変化すると、放射輝度も大きく変化するからです。</p>
-<p>そこで本拡張では GI Equalization Factor のパラメタを導入します。
-GI Equalization Factor はジオメトリの法線に依らず、ジオメトリが受ける大域照明を一定とすることができます。
-その結果として描画される陰影は弱くなり、ジオメトリの凹凸を読み取りづらい表現にすることができます。
+<p>そこで本拡張では GI Equalization Factor のパラメタを導入します。<br />
+GI Equalization Factor はジオメトリの法線に依らず、ジオメトリが受ける大域照明を一定とすることができます。<br />
+その結果として描画される陰影は弱くなり、ジオメトリの凹凸を読み取りづらい表現にすることができます。<br />
 具体的には、大域照明を方向に対して平滑化することで実現します。</p>
 <p>GI Equalization Factor は MToon 拡張によって定義される <code>giEqualizationFactor</code> を用います。</p>
 <p>詳細な計算定義を以下に述べます。</p>
-<p>まず、任意のジオメトリの法線ベクトルを <code>n</code> とします。
-また任意の方向ベクトル <code>x</code> に対応するレンダリングシステム上の大域照明を求める関数を <code>rawGi(x)</code> とします。
-そして、均一化された大域照明 <code>uniformedGi</code> を定義します。
-<code>uniformedGi</code> は理想的には全方向積分を用いて平均値を計算することが求められます。
-しかしリアルタイムレンダリングにおいては負荷が高いため、各実装において近似実装を行ってください。
-たとえば Spherical Harmonics の低次の項のみ扱う実装などです。
-ただし Spherical Harmonics の低次の項のみの場合、強い平行光源下 (例: 太陽光) においてうまく近似できない場合があります。
+<p>まず、任意のジオメトリの法線ベクトルを <code>n</code> とします。<br />
+また任意の方向ベクトル <code>x</code> に対応するレンダリングシステム上の大域照明を求める関数を <code>rawGi(x)</code> とします。<br />
+そして、均一化された大域照明 <code>uniformedGi</code> を定義します。<br />
+<code>uniformedGi</code> は理想的には全方向積分を用いて平均値を計算することが求められます。<br />
+しかしリアルタイムレンダリングにおいては負荷が高いため、各実装において近似実装を行ってください。<br />
+たとえば Spherical Harmonics の低次の項のみ扱う実装などです。<br />
+ただし Spherical Harmonics の低次の項のみの場合、強い平行光源下 (例: 太陽光) においてうまく近似できない場合があります。<br />
 そこでここでは 2 点サンプリングの平均を近似実装例として挙げます。</p>
 <p><code>uniformedGi = (rawGi([0, 1, 0]) + rawGi([0, -1, 0])) / 2</code></p>
 <p>このとき、任意のジオメトリの法線ベクトル <code>n</code> に対応する大域照明 <code>gi(n)</code> は次のように計算します。</p>
@@ -4125,8 +4125,8 @@ color = color + gi * litColor
 </tbody>
 </table>
 <h4 id="giequalizationfactor">giEqualizationFactor</h4>
-<p>Global Illumination における、均一化度合いを定義します。
-<code>0</code> のとき大域照明はそのままの値で評価されます。
+<p>Global Illumination における、均一化度合いを定義します。<br />
+<code>0</code> のとき大域照明はそのままの値で評価されます。<br />
 <code>1</code> に近づくほど大域照明は方向に対する平滑化が強まって均一化された値で評価されます。</p>
 <p>具体的にどう計算がされるかについては、上記 <a href="#Global%20Illumination">Global Illumination</a> を参照ください。</p>
 <ul>
@@ -4134,34 +4134,34 @@ color = color + gi * litColor
 <li>必須: No, 初期値: <code>0.9</code></li>
 </ul>
 <h3 id="emission">Emission</h3>
-<p>エミッションを利用できます。
+<p>エミッションを利用できます。<br />
 glTF コア仕様のマテリアル定義に含まれる <code>emissiveFactor</code> および <code>emissiveTexture</code> を用います。</p>
 <h3 id="rim-lighting">Rim Lighting</h3>
 <p>リムライティングに関する定義を述べます。</p>
 <h4 id="matcap">MatCap</h4>
-<p>MatCap は、テクスチャを View Normal Vector を基にマッピングする手法です。
-主に事前にライティングを焼き込む用途で広く使われています。
+<p>MatCap は、テクスチャを View Normal Vector を基にマッピングする手法です。<br />
+主に事前にライティングを焼き込む用途で広く使われています。<br />
 MatCapは、ライティング結果に対して加算されます。</p>
-<p>テクスチャは、MToon拡張によって定義される <code>matcapTexture</code> に格納されます。
+<p>テクスチャは、MToon拡張によって定義される <code>matcapTexture</code> に格納されます。<br />
 また、 <code>matcapFactor</code> によって値が乗算されます。</p>
 <h4 id="parametric-rim-lighting">Parametric Rim Lighting</h4>
-<p>パラメトリックリムライトは、 View Normal Vector を基にして、オブジェクトの縁に疑似リムライト効果を与える手法です。
+<p>パラメトリックリムライトは、 View Normal Vector を基にして、オブジェクトの縁に疑似リムライト効果を与える手法です。<br />
 パラメトリックリムライトは、ライティング結果に対して加算されます。</p>
 <p>MToon拡張によって定義される <code>parametricRimColorFactor</code> という値で、パラメトリックリムライトの色を制御できます。</p>
-<p>また、MToon拡張によって定義される <code>parametricRimFresnelPowerFactor</code> ・ <code>parametricRimLiftFactor</code> という値で、パラメトリックリムライトの形状を制御することができます。
+<p>また、MToon拡張によって定義される <code>parametricRimFresnelPowerFactor</code> ・ <code>parametricRimLiftFactor</code> という値で、パラメトリックリムライトの形状を制御することができます。<br />
 形状は、 <code>pow( saturate( 1.0 - dot( N, V ) + parametricRimLiftFactor ), parametricRimFresnelPowerFactor )</code> という数式で求められます。</p>
 <blockquote>
-<p><code>parametricRimFresnelPowerFactor</code> が 0 のとき、式の評価が NaN となる可能性があります。
-環境によっては、この挙動を回避する必要があります。
+<p><code>parametricRimFresnelPowerFactor</code> が 0 のとき、式の評価が NaN となる可能性があります。<br />
+環境によっては、この挙動を回避する必要があります。<br />
 実装例: <code>parametricRimFresnelPowerFactor = max(parametricRimFresnelPowerFactor, epsilon)</code></p>
 </blockquote>
 <h4 id="rim-multiply-texture">Rim Multiply Texture</h4>
-<p>特定の箇所だけリムライティングを出す・消すといった制御をテクスチャを用いて行うことができます。
+<p>特定の箇所だけリムライティングを出す・消すといった制御をテクスチャを用いて行うことができます。<br />
 UV マッピングされたテクスチャの値がリムライト色に対して乗算されます。</p>
 <p>テクスチャは、MToon拡張によって定義される <code>rimMultiplyTexture</code> に格納されます。</p>
 <h4 id="rim-lighting-mix">Rim Lighting Mix</h4>
-<p>リムライティングが周囲の光源からどのくらい影響を受けるかを制御することができます。
-まったく影響を受けない場合、エミッションのように自己発光するリムライティングとなります。
+<p>リムライティングが周囲の光源からどのくらい影響を受けるかを制御することができます。<br />
+まったく影響を受けない場合、エミッションのように自己発光するリムライティングとなります。<br />
 影響を受ける場合、光源の影響がリムライティングの色に乗算されます。</p>
 <p>MToon拡張によって定義される <code>rimLightingMixFactor</code> で設定した値に応じて、光源の影響度合いが線形に変化します。</p>
 <h4 id="implementation_2">Implementation</h4>
@@ -4245,7 +4245,7 @@ color = color + rim
 </tbody>
 </table>
 <h4 id="matcapfactor">matcapFactor</h4>
-<p>MatCap テクスチャに乗算する色を指定します。
+<p>MatCap テクスチャに乗算する色を指定します。<br />
 値はリニア色空間で評価されます。</p>
 <ul>
 <li>型: <code>number[3]</code></li>
@@ -4253,15 +4253,15 @@ color = color + rim
 </ul>
 <h4 id="matcaptexture">matcapTexture</h4>
 <p>MatCap テクスチャを指定します。</p>
-<p>テクスチャの値は sRGB 伝達関数でエンコードされています。
-アサインされたテクスチャの RGB コンポーネントを参照し、リニア色空間に変換して評価されます。
+<p>テクスチャの値は sRGB 伝達関数でエンコードされています。<br />
+アサインされたテクスチャの RGB コンポーネントを参照し、リニア色空間に変換して評価されます。<br />
 未定義の場合、RGBの各値は <code>0.0</code> として評価されなければなりません。</p>
 <ul>
 <li>型: <code>object</code></li>
 <li>必須: No</li>
 </ul>
 <h4 id="parametricrimcolorfactor">parametricRimColorFactor</h4>
-<p>パラメトリックリムライトの色を指定します。
+<p>パラメトリックリムライトの色を指定します。<br />
 値はリニア色空間で評価されます。</p>
 <ul>
 <li>型: <code>number[3]</code></li>
@@ -4283,8 +4283,8 @@ color = color + rim
 </ul>
 <h4 id="rimmultiplytexture">rimMultiplyTexture</h4>
 <p>リムライティングに対して乗算されるテクスチャを指定します。</p>
-<p>テクスチャの値は sRGB 伝達関数でエンコードされています。
-アサインされたテクスチャの RGB コンポーネントを参照し、リニア色空間に変換して評価されます。
+<p>テクスチャの値は sRGB 伝達関数でエンコードされています。<br />
+アサインされたテクスチャの RGB コンポーネントを参照し、リニア色空間に変換して評価されます。<br />
 未定義の場合、RGB の各値は <code>1.0</code> として評価されなければなりません。</p>
 <ul>
 <li>型: <code>object</code></li>
@@ -4301,25 +4301,25 @@ color = color + rim
 <p>輪郭線はトゥーンシェーダにおける大切なファクタのひとつです。</p>
 <h4 id="outline-width">Outline Width</h4>
 <p>アウトラインの幅は、 MToon 拡張によって定義される <code>outlineWidthMode</code> ・ <code>outlineWidthFactor</code> ・ <code>outlineWidthTexture</code> の値に応じて計算されます。</p>
-<p><code>outlineWidthMode</code> が <code>"none"</code> の場合、輪郭線は表示されません。
-<code>outlineWidthMode</code> が <code>"worldCoordinates"</code> の場合、輪郭線の幅はワールド座標系の距離に応じて決定されます。
+<p><code>outlineWidthMode</code> が <code>"none"</code> の場合、輪郭線は表示されません。<br />
+<code>outlineWidthMode</code> が <code>"worldCoordinates"</code> の場合、輪郭線の幅はワールド座標系の距離に応じて決定されます。<br />
 <code>outlineWidthMode</code> が <code>"screenCoordinates"</code> の場合、輪郭線の幅はスクリーン座標系に依存して決定され、距離に関わらず常に一定の太さとなります。</p>
 <p><code>outlineWidthFactor</code> の単位は、 <code>outlineWidthMode</code> が <code>"worldCoordinates"</code> の場合はメートル、 <code>"screenCoordinates"</code> の場合は画面の縦幅に対する割合とします。</p>
-<p>また、 テクスチャ <code>outlineWidthTexture</code> を用いてアウトライン幅を部分ごとに調整することができます。
-UV マッピングされたテクスチャの値がアウトライン幅に対して乗算されます。
+<p>また、 テクスチャ <code>outlineWidthTexture</code> を用いてアウトライン幅を部分ごとに調整することができます。<br />
+UV マッピングされたテクスチャの値がアウトライン幅に対して乗算されます。<br />
 特定の箇所だけアウトラインを出したくない場合に、テクスチャを用いてマスクをかけるような使い方を想定しています。</p>
 <blockquote>
-<p>基本的には、モデラーが <code>outlineWidthMode</code> および <code>outlineWidthFactor</code> で設定された幅で輪郭線を描画することが推奨されますが、
-アプリケーションによっては、モデルとカメラが十分に近い場合のみ指定された幅で描画し、モデルとカメラが遠い場合は輪郭線を細くするような挙動を実現したいケースもあり得ます（VRM0系における <code>OutlineScaledMaxDistance</code> の挙動）。
+<p>基本的には、モデラーが <code>outlineWidthMode</code> および <code>outlineWidthFactor</code> で設定された幅で輪郭線を描画することが推奨されますが、<br />
+アプリケーションによっては、モデルとカメラが十分に近い場合のみ指定された幅で描画し、モデルとカメラが遠い場合は輪郭線を細くするような挙動を実現したいケースもあり得ます（VRM0系における <code>OutlineScaledMaxDistance</code> の挙動）。<br />
 実際の輪郭線の幅は、アプリケーションの需要に応じて設定してください。</p>
 </blockquote>
 <h4 id="outline-lighting-mix">Outline Lighting Mix</h4>
-<p>輪郭線の色に対して、表面のシェーディング結果の影響を及ぼすことができます。
-前述した <a href="#lighting">Lighting</a> ・ <a href="#global-illumination">Global Illumination</a> ・ <a href="#emission">Emission</a> ・ <a href="#rim-lighting">Rim Lighting</a> の計算結果が、アウトライン色に対して乗算されます。
+<p>輪郭線の色に対して、表面のシェーディング結果の影響を及ぼすことができます。<br />
+前述した <a href="#lighting">Lighting</a> ・ <a href="#global-illumination">Global Illumination</a> ・ <a href="#emission">Emission</a> ・ <a href="#rim-lighting">Rim Lighting</a> の計算結果が、アウトライン色に対して乗算されます。<br />
 MToon 拡張によって定義される <code>outlineLightingMixFactor</code> の値に応じて、シェーディング結果の影響をまったく受けない状態と完全に受ける状態が線形に変化します。</p>
 <h4 id="implementation_3">Implementation</h4>
-<p>ラスタライズベースのレンダリングパイプラインにおいては、輪郭線は通常、面とは別のレンダリングパスで描画されます。
-MToon の輪郭線は Skinning 後の頂点情報を基に計算されます。
+<p>ラスタライズベースのレンダリングパイプラインにおいては、輪郭線は通常、面とは別のレンダリングパスで描画されます。<br />
+MToon の輪郭線は Skinning 後の頂点情報を基に計算されます。<br />
 この頂点情報には移動後の位置、回転後の法線が含まれます。</p>
 <blockquote>
 <p>mesh をマルチパスで描画するのが難しい環境・マルチパス描画の負荷が高い環境では、輪郭線の描画を省略するフォールバックを行ってください。</p>
@@ -4387,11 +4387,11 @@ MToon の輪郭線は Skinning 後の頂点情報を基に計算されます。
 </ul>
 <h4 id="outlinewidthmultiplytexture">outlineWidthMultiplyTexture</h4>
 <p>輪郭線の幅を調整するテクスチャです。</p>
-<p>テクスチャの値はリニア色空間です。
-アサインされたテクスチャの G コンポーネントを参照し、リニア色空間で評価されます。
+<p>テクスチャの値はリニア色空間です。<br />
+アサインされたテクスチャの G コンポーネントを参照し、リニア色空間で評価されます。<br />
 未定義の場合、G コンポーネントの値は <code>1.0</code> として評価されなければなりません。</p>
 <blockquote>
-<p>アサインされたテクスチャのGコンポーネントを参照するため、白黒のマスクテクスチャを使用することもできますし、チャンネルごとに他のマスクを持ったRGBのテクスチャを利用することもできます。
+<p>アサインされたテクスチャのGコンポーネントを参照するため、白黒のマスクテクスチャを使用することもできますし、チャンネルごとに他のマスクを持ったRGBのテクスチャを利用することもできます。<br />
 <code>shadingShiftTexture</code> (Rチャンネルを使う) および <code>uvAnimationMaskTexture</code> (Bチャンネルを使う) を組み合わせることができます。</p>
 </blockquote>
 <ul>
@@ -4399,22 +4399,22 @@ MToon の輪郭線は Skinning 後の頂点情報を基に計算されます。
 <li>必須: No</li>
 </ul>
 <h4 id="outlinecolorfactor">outlineColorFactor</h4>
-<p>輪郭線の色を指定します。
+<p>輪郭線の色を指定します。<br />
 値はリニア色空間で評価されます。</p>
 <ul>
 <li>型: <code>number[3]</code></li>
 <li>必須: No, 初期値: <code>[0, 0, 0]</code></li>
 </ul>
 <h4 id="outlinelightingmixfactor">outlineLightingMixFactor</h4>
-<p>輪郭線の色に表面のシェーディング結果を乗算する割合を指定します。
-この値を <code>0.0</code> にすると、輪郭職はライティングに依らず常に <code>outlineColorFactor</code> で指定した色でレンダリングされます。
+<p>輪郭線の色に表面のシェーディング結果を乗算する割合を指定します。<br />
+この値を <code>0.0</code> にすると、輪郭職はライティングに依らず常に <code>outlineColorFactor</code> で指定した色でレンダリングされます。<br />
 輪郭線の色に対してライティングの影響を及ぼしたい場合、この値を <code>1.0</code> にします。</p>
 <ul>
 <li>型: <code>number</code></li>
 <li>必須: No, 初期値: <code>1.0</code></li>
 </ul>
 <h3 id="uv-animation">UV Animation</h3>
-<p>UV アニメーション機能を用いて、 MToon で用いられるテクスチャをアニメーションさせることができます。
+<p>UV アニメーション機能を用いて、 MToon で用いられるテクスチャをアニメーションさせることができます。<br />
 アニメーションは制御ができるものではなく、自動的・恒常的なものです。</p>
 <p>UV アニメーションによる座標変換の際に、 UV の各要素が取りうる値の範囲をclampやrepeatなどによって [0.0 - 1.0] にすることは行いません。テクスチャの <code>wrapS</code> および <code>wrapT</code> が <code>REPEAT</code> および <code>MIRRORED_REPEAT</code> に設定してあることを想定した仕様です。</p>
 <p>UV アニメーションによって作用されるテクスチャは、 MToon で定義しているテクスチャのうち、以下となります:</p>
@@ -4436,21 +4436,21 @@ MToon の輪郭線は Skinning 後の頂点情報を基に計算されます。
 </blockquote>
 <h4 id="uv-scroll">UV Scroll</h4>
 <p>UV スクロールの速度を <code>uvAnimationScrollXSpeedFactor</code> および <code>uvAnimationScrollYSpeedFactor</code> で指定します。</p>
-<p>単位は UV 座標系毎秒となり、 <code>1.0</code> の場合は1秒ごとに UV が1スクロールします。
+<p>単位は UV 座標系毎秒となり、 <code>1.0</code> の場合は1秒ごとに UV が1スクロールします。<br />
 スクロールの向きは、設定値が正の場合に UV が正の方向に単調増加する方向です。</p>
 <h4 id="uv-rotation">UV Rotation</h4>
 <p>UV アニメーションの回転速度を <code>uvAnimationRotationSpeedFactor</code> で指定します。</p>
-<p>単位はラジアン毎秒となり、 <code>1.0</code> の場合は2π秒ごとに UV が1回転します。
-UV 座標系における (0.5, 0.5) を中心に回転します。
+<p>単位はラジアン毎秒となり、 <code>1.0</code> の場合は2π秒ごとに UV が1回転します。<br />
+UV 座標系における (0.5, 0.5) を中心に回転します。<br />
 回転方向は、U-right・V-downのUV座標を反時計回りに回転させる方向です。</p>
 <blockquote>
-<p>回転方向は <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> と同じ方向となります。
+<p>回転方向は <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a> と同じ方向となります。<br />
 サンプルモデル「<a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/">VRMC_materials_mtoon UV Animation Test</a>」も参照ください。</p>
 </blockquote>
 <h4 id="transform-order">Transform Order</h4>
 <p>UV アニメーションの適用順を、同次座標ベクトルを用いて行列で示します。</p>
-<p><code>uvAnimationScrollXSpeedFactor</code> によるX方向のスクロールを ${\rm scrollX}$、
-<code>uvAnimationScrollYSpeedFactor</code> によるY方向のスクロールを ${\rm scrollY}$、
+<p><code>uvAnimationScrollXSpeedFactor</code> によるX方向のスクロールを ${\rm scrollX}$、<br />
+<code>uvAnimationScrollYSpeedFactor</code> によるY方向のスクロールを ${\rm scrollY}$、<br />
 <code>uvAnimationRotationSpeedFactor</code> による回転アニメーションを ${\rm rotation}$ としたとき、</p>
 <div class="highlight"><pre><span></span><code>\begin{pmatrix} {\rm uv}&#39;.x \\ {\rm uv}&#39;.y \\ 1 \end{pmatrix}
 = \begin{bmatrix} 1 &amp; 0 &amp; {\rm scrollX} \\ 0 &amp; 1 &amp; {\rm scrollY} \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
@@ -4465,7 +4465,7 @@ UV 座標系における (0.5, 0.5) を中心に回転します。
 </blockquote>
 <h4 id="uv-animation-mask-texture">UV Animation Mask Texture</h4>
 <p>UV アニメーションのマスクテクスチャを <code>uvAnimationMaskTexture</code> で指定します。</p>
-<p>テクスチャの値が <code>uvAnimationScrollXSpeedFactor</code> ・ <code>uvAnimationScrollYSpeedFactor</code> ・ <code>uvAnimationRotationSpeedFactor</code> で設定された数値に対して乗算されます。
+<p>テクスチャの値が <code>uvAnimationScrollXSpeedFactor</code> ・ <code>uvAnimationScrollYSpeedFactor</code> ・ <code>uvAnimationRotationSpeedFactor</code> で設定された数値に対して乗算されます。<br />
 マスクテクスチャがアサインされていない場合、各数値で設定した値がそのまま適用されます。</p>
 <h4 id="implementation_4">Implementation</h4>
 <p>以下に、擬似コードでシェーダにおける実装例を示します:</p>
@@ -4523,11 +4523,11 @@ uv = uv + vec2( scrollX, scrollY ) * uvAnimMask;
 </table>
 <h4 id="uvanimationmasktexture">uvAnimationMaskTexture</h4>
 <p>UV アニメーションを行う範囲を指定するテクスチャです。</p>
-<p>テクスチャの値はリニア色空間です。
-アサインされたテクスチャの B コンポーネントを参照し、リニア色空間で評価されます。
+<p>テクスチャの値はリニア色空間です。<br />
+アサインされたテクスチャの B コンポーネントを参照し、リニア色空間で評価されます。<br />
 未定義の場合、B コンポーネントの値は <code>1.0</code> として評価されなければなりません。</p>
 <blockquote>
-<p>アサインされたテクスチャのBコンポーネントを参照するため、白黒のマスクテクスチャを使用することもできますし、チャンネルごとに他のマスクを持ったRGBのテクスチャを利用することもできます。
+<p>アサインされたテクスチャのBコンポーネントを参照するため、白黒のマスクテクスチャを使用することもできますし、チャンネルごとに他のマスクを持ったRGBのテクスチャを利用することもできます。<br />
 <code>shadingShiftTexture</code> (Rチャンネルを使う) および <code>outlineWidthMultiplyTexture</code> (Gチャンネルを使う) を組み合わせることができます。</p>
 </blockquote>
 <ul>

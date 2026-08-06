@@ -2461,7 +2461,7 @@
 <li>VRMC_node_constraint</li>
 </ul>
 <h2 id="khr_texture_transform">KHR_texture_transform의 제약 사항</h2>
-<p><a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a>확장은 모든 머티리얼의 각 텍스처 <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json">textureInfo</a>에 대해
+<p><a href="https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_texture_transform/README.md">KHR_texture_transform</a>확장은 모든 머티리얼의 각 텍스처 <a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json">textureInfo</a>에 대해<br />
 <code>offset</code>, <code>rotation</code>, <code>scale</code>, <code>texCoord</code>를 독립적으로 지정할 수 있도록 합니다.</p>
 <p>glTF 표준 PBR Material의 경우, 적용 대상은 다음과 같습니다.</p>
 <ul>
@@ -2472,22 +2472,22 @@
 <li>emissiveTexture</li>
 </ul>
 <h3 id="vrm1-khr_texture_transform">VRM1에서의 KHR_texture_transform 비권장 기능</h3>
-<p>구현에 따라 KHR_texture_transform이 확장하는 항목을 개별적으로 설정하지 못할 수 있습니다.
+<p>구현에 따라 KHR_texture_transform이 확장하는 항목을 개별적으로 설정하지 못할 수 있습니다.<br />
 따라서 다음 항목에 대해서는 사용하지 않을 것을 권장합니다.</p>
 <ul>
 <li>rotation</li>
 <li>texCoord</li>
 </ul>
 <h2 id="overview">개요 (Overview)</h2>
-<p>glTF가 씬(Scene)을 표현하는 반면,
+<p>glTF가 씬(Scene)을 표현하는 반면,<br />
 VRM은 VR 아바타용 인간형(Humanoid) 모델 하나를 표현합니다.</p>
 <h3 id="model-space">모델 공간 (Model Space)</h3>
-<p>VRM에서는 VRM 모델을 구성하는 glTF 씬의 원점을 기준으로 트랜스폼을 관측하는 "모델 공간"을 정의합니다.
+<p>VRM에서는 VRM 모델을 구성하는 glTF 씬의 원점을 기준으로 트랜스폼을 관측하는 "모델 공간"을 정의합니다.<br />
 이는 VRM 모델을 다루는 애플리케이션상의 월드 공간과는 구별됩니다.</p>
 <p>모델 공간은 <a href="../VRMC_node_constraint-1.0/"><code>VRMC_node_constraint</code></a> 확장에서 이용됩니다.</p>
 <blockquote>
-<p>애플리케이션상에서 VRM 모델을 움직일 때는 Humanoid에서 정의하는 Hips만 움직이는 것이 아니라,
-glTF 씬의 루트 노드 전체를 함께 움직여 모델 공간을 보존하는 것을 권장합니다.
+<p>애플리케이션상에서 VRM 모델을 움직일 때는 Humanoid에서 정의하는 Hips만 움직이는 것이 아니라,<br />
+glTF 씬의 루트 노드 전체를 함께 움직여 모델 공간을 보존하는 것을 권장합니다.<br />
 다시 말해, 모델의 루트가 항상 월드 공간의 원점에만 머무르도록 사용하는 것은 권장되지 않습니다.</p>
 </blockquote>
 <h3 id="json-schema">JSON Schema</h3>

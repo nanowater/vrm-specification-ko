@@ -2120,13 +2120,13 @@
 <p>本文書では、 <code>VRMC_vrm</code> 拡張のうち <code>lookAt</code> フィールドについての仕様を示します。</p>
 <h2 id="_1">概要</h2>
 <p>LookAtは、VRMモデルに対して視線のアニメーションを行うためのコンポーネントです。</p>
-<p>初期姿勢時の <code>Head</code> ボーンをオフセットして得られる <code>LookAt空間</code> で視線を定義します。
-視線値は、<code>LookAt空間</code> での 上下左右 の Degree 値です。
+<p>初期姿勢時の <code>Head</code> ボーンをオフセットして得られる <code>LookAt空間</code> で視線を定義します。<br />
+視線値は、<code>LookAt空間</code> での 上下左右 の Degree 値です。<br />
 本文章では、右手系の Euler 角に準じた正の回転方向をもつ Yaw と Pitch で説明します。</p>
 <blockquote>
 <p>Euler角については、プラットフォーム毎に、右手・左手、 Y-UP・Z-UP などをふまえて一貫性のある実装をしてください。</p>
 </blockquote>
-<p>一組の yaw, pitch により両目が同じ方向を見ることを想定しています。
+<p>一組の yaw, pitch により両目が同じ方向を見ることを想定しています。<br />
 このことより、寄り目等の両目が異なる方向を向く表現はできません。</p>
 <h2 id="_2">詳細</h2>
 <div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_vrm.lookA</span><span class="kc">t</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span>
@@ -2212,7 +2212,7 @@
 </tbody>
 </table>
 <blockquote>
-<p>expression は、MorphTarget, MaterialColor, TextureTransform が可能です。
+<p>expression は、MorphTarget, MaterialColor, TextureTransform が可能です。<br />
 LookAt では、おもに MorphTarget による頂点移動 と TextureTransform による 目のテクスチャーの offset 移動により視線が表現されることが想定されています。</p>
 </blockquote>
 <h3 id="lookat-offsetfromheadbone">LookAt 空間 (offsetFromHeadBone)</h3>
@@ -2224,10 +2224,10 @@ LookAt では、おもに MorphTarget による頂点移動 と TextureTransform
 <li>トランスフォームのheadからのローカル回転は、headのモデル空間におけるレスト回転の逆である</li>
 </ul>
 <blockquote>
-<p>headがモデル空間におけるレスト回転によって、 <code>offsetFromHeadBone</code> による視点の位置の移動方向がモデル空間の軸と一致しない場合があります。
+<p>headがモデル空間におけるレスト回転によって、 <code>offsetFromHeadBone</code> による視点の位置の移動方向がモデル空間の軸と一致しない場合があります。<br />
 また、headがモデル空間におけるレスト回転を持っている場合も、視線の前方向はモデル座標系における+Z軸と一致します。</p>
 </blockquote>
-<p>本文章では、glTF の右手系, Y-Up, Z-Forward 座標系を用いて説明します。
+<p>本文章では、glTF の右手系, Y-Up, Z-Forward 座標系を用いて説明します。<br />
 Yaw, Pitch の正の方向は下記のとおりです。</p>
 <ul>
 <li>Yaw: Z-&gt;X方向 =&gt; 左</li>
@@ -2240,7 +2240,7 @@ Yaw, Pitch の正の方向は下記のとおりです。</p>
 X&lt;----+
 Left      Right
 </code></pre></div>
-<p><code>offsetFromHeadBone</code> は、VR向けHMDの位置を想定しています。
+<p><code>offsetFromHeadBone</code> は、VR向けHMDの位置を想定しています。<br />
 モデルの一人称視点の位置の取得・反映に用いることができます。</p>
 <blockquote>
 <p>Implementation note: モデルに <code>offsetFromHeadBone</code> が存在しない場合は、実装ごとに適切な値にフォールバックを行うことが推奨されます。</p>
@@ -2269,11 +2269,11 @@ Left      Right
 <h4 id="inputmaxvalue0">inputMaxValueが0の場合の挙動</h4>
 <p>inputMaxValueが0に設定されている場合、視線値が0の場合は0を・それ以外の場合は <code>outputScale</code> を適用することを推奨します（SHOULD）。</p>
 <blockquote>
-<p>Implementation note: これは、 <code>inputMaxValue</code> が0の場合に、0除算を避けるための仕様です。
+<p>Implementation note: これは、 <code>inputMaxValue</code> が0の場合に、0除算を避けるための仕様です。<br />
 上記に十分に近い挙動を実現するために、 <code>inputMaxValue</code> に対して <code>max(0.001, inputMaxValue)</code> などの処理を行うことが想定されます。</p>
 </blockquote>
 <h4 id="type-bone">type が bone のときの 解釈</h4>
-<p><code>yaw</code>, <code>pitch</code> の視線値から、<code>leftEye</code> ボーンと <code>rightEye</code> ボーンに対する <code>local rotation</code> を生成します。
+<p><code>yaw</code>, <code>pitch</code> の視線値から、<code>leftEye</code> ボーンと <code>rightEye</code> ボーンに対する <code>local rotation</code> を生成します。<br />
 <code>水平内側</code>, <code>水平外側</code>, <code>垂直上側</code>, <code>垂直下側</code> の４つの区分があります。</p>
 <p>上下左右の rangeMap の使い分けは下記のようになります。</p>
 <div class="highlight"><pre><span></span><code>  + yaw -     + yaw -
@@ -2313,14 +2313,14 @@ outer|inner inner|outer
 </tr>
 </tbody>
 </table>
-<p>範囲マップは、視線値によって得られたEuler角 (degree) の絶対値に対して行います。
+<p>範囲マップは、視線値によって得られたEuler角 (degree) の絶対値に対して行います。<br />
 出力の単位は、目のボーンのEuler角 (degree) となります。</p>
 <div class="highlight"><pre><span></span><code>const boneLocalEulerAngle = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
 </code></pre></div>
 <h4 id="type-expression">type が expression のときの解釈</h4>
-<p><code>lookUp</code> Expression, <code>lookDown</code> Expression, <code>lookLeft</code> Expression, <code>lookRight</code> Expression に対する <code>weight</code> を生成します。
-<code>水平</code>, <code>垂直上側</code>, <code>垂直下側</code> の3つの区分があります。
-ひとつの Expression で両目がまとめて変化するため、<code>水平内側</code>, <code>水平外側</code> の区別が無いことに注意してください。
+<p><code>lookUp</code> Expression, <code>lookDown</code> Expression, <code>lookLeft</code> Expression, <code>lookRight</code> Expression に対する <code>weight</code> を生成します。<br />
+<code>水平</code>, <code>垂直上側</code>, <code>垂直下側</code> の3つの区分があります。<br />
+ひとつの Expression で両目がまとめて変化するため、<code>水平内側</code>, <code>水平外側</code> の区別が無いことに注意してください。<br />
 <code>rangeMapHorizontalOuter</code> を使います。</p>
 <table>
 <thead>
@@ -2353,7 +2353,7 @@ outer|inner inner|outer
 </tr>
 </tbody>
 </table>
-<p>範囲マップは、視線値によって得られたEuler角 (degree) の絶対値に対して行います。
+<p>範囲マップは、視線値によって得られたEuler角 (degree) の絶対値に対して行います。<br />
 出力の単位は、目のexpressionのweight値となります。</p>
 <div class="highlight"><pre><span></span><code>const expressionWeight = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
 </code></pre></div>

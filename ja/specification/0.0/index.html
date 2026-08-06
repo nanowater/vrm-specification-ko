@@ -1772,7 +1772,7 @@
 
 
 <h1 id="vrm">VRM仕様</h1>
-<p><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md">glTF-2.0</a>のバイナリ形式glbをベースにした、VR向けモデルフォーマットです。
+<p><a href="https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/README.md">glTF-2.0</a>のバイナリ形式glbをベースにした、VR向けモデルフォーマットです。<br />
 VRM仕様のリポジトリはこちら：<a href="https://github.com/vrm-c/vrm-specification">VRM specification</a>。 </p>
 <h1 id="_1">更新履歴</h1>
 <ul>
@@ -1791,7 +1791,7 @@ VRM仕様のリポジトリはこちら：<a href="https://github.com/vrm-c/vrm-
 <span class="p">}</span>
 </code></pre></div>
 <h1 id="_2">拡張子</h1>
-<p><code>.vrm</code>を使います。
+<p><code>.vrm</code>を使います。<br />
 gltfのバイナリ形式<code>.glb</code>と互換性があるので、拡張子を<code>.glb</code>に変更するとGLTF対応のアプリケーションで読み込むことができます(VRM独自の追加情報は無くなります)。</p>
 <h1 id="json">Json拡張</h1>
 <p>GLBのJSON部に<code>VRM Extension</code>として拡張しています。</p>
@@ -1865,8 +1865,8 @@ gltfのバイナリ形式<code>.glb</code>と互換性があるので、拡張�
 </ul>
 <p>GLTFのマテリアルにフォールバックした情報を保存しています(拡張子をGLBに変更した場合に使われる)。</p>
 <h2 id="vrm-extensionsvrmmaterialproperties">VRM拡張: <code>/extensions/VRM/materialProperties</code></h2>
-<p>VRM独自のマテリアル情報を保存しています。
-現状、Unityに必要な項目を保存しています。
+<p>VRM独自のマテリアル情報を保存しています。<br />
+現状、Unityに必要な項目を保存しています。<br />
 選択可能なShaderは、<a href="#vrmshader">VRMが提供するシェーダー</a>を参照してください。</p>
 <ul>
 <li>https://github.com/vrm-c/UniVRM/blob/master/specification/0.0/schema/vrm.material.schema.json</li>
@@ -1940,7 +1940,7 @@ gltfのバイナリ形式<code>.glb</code>と互換性があるので、拡張�
 </ul>
 <h1 id="_6">保存する値に対する規約</h1>
 <h2 id="gltf2">GLTF2の規約</h2>
-<p>GLTF2の規約に準拠します。
+<p>GLTF2の規約に準拠します。<br />
 特に重要な項目です。</p>
 <ul>
 <li>メートル単位</li>
@@ -1964,7 +1964,7 @@ gltfのバイナリ形式<code>.glb</code>と互換性があるので、拡張�
 <h1 id="vrm_2">VRMが提供するシェーダー</h1>
 <p>セル調のキャラクタモデルの運用を想定して以下のシェーダーを用意しています。</p>
 <h2 id="unlit">Unlit系</h2>
-<p>ライティング・シェーディングせずにテクスチャ色をそのまま表示します。
+<p>ライティング・シェーディングせずにテクスチャ色をそのまま表示します。<br />
 半透明の扱い別に４種類を用意しています。</p>
 <ul>
 <li>UnlitTexture(不透明)</li>
@@ -1973,7 +1973,7 @@ gltfのバイナリ形式<code>.glb</code>と互換性があるので、拡張�
 <li>UnlitTransparentZWrite(アルファブレンド。ZWriteする)<a href="半透明の衣装や、髪の先が半透明など実体のあるオブジェクト向けです。">^TransparentZWrite</a></li>
 </ul>
 <h2 id="mtoon">MToon</h2>
-<p>セルシェーディング、輪郭線に対応したシェーダー。
+<p>セルシェーディング、輪郭線に対応したシェーダー。<br />
 Unlitよりもきめ細かく設定できます。</p>
 <h1 id="vrm-jsonextensionsvrmhumanoid">VRM拡張: モデルのボーンマッピング(json.extensions.VRM.humanoid)</h1>
 <p>NodeとHumanoidで定義される標準ボーンの対応表です。</p>
@@ -2181,7 +2181,7 @@ Unlitよりもきめ細かく設定できます。</p>
 <h3 id="contact-information">連絡先(Contact Information)</h3>
 <p>モデルの作者への連絡先を記述します</p>
 <blockquote>
-<p>このプロパティは、ユーザーがなんらかの理由で作者に連絡を取りたい場合に備えて、ソーシャルアカウントの情報やWebサイトなど、モデルの作者の連絡先情報を表示するために使用されることを意図しています。
+<p>このプロパティは、ユーザーがなんらかの理由で作者に連絡を取りたい場合に備えて、ソーシャルアカウントの情報やWebサイトなど、モデルの作者の連絡先情報を表示するために使用されることを意図しています。<br />
 電話番号や住所など、公衆に公開されることを意図しない個人情報を含めないようにしてください。</p>
 </blockquote>
 <h3 id="reference">参照(Reference)</h3>
@@ -2429,15 +2429,15 @@ function GetID(preset, name)
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>一人称視点のアバターを描画する場合、自モデルの頭部の中が見えてしまうという問題が生じます<a href="バックフェースカリングや近平面である程度対処できますが、口の中が作りこんであるモデルの歯茎が意図せずに見えてしまうなど不十分な場合があります。">^firstperson</a>。
+<p>一人称視点のアバターを描画する場合、自モデルの頭部の中が見えてしまうという問題が生じます<a href="バックフェースカリングや近平面である程度対処できますが、口の中が作りこんであるモデルの歯茎が意図せずに見えてしまうなど不十分な場合があります。">^firstperson</a>。<br />
 これに対応するために、一人称時の表示状態を指定できます。</p>
 <h2 id="firstpersonbonejsonextensionsvrmfirstpersonfirstpersonbone">firstPersonBone(json.extensions.VRM.firstPerson.firstPersonBone)</h2>
 <p>一人称時に描画を切り替えるべきボーンを指定します。通常<code>Head</code>です。</p>
 <h2 id="firstpersonboneoffsetjsonextensionsvrmfirstpersonfirstpersonboneoffset">firstPersonBoneOffset(json.extensions.VRM.firstPerson.firstPersonBoneOffset)</h2>
-<p>一人時のヘッドセットの目標位置。
+<p>一人時のヘッドセットの目標位置。<br />
 頭ボーンからヘッドセットへのオフセットを加味することを想定している。</p>
 <h2 id="meshannotationsjsonextensionsvrmfirstpersonmeshannotations">meshAnnotations(json.extensions.VRM.firstPerson.meshAnnotations)</h2>
-<p>各メッシュに対して一人称時とそれ以外で表示・非表示を切り替えることができます。
+<p>各メッシュに対して一人称時とそれ以外で表示・非表示を切り替えることができます。<br />
 以下の設定があります。</p>
 <ul>
 <li>Auto: firstPersonBoneとその子孫に対するボーンWeightを持つポリゴンを自動で非表示にする<a href="実行時に自動で非表示部分を削除したモデルを生成します。">^firstPersonAuto</a></li>
@@ -2546,7 +2546,7 @@ function GetID(preset, name)
 <p>揺れモノに対する衝突判定グループのインデックスを指定します。</p>
 <h3 id="_18">パラメーター</h3>
 <h4 id="centerjsonextensionsvrmsecondaryanimationbonegroups0center">center(json.extensions.VRM.secondaryAnimation.boneGroups[0].center)</h4>
-<p>world原点以外の、揺れモノの基準点を設定できます。
+<p>world原点以外の、揺れモノの基準点を設定できます。<br />
 ワープで移動するUIを実装した場合に、ワープ移動で揺れモノを揺らしたくない場合にワープで移動する親ノードを指定できます。</p>
 <h4 id="dragforcejsonextensionsvrmsecondaryanimationbonegroups0dragforce">dragForce(json.extensions.VRM.secondaryAnimation.boneGroups[0].dragForce)</h4>
 <p>自動アニメーションの抵抗(減速)です。</p>

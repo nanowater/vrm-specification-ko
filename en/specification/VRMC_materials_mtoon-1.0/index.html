@@ -3668,9 +3668,9 @@
 <p>If it is difficult to implement MToon shader, it MAY fallback to <code>KHR_materials_unlit</code>.</p>
 <h2 id="overview">Overview</h2>
 <p>This extension defines a material with toon shading for VRM models.</p>
-<p>The objective is to coordinate with scenes with PBR shading while adding toon effects.
+<p>The objective is to coordinate with scenes with PBR shading while adding toon effects.<br />
 It does not specialize in Japanese hand-drawn animation-like expressions.</p>
-<p>Toon shading, in general, usually takes the image-processing approach, while this specification approximates toon-like looking, avoiding image-processing.
+<p>Toon shading, in general, usually takes the image-processing approach, while this specification approximates toon-like looking, avoiding image-processing.<br />
 Therefore, this definition includes definitions that depend on specific rendering techniques.</p>
 <h2 id="extending-materials">Extending Materials</h2>
 <p>MToon materials are defined by adding the <code>VRMC_materials_mtoon</code> extension to material definitions.</p>
@@ -3721,7 +3721,7 @@ Therefore, this definition includes definitions that depend on specific renderin
 </tbody>
 </table>
 <h4 id="specversion">specVersion ✅</h4>
-<p>Indicates the version number of the extension.
+<p>Indicates the version number of the extension.<br />
 The value is <code>"1.0"</code>.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -3730,18 +3730,18 @@ The value is <code>"1.0"</code>.</p>
 <h3 id="rendering">Rendering</h3>
 <p>This section specifies the rendering of MToon materials.</p>
 <h4 id="render-mode">Render Mode</h4>
-<p>Render Mode specifies how this material will be rendered with alpha processing.
-The alpha value refers to the alpha value defined by <code>pbrMetallicRoughness.baseColorFactor</code> and <code>pbrMetallicRoughness.baseColorTexture</code> defined in the glTF core specification.
-<code>alphaMode</code> and <code>alphaCutoff</code> defined in the glTF core specification define how to deal with the alpha value.
+<p>Render Mode specifies how this material will be rendered with alpha processing.<br />
+The alpha value refers to the alpha value defined by <code>pbrMetallicRoughness.baseColorFactor</code> and <code>pbrMetallicRoughness.baseColorTexture</code> defined in the glTF core specification.<br />
+<code>alphaMode</code> and <code>alphaCutoff</code> defined in the glTF core specification define how to deal with the alpha value.<br />
 The details of each alpha mode conform to the glTF specification.</p>
-<p>In addition to the <code>alphaMode</code> defined in the glTF, this extension defines the property <code>transparentWithZWrite</code>.
-It is usually not recommended to write to the depth buffer when <code>alphaMode</code> is <code>BLEND</code>.
+<p>In addition to the <code>alphaMode</code> defined in the glTF, this extension defines the property <code>transparentWithZWrite</code>.<br />
+It is usually not recommended to write to the depth buffer when <code>alphaMode</code> is <code>BLEND</code>.<br />
 When <code>transparentWithZWrite</code> is set to <code>true</code>, it is recommended to write to the depth buffer even when <code>alphaMode</code> is <code>BLEND</code>.</p>
 <blockquote>
 <p>The implementation may fallback to ordinary alpha blending if it is difficult to implement the <code>transparentWithZWrite</code> or equivalent behavior.</p>
 </blockquote>
 <h4 id="render-queue">Render Queue</h4>
-<p>Render Queue specifies in what order MToon materials should be drawn.
+<p>Render Queue specifies in what order MToon materials should be drawn.<br />
 MToon expects the following order of rendering:</p>
 <ol>
 <li><code>alphaMode</code> is <code>OPAQUE</code></li>
@@ -3749,11 +3749,11 @@ MToon expects the following order of rendering:</p>
 <li><code>alphaMode</code> is <code>BLEND</code> and <code>transparentWithZWrite</code> is <code>true</code></li>
 <li><code>alphaMode</code> is <code>BLEND</code> and <code>transparentWithZWrite</code> is <code>false</code></li>
 </ol>
-<p>Since transparency is often used in toon shaders, problems due to the rendering order often happen.
-MToon introduces not only <code>transparentWithZWrite</code> but also another property <code>renderQueueOffsetNumber</code> for this reason.
-<code>renderQueueOffsetNumber</code> specifies the offset value to each rendering order.
-It is intended to be an offset value of the Render Queue value in Unity.
-<code>renderQueueOffsetNumber</code> only works when <code>alphaMode</code> is <code>BLEND</code>.
+<p>Since transparency is often used in toon shaders, problems due to the rendering order often happen.<br />
+MToon introduces not only <code>transparentWithZWrite</code> but also another property <code>renderQueueOffsetNumber</code> for this reason.<br />
+<code>renderQueueOffsetNumber</code> specifies the offset value to each rendering order.<br />
+It is intended to be an offset value of the Render Queue value in Unity.<br />
+<code>renderQueueOffsetNumber</code> only works when <code>alphaMode</code> is <code>BLEND</code>.<br />
 The higher the value, the later the drawing order.</p>
 <p>The following table shows the possible ranges of values.</p>
 <table>
@@ -3833,7 +3833,7 @@ The higher the value, the later the drawing order.</p>
 <h3 id="lighting">Lighting</h3>
 <p>This section specifies the lighting of MToon materials.</p>
 <h4 id="lighting-model">Lighting Model</h4>
-<p>MToon extends the Lambert reflection model.
+<p>MToon extends the Lambert reflection model.<br />
 While surface normals and light vectors are used for shading as the normal Lambert reflection model does, MToon has the following features to enable toon expression:</p>
 <ul>
 <li>Apart from the base color, a shade color can be specified.</li>
@@ -3843,22 +3843,22 @@ While surface normals and light vectors are used for shading as the normal Lambe
 <p>Base color is determined by <code>pbrMetallicRoughness.baseColorFactor</code> and <code>pbrMetallicRoughness.baseColorTexture</code> which are defined in the glTF core specification.</p>
 <h4 id="shade-color">Shade Color</h4>
 <p>MToon specifies a shade color in addition to the base color.</p>
-<p>While the typical Lambert reflection model renders unlit surfaces in black,
-MToon interpolates between the base and shade colors depending on how lit the surface is.
+<p>While the typical Lambert reflection model renders unlit surfaces in black,<br />
+MToon interpolates between the base and shade colors depending on how lit the surface is.<br />
 Also, just like how the <code>baseColorTexture</code> interacts with the <code>baseColorFactor</code>, a different texture can be specified for the shade color, and the texture color multiplies the shade color factor.</p>
 <p>The shade color uses two properties, <code>shadeColorFactor</code> and <code>shadeMultiplyTexture</code>, defined by the MToon extension.</p>
 <p><img src="figures/mtoon-lit-shade.png" width="67%"></p>
 <h4 id="surface-normal">Surface Normal</h4>
-<p>MToon can use normal textures.
+<p>MToon can use normal textures.<br />
 MToon uses <code>normalTexture</code> defined in the glTF core specification.</p>
 <h4 id="shading-shift">Shading Shift</h4>
-<p>MToon linearly interpolates base and shade colors according to the dot product of the surface normal and the light vector.
+<p>MToon linearly interpolates base and shade colors according to the dot product of the surface normal and the light vector.<br />
 MToon can adjust the threshold position and width (feather) of the boundary between the lit and unlit parts.</p>
-<p>The position of the shading boundary is specified by the <code>shadingShiftFactor</code> and <code>shadingShiftTexture</code> defined by the MToon extension.
+<p>The position of the shading boundary is specified by the <code>shadingShiftFactor</code> and <code>shadingShiftTexture</code> defined by the MToon extension.<br />
 The width of the shading boundary is specified by the <code>shadingToonyFactor</code> defined by the MToon extension.</p>
-<p><code>shadingShiftTexture</code> adjusts the position of the shading boundary set by <code>shadingShiftFactor</code>.
-This texture allows it to adjust the lighting on certain model parts.
-The value of <code>shadingShiftTexture</code> adds the <code>shadingShiftFactor</code> value.
+<p><code>shadingShiftTexture</code> adjusts the position of the shading boundary set by <code>shadingShiftFactor</code>.<br />
+This texture allows it to adjust the lighting on certain model parts.<br />
+The value of <code>shadingShiftTexture</code> adds the <code>shadingShiftFactor</code> value.<br />
 <code>shadingShiftTexture.scale</code> controls how much this texture contributes to the shading boundary.</p>
 <p><img src="figures/mtoon-shading-ramp.png" width="67%"></p>
 <h4 id="implementation">Implementation</h4>
@@ -3922,7 +3922,7 @@ color = color * lightColor
 </tbody>
 </table>
 <h4 id="shadecolorfactor">shadeColorFactor</h4>
-<p>A color that specifies the shade color.
+<p>A color that specifies the shade color.<br />
 The value is evaluated in linear colorspace.</p>
 <ul>
 <li>Type: <code>number[3]</code></li>
@@ -3930,8 +3930,8 @@ The value is evaluated in linear colorspace.</p>
 </ul>
 <h4 id="shademultiplytexture">shadeMultiplyTexture</h4>
 <p>A texture that is multiplied for the shade color.</p>
-<p>The components of the texture are encoded with the sRGB transfer function.
-The RGB components are evaluated after being converted into linear colorspace.
+<p>The components of the texture are encoded with the sRGB transfer function.<br />
+The RGB components are evaluated after being converted into linear colorspace.<br />
 When undefined, the texture must be sampled as having <code>1.0</code> in RGB components.</p>
 <p>The value of the texture is multiplied into the shade color set by <code>shadeColorFactor</code>.</p>
 <ul>
@@ -3948,11 +3948,11 @@ When undefined, the texture must be sampled as having <code>1.0</code> in RGB co
 <h4 id="shadingshifttexture">shadingShiftTexture</h4>
 <p>The texture which shifts the position of the shading boundary.</p>
 <p>See the section <a href="#Shading%20Shift">Shading Shift</a> for specific details on how the calculation is performed.</p>
-<p>The components of the texture are stored in linear colorspace.
-The R component of the texture is referred to.
+<p>The components of the texture are stored in linear colorspace.<br />
+The R component of the texture is referred to.<br />
 When undefined, the texture must be sampled as having <code>0.0</code> in the R component.</p>
 <blockquote>
-<p>You can use either a monochrome mask texture or an RGB texture with other masks per channel since the property references the R component of the assigned texture.
+<p>You can use either a monochrome mask texture or an RGB texture with other masks per channel since the property references the R component of the assigned texture.<br />
 You can combine <code>outlineWidthMultiplyTexture</code> (which uses the G channel) and <code>uvAnimationMaskTexture</code> (which uses the B channel) into a single texture.</p>
 </blockquote>
 <ul>
@@ -4014,7 +4014,7 @@ You can combine <code>outlineWidthMultiplyTexture</code> (which uses the G chann
 <li>最小値: <code>&gt;= 0</code></li>
 </ul>
 <h4 id="shadingshifttextureinfoscale">shadingShiftTextureInfo.scale</h4>
-<p>The scalar parameter which specifies the contribution of the texture to the shading shift value.
+<p>The scalar parameter which specifies the contribution of the texture to the shading shift value.<br />
 This value is interpreted as a linear value.</p>
 <ul>
 <li>Type: <code>number</code></li>
@@ -4022,24 +4022,24 @@ This value is interpreted as a linear value.</p>
 </ul>
 <h3 id="global-illumination">Global Illumination</h3>
 <p>This section defines the behavior for global illumination, such as IBL (Image-based Lighting) and SH (Spherical Harmonics), which do not depend on a specific position or orientation.</p>
-<p>In general, toon shaders shouldn't express detailed shadings which can able to show details of geometries.
-For this reason, this extension introduces the parameters Shading Toony and Shading Shift.
+<p>In general, toon shaders shouldn't express detailed shadings which can able to show details of geometries.<br />
+For this reason, this extension introduces the parameters Shading Toony and Shading Shift.<br />
 These parameters allow the shading to be mildly changing in response to normal directions and incident light sources.</p>
-<p>However, for global illumination, such as IBL and SH Lighting, these parameters are not sufficient.
+<p>However, for global illumination, such as IBL and SH Lighting, these parameters are not sufficient.<br />
 Global illumination also changes the radiance significantly with changes in direction.</p>
-<p>Therefore, this extension introduces the GI Equalization Factor parameter.
-The GI Equalization Factor allows the geometry to have constant global illumination independent of the geometry's face direction.
-As a result, the resulting shading under global illuminations is weaker and the geometry's detail becomes milder.
+<p>Therefore, this extension introduces the GI Equalization Factor parameter.<br />
+The GI Equalization Factor allows the geometry to have constant global illumination independent of the geometry's face direction.<br />
+As a result, the resulting shading under global illuminations is weaker and the geometry's detail becomes milder.<br />
 Specifically, this is achieved by smoothing the global illumination factor depending on the direction.</p>
 <p>The GI Equalization Factor uses the <code>giEqualizationFactor</code> defined by the MToon extension.</p>
 <p>The detailed calculation definition is given below.</p>
-<p>First, let <code>n</code> be the normal vector of a geometry.
-Let <code>rawGi(x)</code> be a function that finds the global illumination on the rendering system corresponding to a direction vector <code>x</code>.
-Then define the uniformed global illumination <code>uniformedGi</code>.
-Ideally, <code>uniformedGi</code> is required to compute the average value using integration in all directions.
-However, since it is too demanding for real-time rendering, an approximate implementation should be used in each implementation.
-For example, an implementation that handles only the low-order terms of Spherical Harmonics.
-However, if only the low-order terms of the Spherical Harmonics are used, it may not approximate well under strong parallel light sources (e.g., sunlight).
+<p>First, let <code>n</code> be the normal vector of a geometry.<br />
+Let <code>rawGi(x)</code> be a function that finds the global illumination on the rendering system corresponding to a direction vector <code>x</code>.<br />
+Then define the uniformed global illumination <code>uniformedGi</code>.<br />
+Ideally, <code>uniformedGi</code> is required to compute the average value using integration in all directions.<br />
+However, since it is too demanding for real-time rendering, an approximate implementation should be used in each implementation.<br />
+For example, an implementation that handles only the low-order terms of Spherical Harmonics.<br />
+However, if only the low-order terms of the Spherical Harmonics are used, it may not approximate well under strong parallel light sources (e.g., sunlight).<br />
 Here is an example of an implementation that approximates the average of a two-point sampling.</p>
 <p><code>uniformedGi = (rawGi([0, 1, 0]) + rawGi([0, -1, 0])) / 2</code>.</p>
 <p>The global illumination <code>gi(n)</code> corresponding to the normal vector <code>n</code> of any geometry is then calculated as follows</p>
@@ -4081,8 +4081,8 @@ color = color + gi * litColor
 </tbody>
 </table>
 <h4 id="giequalizationfactor">giEqualizationFactor</h4>
-<p>Defines the equalization factor of the global illumination.
-When the value is <code>0</code>, global illumination is calculated as usual.
+<p>Defines the equalization factor of the global illumination.<br />
+When the value is <code>0</code>, global illumination is calculated as usual.<br />
 The closer the value is to <code>1</code>, the more the global illumination is smoothed and eventually be in uniform depending on the direction of the surface.</p>
 <p>See the section <a href="#Global%20Illumination">Global Illumination</a> for specific details of the global illumination procedure.</p>
 <ul>
@@ -4090,34 +4090,34 @@ The closer the value is to <code>1</code>, the more the global illumination is s
 <li>Required: No, default: <code>0.9</code></li>
 </ul>
 <h3 id="emission">Emission</h3>
-<p>Emission can be defined.
+<p>Emission can be defined.<br />
 <code>emissiveFactor</code> and <code>emissiveTexture</code> defined in the core specification of glTF will be used.</p>
 <h3 id="rim-lighting">Rim Lighting</h3>
 <p>This section specifies the rim lighting of MToon materials.</p>
 <h4 id="matcap">MatCap</h4>
-<p>MacCap is a texture mapping method that uses the view-space normal vector.
-It is widely used for baking lighting.
+<p>MacCap is a texture mapping method that uses the view-space normal vector.<br />
+It is widely used for baking lighting.<br />
 The result of matcap is additive blended to the lighting result.</p>
-<p>The matcap texture is stored in <code>matcapTexture</code> defined by the MToon extension.
+<p>The matcap texture is stored in <code>matcapTexture</code> defined by the MToon extension.<br />
 The result is multiplied by the factor <code>matcapFactor</code> also defined by the MToon extension.</p>
 <h4 id="parametric-rim-lighting">Parametric Rim Lighting</h4>
-<p>Parametric rim lighting is a method of creating a pseudo rim lighting effect on the edges of an object using the view-space normal vector.
+<p>Parametric rim lighting is a method of creating a pseudo rim lighting effect on the edges of an object using the view-space normal vector.<br />
 The parametric rim light is additive blended to the lighting result.</p>
 <p>The color of the parametric rim lighting is stored in <code>parametricRimColorFactor</code> defined by the MToon extension.</p>
-<p>The shape of parametric rim lighting is controlled by values <code>parametricRimFresnelPowerFactor</code> and <code>parametricRimLiftFactor</code> defined by the MToon extension.
+<p>The shape of parametric rim lighting is controlled by values <code>parametricRimFresnelPowerFactor</code> and <code>parametricRimLiftFactor</code> defined by the MToon extension.<br />
 The shape is obtained by the formula <code>pow( saturate( 1.0 - dot( N, V ) + parametricRimLiftFactor ), parametricRimFresnelPowerFactor )</code>.</p>
 <blockquote>
-<p>The expression maybe results in NaN if given <code>parametricRimFresnelPowerFactor</code> is zero.
-The implementation should avoid NaN depending on the environment.
+<p>The expression maybe results in NaN if given <code>parametricRimFresnelPowerFactor</code> is zero.<br />
+The implementation should avoid NaN depending on the environment.<br />
 ex. <code>parametricRimFresnelPowerFactor = max(parametricRimFresnelPowerFactor, epsilon)</code></p>
 </blockquote>
 <h4 id="rim-multiply-texture">Rim Multiply Texture</h4>
-<p>It is possible to mask the rim lighting using a mask texture.
+<p>It is possible to mask the rim lighting using a mask texture.<br />
 The value of the mask texture multiplies to the rim lighting result.</p>
 <p>The mask texture is stored in <code>rimMultiplyTexture</code> defined by the MToon extension.</p>
 <h4 id="rim-lighting-mix">Rim Lighting Mix</h4>
-<p>It is possible to control how much the rim lighting is affected by the surrounding lighting.
-When it is not affected, the rim lighting behaves like an emission.
+<p>It is possible to control how much the rim lighting is affected by the surrounding lighting.<br />
+When it is not affected, the rim lighting behaves like an emission.<br />
 When it is affected, the influence of the surrounding lighting multiplies to the rim lighting result.</p>
 <p>The influence of the light source is controlled linearly by the value <code>rimLightingMixFactor</code> defined by the MToon extension.</p>
 <h4 id="implementation_2">Implementation</h4>
@@ -4201,7 +4201,7 @@ color = color + rim
 </tbody>
 </table>
 <h4 id="matcapfactor">matcapFactor</h4>
-<p>A color multiplies to the matcap texture.
+<p>A color multiplies to the matcap texture.<br />
 The value is evaluated in linear colorspace.</p>
 <ul>
 <li>Type: <code>number[3]</code></li>
@@ -4209,15 +4209,15 @@ The value is evaluated in linear colorspace.</p>
 </ul>
 <h4 id="matcaptexture">matcapTexture</h4>
 <p>The matcap texture.</p>
-<p>The components of the texture are encoded with the sRGB transfer function.
-The RGB components are evaluated after being converted into linear colorspace.
+<p>The components of the texture are encoded with the sRGB transfer function.<br />
+The RGB components are evaluated after being converted into linear colorspace.<br />
 When undefined, the texture must be sampled as having <code>0.0</code> in RGB components.</p>
 <ul>
 <li>Type: <code>object</code></li>
 <li>Required: No</li>
 </ul>
 <h4 id="parametricrimcolorfactor">parametricRimColorFactor</h4>
-<p>The color of parametric rim lighting.
+<p>The color of parametric rim lighting.<br />
 The value is evaluated in linear colorspace.</p>
 <ul>
 <li>Type: <code>number[3]</code></li>
@@ -4239,8 +4239,8 @@ The value is evaluated in linear colorspace.</p>
 </ul>
 <h4 id="rimmultiplytexture">rimMultiplyTexture</h4>
 <p>The mask texture multiplied to the rim lighting.</p>
-<p>The components of the texture are encoded with the sRGB transfer function.
-The RGB components are evaluated after being converted into linear colorspace.
+<p>The components of the texture are encoded with the sRGB transfer function.<br />
+The RGB components are evaluated after being converted into linear colorspace.<br />
 When undefined, the texture must be sampled as having <code>1.0</code> in RGB components.</p>
 <ul>
 <li>Type: <code>object</code></li>
@@ -4257,25 +4257,25 @@ When undefined, the texture must be sampled as having <code>1.0</code> in RGB co
 <p>The outline is one of the important factors of toon shaders.</p>
 <h4 id="outline-width">Outline Width</h4>
 <p>The outline width is calculated using values <code>outlineWidthMode</code>, <code>outlineWidthFactor</code>, <code>outlineWidthTexture</code> defined by the MToon extension.</p>
-<p>If the <code>outlineWidthMode</code> is <code>"none"</code>, the outline is not rendered.
-If the <code>outlineWidthMode</code> is <code>"worldCoordinates"</code>, the width of the outline is determined by the distance in the world coordinate system.
+<p>If the <code>outlineWidthMode</code> is <code>"none"</code>, the outline is not rendered.<br />
+If the <code>outlineWidthMode</code> is <code>"worldCoordinates"</code>, the width of the outline is determined by the distance in the world coordinate system.<br />
 If the <code>outlineWidthMode</code> is <code>"screenCoordinates"</code>, the width of the outline depends on the screen coordinate system, which results in the thickness of the outline being constant regardless of the world space distance to the mesh.</p>
 <p>The unit of <code>outlineWidthFactor</code> is meters when the <code>outlineWidthMode</code> is <code>"worldCoordinates"</code>, or a ratio to the screen height when the <code>outlineWidthMode</code> is <code>"screenCoordinates"</code>.</p>
-<p>The texture <code>outlineWidthTexture</code> adjusts the outline width in certain parts.
-The texture will be UV mapped and the value multiplies to the outline width.
+<p>The texture <code>outlineWidthTexture</code> adjusts the outline width in certain parts.<br />
+The texture will be UV mapped and the value multiplies to the outline width.<br />
 It is intended to be used for masking outlines where you do not want to outline certain parts of the mesh.</p>
 <blockquote>
-<p>In general, it is recommended to render outlines in the width that artists desire by respecting <code>outlineWidthMode</code> and <code>outlineWidthFactor</code>.
-However, applications might want to render outlines in the preferred outline width only when the model is close enough to the camera and render thinner as the camera goes away from the model (the behavior of <code>OutlineScaledMaxDistance</code> in VRM0).
+<p>In general, it is recommended to render outlines in the width that artists desire by respecting <code>outlineWidthMode</code> and <code>outlineWidthFactor</code>.<br />
+However, applications might want to render outlines in the preferred outline width only when the model is close enough to the camera and render thinner as the camera goes away from the model (the behavior of <code>OutlineScaledMaxDistance</code> in VRM0).<br />
 The actual line width should be set properly depending on application demands.</p>
 </blockquote>
 <h4 id="outline-lighting-mix">Outline Lighting Mix</h4>
-<p>The outline color can be affected by the surface shading results.
-The result of <a href="#lighting">Lighting</a>, <a href="#global-illumination">Global Illumination</a>, <a href="#emission">Emission</a>, and <a href="#rim-lighting">Rim Lighting</a> described above are multiplied against the outline color.
+<p>The outline color can be affected by the surface shading results.<br />
+The result of <a href="#lighting">Lighting</a>, <a href="#global-illumination">Global Illumination</a>, <a href="#emission">Emission</a>, and <a href="#rim-lighting">Rim Lighting</a> described above are multiplied against the outline color.<br />
 It is possible to linearly interpolate between unlit and lit results using the value <code>outlineLightingMixFactor</code> defined by the MToon extension.</p>
 <h4 id="implementation_3">Implementation</h4>
-<p>Rasterizer-based renderer usually draws outlines in a separated pass from the mesh surface pass.
-Outline vertices are calculated using vertices after skinning is done.
+<p>Rasterizer-based renderer usually draws outlines in a separated pass from the mesh surface pass.<br />
+Outline vertices are calculated using vertices after skinning is done.<br />
 The vertex information includes positions and normals after transforms.</p>
 <blockquote>
 <p>If it is difficult or performance-heavy to implement multi-pass rendering of meshes, fallback to omit rendering outlines.</p>
@@ -4343,11 +4343,11 @@ The vertex information includes positions and normals after transforms.</p>
 </ul>
 <h4 id="outlinewidthmultiplytexture">outlineWidthMultiplyTexture</h4>
 <p>The texture to set multiplication factor of outline width.</p>
-<p>The components of the texture are stored in linear colorspace.
-The G component of the texture is referred to.
+<p>The components of the texture are stored in linear colorspace.<br />
+The G component of the texture is referred to.<br />
 When undefined, the texture must be sampled as having <code>1.0</code> in the G component.</p>
 <blockquote>
-<p>You can use either a monochrome mask texture or an RGB texture with other masks per channel since the property references the G component of the assigned texture.
+<p>You can use either a monochrome mask texture or an RGB texture with other masks per channel since the property references the G component of the assigned texture.<br />
 You can combine <code>shadingShiftTexture</code> (which uses the R channel) and <code>uvAnimationMaskTexture</code> (which uses the B channel) into a single texture.</p>
 </blockquote>
 <ul>
@@ -4355,24 +4355,24 @@ You can combine <code>shadingShiftTexture</code> (which uses the R channel) and 
 <li>Required: No</li>
 </ul>
 <h4 id="outlinecolorfactor">outlineColorFactor</h4>
-<p>The color of the outline.
+<p>The color of the outline.<br />
 The value is evaluated in linear colorspace.</p>
 <ul>
 <li>Type: <code>number[3]</code></li>
 <li>Required: No, default: <code>[0, 0, 0]</code></li>
 </ul>
 <h4 id="outlinelightingmixfactor">outlineLightingMixFactor</h4>
-<p>The factor specifies the ratio of how much the outline color is multiplied by the surface shading result.
-If the value is set to <code>0.0</code>, the outline is rendered in the color specified by <code>outlineColorFactor</code> directly.
+<p>The factor specifies the ratio of how much the outline color is multiplied by the surface shading result.<br />
+If the value is set to <code>0.0</code>, the outline is rendered in the color specified by <code>outlineColorFactor</code> directly.<br />
 If you want the outline color to be affected by the lighting, set the value to <code>1.0</code>.</p>
 <ul>
 <li>Type: <code>number</code></li>
 <li>Required: No, default: <code>1.0</code></li>
 </ul>
 <h3 id="uv-animation">UV Animation</h3>
-<p>It is possible to animate textures using UV animation.
+<p>It is possible to animate textures using UV animation.<br />
 The animation is automatic and perpetual, not controllable.</p>
-<p>When transforming UV by the animation, values for each UV component are not clamped or repeated and the range of possible values can be outside of [0.0 - 1.0].
+<p>When transforming UV by the animation, values for each UV component are not clamped or repeated and the range of possible values can be outside of [0.0 - 1.0].<br />
 The specification assumes that the texture's <code>wrapS</code> or <code>wrapT</code> are set to <code>REPEAT</code> or <code>MIRRORED_REPEAT</code> .</p>
 <p>These textures defined in the MToon extension are affected by the UV animation:</p>
 <ul>
@@ -4393,21 +4393,21 @@ The specification assumes that the texture's <code>wrapS</code> or <code>wrapT</
 </blockquote>
 <h4 id="uv-scroll">UV Scroll</h4>
 <p>The speed of the UV scroll will be set by <code>uvAnimationScrollXSpeedFactor</code> and <code>uvAnimationScrollYSpeedFactor</code> .</p>
-<p>The unit is the UV coordinate unit per second. When the value is <code>1.0</code> , UV will scroll by 1 for each second.
+<p>The unit is the UV coordinate unit per second. When the value is <code>1.0</code> , UV will scroll by 1 for each second.<br />
 The scroll direction is in which the UV value increases positively when the value is positive.</p>
 <h4 id="uv-rotation">UV Rotation</h4>
 <p>The speed of the UV rotation will be set by <code>uvAnimationRotationSpeedFactor</code> .</p>
-<p>The unit is radian per second. When the value is <code>1.0</code> , UV will turn once for each 2π seconds.
-The UV rotates around (0.5, 0.5) in the UV coordinate.
+<p>The unit is radian per second. When the value is <code>1.0</code> , UV will turn once for each 2π seconds.<br />
+The UV rotates around (0.5, 0.5) in the UV coordinate.<br />
 The rotation direction is in which rotates UV coordinates counter-clockwise (in U-right, V-down space).</p>
 <blockquote>
-<p>The rotation direction is same as <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a>.
+<p>The rotation direction is same as <a href="https://github.com/KhronosGroup/glTF/tree/main/extensions/2.0/Khronos/KHR_texture_transform">KHR_texture_transform</a>.<br />
 See also the sample model "<a href="../../samples/VRMC_materials_mtoon_UV_Animation_Test/">VRMC_materials_mtoon UV Animation Test</a>".</p>
 </blockquote>
 <h4 id="transform-order">Transform Order</h4>
 <p>The mathematical notation shows the application order of UV animations using homogeneous coordinates.</p>
-<p>Let ${\rm scrollX}$ be the scroll in X axis by the <code>uvAnimationScrollXSpeedFactor</code> ,
-${\rm scrollY}$ be the scroll in Y axis by the <code>uvAnimationScrollYSpeedFactor</code> ,
+<p>Let ${\rm scrollX}$ be the scroll in X axis by the <code>uvAnimationScrollXSpeedFactor</code> ,<br />
+${\rm scrollY}$ be the scroll in Y axis by the <code>uvAnimationScrollYSpeedFactor</code> ,<br />
 ${\rm rotation}$ be the rotation animation by the <code>uvAnimationRotationSpeedFactor</code> ,</p>
 <p>The animated UV will be:</p>
 <div class="highlight"><pre><span></span><code>\begin{pmatrix} {\rm uv}&#39;.x \\ {\rm uv}&#39;.y \\ 1 \end{pmatrix}
@@ -4422,7 +4422,7 @@ ${\rm rotation}$ be the rotation animation by the <code>uvAnimationRotationSpeed
 </blockquote>
 <h4 id="uv-animation-mask-texture">UV Animation Mask Texture</h4>
 <p>The mask texture of the UV animations will be set by <code>uvAnimationMaskTexture</code> .</p>
-<p>The value multiplies to UV animation speed set by <code>uvAnimationScrollXSpeedFactor</code> , <code>uvAnimationScrollYSpeedFactor</code> , <code>uvAnimationRotationSpeedFactor</code> .
+<p>The value multiplies to UV animation speed set by <code>uvAnimationScrollXSpeedFactor</code> , <code>uvAnimationScrollYSpeedFactor</code> , <code>uvAnimationRotationSpeedFactor</code> .<br />
 If it's not assigned, each factor value is used directly.</p>
 <h4 id="implementation_4">Implementation</h4>
 <p>The pseudocode represents the implementation example of the UV animation:</p>
@@ -4480,11 +4480,11 @@ uv = uv + vec2( scrollX, scrollY ) * uvAnimMask;
 </table>
 <h4 id="uvanimationmasktexture">uvAnimationMaskTexture</h4>
 <p>The texture masks the UV animation for certain parts of meshes.</p>
-<p>The components of the texture are stored in linear colorspace.
-The B component of the texture is referred to.
+<p>The components of the texture are stored in linear colorspace.<br />
+The B component of the texture is referred to.<br />
 When undefined, the texture must be sampled as having <code>1.0</code> in the B component.</p>
 <blockquote>
-<p>You can use either a monochrome mask texture or an RGB texture with other masks per channel since the property references the B component of the assigned texture.
+<p>You can use either a monochrome mask texture or an RGB texture with other masks per channel since the property references the B component of the assigned texture.<br />
 You can combine <code>shadingShiftTexture</code> (which uses the R channel) and <code>outlineWidthMultiplyTexture</code> (which uses the G channel) into a single texture.</p>
 </blockquote>
 <ul>

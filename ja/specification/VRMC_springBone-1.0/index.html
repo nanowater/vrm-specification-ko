@@ -2651,9 +2651,9 @@
 <h2 id="dependencies">Dependencies</h2>
 <p>Written against the glTF 2.0 spec.</p>
 <h2 id="overview">Overview</h2>
-<p>ノードに慣性による速度維持と元の姿勢に戻ろうとするバネのプロシージャルアニメーションを実装します。
-髪や衣装などが揺れるような、見た目に対する用途を想定しています。
-剛性、減速、重力等のパラメーターで挙動を調整できます。
+<p>ノードに慣性による速度維持と元の姿勢に戻ろうとするバネのプロシージャルアニメーションを実装します。<br />
+髪や衣装などが揺れるような、見た目に対する用途を想定しています。<br />
+剛性、減速、重力等のパラメーターで挙動を調整できます。<br />
 また、SpringBone の各節の末端(球) と、 当たり判定ノード(collider: 球・カプセル)の衝突を設定できます。</p>
 <h2 id="_1">構成</h2>
 <h3 id="_2">用語</h3>
@@ -2687,10 +2687,10 @@
 <h4 id="springjoint">SpringJoint</h4>
 <p>SpringBoneの設定を付与する、単一のglTFのノードです。</p>
 <h4 id="headspringjoint-tailspringjoint">HeadSpringJoint と TailSpringJoint のペア</h4>
-<p>Head(<code>SpringJoint</code>) と Tail(<code>SpringJoint</code>) のペアで表される区間。
-Tail で前フレームとの位置差分の計算します。
-設定がある場合はコリジョンとの衝突も計算します。
-必ず Tail の祖先に Head が存在する必要がありますが、
+<p>Head(<code>SpringJoint</code>) と Tail(<code>SpringJoint</code>) のペアで表される区間。<br />
+Tail で前フレームとの位置差分の計算します。<br />
+設定がある場合はコリジョンとの衝突も計算します。<br />
+必ず Tail の祖先に Head が存在する必要がありますが、<br />
 Head の直接の親でなくてもかまいません。</p>
 <div class="highlight"><pre><span></span><code>  揺れる
 &lt;- Tail -&gt;
@@ -2715,9 +2715,9 @@ a-b
 b-c
 c-d
 </code></pre></div>
-<p>3つの <code>HeadSpringJoint と TailSpringJoint のペア</code> に展開されます。
-末端の SpringJoint は、Tail としてのみ使われるので SpringJoint のパラメータは使用されません。
-dを回転させたい場合は、以下のように末端に Node を追加して SpringJoint 設定をしてください。
+<p>3つの <code>HeadSpringJoint と TailSpringJoint のペア</code> に展開されます。<br />
+末端の SpringJoint は、Tail としてのみ使われるので SpringJoint のパラメータは使用されません。<br />
+dを回転させたい場合は、以下のように末端に Node を追加して SpringJoint 設定をしてください。<br />
 追加する Node は empty でかまいません。</p>
 <div class="highlight"><pre><span></span><code>Head(回転する)
 | +-Tail(移動差分・当たり判定)
@@ -2741,14 +2741,14 @@ d-(末尾 7cm の遠さに SpringJoint を追加する)
 </code></pre></div>
 <h3 id="_4">例外</h3>
 <h4 id="springjoint-springchain">ある SpringJoint が、重複して複数の SpringChain に所属すること(禁止)</h4>
-<p>個々の <code>SpringChain</code> は同じ joint を含んではいけない。
+<p>個々の <code>SpringChain</code> は同じ joint を含んではいけない。<br />
 以下の場合、b, c, d が同時に２つの SpringChain に所属しています。</p>
 <div class="highlight"><pre><span></span><code>b-c-d
 
 a-b-c-d
 </code></pre></div>
-<p>以下のような構成は、暗黙裡に重複すると見なします。
-b, c が同時に２つの SpringChain に所属しています。
+<p>以下のような構成は、暗黙裡に重複すると見なします。<br />
+b, c が同時に２つの SpringChain に所属しています。<br />
 スキップされていても重複判定の対象になります。</p>
 <div class="highlight"><pre><span></span><code>() はスキップされる node
 a-(b)-c
@@ -2770,10 +2770,10 @@ a-b-c-d
 <h2 id="_5">評価する座標系</h2>
 <p>SpringBoneにおいて、Jointの位置の評価には、原則としてWorld Spaceを用います。</p>
 <h3 id="center-space">Center Space</h3>
-<p><code>center</code> プロパティを利用することによって、Jointの位置の評価にWorld Space以外を用いることが可能です。
-<code>center</code> はモデル内の1ノードを指定することができ、指定したノードから相対となるSpaceでJointの位置が評価されます。
+<p><code>center</code> プロパティを利用することによって、Jointの位置の評価にWorld Space以外を用いることが可能です。<br />
+<code>center</code> はモデル内の1ノードを指定することができ、指定したノードから相対となるSpaceでJointの位置が評価されます。<br />
 <code>center</code> は、SpringChain単位で指定します。</p>
-<p>Centerノードは、そのSpringChainの0番目のJointもしくは、その祖先nodeである必要があります。
+<p>Centerノードは、そのSpringChainの0番目のJointもしくは、その祖先nodeである必要があります。<br />
 また、Centerノードには、他のSpringChainのJointノードおよびその子孫を指定することはできません。</p>
 <p>以下のような、主にSpringBoneが揺れすぎてしまう場合に有効です。</p>
 <ul>
@@ -2854,7 +2854,7 @@ a-b-c-d
 <div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_spri</span><span class="kc">n</span><span class="err">gBo</span><span class="kc">ne</span><span class="err">.specVersio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span>
 </code></pre></div>
 <h3 id="vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></h3>
-<p>SpringBone に対する当たり判定を定義します。
+<p>SpringBone に対する当たり判定を定義します。<br />
 対象のノードとその形状 (shape) です。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3006,12 +3006,12 @@ a-b-c-d
 </tbody>
 </table>
 <h4 id="joints">joints</h4>
-<p><code>SpringBoneChain</code> を表します。
+<p><code>SpringBoneChain</code> を表します。<br />
 以下の制約があります。</p>
 <ul>
 <li>joints[n] は joints[n+1] の親または祖先であること</li>
 </ul>
-<p>joints[n] と joints[n+1] が直接の親子nodeではない場合は、間の node は無視されます。
+<p>joints[n] と joints[n+1] が直接の親子nodeではない場合は、間の node は無視されます。<br />
 joints の最後が末端nodeではない場合は、それより子孫のnodeは無視され、個別に揺れなくなります。</p>
 <blockquote>
 <p>上記の説明の通り、 joints を設定しないことによって、途中もしくは終端の node をスキップして揺れるように設定することができます。しかし、その node に他の用途がない場合は、その node は冗長となっているため、node ごと削除することをおすすめします。</p>
@@ -3091,8 +3091,8 @@ joints の最後が末端nodeではない場合は、それより子孫のnode�
 <p>実際の実装は、UniVRMやthree-vrmなど、VRMの各実装のソースコードに見ることができます。</p>
 <p>SpringBoneのリファレンス実装は、Verlet積分を用いて簡易的な物理シミュレーションを行うものです。</p>
 <h3 id="_6">更新順序</h3>
-<p>SpringBone系全体の更新は、SpringBoneJoint同士の依存を解決しながら行われます。
-具体的には、Jointの親にJointが存在する場合、その親が優先して処理されます。
+<p>SpringBone系全体の更新は、SpringBoneJoint同士の依存を解決しながら行われます。<br />
+具体的には、Jointの親にJointが存在する場合、その親が優先して処理されます。<br />
 すなわち、根本から先端にかけて順番に更新処理が行われます。</p>
 <h3 id="_7">初期化</h3>
 <p>本実装で扱うひとつのSpringBoneJointは、以下のようなステートを持ちます:</p>
@@ -3105,11 +3105,11 @@ joints の最後が末端nodeではない場合は、それより子孫のnode�
 <span class="w">    </span><span class="nx">initialLocalRotation</span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>prevTail</code> ・ <code>currentTail</code> は、そのJointが対象とする子Nodeの、ワールド空間における位置を表します。
+<p><code>prevTail</code> ・ <code>currentTail</code> は、そのJointが対象とする子Nodeの、ワールド空間における位置を表します。<br />
 <code>currentTail</code> が現在のフレームの位置、 <code>prevTail</code> が1フレーム前の位置を表します。</p>
-<p><code>boneAxis</code> は、そのJointが対象とする子Nodeの、ローカル空間におけるレスト状態の伸びる方向を表します。
+<p><code>boneAxis</code> は、そのJointが対象とする子Nodeの、ローカル空間におけるレスト状態の伸びる方向を表します。<br />
 <code>boneLength</code> は、そのJointが対象とする子Nodeの、ワールド空間における長さを表します。</p>
-<p><code>initialLocalMatrix</code> は、そのJointが対象とするNodeのレスト状態のトランスフォームを表します。
+<p><code>initialLocalMatrix</code> は、そのJointが対象とするNodeのレスト状態のトランスフォームを表します。<br />
 <code>initialLocalRotation</code> は、そのJointが対象とするNodeのレスト状態の回転を表します。</p>
 <h3 id="_8">更新処理</h3>
 <p>大雑把に、以下の3ステップで更新がされます:</p>
@@ -3143,7 +3143,7 @@ joints の最後が末端nodeではない場合は、それより子孫のnode�
 <span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="_10">コライダーとの衝突</h4>
-<p>Jointが対象とするColliderとの衝突判定を行います。
+<p>Jointが対象とするColliderとの衝突判定を行います。<br />
 Colliderそれぞれに対して距離の判定を行い、距離がColliderとJointの半径の和より小さかった場合は、それらが接する位置までジョイントを押しのける処理を行います。</p>
 <p>以下の擬似コードに処理を表します:</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">collider</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">colliders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3208,8 +3208,8 @@ Colliderそれぞれに対して距離の判定を行い、距離がColliderとJ
 <span class="nx">node</span><span class="p">.</span><span class="nx">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuaternion</span><span class="p">(</span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="center-space_1">Center spaceの考慮</h4>
-<p>SpringBoneに <code>center</code> が設定されている場合、SpringBoneの慣性は<a href="#center-space">Center Space</a>で評価されます。
-これは、上記の慣性計算において、World Spaceで評価していたトランスフォームを代わりにCenter Spaceで評価することで実現できます。
+<p>SpringBoneに <code>center</code> が設定されている場合、SpringBoneの慣性は<a href="#center-space">Center Space</a>で評価されます。<br />
+これは、上記の慣性計算において、World Spaceで評価していたトランスフォームを代わりにCenter Spaceで評価することで実現できます。<br />
 外力（重力）については、 <code>center</code> の設定に依らずWorld Spaceで計算されます。</p>
 
 

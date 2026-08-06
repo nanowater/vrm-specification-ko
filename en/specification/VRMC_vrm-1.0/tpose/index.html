@@ -2140,43 +2140,43 @@
 
 <h1 id="vrm-t-pose-the-specification-of-the-rest-pose-in-vrm">VRM T-pose: The specification of the rest pose in VRM</h1>
 <h2 id="overview">Overview</h2>
-<p>VRM models must follow the specification of the rest pose in VRM.
+<p>VRM models must follow the specification of the rest pose in VRM.<br />
 This document describes the spec of the pose, and we call it "VRM T-pose".</p>
 <h2 id="definition">Definition</h2>
-<p>The VRM T-pose has two main criteria, all of which must be met.
-First, it defines the criteria for the appearance of skinned meshes.
+<p>The VRM T-pose has two main criteria, all of which must be met.<br />
+First, it defines the criteria for the appearance of skinned meshes.<br />
 Second, it defines the criteria of the numerical values of node transforms.</p>
 <p>Basically, the pose goes from a straight standing posture to a T-shaped pose which raises only the upper arm bones directly to the side.</p>
 <h3 id="definition-based-on-the-appearance-of-skinned-meshes">Definition based on the appearance of skinned meshes</h3>
 <p>This section defines the VRM T-pose by the appearance of the VRM model.</p>
-<p>For example, it is important to be able to calculate the height of the sole surface for a VRM model.
-If it can be correctly calculated, the VRM model can be properly grounded in virtual space.
-Typically, the Foot bone of a humanoid model is located at the ankle.
-Or, the height of the sole depends on the appearance of the mesh.
-Therefore, it is impossible to calculate the height of the sole surface by simply seeing the bone transform.
+<p>For example, it is important to be able to calculate the height of the sole surface for a VRM model.<br />
+If it can be correctly calculated, the VRM model can be properly grounded in virtual space.<br />
+Typically, the Foot bone of a humanoid model is located at the ankle.<br />
+Or, the height of the sole depends on the appearance of the mesh.<br />
+Therefore, it is impossible to calculate the height of the sole surface by simply seeing the bone transform.<br />
 The height information of the sole surface must be defined based on the appearance of the mesh.</p>
 <p>All axes mentioned in the following definitions are in global space unless specified otherwise.</p>
 <h4 id="definition-11-standing-straight-toward-the-z-axis-symmetrical-on-the-x-axis-in-appearance">Definition 1.1. Standing straight toward the +Z axis, symmetrical on the X axis in appearance</h4>
 <p>The legs, torso, head, and eyes of a VRM model must be oriented along the +Z axis, symmetrical on the X axis, and standing straight.</p>
-<p>"Standing straight" means a relaxed, and neutral posture for the VRM model.
-It is symmetrical at X: 0.0, gazing straight ahead.
+<p>"Standing straight" means a relaxed, and neutral posture for the VRM model.<br />
+It is symmetrical at X: 0.0, gazing straight ahead.<br />
 Seeing from the side, It should be as straight as possible from feet to head near Z: 0.0.</p>
 <h4 id="definition-12-feet-parallel-to-the-z-axis-in-appearance">Definition 1.2. Feet parallel to the Z axis in appearance</h4>
-<p>The feet of a VRM model must be pointing straight and parallel to the Z axis.
+<p>The feet of a VRM model must be pointing straight and parallel to the Z axis.<br />
 The toes must be directed along the +Z axis.</p>
 <p>For example, the feet must not be V-shaped.</p>
 <h4 id="definition-13-the-foot-is-grounded-at-y-00-in-appearance">Definition 1.3. The foot is grounded at Y: 0.0 in appearance</h4>
 <p>The height at which the VRM model is grounded, such as sole surfaces, is defined as Y: 0.0.</p>
-<p>VRM models must be grounded on the plane at Y: 0.0 in appearance.
+<p>VRM models must be grounded on the plane at Y: 0.0 in appearance.<br />
 For example, it can be achieved by adjusting the transform of the Hips bone up and down.</p>
-<p>Users of a VRM model can consider the model's Y: 0.0 as the ground plane.
+<p>Users of a VRM model can consider the model's Y: 0.0 as the ground plane.<br />
 For example, the relative position of the ground plane from the foot bone can be pre-calculated to calculate the ground plane in realtime.</p>
 <h4 id="definition-14-the-arms-are-extended-along-the-x-axis-and-are-parallel-to-the-ground-in-appearance">Definition 1.4. The arms are extended along the X axis and are parallel to the ground in appearance</h4>
 <p>The arms must be extended in parallel to the X axis, which is also parallel to the ground.</p>
 <p>Because the arms are extended horizontally, it forms the T letter by seeing from the front, and is referred to as a T-pose.</p>
 <h4 id="definition-15-shoulders-are-relaxed-and-lowest-in-appearance">Definition 1.5. Shoulders are relaxed and lowest in appearance</h4>
 <p>If shoulder bones are present, the shoulders must be relaxed and lowermost in appearance.</p>
-<p>This is to ensure that there is no difference between models without shoulder bones and with shoulder bones.
+<p>This is to ensure that there is no difference between models without shoulder bones and with shoulder bones.<br />
 This also makes it easier to calculate how the shoulders look when the arms are down.</p>
 <p>Combining with the Definition 1.4, this would result in a pose where the shoulders are lowered and the arms are raised, which is not possible for a real person, but it is the definition.</p>
 <h4 id="definition-16-the-hands-are-extended-along-the-x-axis-and-are-parallel-to-the-ground-in-appearance">Definition 1.6. The hands are extended along the X axis and are parallel to the ground in appearance</h4>
@@ -2188,14 +2188,14 @@ This also makes it easier to calculate how the shoulders look when the arms are 
 <h4 id="definition-18-the-thumb-of-each-hand-is-extended-between-the-x-axis-and-z-axis-and-is-parallel-to-the-ground-in-appearance">Definition 1.8. The thumb of each hand is extended between the X axis and +Z axis and is parallel to the ground in appearance</h4>
 <p>The thumb of each hand must be in parallel to the sum of X axis and +Z axis, which is 45 degrees from each axes, and it is also parallel to the ground.</p>
 <p>The nail surface of the thumb is oriented with a 90 degrees outward roll, unlike the other four fingers.</p>
-<p>The thumb of the left hand is directed between the +X axis and +Z axis, and the nail faces between the -X axis and the +Z axis.
+<p>The thumb of the left hand is directed between the +X axis and +Z axis, and the nail faces between the -X axis and the +Z axis.<br />
 The thumb of the right hand is directed between the -X axis and +Z axis, and the nail faces between the +X axis and the +Z axis.</p>
 <h3 id="definition-based-on-numerical-values-of-node-transforms">Definition based on numerical values of node transforms</h3>
-<p>A definition based solely on the appearance of the skinned mesh provides too many degrees of freedom in the possible postures of the bones.
-Unnecessarily high degrees of freedom of models increase the complexity of implementation.
+<p>A definition based solely on the appearance of the skinned mesh provides too many degrees of freedom in the possible postures of the bones.<br />
+Unnecessarily high degrees of freedom of models increase the complexity of implementation.<br />
 Therefore, we add a numerical-based definition for node transforms.</p>
 <h4 id="definition-21-all-node-transforms-are-on-a-positive-uniform-scale">Definition 2.1. All node transforms are on a positive uniform scale</h4>
-<p>All node transforms must be in a positive uniform scale.
+<p>All node transforms must be in a positive uniform scale.<br />
 A positive uniform scale means that each value of the scale is the same non-zero positive value.</p>
 
 

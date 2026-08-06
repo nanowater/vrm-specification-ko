@@ -2651,9 +2651,9 @@
 <h2 id="dependencies">Dependencies</h2>
 <p>Written against the glTF 2.0 spec.</p>
 <h2 id="overview">Overview</h2>
-<p>Implements a procedural animation that behaves like a spring that tries to maintain velocity by inertia and eventually returns to the node's original orientation.
-It is intended for use with the appearance of shaking hair and costumes.
-You can adjust the behavior with parameters such as rigidity, deceleration, and gravity.
+<p>Implements a procedural animation that behaves like a spring that tries to maintain velocity by inertia and eventually returns to the node's original orientation.<br />
+It is intended for use with the appearance of shaking hair and costumes.<br />
+You can adjust the behavior with parameters such as rigidity, deceleration, and gravity.<br />
 You can also set the collision between the end (sphere) of each section of SpringBone and the collision detection node (collider: sphere / capsule).</p>
 <h2 id="structure">Structure</h2>
 <h3 id="terms">Terms</h3>
@@ -2687,10 +2687,10 @@ You can also set the collision between the end (sphere) of each section of Sprin
 <h4 id="springjoint">SpringJoint</h4>
 <p>A single glTF node that is going to have SpringBone settings.</p>
 <h4 id="springjointpair">SpringJointPair</h4>
-<p>A section represented by a pair of Head (<code>SpringJoint</code>) and Tail (<code>SpringJoint</code>).
-Calculate the position difference from the previous frame with Tail.
-It also calculates collisions with collisions, if set.
-Head must always be an ancestor of Tail,
+<p>A section represented by a pair of Head (<code>SpringJoint</code>) and Tail (<code>SpringJoint</code>).<br />
+Calculate the position difference from the previous frame with Tail.<br />
+It also calculates collisions with collisions, if set.<br />
+Head must always be an ancestor of Tail,<br />
 It does not have to be the parent of the Head.</p>
 <div class="highlight"><pre><span></span><code>  Sways
 &lt;- Tail -&gt;
@@ -2715,9 +2715,9 @@ a-b
 b-c
 c-d
 </code></pre></div>
-<p>Expands to three <code>HeadSpringJoint and TailSpringJoint pairs</code>.
-The SpringJoint at the end is only used as a Tail, so no SpringJoint parameters are used.
-If you want to rotate d, add Node to the end and set SpringJoint as shown below.
+<p>Expands to three <code>HeadSpringJoint and TailSpringJoint pairs</code>.<br />
+The SpringJoint at the end is only used as a Tail, so no SpringJoint parameters are used.<br />
+If you want to rotate d, add Node to the end and set SpringJoint as shown below.<br />
 The Node you add can be empty.</p>
 <div class="highlight"><pre><span></span><code>Head(rotate)
 | +-Tail(Movement difference / collision)
@@ -2741,14 +2741,14 @@ d- (Add SpringJoint at a distance of 7 cm at the end)
 </code></pre></div>
 <h3 id="exception">Exception</h3>
 <h4 id="multiple-springchains-must-not-be-duplicated-in-the-same-springjoint-prohibited">Multiple SpringChains must not be duplicated in the same SpringJoint (prohibited)</h4>
-<p>Individual <code>SpringChains</code> must not contain the same joint.
+<p>Individual <code>SpringChains</code> must not contain the same joint.<br />
 In the following cases, b, c and d belong to two SpringChains at the same time.</p>
 <div class="highlight"><pre><span></span><code>b-c-d
 
 a-b-c-d
 </code></pre></div>
-<p>Configurations such as the following are implicitly considered duplicates.
-b and c belong to two SpringChains at the same time.
+<p>Configurations such as the following are implicitly considered duplicates.<br />
+b and c belong to two SpringChains at the same time.<br />
 Even if it is skipped, it will be subject to duplicate check.</p>
 <div class="highlight"><pre><span></span><code>() is skipped node
 a-(b)-c
@@ -2770,10 +2770,10 @@ a-b-c-d
 <h2 id="evaluation-space">Evaluation Space</h2>
 <p>For evaluation of positions of Joints, world space is used by default.</p>
 <h3 id="center-space">Center Space</h3>
-<p>Using the property <code>center</code> makes it possible to use spaces to evaluate joints other than world space.
-A node of the model can be specified as a <code>center</code> and the joint will be evaluated in the space relative to the node.
+<p>Using the property <code>center</code> makes it possible to use spaces to evaluate joints other than world space.<br />
+A node of the model can be specified as a <code>center</code> and the joint will be evaluated in the space relative to the node.<br />
 <code>center</code> is specified per a SpringChain.</p>
-<p>The center node must be the 0th joint of the SpringChain, or its ancestors.
+<p>The center node must be the 0th joint of the SpringChain, or its ancestors.<br />
 The center node cannot be any joints of other SpringChains, or descendants of one of these.</p>
 <p><code>center</code> is effective in these cases, mainly when SpringBone is shaking too intense:</p>
 <ul>
@@ -2849,7 +2849,7 @@ The center node cannot be any joints of other SpringChains, or descendants of on
 <div class="highlight"><pre><span></span><code><span class="err">ex</span><span class="kc">tens</span><span class="err">io</span><span class="kc">ns</span><span class="err">.VRMC_spri</span><span class="kc">n</span><span class="err">gBo</span><span class="kc">ne</span><span class="err">.specVersio</span><span class="kc">n</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span>
 </code></pre></div>
 <h3 id="vrmc_springbonecolliders"><code>VRMC_springBone.colliders</code></h3>
-<p>Defines collision detection for SpringBone.
+<p>Defines collision detection for SpringBone.<br />
 The target node and its shape.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3005,12 +3005,12 @@ The target node and its shape.</p>
 </tbody>
 </table>
 <h4 id="joints">joints</h4>
-<p>joints is a set of nodes that have a continuous parent-child relationship.
+<p>joints is a set of nodes that have a continuous parent-child relationship.<br />
 There are the following restrictions.</p>
 <ul>
 <li>joints [n] must be a parent or ancestor of joints[n+1]</li>
 </ul>
-<p>If joints [n] and joints [n+1] are not direct parent-child nodes, the nodes in between are ignored.
+<p>If joints [n] and joints [n+1] are not direct parent-child nodes, the nodes in between are ignored.<br />
 If the end of joints is not the terminal node, then the descendant nodes will be ignored and will not sway individually.</p>
 <blockquote>
 <p>As explained above, by not setting joints, you can skip mid- or terminal nodes and set them to sway. However, if that node has no other purpose, it's redundant and it's a good idea to remove it altogether.</p>
@@ -3090,8 +3090,8 @@ If the end of joints is not the terminal node, then the descendant nodes will be
 <p>Actual implementations can be seen in source codes of VRM implementations like UniVRM and three-vrm.</p>
 <p>The reference implementation does a simple physics simulation using verlet integration.</p>
 <h3 id="calculation-order">Calculation order</h3>
-<p>The update of the SpringBone system is done while resolving the dependencies between SpringBoneJoints.
-Specifically, if a joint exists at the ancestors of a joint, that ancestors will be updated first.
+<p>The update of the SpringBone system is done while resolving the dependencies between SpringBoneJoints.<br />
+Specifically, if a joint exists at the ancestors of a joint, that ancestors will be updated first.<br />
 In other words, the update process is performed from the root to the descendants.</p>
 <h3 id="initialization">Initialization</h3>
 <p>In this implementation of SpringBoneJoint, a single joint has following states:</p>
@@ -3104,11 +3104,11 @@ In other words, the update process is performed from the root to the descendants
 <span class="w">    </span><span class="nx">initialLocalRotation</span><span class="o">:</span><span class="w"> </span><span class="kt">Quaternion</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>prevTail</code> and <code>currentTail</code> represents a position of the specified children, in the world coordinate.
+<p><code>prevTail</code> and <code>currentTail</code> represents a position of the specified children, in the world coordinate.<br />
 <code>currentTail</code> represents the current position, <code>prevTail</code> represents the position in the previous frame.</p>
-<p><code>boneAxis</code> represents the direction of the specified children in its rest state, in the local coordinate.
+<p><code>boneAxis</code> represents the direction of the specified children in its rest state, in the local coordinate.<br />
 <code>boneLength</code> represents the length of the specified children, in the world coordinate.</p>
-<p><code>initialLocalMatrix</code> represents the rest transform of the specified joint node.
+<p><code>initialLocalMatrix</code> represents the rest transform of the specified joint node.<br />
 <code>initialLocalRotation</code> represents the rest orientation of the specified joint node.</p>
 <h3 id="update-procedure">Update procedure</h3>
 <p>The outline of the update procedure is presented in the following 3 steps:</p>
@@ -3142,8 +3142,8 @@ In other words, the update process is performed from the root to the descendants
 <span class="nx">nextTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">worldPosition</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">nextTail</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">worldPosition</span><span class="p">).</span><span class="nx">normalized</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">boneLength</span><span class="p">;</span>
 </code></pre></div>
 <h4 id="collision-with-colliders">Collision with colliders</h4>
-<p>Perform collision detection with colliders the joint specifies.
-Calculate the distance between a collider and a joint.
+<p>Perform collision detection with colliders the joint specifies.<br />
+Calculate the distance between a collider and a joint.<br />
 If the distance is smaller than the sum of radii of the collider and the joint, it moves the joint to the position that pushes the joint by the collider, touching each other.</p>
 <p>The following pseudocode represents the procedure.</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">collider</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">colliders</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3208,8 +3208,8 @@ If the distance is smaller than the sum of radii of the collider and the joint, 
 <span class="nx">node</span><span class="p">.</span><span class="nx">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">initialLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">fromToQuaternion</span><span class="p">(</span><span class="nx">boneAxis</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="considering-center-space">Considering center space</h4>
-<p>When <code>center</code> is set to SpringBone, The inertia is evaluated in the <a href="#center-space">center space</a> .
-You can achieve this by evaluating transforms in the world space in the center space instead while calculating the inertia.
+<p>When <code>center</code> is set to SpringBone, The inertia is evaluated in the <a href="#center-space">center space</a> .<br />
+You can achieve this by evaluating transforms in the world space in the center space instead while calculating the inertia.<br />
 External forces (gravity) are calculated in World Space regardless of the <code>center</code>.</p>
 
 

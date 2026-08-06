@@ -2430,12 +2430,12 @@
 </tbody>
 </table>
 <h3 id="expression_1">Expression の制御</h3>
-<p>各Expressionが用いられる際に、その表情の強さを表す「Value」の状態を持つことを想定します。
-Valueは [0-1] の範囲の値を持つ数値です。
+<p>各Expressionが用いられる際に、その表情の強さを表す「Value」の状態を持つことを想定します。<br />
+Valueは [0-1] の範囲の値を持つ数値です。<br />
 VRMの実装は、アプリケーションがこの範囲から外れた値を与えた場合は、値をクランプしてください。</p>
 <h2 id="preset-expressions">Preset Expressions</h2>
-<p>以下は、プリセット表情の一覧です。
-これらの表情の定義は <code>expressions.preset</code> 内に格納されます。
+<p>以下は、プリセット表情の一覧です。<br />
+これらの表情の定義は <code>expressions.preset</code> 内に格納されます。<br />
 すべてのプリセット表情はオプショナルです。</p>
 <h3 id="_1">感情</h3>
 <table>
@@ -2578,13 +2578,13 @@ VRMの実装は、アプリケーションがこの範囲から外れた値を�
 </tbody>
 </table>
 <h2 id="custom-expressions">Custom Expressions</h2>
-<p>上で挙げたPreset Expressionsの他に、ユーザが独自に表情を定義できます。
-Custom Expressionsは <code>expressions.custom</code> 内に格納されます。
+<p>上で挙げたPreset Expressionsの他に、ユーザが独自に表情を定義できます。<br />
+Custom Expressionsは <code>expressions.custom</code> 内に格納されます。<br />
 プリセット名と同じ名前の Custom Expressions は許容されません。</p>
 <h2 id="_6">プロシージャルのオーバーライド</h2>
-<p>リップシンク、瞬き、視線 はプロシージャルと分類します。
-プロシージャルは、システムにより自動で生成されることを想定します。
-そのため、 これらの Expression が他の Expression と同時に有効になってしまい、
+<p>リップシンク、瞬き、視線 はプロシージャルと分類します。<br />
+プロシージャルは、システムにより自動で生成されることを想定します。<br />
+そのため、 これらの Expression が他の Expression と同時に有効になってしまい、<br />
 メッシュが破綻してしまう可能性があります。</p>
 <p>例えば、</p>
 <ul>
@@ -2592,12 +2592,12 @@ Custom Expressionsは <code>expressions.custom</code> 内に格納されます�
 <li>目を閉じる <code>sad</code> と同時に <code>blink</code> が適用される =&gt; 目が2回閉じて瞼が頬を貫通してしまう</li>
 <li><code>blink</code> と同時に <code>lookRight</code> が適用される =&gt; 目が瞼を貫通してしまう</li>
 </ul>
-<p>などです。
+<p>などです。<br />
 これらを防御するために、 プロシージャルではない Expression に対して、同時にプロシージャルな Expression が有効になった場合に、プロシージャルな Expression の値をオーバーライドする機能があります。</p>
 <blockquote>
 <p><code>happy</code> 中はリップシンクをしないなど</p>
 </blockquote>
-<p>リップシンク、瞬き、視線 に対して
+<p>リップシンク、瞬き、視線 に対して<br />
 overrideMouth, overrideBlink, overrideLookAt を設定できます。</p>
 <p>それぞれの override プロパティは、以下のプロシージャル表情に対して作用します:</p>
 <table>
@@ -2627,8 +2627,8 @@ overrideMouth, overrideBlink, overrideLookAt を設定できます。</p>
 </tbody>
 </table>
 <blockquote>
-<p>カスタム表情に対してこれらの override プロパティが作用するかは、仕様では特に定義しません。
-アプリケーション側の需要に応じて適宜設定を行ってください。
+<p>カスタム表情に対してこれらの override プロパティが作用するかは、仕様では特に定義しません。<br />
+アプリケーション側の需要に応じて適宜設定を行ってください。<br />
 例えば、VRMのプリセットに含まれないリップシンクをカスタム表情を用いてアプリケーションごとに利用したい場合に、そのカスタム表情の発現を override プロパティを用いて制御するような使い方が想定されます。</p>
 <p>上記の理由で、VRMの実装は、カスタム表情を override の対象に含むことができるようなインタフェースを提供することが推奨されます。</p>
 </blockquote>
@@ -2657,8 +2657,8 @@ overrideMouth, overrideBlink, overrideLookAt を設定できます。</p>
 </tbody>
 </table>
 <p>blend 詳細</p>
-<p>例えば、happy が overrideBlink = blend に設定されている場合、
-happy の値が 0 から 1 にフェードするに従い、線形に blink を減衰させます。
+<p>例えば、happy が overrideBlink = blend に設定されている場合、<br />
+happy の値が 0 から 1 にフェードするに従い、線形に blink を減衰させます。<br />
 0~1 の間の中間値の挙動が block と異なります。</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">happyWeight</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">happy</span><span class="p">.</span><span class="nx">overrideBlink</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;blend&quot;</span><span class="p">)</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">happyWeight</span><span class="p">;</span>
@@ -2672,13 +2672,13 @@ happy の値が 0 から 1 にフェードするに従い、線形に blink を�
 <h3 id="isbinary">オーバーライドとisBinaryの相互作用について</h3>
 <p>isBinaryが指定されている表情が他の表情にオーバーライドの影響を与える場合、出力値である二値化された値をもって他の表情に影響を与えなければいけません（MUST）。</p>
 <blockquote>
-<p>これは、オーバーライドの影響を与える表情がキャラクター上に見た目として発現していないにも関わらず、他の表情がオーバーライドによって抑制されることを防ぐための仕様です。
+<p>これは、オーバーライドの影響を与える表情がキャラクター上に見た目として発現していないにも関わらず、他の表情がオーバーライドによって抑制されることを防ぐための仕様です。<br />
 例えば、表情 <code>happy</code> の <code>isBinary</code> が <code>true</code> で、かつ <code>overrideBlink</code> に <code>block</code> もしくは <code>blend</code> が指定されている場合、 <code>happy</code> の値が 0.5 以上のとき、 <code>blink</code> は完全に抑制されます。逆に、 <code>happy</code> の値が 0.5 未満のとき、 <code>blink</code> は <code>happy</code> の値に関係なく評価されます。</p>
 <p><img alt="上記の例における happy の出力値の図解" src="../../../../specification/VRMC_vrm-1.0/figures/override-isbinary-ja.png" /></p>
 </blockquote>
 <p>isBinaryが指定されている表情が他の表情からオーバーライドの影響を受ける場合、受けている影響が0.0より大きければ、完全に抑制されなければいけません（MUST）。</p>
 <blockquote>
-<p>これは、オーバーライドの影響を受ける <code>isBinary</code> が <code>true</code> の表情が0もしくは1以外の値で発現することを防ぐための仕様です。
+<p>これは、オーバーライドの影響を受ける <code>isBinary</code> が <code>true</code> の表情が0もしくは1以外の値で発現することを防ぐための仕様です。<br />
 例えば、表情 <code>happy</code> の <code>overrideBlink</code> が <code>block</code> もしくは <code>blend</code> で、表情 <code>blink</code> の <code>isBinary</code> が <code>true</code> の場合、 <code>happy</code> が少しでもオーバーライドの影響を与えているならば、 <code>blink</code> は完全に抑制されます。</p>
 </blockquote>
 <h3 id="morphtargetbind">MorphTargetBind</h3>
@@ -2784,7 +2784,7 @@ happy の値が 0 から 1 にフェードするに従い、線形に blink を�
 <p><code>targetValue</code> はfloat4で格納されますが、宛先のパラメータに4つ目の成分が存在しない場合、4つ目の値は無視されます。</p>
 <h3 id="texturetransformbind">TextureTransformBind</h3>
 <p><code>extensions.VRMC_vrm.expressions[*].textureTransformBinds[*]</code></p>
-<p>Expression と 対象 Material のテクスチャーの scale, offset の変化を結びつけます。
+<p>Expression と 対象 Material のテクスチャーの scale, offset の変化を結びつけます。<br />
 対象マテリアルで使われるテクスチャのうち、UVアクセスするテクスチャすべてが同じ値を使用することとします。</p>
 <p>UVアクセスしないテクスチャは、MToon の <code>matcap</code> です。</p>
 <table>

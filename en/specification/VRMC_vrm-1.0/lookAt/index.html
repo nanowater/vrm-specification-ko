@@ -2120,7 +2120,7 @@
 <p>This document provides specifications for the <code>lookAt</code> field of the<code>VRMC_vrm</code> extension.</p>
 <h2 id="overview">Overview</h2>
 <p>LookAt is a component for animating the line of sight into a VRM model.</p>
-<p>The line of sight is defined by the <code>LookAt space</code> obtained by offsetting the <code>Head</code> bone in the initial posture.
+<p>The line of sight is defined by the <code>LookAt space</code> obtained by offsetting the <code>Head</code> bone in the initial posture.<br />
 This document describes yaws and pitches that have positive rotation directions depending on the Euler angles of a right-handed system.</p>
 <p>A set of <code>line-of-sight</code>s assumes that both eyes are looking in the same direction.For this reason, it is not possible to express that both eyes, such as cross-eyed eyes, face different directions.</p>
 <h2 id="detail">Detail</h2>
@@ -2207,12 +2207,12 @@ This document describes yaws and pitches that have positive rotation directions 
 </tbody>
 </table>
 <blockquote>
-<p>expression can be MorphTarget, MaterialColor, TextureTransform.
+<p>expression can be MorphTarget, MaterialColor, TextureTransform.<br />
 LookAt expects the line of sight to be represented primarily by using MorphTarget to move the vertices and TextureTransform to move the offset of the eye texture.</p>
 </blockquote>
 <h3 id="lookat-space-offsetfromheadbone">LookAt space (offsetFromHeadBone)</h3>
 <p>To determine the direction of gaze where the model is looking at an object, We define "LookAt space."</p>
-<p>LookAt space is defined as a space relative to a transform in the world.
+<p>LookAt space is defined as a space relative to a transform in the world.<br />
 We define the transform by the following:</p>
 <ul>
 <li>The parent of the transform is the head, which follows the head's movement</li>
@@ -2220,18 +2220,18 @@ We define the transform by the following:</p>
 <li>The local rotation of the transform from the head is the inverse of the head's rest rotation in model space</li>
 </ul>
 <blockquote>
-<p>Due to the rest rotation of the head in the model space, the direction of the viewpoint position shift by <code>offsetFromHeadBone</code> may not be the same as the axes in the model space.
+<p>Due to the rest rotation of the head in the model space, the direction of the viewpoint position shift by <code>offsetFromHeadBone</code> may not be the same as the axes in the model space.<br />
 Also, even if the head has a rest rotation in the model space, the forward direction of the sight will match +Z axis in the model space.</p>
 </blockquote>
-<p>In the reference space of the line-of-sight direction, it has the <code>offsetFromHeadBone</code>, which is the local coordinate of the<code>head</code> bone, as the origin, and has the world reverse rotation of the head bone in the initial posture.
+<p>In the reference space of the line-of-sight direction, it has the <code>offsetFromHeadBone</code>, which is the local coordinate of the<code>head</code> bone, as the origin, and has the world reverse rotation of the head bone in the initial posture.<br />
 If root has no rotation, it has the same orientation as the world axis.</p>
-<p>This document uses glTF's right-handed, Y-Up, and Z-Forward coordinate systems.
+<p>This document uses glTF's right-handed, Y-Up, and Z-Forward coordinate systems.<br />
 The positive directions of Yaw and Pitch are as follows.</p>
 <ul>
 <li>Yaw: Z-&gt; X direction =&gt; Left</li>
 <li>Pitch: Y-&gt; Z direction =&gt; Down</li>
 </ul>
-<p>RightHanded
+<p>RightHanded<br />
 <div class="highlight"><pre><span></span><code>      Y  Forward
       ^  Z
       | /
@@ -2239,7 +2239,7 @@ The positive directions of Yaw and Pitch are as follows.</p>
 X&lt;----+
 Left      Right
 </code></pre></div></p>
-<p><code>offsetFromHeadBone</code> assumes the position of the HMD for VR.
+<p><code>offsetFromHeadBone</code> assumes the position of the HMD for VR.<br />
 It can be used to acquire and reflect the position of the first-person viewpoint of the model.</p>
 <p>Implementation note: If the model does not have <code>offsetFromHeadBone</code>, it is recommended to fall back to the appropriate value for each implementation.</p>
 <h3 id="rangemap">RangeMap</h3>
@@ -2266,11 +2266,11 @@ It can be used to acquire and reflect the position of the first-person viewpoint
 <h4 id="behavior-when-inputmaxvalue-is-0">Behavior when inputMaxValue is 0</h4>
 <p>When inputMaxValue is set to 0, it is RECOMMENDED to apply 0 if the line-of-sight value is 0 and apply <code>outputScale</code> otherwise.</p>
 <blockquote>
-<p>Implementation note: This is a specification to avoid division by zero when <code>inputMaxValue</code> is 0.
+<p>Implementation note: This is a specification to avoid division by zero when <code>inputMaxValue</code> is 0.<br />
 To achieve behavior close to the above, it is assumed that a procedure such as <code>max(0.001, inputMaxValue)</code> is performed for <code>inputMaxValue</code>.</p>
 </blockquote>
 <h4 id="interpretation-when-type-is-bone">Interpretation when type is bone</h4>
-<p>From the line of sight of <code>yaw</code>,<code>pitch</code>, generate a <code>local rotation</code> for the<code>leftEye</code> and <code>rightEye</code> bones.
+<p>From the line of sight of <code>yaw</code>,<code>pitch</code>, generate a <code>local rotation</code> for the<code>leftEye</code> and <code>rightEye</code> bones.<br />
 There are four categories: <code>horizontal inside</code>, <code>horizontal outside</code>, <code>vertical upper side</code>, and <code>vertical lower side</code>.</p>
 <p>The usage of rangeMap on the top, bottom, left, and right is as follows.</p>
 <div class="highlight"><pre><span></span><code>  + yaw -     + yaw -
@@ -2314,9 +2314,9 @@ outer|inner inner|outer
 <div class="highlight"><pre><span></span><code>const boneLocalEulerAngle = min(fabs(value), rangeMap.inputMaxValue)/rangeMap.inputMaxValue * rangeMap.outputScale;
 </code></pre></div>
 <h4 id="interpretation-when-type-is-expression">Interpretation when type is expression</h4>
-<p>Generates <code>weight</code> for<code>lookUp</code> Expression, <code>lookDown</code> Expression,<code>lookLeft</code> Expression, and <code>lookRight</code> Expression.
-There are three divisions: <code>horizontal</code>, <code>vertical upper side</code>, and<code>vertical lower side</code>.
-Note that there is no distinction between <code>horizontal inside</code> and <code>horizontal outside</code> because both eyes change together in one Expression.
+<p>Generates <code>weight</code> for<code>lookUp</code> Expression, <code>lookDown</code> Expression,<code>lookLeft</code> Expression, and <code>lookRight</code> Expression.<br />
+There are three divisions: <code>horizontal</code>, <code>vertical upper side</code>, and<code>vertical lower side</code>.<br />
+Note that there is no distinction between <code>horizontal inside</code> and <code>horizontal outside</code> because both eyes change together in one Expression.<br />
 Use <code>rangeMapHorizontalOuter</code>.</p>
 <table>
 <thead>

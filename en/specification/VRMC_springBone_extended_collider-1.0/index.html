@@ -2916,7 +2916,7 @@
 <p>Written against the glTF 2.0 spec.</p>
 <p>The specification depends on <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_springBone-1.0/README.md"><code>VRMC_springBone</code></a>.</p>
 <h2 id="overview">Overview</h2>
-<p>The spec <code>VRMC_springBone_extended_collider</code> is a glTF extension that extends the shape of the colliders defined in <code>VRMC_springBone</code>.
+<p>The spec <code>VRMC_springBone_extended_collider</code> is a glTF extension that extends the shape of the colliders defined in <code>VRMC_springBone</code>.<br />
 This extension defines the inside sphere collider, inside capsule collider, and plane collider.</p>
 <p>The colliders added by this extension are used to restrict the domain of spring bones by collision, similar to the colliders defined in <code>VRMC_springBone</code>.</p>
 <h3 id="extended-colliders">Extended Colliders</h3>
@@ -2929,7 +2929,7 @@ This extension defines the inside sphere collider, inside capsule collider, and 
 <p>While the normal capsule collider restricts the spring bone outside the capsule, the inside capsule collider restricts the spring bone inside the capsule.</p>
 <p>The inside capsule collider is defined by the head position in the local space, the tail position in the local space, and the radius of the capsule, similar to the existing capsule collider.</p>
 <h4 id="plane-collider">Plane Collider</h4>
-<p>The plane collider restricts the spring bone to one side of the plane.
+<p>The plane collider restricts the spring bone to one side of the plane.<br />
 The plane is defined as an infinite plane and has no finite size.</p>
 <p>The plane collider is defined by the position and the normal of the plane in the local space.</p>
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
@@ -3067,7 +3067,7 @@ The plane is defined as an infinite plane and has no finite size.</p>
 <h4 id="json-schema">JSON Schema</h4>
 <p><a href="../../../specification/VRMC_springBone_extended_collider-1.0/schema/VRMC_springBone_extended_collider.schema.json">VRMC_springBone_extended_collider.schema.json</a></p>
 <h4 id="vrmc_springbone_extended_colliderspecversion">VRMC_springBone_extended_collider.specVersion ✅</h4>
-<p>Specification version of <code>VRMC_springBone_extended_collider</code>.
+<p>Specification version of <code>VRMC_springBone_extended_collider</code>.<br />
 The value MUST be <code>"1.0"</code>.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -3283,7 +3283,7 @@ The value MUST be <code>"1.0"</code>.</p>
 <li>Required: No, default: [0.0, 0.0, 0.0]</li>
 </ul>
 <h4 id="shapeplanenormal">ShapePlane.normal</h4>
-<p>The normal of the plane in the local space.
+<p>The normal of the plane in the local space.<br />
 The vector MUST be normalized.</p>
 <ul>
 <li>Type: <code>number[3]</code></li>

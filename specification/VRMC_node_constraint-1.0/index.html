@@ -3104,7 +3104,7 @@
 <p>이 확장에서는 Roll Constraint, Aim Constraint, Rotation Constraint를 정의하고 있습니다.</p>
 <h3 id="purposes">Purposes</h3>
 <p>VRM에서 다루는 컨스트레인트(Constraint)는 실시간으로 <a href="../VRMC_vrm-1.0/humanoid/">Humanoid 본</a>에 할당되는 회전 정보를 사용하여 보조 본을 제어하는 유스케이스를 염두에 두고 설계되었습니다.</p>
-<p>또한, 플랫폼을 넘나들며 컨스트레인트가 사용될 것을 고려하여 용도에 특화된 의미론적(semantic) 정의를 수행합니다.
+<p>또한, 플랫폼을 넘나들며 컨스트레인트가 사용될 것을 고려하여 용도에 특화된 의미론적(semantic) 정의를 수행합니다.<br />
 따라서, 구현 시 아티스트가 본래 달성하고자 했던 결과를 얻을 수 있기를 기대하며, 동작이 여러 구현 간에 완전히 일치하는 것을 목표로 하지는 않습니다.</p>
 <h2 id="constraints">Constraints</h2>
 <p>본 확장에서는 3가지 컨스트레인트 <em>Roll Constraint</em>, <em>Aim Constraint</em>, <em>Rotation Constraint</em>가 정의되어 있습니다.</p>
@@ -3136,7 +3136,7 @@
 <p>Roll Constraint는 <em>Roll Axis</em>를 한 축으로 지정할 수 있으며, 이를 통해 Destination의 회전 중 어느 축을 Source에 전달할지 지정합니다.</p>
 <p>Roll Axis에는 <code>"X"</code>, <code>"Y"</code>, <code>"Z"</code> 중 하나를 지정합니다.</p>
 <h4 id="evaluation-of-rotations">Evaluation of rotations</h4>
-<p>Source의 회전 평가는 Source의 레스트 상태를 기준으로 Destination의 레스트 상태에서의 Roll Axis 주위의 회전을 평가하는 것이 권장됩니다.
+<p>Source의 회전 평가는 Source의 레스트 상태를 기준으로 Destination의 레스트 상태에서의 Roll Axis 주위의 회전을 평가하는 것이 권장됩니다.<br />
 또한 Source가 Roll Axis 주위 이외로 회전하는 경우, Roll Axis가 그 회전과 같은 방향을 향하는 최소 회전과의 차이를 사용하여 롤(Roll) 회전 평가를 수행하는 것이 권장됩니다.</p>
 <h4 id="example-of-implementation">Example of Implementation</h4>
 <blockquote>
@@ -3214,7 +3214,7 @@
 <hr />
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
 <h3 id="extending-nodes">Extending Nodes</h3>
-<p>컨스트레인트는 node에 <code>VRMC_node_constraint</code> 확장을 추가하여 기술됩니다.
+<p>컨스트레인트는 node에 <code>VRMC_node_constraint</code> 확장을 추가하여 기술됩니다.<br />
 다음은 <code>NodeB</code>를 <code>NodeA</code>로 제약하는 Rotation Constraint의 기술 예입니다:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;extensionsUsed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3280,7 +3280,7 @@
 <li>JSON schema: <a href="schema/VRMC_node_constraint.schema.json">VRMC_node_constraint.schema.json</a></li>
 </ul>
 <h4 id="vrmc_node_constraintspecversion">VRMC_node_constraint.specVersion ✅</h4>
-<p>VRMC_node_constraint 확장의 사양 버전을 나타냅니다.
+<p>VRMC_node_constraint 확장의 사양 버전을 나타냅니다.<br />
 값은 <code>"1.0"</code>입니다.</p>
 <ul>
 <li>타입: <code>string</code></li>
@@ -3521,7 +3521,7 @@
 <p><em>이 섹션은 non-normative입니다.</em></p>
 </blockquote>
 <h3 id="dependency-resolution-between-constraints">Dependency resolution between constraints</h3>
-<p>constraint는 다른 constraint에 의존하는 경우가 있습니다.
+<p>constraint는 다른 constraint에 의존하는 경우가 있습니다.<br />
 constraint의 처리 중에 아직 업데이트되지 않은 transform을 참조하는 것을 방지하기 위해, constraint의 갱신은 적절한 순서로 이루어져야 합니다.</p>
 <p>아래 의사 코드는 constraint가 어떻게 업데이트되어야 하는지, 절차의 일례를 보여줍니다:</p>
 <div class="highlight"><pre><span></span><code>let constraintsPending = empty set of Constraint

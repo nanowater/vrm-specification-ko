@@ -2894,7 +2894,7 @@
 <p>glTF 2.0仕様に向けて策定されています。</p>
 <p>本仕様は <a href="https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_springBone-1.0/README.ja.md"><code>VRMC_springBone</code></a> に依存します。</p>
 <h2 id="overview">Overview</h2>
-<p><code>VRMC_springBone_extended_collider</code> 仕様は、 <code>VRMC_springBone</code> で定義されたコライダーの形状を追加するglTF拡張です。
+<p><code>VRMC_springBone_extended_collider</code> 仕様は、 <code>VRMC_springBone</code> で定義されたコライダーの形状を追加するglTF拡張です。<br />
 本拡張は、球の内部コライダー・カプセルの内部コライダー・平面コライダーを定義します。</p>
 <p>本拡張によって追加されるコライダーは、 <code>VRMC_springBone</code> で定義されるコライダーと同様に、スプリングボーンの可動範囲を当たり判定によって制限するために使用されます。</p>
 <h3 id="extended-colliders">Extended Colliders</h3>
@@ -2907,7 +2907,7 @@
 <p>通常のカプセルコライダーがスプリングボーンをカプセルの外側に制限するのに対して、カプセルの内部コライダーはスプリングボーンをカプセルの内部に制限します。</p>
 <p>カプセルの内部コライダーは、通常のカプセルコライダーと同様に、ローカル座標系における始点の位置・終点の位置・半径で定義されます。</p>
 <h4 id="plane-collider">Plane Collider</h4>
-<p>平面コライダーは、スプリングボーンが平面の片側に制限します。
+<p>平面コライダーは、スプリングボーンが平面の片側に制限します。<br />
 平面は無限平面として定義され、有限の大きさを持ちません。</p>
 <p>平面コライダーは、ローカル座標系における位置と法線ベクトルで定義されます。</p>
 <h2 id="gltf-schema-updates">glTF Schema Updates</h2>
@@ -3260,7 +3260,7 @@
 <li>必須: No, 初期値: [0.0, 0.0, 0.0]</li>
 </ul>
 <h4 id="shapeplanenormal">ShapePlane.normal</h4>
-<p>ローカル座標系における平面の法線ベクトルを示します。
+<p>ローカル座標系における平面の法線ベクトルを示します。<br />
 正規化されていなければなりません。</p>
 <ul>
 <li>型: <code>number[3]</code></li>

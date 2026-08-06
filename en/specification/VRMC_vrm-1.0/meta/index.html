@@ -2371,12 +2371,12 @@
 <h1 id="vrmc_vrmmeta"><code>VRMC_vrm.meta</code></h1>
 <p>In this document, the <code>meta</code> field of <code>VRMC_vrm</code> extension will be explained.</p>
 <h2 id="meta">Meta</h2>
-<p>In the <code>meta</code> field of VRM, you can describe meta information about the model.
+<p>In the <code>meta</code> field of VRM, you can describe meta information about the model.<br />
 <code>meta</code> contains not only basic model information like the name and authors of the model but also information about the use conditions of the model.</p>
 <h2 id="license">License</h2>
 <p>In the VRM extension, license information will be specified in the <code>meta</code> field.</p>
-<p>The license information of <code>meta</code> consists of a URL of a license document and license settings.
-The license document is a document of VRM Public License established by VRM Consortium. <code>meta.licenseUrl</code> field must have a unique URL towards the document.
+<p>The license information of <code>meta</code> consists of a URL of a license document and license settings.<br />
+The license document is a document of VRM Public License established by VRM Consortium. <code>meta.licenseUrl</code> field must have a unique URL towards the document.<br />
 License settings are settings that are referred from the license document and a licenser of the model can specify.</p>
 <h3 id="licenseurl">licenseUrl</h3>
 <p>The property <code>licenseUrl</code> accepts <code>https://vrm.dev/licenses/1.0/</code> in VRM1.0.</p>
@@ -2522,7 +2522,7 @@ License settings are settings that are referred from the license document and a 
 </ul>
 <h3 id="metaauthors">meta.authors ✅</h3>
 <p>Authors of the model.</p>
-<p>Must have at least one entry that is not an empty string.
+<p>Must have at least one entry that is not an empty string.<br />
 Putting model creator/first author name at the beginning is recommended.</p>
 <ul>
 <li>Type: <code>string[]</code></li>
@@ -2538,7 +2538,7 @@ Putting model creator/first author name at the beginning is recommended.</p>
 <h3 id="metacontactinformation">meta.contactInformation</h3>
 <p>Information that describes the contact information of the author.</p>
 <blockquote>
-<p>This property is intended to be used to display the contact information of the author of the model such as social account information or website, in case the user wants to contact the author for some reason.
+<p>This property is intended to be used to display the contact information of the author of the model such as social account information or website, in case the user wants to contact the author for some reason.<br />
 Make sure not to include personal information that is not intended to be disclosed to the public, such as phone numbers or addresses.</p>
 </blockquote>
 <ul>
@@ -2560,8 +2560,8 @@ Make sure not to include personal information that is not intended to be disclos
 </ul>
 <h3 id="metathumbnailimage">meta.thumbnailImage</h3>
 <p>The index to access the thumbnail image of the model in <code>gltf.images</code> .</p>
-<p>The thumbnail image must be square. Preferable resolution is 1024 x 1024.
-For convenience, the image must be either jpg or png that is supported in glTF by its core specification.
+<p>The thumbnail image must be square. Preferable resolution is 1024 x 1024.<br />
+For convenience, the image must be either jpg or png that is supported in glTF by its core specification.<br />
 Use of other formats using extensions is not allowed.</p>
 <p>Intended to be used in applications that uses VRMs, as an icon of the model.</p>
 <ul>
@@ -2570,7 +2570,7 @@ Use of other formats using extensions is not allowed.</p>
 <li>Minimum: <code>&gt;= 0</code></li>
 </ul>
 <h3 id="metalicenseurl">meta.licenseUrl ✅</h3>
-<p>A URL towards the license document this model refers to.
+<p>A URL towards the license document this model refers to.<br />
 It must be a unique URL to VRM Public License.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -2578,8 +2578,8 @@ It must be a unique URL to VRM Public License.</p>
 </ul>
 <h3 id="metaavatarpermission">meta.avatarPermission</h3>
 <p>The person who can perform as an avatar with this model.</p>
-<p><code>onlyAuthor</code> indicates people cannot use this model as an avatar unless they are the author.
-<code>onlySeparatelyLicensedPerson</code> indicates that people who are licensed in separated documents can use this model as an avatar. Intended to be used when the model is a paid model, for example.
+<p><code>onlyAuthor</code> indicates people cannot use this model as an avatar unless they are the author.<br />
+<code>onlySeparatelyLicensedPerson</code> indicates that people who are licensed in separated documents can use this model as an avatar. Intended to be used when the model is a paid model, for example.<br />
 <code>everyone</code> indicates anyone can use this model as an avatar.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -2603,8 +2603,8 @@ It must be a unique URL to VRM Public License.</p>
 </ul>
 <h3 id="metacommercialusage">meta.commercialUsage</h3>
 <p>An option that permits use of this model in commercial products.</p>
-<p><code>personalNonProfit</code> indicates personal users can use this model only if they are not going to make a profit from its use.
-<code>personalProfit</code> indicates personal users can use this model whether they are going to make a profit from its use or not.
+<p><code>personalNonProfit</code> indicates personal users can use this model only if they are not going to make a profit from its use.<br />
+<code>personalProfit</code> indicates personal users can use this model whether they are going to make a profit from its use or not.<br />
 Corporate organization users cannot use this model unless the property is <code>corporation</code>.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -2628,7 +2628,7 @@ Corporate organization users cannot use this model unless the property is <code>
 </ul>
 <h3 id="metacreditnotation">meta.creditNotation</h3>
 <p>An option that requires displaying the credit of this model.</p>
-<p>When the property is <code>required</code>, users of the model must show the credit of the model.
+<p>When the property is <code>required</code>, users of the model must show the credit of the model.<br />
 When the property is <code>unnecessary</code>, users of the model do not have to show the credit of the model.</p>
 <ul>
 <li>Type: <code>string</code></li>
@@ -2645,8 +2645,8 @@ When the property is <code>unnecessary</code>, users of the model do not have to
 </ul>
 <h3 id="metamodification">meta.modification</h3>
 <p>An option that gives permission to modify the model, or redistribute the modified model.</p>
-<p>When the property is <code>prohibited</code>, users cannot modify the model.
-When the property is either <code>allowModification</code> or <code>allowModificationRedistribution</code>, users can modify the model.
+<p>When the property is <code>prohibited</code>, users cannot modify the model.<br />
+When the property is either <code>allowModification</code> or <code>allowModificationRedistribution</code>, users can modify the model.<br />
 When the property is <code>allowModificationRedistribution</code>, users can redistribute the modified model.</p>
 <ul>
 <li>Type: <code>string</code></li>
