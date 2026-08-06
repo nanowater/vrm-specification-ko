@@ -27,7 +27,7 @@ VRM 아바타의 골격, 메타데이터, 표정, 시선 등 핵심 메인 7개 
 
 - [x] [VRMC_vrm-1.0 메인 사양](docs/specification/VRMC_vrm-1.0/README.md) — 개요, glTF 2.0 관계, 실행 순서
 - [x] [휴머노이드 본 사양 (humanoid)](docs/specification/VRMC_vrm-1.0/humanoid.md) — 인체 뼈대 매핑 및 계층 구조
-- [ ] [VRM T-Pose 사양 (tpose)](docs/specification/VRMC_vrm-1.0/tpose.md) — 표준 T-Pose 정의 및 회전값 규칙
+- [x] [VRM T-Pose 사양 (tpose)](docs/specification/VRMC_vrm-1.0/tpose.md) — 표준 T-Pose 정의 및 회전값 규칙
 - [x] [모델 정보 및 라이선스 (meta)](docs/specification/VRMC_vrm-1.0/meta.md) — 저작자, 상업적 이용 및 성인용 허용 여부
 - [ ] [표정 사양 (expressions)](docs/specification/VRMC_vrm-1.0/expressions.md) — 표정, 립싱크, 눈 깜빡임 제어
 - [ ] [시선 제어 사양 (lookAt)](docs/specification/VRMC_vrm-1.0/lookAt.md) — 시선 제어 알고리즘 및 범위 맵
