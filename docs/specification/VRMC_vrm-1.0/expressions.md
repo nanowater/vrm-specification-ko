@@ -1,11 +1,5 @@
 # `VRMC_vrm.expressions`
 
-!!! warning "🤖 AI 자동 번역 문서"
-
-    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
-
-    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
-
 본 문서에서는 `VRMC_vrm` 확장 중 `expressions` 필드에 대한 사양을 설명합니다.
 
 Expression은,
@@ -16,7 +10,7 @@ Expression은,
 
 그룹에 대해 의미를 지정하는 기능입니다.
 
-> 예를 들어, `입을 삐죽이게 하는 MorphTarget`과 `눈을 감는 MorphTarget`의 조합을 `sad`로 지정하는 등
+> 예를 들어, `입을 'ㅡ' 자로 만드는 MorphTarget`과 `눈을 감는 MorphTarget`의 조합을 `sad`로 지정하는 식입니다.
 
 ## Expression 사양
 
@@ -112,8 +106,8 @@ Expression은,
 ### Expression 제어
 
 각 Expression이 사용될 때, 해당 표정의 강도를 나타내는 'Value' 상태를 가질 것을 가정합니다.
-Value는 [0-1] 범위의 값을 갖는 수치입니다.
-VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여한 경우, 값을 클램핑(Clamp)해 주십시오.
+Value는 [0-1] 범위의 값을 갖는 숫자입니다.
+VRM 구현은 애플리케이션이 이 범위를 벗어난 값을 제공할 경우, 값을 클램프(제한)해야 합니다.
 
 ## Preset Expressions
 
@@ -123,21 +117,21 @@ VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여�
 
 ### 감정
 
-| 이름      | 비고                      |
-| :-------- | :------------------------ |
-| happy     | 희. `joy`에서 변경        |
-| angry     | 노                        |
-| sad       | 애. `sorrow`에서 변경     |
-| relaxed   | 락. `fun`에서 변경        |
-| surprised | 놀람. `1.0에서 신규 추가` |
+| 이름      | 비고                |
+| :-------- | :------------------ |
+| happy     | `joy`에서 변경      |
+| angry     |                     |
+| sad       | `sorrow`에서 변경   |
+| relaxed   | `fun`에서 변경      |
+| surprised | `1.0에서 신규 추가` |
 
-특히 구체적인 얼굴 변형에 대해 사양을 규정하고 있지 않습니다.
+구체적인 얼굴 변형에 대해서는 특별한 사양이 규정되어 있지 않습니다.
 
-### 립싱크 절차적
+### 립싱크 프로시저럴
 
-절차적(Procedural): 시스템에 의해 자동으로 생성될 수 있는 값입니다.
+프로시저럴: 시스템에 의해 자동으로 생성될 수 있는 값입니다.
 
-> 마이크 입력을 분석하거나 텍스트에서 생성하는 등
+> 마이크 입력을 분석하거나 텍스트로부터 생성하는 등
 
 | 이름 | 비고 |
 | :--- | :--- |
@@ -147,9 +141,9 @@ VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여�
 | ee   | 에   |
 | oh   | 오   |
 
-### 눈깜빡임 절차적
+### 눈 깜빡임 프로시저럴
 
-절차적(Procedural): 시스템에 의해 자동으로 생성될 수 있는 값입니다.
+프로시저럴: 시스템에 의해 자동으로 생성될 수 있는 값입니다.
 
 > 랜덤으로 눈을 깜빡이게 하는 등
 
@@ -159,9 +153,9 @@ VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여�
 | blinkLeft  | 왼쪽 눈꺼풀을 감음   |
 | blinkRight | 오른쪽 눈꺼풀을 감음 |
 
-### 시선 절차적
+### 시선 프로시저럴
 
-절차적(Procedural): 시스템에 의해 자동으로 생성될 수 있는 값입니다.
+프로시저럴: 시스템에 의해 자동으로 생성될 수 있는 값입니다.
 
 > VRM의 LookAt에 의해 주시점에 대응하는 값이 수시로 생성됩니다 (LookAt의 Expression 타입을 참조하십시오)
 
@@ -184,11 +178,11 @@ VRM의 구현은 애플리케이션이 이 범위를 벗어나는 값을 부여�
 Custom Expressions는 `expressions.custom` 내에 저장됩니다.
 프리셋 이름과 같은 이름의 Custom Expressions는 허용되지 않습니다.
 
-## 절차적 오버라이드
+## 프로시저럴 오버라이드
 
-립싱크, 눈깜빡임, 시선은 절차적으로 분류합니다.
-절차적이란 시스템에 의해 자동으로 생성되는 것을 가정합니다.
-따라서, 이러한 Expression이 다른 Expression과 동시에 활성화되어버려,
+립싱크, 눈 깜빡임, 시선은 프로시저럴로 분류됩니다.
+프로시저럴은 시스템에 의해 자동으로 생성되는 것을 상정합니다.
+그 결과, 이러한 Expression이 다른 Expression과 동시에 유효해져서
 메시(Mesh)가 깨져버릴 가능성이 있습니다.
 
 예를 들어,
@@ -198,14 +192,14 @@ Custom Expressions는 `expressions.custom` 내에 저장됩니다.
 - `blink`와 동시에 `lookRight`가 적용됨 => 눈이 눈꺼풀을 관통함
 
 등입니다.
-이를 방지하기 위해, 절차적이 아닌 Expression에 대해 동시에 절차적인 Expression이 활성화된 경우, 절차적인 Expression의 값을 오버라이드하는 기능이 있습니다.
+이들을 방지하기 위해, 프로시저럴이 아닌 Expression에 대해 동시에 프로시저럴 Expression이 유효해질 경우 프로시저럴 Expression의 값을 오버라이드하는 기능이 있습니다.
 
 > `happy` 중에는 립싱크를 하지 않게 하는 등
 
 립싱크, 눈깜빡임, 시선에 대해
 overrideMouth, overrideBlink, overrideLookAt을 설정할 수 있습니다.
 
-각각의 override 프로퍼티는 다음 절차적 표정에 대해 작용합니다:
+각 override 속성은 다음의 프로시저럴 표정에 작용합니다:
 
 | 대상     | 프로퍼티         | ExpressionPreset                              |
 | :------- | :--------------- | :-------------------------------------------- |
@@ -219,19 +213,19 @@ overrideMouth, overrideBlink, overrideLookAt을 설정할 수 있습니다.
 >
 > 위와 같은 이유로, VRM 구현은 커스텀 표정을 override 대상에 포함할 수 있도록 인터페이스를 제공하는 것이 권장됩니다.
 
-blink에 대한 overrideBlink처럼 같은 종류에 대한 설정은 무효로 취급합니다.
+blink에 대한 overrideBlink처럼, 동일한 종류끼리의 설정은 무효로 취급합니다.
 
-설정 내용은 모두 같고, 효과는 다음과 같습니다.
+설정 내용은 모두 같으며, 효과는 다음과 같습니다.
 
-| 이름  | 비고                                                                                                                                                                      |
-| :---- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| none  | 아무것도 하지 않음                                                                                                                                                        |
-| block | 대상의 weight를 0으로 만듦. 예를 들어, happy에 overrideBlink=block이 설정되어 있을 때, happy.weight>0이 되면 blink, blinkLeft, blinkRight의 weight를 0으로 오버라이드 함. |
-| blend | 대상의 weight를 감쇠시킴. 예를 들어, happy에 overrideBlink=blend가 설정되어 있을 때, blink, blinkLeft, blinkRight를 happy.weight와 블렌딩하여 감쇠시킴(후술).             |
+| 이름  | 비고                                                                                                                                                                                |
+| :---- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| none  | 아무것도 하지 않음                                                                                                                                                                  |
+| block | 대상의 weight를 0으로 만듦. 예를 들어, happy에 overrideBlink=block이 설정되어 있을 때, `happy.weight` > 0이 되면 `blink`, `blinkLeft`, `blinkRight`의 weight를 0으로 오버라이드 함. |
+| blend | 대상의 weight를 감쇠시킴. 예를 들어, happy에 `overrideBlink = blend`가 설정되어 있을 때, `blink`, `blinkLeft`, `blinkRight`를 `happy.weight`와 블렌딩하여 감쇠시킴(후술).           |
 
 blend 세부사항
 
-예를 들어, happy가 overrideBlink = blend로 설정된 경우,
+예를 들어, happy가 `overrideBlink = blend`로 설정된 경우,
 happy의 값이 0에서 1로 페이드됨에 따라 선형적으로 blink를 감쇠시킵니다.
 0~1 사이의 중간값의 동작이 block과 다릅니다.
 
@@ -249,7 +243,7 @@ SetBlinkWeight(blinkWeight * factor);
 
 ### 오버라이드와 isBinary의 상호작용에 대하여
 
-isBinary가 지정되어 있는 표정이 다른 표정에 오버라이드 영향을 미치는 경우, 출력값인 이진화된 값을 가지고 다른 표정에 영향을 미쳐야 합니다(MUST).
+`isBinary`가 지정되어 있는 표정이 다른 표정에 오버라이드 영향을 미치는 경우, 출력값인 이진화된 값을 가지고 다른 표정에 영향을 미쳐야 합니다 (MUST).
 
 > 이는 오버라이드 영향을 미치는 표정이 캐릭터 상에 시각적으로 발현되지 않았음에도 불구하고 다른 표정이 오버라이드에 의해 억제되는 것을 방지하기 위한 사양입니다.
 > 예를 들어, 표정 `happy`의 `isBinary`가 `true`이고 `overrideBlink`에 `block` 또는 `blend`가 지정된 경우, `happy`의 값이 0.5 이상일 때 `blink`는 완전히 억제됩니다. 반대로 `happy`의 값이 0.5 미만일 때 `blink`는 `happy`의 값과 관계없이 평가됩니다.
@@ -325,14 +319,14 @@ UV에 접근하지 않는 텍스처는 MToon의 `matcap`입니다.
 
 ### MaterialColor
 
-- 모든 MaterialColor를 초기 상태로 만든다 (0이 아니라)
+- 모든 MaterialColor를 초기 상태로 함(0이 아님)
 - Expression 값(Weight)을 누적한다. `void AccumulateValue(Expression expression, float value)`
 - 누적된 값을 적용한다. `Base + (A.Target - Base) * A.Weight + (B.Target - Base) * B.Weight`
   - MaterialColor는 초기값이 0이라는 보장이 없으므로, 초기값과의 차이를 누적합니다.
 
 ### TextureTransform
 
-- 모든 MaterialColor를 초기 상태로 만든다 (0이 아니라) -> TextureTransform의 오기이므로 TextureTransform을 초기 상태로 만듦
+- 모든 TextureTransform을 초기 상태로 초기화(0이 아님)
 - Expression 값(Weight)을 누적한다. `void AccumulateValue(Expression expression, float value)`
 - 누적된 값을 적용한다.
 
