@@ -1692,10 +1692,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#yaw-and-pitch-in-lookat-space" class="md-nav__link">
+  <a href="#lookat-yaw-pitch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Yaw and Pitch in lookAt space
+        LookAt 공간에서의 Yaw 및 Pitch
       
     </span>
   </a>
@@ -1703,10 +1703,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-yaw-and-pitch-to-bone" class="md-nav__link">
+  <a href="#yaw-pitch-bone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apply Yaw and Pitch to bone
+        Yaw 및 Pitch를 본(bone)에 적용
       
     </span>
   </a>
@@ -1714,10 +1714,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-yaw-and-pitch-to-expression" class="md-nav__link">
+  <a href="#yaw-pitch-expression" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apply Yaw and Pitch to expression
+        Yaw 및 Pitch를 expression에 적용
       
     </span>
   </a>
@@ -2059,10 +2059,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#yaw-and-pitch-in-lookat-space" class="md-nav__link">
+  <a href="#lookat-yaw-pitch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Yaw and Pitch in lookAt space
+        LookAt 공간에서의 Yaw 및 Pitch
       
     </span>
   </a>
@@ -2070,10 +2070,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-yaw-and-pitch-to-bone" class="md-nav__link">
+  <a href="#yaw-pitch-bone" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apply Yaw and Pitch to bone
+        Yaw 및 Pitch를 본(bone)에 적용
       
     </span>
   </a>
@@ -2081,10 +2081,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#apply-yaw-and-pitch-to-expression" class="md-nav__link">
+  <a href="#yaw-pitch-expression" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Apply Yaw and Pitch to expression
+        Yaw 및 Pitch를 expression에 적용
       
     </span>
   </a>
@@ -2117,11 +2117,6 @@
 
 
 <h1 id="vrmc_vrmlookat"><code>VRMC_vrm.lookAt</code></h1>
-<div class="admonition warning">
-<p class="admonition-title">🤖 AI 자동 번역 문서</p>
-<p>이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 <strong>오역이나 부정확한 표현이 포함될 수 있습니다</strong>.</p>
-<p>정확한 내용은 <a href="https://github.com/vrm-c/vrm-specification">원본 vrm-specification 문서</a>와 비교하여 확인해 주세요.</p>
-</div>
 <p>본 문서에서는 <code>VRMC_vrm</code> 확장 중 <code>lookAt</code> 필드에 대한 사양을 설명합니다.</p>
 <h2 id="_1">개요</h2>
 <p>LookAt은 VRM 모델에 대해 시선 애니메이션을 수행하기 위한 컴포넌트입니다.</p>
@@ -2248,7 +2243,7 @@ Left      Right
 <p><code>offsetFromHeadBone</code>은 VR용 HMD의 위치를 상정하고 있습니다.<br />
 모델의 1인칭 시점 위치를 얻고 반영하는 데 사용할 수 있습니다.</p>
 <blockquote>
-<p>Implementation note: 모델에 <code>offsetFromHeadBone</code>이 존재하지 않는 경우, 구현마다 적절한 값으로 폴백(fallback)을 수행하는 것을 권장합니다.</p>
+<p>구현 참고사항: 모델에 <code>offsetFromHeadBone</code>이 존재하지 않는 경우, 구현마다 적절한 값으로 폴백(fallback)을 수행하는 것을 권장합니다.</p>
 </blockquote>
 <h3 id="_3">범위 맵</h3>
 <p><code>LookAt 공간</code>에서 평가된 시선 값 <code>Yaw</code>와 <code>Pitch</code>를 <code>bone</code> 또는 <code>expression</code>에 적용하기 전에 값을 가공할 수 있습니다.</p>
@@ -2274,8 +2269,8 @@ Left      Right
 <h4 id="inputmaxvalue-0">inputMaxValue가 0일 때의 동작</h4>
 <p>inputMaxValue가 0으로 설정된 경우, 시선 값이 0일 때는 0을, 그 이외의 경우에는 <code>outputScale</code>을 적용하는 것을 권장합니다 (SHOULD).</p>
 <blockquote>
-<p>Implementation note: 이는 <code>inputMaxValue</code>가 0일 때 0으로 나누는 것을 피하기 위한 사양입니다.<br />
-위의 권장 사항에 충분히 가까운 동작을 구현하기 위해 <code>inputMaxValue</code>에 대해 <code>max(0.001, inputMaxValue)</code>와 같은 처리를 수행할 것으로 예상됩니다.</p>
+<p>구현 참고사항: 이는 <code>inputMaxValue</code>가 0일 때 0으로 나누는 것을 피하기 위한 사양입니다.<br />
+위와 충분히 유사한 동작을 구현하기 위해 inputMaxValue에 대해 <code>max(0.001, inputMaxValue)</code>와 같은 처리를 진행하는 것을 상정합니다.</p>
 </blockquote>
 <h4 id="type-bone">type이 bone일 때의 해석</h4>
 <p><code>yaw</code>, <code>pitch</code>의 시선 값으로부터 <code>leftEye</code> 본과 <code>rightEye</code> 본에 대한 <code>local rotation</code>을 생성합니다.<br />
@@ -2363,7 +2358,7 @@ outer|inner inner|outer
 <div class="highlight"><pre><span></span><code>const expressionWeight = min(fabs(value), inputMaxValue)/inputMaxValue * outputScale;
 </code></pre></div>
 <h2 id="lookat">LookAt의 알고리즘</h2>
-<h3 id="yaw-and-pitch-in-lookat-space">Yaw and Pitch in lookAt space</h3>
+<h3 id="lookat-yaw-pitch">LookAt 공간에서의 Yaw 및 Pitch</h3>
 <div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="nf">static</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">Yaw</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">Pitch</span><span class="p">)</span><span class="w"> </span><span class="n">CalcYawPitch</span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="n">Matrix4x4</span><span class="w"> </span><span class="n">lookAtSpace</span><span class="p">,</span><span class="w"> </span><span class="n">Vector3</span><span class="w"> </span><span class="n">target</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">localTarget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lookAtSpace</span><span class="p">.</span><span class="n">inverse</span><span class="p">.</span><span class="n">MultiplyPoint</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
@@ -2380,7 +2375,7 @@ outer|inner inner|outer
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">yaw</span><span class="p">,</span><span class="w"> </span><span class="n">pitch</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="apply-yaw-and-pitch-to-bone">Apply Yaw and Pitch to bone</h3>
+<h3 id="yaw-pitch-bone">Yaw 및 Pitch를 본(bone)에 적용</h3>
 <div class="highlight"><pre><span></span><code>function applyLeftEyeBone(vrm, yawDegrees, pitchDegrees)
 {
   var yaw = 0;
@@ -2435,7 +2430,7 @@ function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
   vrm.humanoid.rightEye.localRotation = Quaternion.from_YXZEuler(yaw, pitch, 0);
 }
 </code></pre></div>
-<h3 id="apply-yaw-and-pitch-to-expression">Apply Yaw and Pitch to expression</h3>
+<h3 id="yaw-pitch-expression">Yaw 및 Pitch를 expression에 적용</h3>
 <div class="highlight"><pre><span></span><code>function applyExpression(vrm, yawDegrees, pitchDegrees)
 {
   // horizontal
@@ -2489,7 +2484,7 @@ function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
     <span class="md-icon" title="마지막 업데이트">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 4일 09:19:37 UTC">2026년 8월 4일</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026년 8월 10일 04:45:37 UTC">2026년 8월 10일</span>
   </span>
 
     
