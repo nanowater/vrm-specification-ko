@@ -35,11 +35,9 @@ VRM 아바타의 골격, 메타데이터, 표정, 시선 등 핵심 메인 7개 
 
 ### Part 2. 재질 및 렌더링 사양
 
-MToon 툰 셰이더 및 발광 재질 3개 문서
+MToon 툰 셰이더 및 발광 재질 1개 문서
 
-- [ ] [MToon 1.0 툰 셰이더 사양](docs/specification/VRMC_materials_mtoon-1.0/README.md) — MToon 1.0 공식 프로퍼티
-- [ ] [MToon 버전 간 변경사항 비교](docs/specification/VRMC_materials_mtoon-1.0/MToon_comparision.md) — 0.x 대 1.0 파라미터 비교
-- [ ] [HDR 발광 배율 확장 사양](docs/specification/VRMC_materials_hdr_emissiveMultiplier-1.0/README.md) — HDR 발광 배율
+- [x] [MToon 1.0 툰 셰이더 사양](docs/specification/VRMC_materials_mtoon-1.0/README.md) — MToon 1.0 공식 프로퍼티
 
 ### Part 3. 동적 물리 & 보조본 제약조건
 
