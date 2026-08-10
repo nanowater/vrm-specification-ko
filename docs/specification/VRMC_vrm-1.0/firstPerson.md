@@ -1,11 +1,5 @@
 # `VRMC_vrm.firstPerson`
 
-!!! warning "🤖 AI 자동 번역 문서"
-
-    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
-
-    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
-
 본 문서에서는 `VRMC_vrm` 확장 중 `firstPerson` 필드에 대한 사양을 설명합니다.
 
 ## MeshAnnotation
@@ -40,8 +34,8 @@ firstPersonFlag. VR 앱에서 모델을 사용할 경우, 자신의 모델 렌�
 
 ### MeshAnnotation.Auto의 알고리즘
 
-- Mesh의 모든 정점을 검사하여, Head 본과 그 자손 본에 대한 Weight를 가진 정점을 수집합니다.
-- 위의 정점을 포함하는 삼각형과 포함하지 않는 삼각형으로 이등분한 Mesh를 생성합니다.
+- 메시의 모든 정점을 조사하여, Head 본 및 그 자손 본에 대한 가중치(Weight)를 가지는 정점을 모읍니다.
+- 위 정점을 포함하는 삼각형과 포함하지 않는 삼각형으로 메시를 2개로 분할하여 작성합니다.
 - 위의 정점을 포함하는 Mesh를 ThirdPersonOnly, 포함하지 않는 Mesh를 Both로 설정합니다.
 
 ### MeshAnnotation이 지정되지 않은 경우
