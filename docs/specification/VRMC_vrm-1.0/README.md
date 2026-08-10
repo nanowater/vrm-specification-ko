@@ -4,11 +4,11 @@ _Version 1.0_
 
 ## 기여자 (Contributors)
 
-- Shindo Tetsuro (進藤 哲郎)
-- Hirose Junichi (廣瀬 淳一)
-- Su Po-Chang (蘇 柏彰)
-- Obuchi Yutaka (小渕 豊)
-- Kado Masataka (角 真宇)
+- 進藤 哲郎
+- 廣瀬 淳一
+- 蘇 柏彰
+- 小渕 豊
+- 角 真宇
 
 ## 상태
 
