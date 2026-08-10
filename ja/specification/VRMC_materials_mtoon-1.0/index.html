@@ -4449,9 +4449,9 @@ UV 座標系における (0.5, 0.5) を中心に回転します。<br />
 </blockquote>
 <h4 id="transform-order">Transform Order</h4>
 <p>UV アニメーションの適用順を、同次座標ベクトルを用いて行列で示します。</p>
-<p><code>uvAnimationScrollXSpeedFactor</code> によるX方向のスクロールを ${\rm scrollX}$、<br />
-<code>uvAnimationScrollYSpeedFactor</code> によるY方向のスクロールを ${\rm scrollY}$、<br />
-<code>uvAnimationRotationSpeedFactor</code> による回転アニメーションを ${\rm rotation}$ としたとき、</p>
+<p><code>uvAnimationScrollXSpeedFactor</code> によるX方向のスクロールを <span class="arithmatex">\({\rm scrollX}\)</span>、<br />
+<code>uvAnimationScrollYSpeedFactor</code> によるY方向のスクロールを <span class="arithmatex">\({\rm scrollY}\)</span>、<br />
+<code>uvAnimationRotationSpeedFactor</code> による回転アニメーションを <span class="arithmatex">\({\rm rotation}\)</span> としたとき、</p>
 <div class="highlight"><pre><span></span><code>\begin{pmatrix} {\rm uv}&#39;.x \\ {\rm uv}&#39;.y \\ 1 \end{pmatrix}
 = \begin{bmatrix} 1 &amp; 0 &amp; {\rm scrollX} \\ 0 &amp; 1 &amp; {\rm scrollY} \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
 \begin{bmatrix} 1 &amp; 0 &amp; 0.5 \\ 0 &amp; 1 &amp; 0.5 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
@@ -4626,6 +4626,10 @@ uv = uv + vec2( scrollX, scrollY ) * uvAnimMask;
     
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

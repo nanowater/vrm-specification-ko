@@ -2323,7 +2323,7 @@ T-pose 시에 약간 비스듬하게 되어 있는 등의 미묘한 차이는 �
 <li>W: TPoseA의 World 레스트 회전</li>
 <li>L: TPoseA의 Local 레스트 회전</li>
 </ul>
-<p>$NormalizedLocalRotation = W \cdot L^{-1} \cdot A.LocalRotation \cdot W^{-1}$</p>
+<p><span class="arithmatex">\(NormalizedLocalRotation = W \cdot L^{-1} \cdot A.LocalRotation \cdot W^{-1}\)</span></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// C#</span>
 <span class="n">InitialGlobalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Quaternion</span><span class="p">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">InitialLocalRotation</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Transform</span><span class="p">.</span><span class="n">localRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Quaternion</span><span class="p">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">InitialGlobalRotation</span><span class="p">);</span>
 </code></pre></div>
@@ -2332,7 +2332,7 @@ T-pose 시에 약간 비스듬하게 되어 있는 등의 미묘한 차이는 �
 <li>W: TPoseB의 World 레스트 회전</li>
 <li>L: TPoseB의 Local 레스트 회전</li>
 </ul>
-<p>$B.LocalRotation = L \cdot W^{-1} \cdot NormalizedLocalRotation \cdot W$</p>
+<p><span class="arithmatex">\(B.LocalRotation = L \cdot W^{-1} \cdot NormalizedLocalRotation \cdot W\)</span></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// C#</span>
 <span class="n">ControlTarget</span><span class="p">.</span><span class="n">localRotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_initialTargetLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Quaternion</span><span class="p">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">_initialTargetGlobalRotation</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ControlBone</span><span class="p">.</span><span class="n">localRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_initialTargetGlobalRotation</span><span class="p">);</span>
 </code></pre></div>
@@ -2424,6 +2424,10 @@ hips의 높이를 다리 길이로 간주합니다.</p>
     
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

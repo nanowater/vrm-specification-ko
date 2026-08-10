@@ -2318,7 +2318,7 @@ Similarly, if <code>TPoseB</code> has no rotation, <code>NormalizedLocalRotation
 <li>W: World rest rotation of TPoseA</li>
 <li>L: Local rest rotation of TPoseA</li>
 </ul>
-<p>$NormalizedLocalRotation = W \cdot L^{-1} \cdot A.LocalRotation \cdot W^{-1}$</p>
+<p><span class="arithmatex">\(NormalizedLocalRotation = W \cdot L^{-1} \cdot A.LocalRotation \cdot W^{-1}\)</span></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// C#</span>
 <span class="n">InitialGlobalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Quaternion</span><span class="p">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">InitialLocalRotation</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Transform</span><span class="p">.</span><span class="n">localRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Quaternion</span><span class="p">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">InitialGlobalRotation</span><span class="p">);</span>
 </code></pre></div>
@@ -2327,7 +2327,7 @@ Similarly, if <code>TPoseB</code> has no rotation, <code>NormalizedLocalRotation
 <li>W: World rest rotation of TPoseB</li>
 <li>L: Local rest rotation of TPoseB</li>
 </ul>
-<p>$B.LocalRotation = L \cdot W^{-1} \cdot NormalizedLocalRotation \cdot W$</p>
+<p><span class="arithmatex">\(B.LocalRotation = L \cdot W^{-1} \cdot NormalizedLocalRotation \cdot W\)</span></p>
 <div class="highlight"><pre><span></span><code><span class="c1">// C#</span>
 <span class="n">ControlTarget</span><span class="p">.</span><span class="n">localRotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_initialTargetLocalRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">Quaternion</span><span class="p">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">_initialTargetGlobalRotation</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ControlBone</span><span class="p">.</span><span class="n">localRotation</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">_initialTargetGlobalRotation</span><span class="p">);</span>
 </code></pre></div>
@@ -2419,6 +2419,10 @@ Consider the height of the hips as the length of the leg.</p>
     
     
       <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

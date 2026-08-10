@@ -4406,9 +4406,9 @@ See also the sample model "<a href="../../samples/VRMC_materials_mtoon_UV_Animat
 </blockquote>
 <h4 id="transform-order">Transform Order</h4>
 <p>The mathematical notation shows the application order of UV animations using homogeneous coordinates.</p>
-<p>Let ${\rm scrollX}$ be the scroll in X axis by the <code>uvAnimationScrollXSpeedFactor</code> ,<br />
-${\rm scrollY}$ be the scroll in Y axis by the <code>uvAnimationScrollYSpeedFactor</code> ,<br />
-${\rm rotation}$ be the rotation animation by the <code>uvAnimationRotationSpeedFactor</code> ,</p>
+<p>Let <span class="arithmatex">\({\rm scrollX}\)</span> be the scroll in X axis by the <code>uvAnimationScrollXSpeedFactor</code> ,<br />
+<span class="arithmatex">\({\rm scrollY}\)</span> be the scroll in Y axis by the <code>uvAnimationScrollYSpeedFactor</code> ,<br />
+<span class="arithmatex">\({\rm rotation}\)</span> be the rotation animation by the <code>uvAnimationRotationSpeedFactor</code> ,</p>
 <p>The animated UV will be:</p>
 <div class="highlight"><pre><span></span><code>\begin{pmatrix} {\rm uv}&#39;.x \\ {\rm uv}&#39;.y \\ 1 \end{pmatrix}
 = \begin{bmatrix} 1 &amp; 0 &amp; {\rm scrollX} \\ 0 &amp; 1 &amp; {\rm scrollY} \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
@@ -4583,6 +4583,10 @@ You can combine <code>shadingShiftTexture</code> (which uses the R channel) and 
     
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
