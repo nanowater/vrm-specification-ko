@@ -30,7 +30,7 @@ VRM 아바타의 골격, 메타데이터, 표정, 시선 등 핵심 메인 7개 
 - [x] [VRM T-Pose 사양 (tpose)](docs/specification/VRMC_vrm-1.0/tpose.md) — 표준 T-Pose 정의 및 회전값 규칙
 - [x] [모델 정보 및 라이선스 (meta)](docs/specification/VRMC_vrm-1.0/meta.md) — 저작자, 상업적 이용 및 성인용 허용 여부
 - [x] [표정 사양 (expressions)](docs/specification/VRMC_vrm-1.0/expressions.md) — 표정, 립싱크, 눈 깜빡임 제어
-- [ ] [시선 제어 사양 (lookAt)](docs/specification/VRMC_vrm-1.0/lookAt.md) — 시선 제어 알고리즘 및 범위 맵
+- [x] [시선 제어 사양 (lookAt)](docs/specification/VRMC_vrm-1.0/lookAt.md) — 시선 제어 알고리즘 및 범위 맵
 - [ ] [1인칭 설정 (firstPerson)](docs/specification/VRMC_vrm-1.0/firstPerson.md) — 1인칭 시점 및 머리 메시 처리
 
 ### Part 2. 재질 및 렌더링 사양

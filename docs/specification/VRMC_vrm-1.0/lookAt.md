@@ -1,11 +1,5 @@
 # `VRMC_vrm.lookAt`
 
-!!! warning "🤖 AI 자동 번역 문서"
-
-    이 문서는 AI로 자동 번역된 문서입니다. 아직 검수가 완료되지 않았으므로 **오역이나 부정확한 표현이 포함될 수 있습니다**.
-
-    정확한 내용은 [원본 vrm-specification 문서](https://github.com/vrm-c/vrm-specification)와 비교하여 확인해 주세요.
-
 본 문서에서는 `VRMC_vrm` 확장 중 `lookAt` 필드에 대한 사양을 설명합니다.
 
 ## 개요
@@ -102,7 +96,7 @@ Left      Right
 `offsetFromHeadBone`은 VR용 HMD의 위치를 상정하고 있습니다.
 모델의 1인칭 시점 위치를 얻고 반영하는 데 사용할 수 있습니다.
 
-> Implementation note: 모델에 `offsetFromHeadBone`이 존재하지 않는 경우, 구현마다 적절한 값으로 폴백(fallback)을 수행하는 것을 권장합니다.
+> 구현 참고사항: 모델에 `offsetFromHeadBone`이 존재하지 않는 경우, 구현마다 적절한 값으로 폴백(fallback)을 수행하는 것을 권장합니다.
 
 ### 범위 맵
 
@@ -119,8 +113,8 @@ Left      Right
 
 inputMaxValue가 0으로 설정된 경우, 시선 값이 0일 때는 0을, 그 이외의 경우에는 `outputScale`을 적용하는 것을 권장합니다 (SHOULD).
 
-> Implementation note: 이는 `inputMaxValue`가 0일 때 0으로 나누는 것을 피하기 위한 사양입니다.
-> 위의 권장 사항에 충분히 가까운 동작을 구현하기 위해 `inputMaxValue`에 대해 `max(0.001, inputMaxValue)`와 같은 처리를 수행할 것으로 예상됩니다.
+> 구현 참고사항: 이는 `inputMaxValue`가 0일 때 0으로 나누는 것을 피하기 위한 사양입니다.
+> 위와 충분히 유사한 동작을 구현하기 위해 inputMaxValue에 대해 `max(0.001, inputMaxValue)`와 같은 처리를 진행하는 것을 상정합니다.
 
 #### type이 bone일 때의 해석
 
@@ -174,7 +168,7 @@ const expressionWeight = min(fabs(value), inputMaxValue)/inputMaxValue * outputS
 
 ## LookAt의 알고리즘
 
-### Yaw and Pitch in lookAt space
+### LookAt 공간에서의 Yaw 및 Pitch
 
 ```cs
 public static (float Yaw, float Pitch) CalcYawPitch(this Matrix4x4 lookAtSpace, Vector3 target)
@@ -194,7 +188,7 @@ public static (float Yaw, float Pitch) CalcYawPitch(this Matrix4x4 lookAtSpace, 
 }
 ```
 
-### Apply Yaw and Pitch to bone
+### Yaw 및 Pitch를 본(bone)에 적용
 
 ```
 function applyLeftEyeBone(vrm, yawDegrees, pitchDegrees)
@@ -252,7 +246,7 @@ function applyRightEyeBone(vrm, yawDegrees, pitchDegrees)
 }
 ```
 
-### Apply Yaw and Pitch to expression
+### Yaw 및 Pitch를 expression에 적용
 
 ```
 function applyExpression(vrm, yawDegrees, pitchDegrees)
